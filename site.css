@@ -36,6 +36,50 @@
   min-width: 0;
 }
 
+/* Mobile nav toggle (hamburger) – hidden on desktop */
+.nav-toggle {
+  display: none;
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: 0;
+  border-radius: 0.5rem;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  transition: background 0.15s ease;
+}
+
+.nav-toggle:hover {
+  background: var(--bg-accent);
+}
+
+.nav-toggle-bar {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 1px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+body.nav-open .nav-toggle-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+body.nav-open .nav-toggle-bar:nth-child(2) {
+  opacity: 0;
+}
+
+body.nav-open .nav-toggle-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
 .nav-links {
   display: none;
   gap: 0.25rem;
@@ -574,10 +618,55 @@ body[data-visual="focus"] .chapter-section-subtitle {
   text-decoration: underline;
 }
 
-/* Responsive adjustments */
+/* Responsive adjustments – mobile */
 @media (max-width: 767px) {
   .site-header-inner {
     flex-wrap: wrap;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .site-nav {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.5rem;
+  }
+
+  .nav-links {
+    display: flex;
+    width: 100%;
+    order: 3;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0 0.75rem;
+    border-top: 1px solid var(--border-subtle);
+    margin-top: 0.25rem;
+    background: var(--bg-elevated);
+    border-radius: 0.5rem;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.25s ease, opacity 0.2s ease, padding 0.2s ease, margin 0.2s ease;
+  }
+
+  body.nav-open .nav-links {
+    max-height: 80vh;
+    opacity: 1;
+    padding: 0.75rem;
+    margin-top: 0.5rem;
+  }
+
+  body.nav-open {
+    overflow: hidden;
+  }
+
+  .nav-links .nav-link {
+    display: block;
+    padding: 0.6rem 0.75rem;
+    border-radius: 0.4rem;
+    font-size: 1rem;
   }
 
   .site-controls {
@@ -601,5 +690,77 @@ body[data-visual="focus"] .chapter-section-subtitle {
 
   .site-step {
     padding-left: 1.1rem;
+  }
+
+  /* Chapter / checklist page – mobile formatting */
+  .chapter-main {
+    padding: 1.25rem 1rem 2rem;
+  }
+
+  .chapter-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .chapter-title {
+    font-size: 1.65rem;
+  }
+
+  .chapter-intro {
+    font-size: 0.98rem;
+  }
+
+  .chapter-content {
+    padding: 1rem 1.1rem;
+  }
+
+  .chapter-section-title {
+    font-size: 1.15rem;
+    padding: 0.35rem 0.6rem;
+  }
+
+  .chapter-section-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .chapter-content p {
+    font-size: 0.98rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .chapter-content pre {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 0.75rem;
+    font-size: 0.8rem;
+    margin: 0.75rem 0;
+    max-width: 100%;
+  }
+
+  .chapter-content code {
+    font-size: 0.85em;
+    padding: 0.12rem 0.28rem;
+  }
+
+  .chapter-content table {
+    font-size: 0.88rem;
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .chapter-content th,
+  .chapter-content td {
+    padding: 0.45rem 0.6rem;
+    white-space: nowrap;
+  }
+
+  .chapter-content blockquote {
+    margin: 0.75rem 0;
+    padding-left: 0.85rem;
+  }
+
+  .chapter-content ul,
+  .chapter-content ol {
+    padding-left: 1.25rem;
   }
 }

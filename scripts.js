@@ -66,6 +66,36 @@ function initNav() {
   });
 }
 
+function initMobileNav() {
+  const toggle = document.getElementById("nav-toggle");
+  const navLinks = document.getElementById("nav-links");
+  if (!toggle || !navLinks) return;
+
+  function open() {
+    document.body.classList.add("nav-open");
+    toggle.setAttribute("aria-expanded", "true");
+    toggle.setAttribute("aria-label", "Close menu");
+  }
+
+  function close() {
+    document.body.classList.remove("nav-open");
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "Open menu");
+  }
+
+  toggle.addEventListener("click", () => {
+    document.body.classList.contains("nav-open") ? close() : open();
+  });
+
+  navLinks.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", close);
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") close();
+  });
+}
+
 // Toggle richer visual styling vs a focus/reading mode
 function initVisualMode() {
   const toggle = document.querySelector("[data-role='visual-toggle']");
@@ -114,6 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initThemeToggle();
   initFontSize();
   initNav();
+  initMobileNav();
   initVisualMode();
   initAccordions();
 });

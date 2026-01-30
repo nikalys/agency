@@ -46,4 +46,64 @@ git push -u origin master
 ## 4. After the first push
 
 - Your code will be at: `https://github.com/YOUR_USERNAME/YOUR_REPO`
-- For later changes: `git add -A`, `git commit -m "Your message"`, `git push`.
+
+---
+
+## Ongoing work: how to push future updates
+
+Whenever you change files in the agency folder and want to save those changes to GitHub:
+
+### Option A: Quick three commands (most of the time)
+
+In PowerShell, from your agency folder:
+
+```powershell
+cd "c:\Users\nikalys\Desktop\agency"
+
+git add -A
+git commit -m "Brief description of what you changed"
+git push
+```
+
+- **`git add -A`** — stages every change (new, edited, and deleted files).
+- **`git commit -m "..."`** — saves a snapshot with a short message (e.g. `"Update nav bar"` or `"Add Raw Frame gallery buttons"`).
+- **`git push`** — uploads your commits to GitHub.
+
+### Option B: Check first, then commit
+
+If you want to see what changed before committing:
+
+```powershell
+cd "c:\Users\nikalys\Desktop\agency"
+
+git status          # See which files changed
+git add -A          # Stage everything (or use git add path/to/file for one file)
+git status          # Confirm what will be committed
+git commit -m "Your message"
+git push
+```
+
+### Option C: Pull before you push (when others edit the repo)
+
+If you ever edit the same repo from another machine or with someone else:
+
+```powershell
+cd "c:\Users\nikalys\Desktop\agency"
+
+git pull            # Get latest from GitHub first
+# … make your changes …
+git add -A
+git commit -m "Your message"
+git push
+```
+
+### Handy commands
+
+| What you want              | Command              |
+|----------------------------|----------------------|
+| See what’s changed         | `git status`         |
+| See commit history         | `git log --oneline`  |
+| Undo last commit (keep files) | `git reset --soft HEAD~1` |
+| See your remote (GitHub URL) | `git remote -v`    |
+
+You only need to run `git remote add origin ...` and `git push -u origin main` once. After that, **add → commit → push** is your normal workflow.

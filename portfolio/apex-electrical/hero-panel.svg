@@ -28,5 +28,5 @@
     <circle cx="325" cy="165" r="4" fill="#ecc94b"/>
     <circle cx="395" cy="165" r="4" fill="#48bb78"/>
   </g>
-  <text x="280" y="380" text-anchor="middle" fill="#718096" font-family="system-ui,sans-serif" font-size="12">Modern panel · Safe &amp; reliable</text>
+  <text x="280" y="380" text-anchor="middle" fill="#718096" font-family="system-ui,sans-serif" font-size="12">Modern panel Â· Safe &amp; reliable</text>
 </svg>
