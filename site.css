@@ -373,6 +373,11 @@ body[data-theme="dark"] .nav-link-active {
   max-width: 880px;
   margin: 0 auto;
   padding: 2.1rem 1.25rem 3rem;
+  box-sizing: border-box;
+}
+
+.chapter-main * {
+  box-sizing: border-box;
 }
 
 .chapter-header {
@@ -405,6 +410,8 @@ body[data-theme="dark"] .nav-link-active {
   border: 1px solid var(--border-subtle);
   box-shadow: var(--shadow-soft);
   padding: 1.6rem 1.6rem 1.7rem;
+  max-width: 100%;
+  overflow-wrap: break-word;
 }
 
 .chapter-section {
@@ -621,41 +628,77 @@ body[data-visual="focus"] .chapter-section-subtitle {
 /* Responsive adjustments – mobile */
 @media (max-width: 767px) {
   .site-header-inner {
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .site-brand {
+    flex-shrink: 0;
+    min-width: 0;
+  }
+
+  .site-nav {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 0 1 auto;
+    min-width: 0;
+    position: relative;
   }
 
   .nav-toggle {
     display: flex;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 51;
   }
 
-  .site-nav {
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    gap: 0.5rem;
+  .site-controls {
+    flex-shrink: 0;
+    position: relative;
+    z-index: 51;
   }
 
+  /* Dropdown out of flow so logo + hamburger stay on one row */
   .nav-links {
     display: flex;
-    width: 100%;
-    order: 3;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: auto;
+    width: min(320px, 100vw);
+    margin-top: 0.35rem;
     flex-direction: column;
     align-items: stretch;
-    padding: 0 0.75rem;
-    border-top: 1px solid var(--border-subtle);
-    margin-top: 0.25rem;
+    padding: 0;
     background: var(--bg-elevated);
+    border: 1px solid var(--border-subtle);
     border-radius: 0.5rem;
     max-height: 0;
     overflow: hidden;
     opacity: 0;
-    transition: max-height 0.25s ease, opacity 0.2s ease, padding 0.2s ease, margin 0.2s ease;
+    visibility: hidden;
+    pointer-events: none;
+    transition: max-height 0.3s ease, opacity 0.2s ease, visibility 0.2s ease;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    z-index: 50;
   }
 
   body.nav-open .nav-links {
-    max-height: 80vh;
+    max-height: 75vh;
     opacity: 1;
-    padding: 0.75rem;
-    margin-top: 0.5rem;
+    visibility: visible;
+    pointer-events: auto;
+    padding: 0.5rem 0;
+    overflow-y: auto;
+  }
+
+  body[data-theme="dark"] .nav-links {
+    background: var(--bg-elevated);
   }
 
   body.nav-open {
@@ -663,10 +706,12 @@ body[data-visual="focus"] .chapter-section-subtitle {
   }
 
   .nav-links .nav-link {
-    display: block;
-    padding: 0.6rem 0.75rem;
+    display: flex;
+    align-items: center;
+    padding: 0.65rem 0.85rem;
     border-radius: 0.4rem;
     font-size: 1rem;
+    min-height: 2.75rem;
   }
 
   .site-controls {
@@ -694,73 +739,121 @@ body[data-visual="focus"] .chapter-section-subtitle {
 
   /* Chapter / checklist page – mobile formatting */
   .chapter-main {
-    padding: 1.25rem 1rem 2rem;
+    padding: 1rem 1rem 2rem;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .chapter-header {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .chapter-eyebrow {
+    font-size: 0.75rem;
   }
 
   .chapter-title {
-    font-size: 1.65rem;
+    font-size: 1.5rem;
+    line-height: 1.25;
+    margin-bottom: 0.6rem;
   }
 
   .chapter-intro {
-    font-size: 0.98rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
   }
 
   .chapter-content {
-    padding: 1rem 1.1rem;
+    padding: 1rem 1rem 1.25rem;
+    max-width: 100%;
+    box-sizing: border-box;
+    border-radius: 0.75rem;
+  }
+
+  .chapter-section {
+    margin-bottom: 1.75rem;
+    padding-top: 1rem;
   }
 
   .chapter-section-title {
-    font-size: 1.15rem;
-    padding: 0.35rem 0.6rem;
+    font-size: 1.1rem;
+    padding: 0.4rem 0.5rem;
+    line-height: 1.35;
+    word-wrap: break-word;
   }
 
   .chapter-section-subtitle {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
 
   .chapter-content p {
-    font-size: 0.98rem;
+    font-size: 0.95rem;
     margin-bottom: 0.85rem;
+    line-height: 1.65;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .chapter-content strong {
+    word-wrap: break-word;
   }
 
   .chapter-content pre {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     padding: 0.75rem;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
+    line-height: 1.5;
     margin: 0.75rem 0;
     max-width: 100%;
+    box-sizing: border-box;
+    white-space: pre;
+    word-break: normal;
+  }
+
+  .chapter-content pre code {
+    font-size: inherit;
+    padding: 0;
   }
 
   .chapter-content code {
-    font-size: 0.85em;
-    padding: 0.12rem 0.28rem;
+    font-size: 0.82em;
+    padding: 0.1rem 0.25rem;
+    word-break: break-word;
   }
 
   .chapter-content table {
-    font-size: 0.88rem;
+    font-size: 0.85rem;
     display: block;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+    max-width: 100%;
   }
 
   .chapter-content th,
   .chapter-content td {
-    padding: 0.45rem 0.6rem;
-    white-space: nowrap;
+    padding: 0.5rem 0.6rem;
+    min-width: 4rem;
   }
 
   .chapter-content blockquote {
     margin: 0.75rem 0;
     padding-left: 0.85rem;
+    font-size: 0.95rem;
   }
 
   .chapter-content ul,
   .chapter-content ol {
-    padding-left: 1.25rem;
+    padding-left: 1.2rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .chapter-content h3 {
+    font-size: 1rem;
+    margin-top: 1.25rem;
+  }
+
+  .chapter-content h4 {
+    font-size: 0.95rem;
   }
 }
