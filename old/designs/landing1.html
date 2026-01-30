@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en" data-page="design1">
+  <head>
+    <meta charset="utf-8" />
+    <title>vaire* digital – Launch Blueprint (Warm narrative)</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta
+      name="description"
+      content="A warm, book‑like landing page for the vaire* digital agency launch blueprint."
+    />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="./style1.css" />
+    <script>
+      (function () {
+        try {
+          const stored = window.localStorage.getItem("vaire-plan-theme");
+          const prefersDark =
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches;
+          const initial = stored || (prefersDark ? "dark" : "light");
+          document.addEventListener("DOMContentLoaded", function () {
+            document.body.dataset.theme = initial;
+          });
+        } catch (e) {}
+      })();
+    </script>
+    <script src="../scripts.js" defer></script>
+  </head>
+  <body class="page landing-page-1">
+    <header class="lp-header">
+      <div class="lp-header-inner">
+        <a href="../index.html" class="brand lp-brand">
+          <img src="../logo.svg" alt="vaire* digital logo" class="brand-logo" />
+          <div class="brand-mark" aria-hidden="true"></div>
+          <div class="lp-brand-text">
+            <span class="lp-brand-name">vaire* digital</span>
+            <span class="lp-brand-tagline">Launch blueprint</span>
+          </div>
+        </a>
+        <div class="lp-controls">
+          <div class="font-toggle" aria-label="Font size">
+            <span class="font-toggle-label">Text</span>
+            <button
+              type="button"
+              class="font-toggle-button"
+              data-font-size="small"
+            >
+              A-
+            </button>
+            <button
+              type="button"
+              class="font-toggle-button"
+              data-font-size="medium"
+            >
+              A
+            </button>
+            <button
+              type="button"
+              class="font-toggle-button"
+              data-font-size="large"
+            >
+              A+
+            </button>
+          </div>
+          <div class="toggle" aria-label="Toggle dark mode">
+            <span class="toggle-label">Dark</span>
+            <button
+              class="toggle-track"
+              type="button"
+              data-role="theme-toggle"
+              aria-pressed="false"
+            >
+              <span class="sr-only">Toggle dark mode</span>
+              <span class="toggle-thumb"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="lp-main">
+      <article class="lp-article">
+        <header class="lp-hero">
+          <p class="lp-eyebrow">A portable business plan you can actually read.</p>
+          <h1 class="lp-title">
+            Build a calm, profitable web agency in the GTA — starting from a single page.
+          </h1>
+          <p class="lp-intro">
+            This isn’t a PDF to lose in your downloads folder. It’s a living, friendly version
+            of your complete business plan — written so you and your partner can sit down on a
+            weeknight, read a few screens, and know <em>exactly</em> what to do next.
+          </p>
+          <div class="lp-meta-row">
+            <span class="lp-meta-pill">~100+ pages distilled into a website</span>
+            <span class="lp-meta-pill">Built for junior dev + sales partner</span>
+            <span class="lp-meta-pill">GTA small businesses: trades, clinics, restaurants, real estate</span>
+          </div>
+        </header>
+
+        <section class="lp-section">
+          <h2 class="lp-section-heading">What this site is for</h2>
+          <p>
+            Imagine handing your partner a link instead of a stack of documents. They open it on
+            their phone or laptop and see, in plain language:
+          </p>
+          <ul class="lp-list">
+            <li>what vaire* digital sells and how you price it,</li>
+            <li>how projects run from first hello to launch day,</li>
+            <li>the numbers you’re aiming for in Year&nbsp;1, and</li>
+            <li>a clear month‑by‑month path from “junior dev” to “running a real agency”.</li>
+          </ul>
+          <p>
+            The full site will hold all of that detail. This landing page is simply the cover of
+            the book — a welcoming front door that sets expectations before you scroll into the
+            deeper sections.
+          </p>
+        </section>
+
+        <section class="lp-section lp-section-columns">
+          <div class="lp-column">
+            <h2 class="lp-section-heading">How it feels to use</h2>
+            <p>
+              Every page will read like a guided walkthrough, not software documentation. Big
+              headings mark the major parts of the plan — foundation, services, operations,
+              roadmap, risks, growth — and under each one you’ll see short paragraphs and
+              checklists you can skim at 11&nbsp;pm without getting lost.
+            </p>
+            <p>
+              The font controls at the top are there because this is meant to be <strong>read</strong>,
+              not glanced at. Bump the text up to “A+” and the layout gently adapts so it still
+              feels like a real page, not a zoomed‑in spreadsheet.
+            </p>
+          </div>
+          <div class="lp-column lp-highlight">
+            <h3 class="lp-highlight-title">On this site, you’ll always know:</h3>
+            <ul class="lp-list">
+              <li>what you owe each other in the partnership,</li>
+              <li>what you promise every client in plain words,</li>
+              <li>what “good” looks like for your first 12 months, and</li>
+              <li>where to find any checklist, script, or template you need.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="lp-section">
+          <h2 class="lp-section-heading">What we’ll add after you pick a design</h2>
+          <p>
+            Once you choose the layout you like best, this landing page will grow into the front
+            of a full internal site:
+          </p>
+          <ul class="lp-list">
+            <li>an overview section that summarises the whole plan in one sitting,</li>
+            <li>gentle, book‑like chapter pages for services, operations, roadmap, and risks,</li>
+            <li>checklists you can actually tick off as you work through launches, and</li>
+            <li>a dedicated “tools &amp; prompts” area for your day‑to‑day dev work in Cursor.</li>
+          </ul>
+          <p>
+            For now, treat this page as the “Chapter&nbsp;0” of your blueprint: a calm place to
+            arrive, breathe, and remember why you’re building vaire* digital in the first place.
+          </p>
+        </section>
+      </article>
+    </main>
+  </body>
+</html>
+

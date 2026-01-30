@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en" data-page="design4">
+  <head>
+    <meta charset="utf-8" />
+    <title>vaire* digital – Launch Blueprint (Notebook)</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta
+      name="description"
+      content="Notebook‑style landing page for the vaire* digital agency launch blueprint, with margin notes and highlights."
+    />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="./style4.css" />
+    <script>
+      (function () {
+        try {
+          const stored = window.localStorage.getItem("vaire-plan-theme");
+          const prefersDark =
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches;
+          const initial = stored || (prefersDark ? "dark" : "light");
+          document.addEventListener("DOMContentLoaded", function () {
+            document.body.dataset.theme = initial;
+          });
+        } catch (e) {}
+      })();
+    </script>
+    <script src="../scripts.js" defer></script>
+  </head>
+  <body class="page landing-page-4">
+    <header class="lp4-header">
+      <div class="lp4-header-inner">
+        <a href="../index.html" class="brand lp4-brand">
+          <img src="../logo.svg" alt="vaire* digital logo" class="brand-logo" />
+          <div class="brand-mark" aria-hidden="true"></div>
+        </a>
+        <div class="lp4-controls">
+          <div class="font-toggle" aria-label="Font size">
+            <span class="font-toggle-label">Text</span>
+            <button
+              type="button"
+              class="font-toggle-button"
+              data-font-size="small"
+            >
+              A-
+            </button>
+            <button
+              type="button"
+              class="font-toggle-button"
+              data-font-size="medium"
+            >
+              A
+            </button>
+            <button
+              type="button"
+              class="font-toggle-button"
+              data-font-size="large"
+            >
+              A+
+            </button>
+          </div>
+          <div class="toggle" aria-label="Toggle dark mode">
+            <span class="toggle-label">Dark</span>
+            <button
+              class="toggle-track"
+              type="button"
+              data-role="theme-toggle"
+              aria-pressed="false"
+            >
+              <span class="sr-only">Toggle dark mode</span>
+              <span class="toggle-thumb"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="lp4-main">
+      <section class="lp4-notebook">
+        <div class="lp4-margin">
+          <div class="lp4-sticky">
+            <p class="lp4-sticky-title">Key numbers</p>
+            <p class="lp4-sticky-body">
+              Year‑1 target: <strong>$30–40k</strong> your share.<br />
+              Typical project: <strong>$1.2–2.4k</strong>.<br />
+              Built on realistic junior‑dev pacing.
+            </p>
+          </div>
+          <div class="lp4-margin-note">
+            <p>Use this site in weekly check‑ins. Skim a section, pick 1–2 actions, log them.</p>
+          </div>
+        </div>
+
+        <article class="lp4-page">
+          <p class="lp4-page-label">Internal plan · Reading copy</p>
+          <h1 class="lp4-title">
+            The story of vaire* digital, told like a book — not a spec sheet.
+          </h1>
+          <p class="lp4-intro">
+            You’re not building a giant agency. You’re building a small, steady web studio that
+            fits around your life, your learning curve, and a 50/50 partnership. This site is
+            where that story lives in long‑form, with space to breathe between ideas.
+          </p>
+
+          <h2 class="lp4-heading">Why turn the plan into a website?</h2>
+          <p>
+            PDFs are great for printing; terrible for actually coming back to every week. By
+            turning the full business plan into a website you get:
+          </p>
+          <ul class="lp4-list">
+            <li>type that scales up for late‑night reading,</li>
+            <li>clear section breaks that feel like chapters, and</li>
+            <li>a single link you and your partner can share on any device.</li>
+          </ul>
+
+          <h2 class="lp4-heading">What this first page needs to do</h2>
+          <p>
+            This landing page doesn’t need to teach every detail. It just needs to make you both
+            think: “Yes, this feels like our business. Yes, I can follow this.” From here, the
+            rest of the site will unfold into:
+          </p>
+          <ul class="lp4-list">
+            <li>a foundation chapter (values, offers, pricing),</li>
+            <li>an operations chapter (how projects actually run),</li>
+            <li>a roadmap chapter (what to do each month), and</li>
+            <li>a tools chapter (checklists, prompts, and templates).</li>
+          </ul>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
+

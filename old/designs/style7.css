@@ -1,0 +1,188 @@
+.landing-page-7 {
+  background: radial-gradient(circle at top, rgba(34, 197, 94, 0.08), transparent 55%),
+    var(--bg);
+}
+
+.lp7-header {
+  border-bottom: 1px solid var(--border-subtle);
+  backdrop-filter: blur(14px);
+  background: color-mix(in srgb, var(--bg) 90%, transparent);
+}
+
+.lp7-header-inner {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.lp7-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.lp7-visual-toggle {
+  border-radius: 999px;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-elevated);
+  padding: 0.25rem 0.7rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.lp7-main {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 2.1rem 1.25rem 3rem;
+}
+
+.lp7-grid {
+  display: grid;
+  gap: 1.4rem;
+  align-items: flex-start;
+}
+
+@media (min-width: 900px) {
+  .lp7-grid {
+    grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.1fr);
+  }
+}
+
+.lp7-summary {
+  background: var(--bg-elevated);
+  border-radius: 1.1rem;
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-soft);
+  padding: 1.5rem 1.6rem 1.7rem;
+}
+
+.lp7-eyebrow {
+  margin: 0 0 0.55rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.lp7-title {
+  margin: 0 0 0.8rem;
+  font-size: clamp(2rem, 3vw, 2.4rem);
+  letter-spacing: -0.03em;
+}
+
+.lp7-intro {
+  margin: 0;
+  font-size: 1.02rem;
+}
+
+.lp7-card {
+  background: var(--bg);
+  border-radius: 1rem;
+  border: 1px solid var(--border-subtle);
+  padding: 1.2rem 1.3rem 1.3rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.lp7-card-title {
+  margin: 0 0 0.6rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.lp7-card-list {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.9rem;
+}
+
+.lp7-card-list li + li {
+  margin-top: 0.2rem;
+}
+
+.lp7-journey {
+  position: relative;
+  padding-left: 2.2rem;
+  margin-top: 2rem;
+}
+
+.lp7-journey::before {
+  content: "";
+  position: absolute;
+  left: 1.05rem;
+  top: 0.2rem;
+  bottom: 0.2rem;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    rgba(34, 197, 94, 0.8),
+    rgba(34, 197, 94, 0.2)
+  );
+}
+
+.lp7-step {
+  position: relative;
+  background: var(--bg-elevated);
+  border-radius: 1rem;
+  border: 1px solid var(--border-subtle);
+  padding: 1.1rem 1.3rem 1.2rem;
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.lp7-step-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.lp7-step-index {
+  position: absolute;
+  left: -2.1rem;
+  top: 1.2rem;
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 999px;
+  background: var(--bg);
+  border: 2px solid var(--accent-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent-green);
+}
+
+.lp7-step-title {
+  margin: 0;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+}
+
+.lp7-step-text {
+  margin: 0;
+  font-size: 0.98rem;
+}
+
+/* Focus mode */
+body[data-visual="focus"] .landing-page-7 {
+  background: var(--bg);
+}
+
+body[data-visual="focus"] .lp7-summary,
+body[data-visual="focus"] .lp7-card,
+body[data-visual="focus"] .lp7-step {
+  box-shadow: none;
+  border-radius: 0.5rem;
+}
+
+body[data-visual="focus"] .lp7-journey::before {
+  opacity: 0.15;
+}
+

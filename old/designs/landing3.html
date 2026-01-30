@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en" data-page="design3">
+  <head>
+    <meta charset="utf-8" />
+    <title>vaire* digital – Launch Blueprint (Journey)</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta
+      name="description"
+      content="Timeline‑style landing page for the vaire* digital agency launch blueprint."
+    />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="./style3.css" />
+    <script>
+      (function () {
+        try {
+          const stored = window.localStorage.getItem("vaire-plan-theme");
+          const prefersDark =
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches;
+          const initial = stored || (prefersDark ? "dark" : "light");
+          document.addEventListener("DOMContentLoaded", function () {
+            document.body.dataset.theme = initial;
+          });
+        } catch (e) {}
+      })();
+    </script>
+    <script src="../scripts.js" defer></script>
+  </head>
+  <body class="page landing-page-3">
+    <header class="lp3-header">
+      <div class="lp3-header-inner">
+        <a href="../index.html" class="brand lp3-brand">
+          <img src="../logo.svg" alt="vaire* digital logo" class="brand-logo" />
+          <div class="brand-mark" aria-hidden="true"></div>
+        </a>
+        <div class="lp3-controls">
+          <div class="font-toggle" aria-label="Font size">
+            <span class="font-toggle-label">Text</span>
+            <button
+              type="button"
+              class="font-toggle-button"
+              data-font-size="small"
+            >
+              A-
+            </button>
+            <button
+              type="button"
+              class="font-toggle-button"
+              data-font-size="medium"
+            >
+              A
+            </button>
+            <button
+              type="button"
+              class="font-toggle-button"
+              data-font-size="large"
+            >
+              A+
+            </button>
+          </div>
+          <div class="toggle" aria-label="Toggle dark mode">
+            <span class="toggle-label">Dark</span>
+            <button
+              class="toggle-track"
+              type="button"
+              data-role="theme-toggle"
+              aria-pressed="false"
+            >
+              <span class="sr-only">Toggle dark mode</span>
+              <span class="toggle-thumb"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="lp3-main">
+      <section class="lp3-hero">
+        <h1 class="lp3-title">
+          From “idea” to “operating agency” in one clear journey.
+        </h1>
+        <p class="lp3-lede">
+          Think of this site as a timeline you can walk along together — from defining what
+          vaire* digital is, to selling your first projects, to hitting your Year‑1 income
+          targets.
+        </p>
+      </section>
+
+      <section class="lp3-journey" aria-label="High‑level journey">
+        <article class="lp3-step">
+          <div class="lp3-step-header">
+            <span class="lp3-step-index">1</span>
+            <h2 class="lp3-step-title">Foundation &amp; services</h2>
+          </div>
+          <p class="lp3-step-text">
+            You’ll start by agreeing on what kind of work you’re doing, who you’re doing it for,
+            and how you’ll charge. The full plan turns this into a chapter that feels like a
+            calm conversation, not a table of prices.
+          </p>
+        </article>
+
+        <article class="lp3-step">
+          <div class="lp3-step-header">
+            <span class="lp3-step-index">2</span>
+            <h2 class="lp3-step-title">Operations &amp; client experience</h2>
+          </div>
+          <p class="lp3-step-text">
+            Next, you’ll walk through what happens from “new lead” to “site launched”, including
+            checklists, call scripts, and email templates that live on their own pages you can
+            open during real projects.
+          </p>
+        </article>
+
+        <article class="lp3-step">
+          <div class="lp3-step-header">
+            <span class="lp3-step-index">3</span>
+            <h2 class="lp3-step-title">Development roadmap</h2>
+          </div>
+          <p class="lp3-step-text">
+            The roadmap chapter is your learning plan: which skills to focus on in Weeks&nbsp;1–2,
+            how to ship your agency site in Weeks&nbsp;3–6, and how to move into full‑price client
+            work without feeling like you skipped steps.
+          </p>
+        </article>
+
+        <article class="lp3-step">
+          <div class="lp3-step-header">
+            <span class="lp3-step-index">4</span>
+            <h2 class="lp3-step-title">Risks, numbers &amp; growth paths</h2>
+          </div>
+          <p class="lp3-step-text">
+            Finally, you’ll see the honest side of the plan: what can go wrong, what the money
+            should look like month by month, and how you might grow in Year&nbsp;2 once the
+            basics feel boring.
+          </p>
+        </article>
+      </section>
+
+      <section class="lp3-footer-text">
+        <p>
+          After you pick this or another layout, we’ll connect each step in this journey to a
+          real chapter on the site — with generous spacing, big readable type, and just enough
+          structure to keep you oriented as you read.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
+

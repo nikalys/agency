@@ -1,0 +1,98 @@
+/* Portfolio page – scalable grid for dozens of templates */
+
+.portfolio-page .portfolio-main {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 2.1rem 1.25rem 3rem;
+}
+
+.portfolio-intro {
+  background: var(--bg-elevated);
+  border-radius: 1.2rem;
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-soft);
+  padding: 1.6rem 1.6rem 1.7rem;
+  margin-bottom: 2rem;
+}
+
+.portfolio-intro .site-eyebrow {
+  margin: 0 0 0.6rem;
+}
+
+.portfolio-intro .site-title {
+  margin: 0 0 0.8rem;
+}
+
+.portfolio-intro .site-intro {
+  margin: 0;
+}
+
+.portfolio-grid-wrapper {
+  margin-top: 0.5rem;
+}
+
+.portfolio-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.portfolio-card {
+  margin: 0;
+}
+
+.portfolio-card-link {
+  display: block;
+  background: var(--bg-elevated);
+  border-radius: 1rem;
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.portfolio-card-link:hover {
+  border-color: var(--accent-green);
+  box-shadow: 0 12px 32px rgba(22, 163, 74, 0.12);
+  text-decoration: none;
+}
+
+.portfolio-card-thumb {
+  display: block;
+  aspect-ratio: 400 / 240;
+  background: var(--bg-accent);
+  overflow: hidden;
+}
+
+.portfolio-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  vertical-align: middle;
+}
+
+.portfolio-card-title {
+  display: block;
+  padding: 0.9rem 1rem 1rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Dark theme thumbnail placeholder */
+body[data-theme="dark"] .portfolio-thumb-img {
+  filter: brightness(0.92);
+}
+
+/* Optional: filter bar placeholder for future use */
+.portfolio-filters {
+  margin-bottom: 1.5rem;
+}
+.portfolio-filters[hidden] {
+  display: none;
+}

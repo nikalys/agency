@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en" data-page="design5">
+  <head>
+    <meta charset="utf-8" />
+    <title>vaire* digital – Launch Blueprint (Focus mode)</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta
+      name="description"
+      content="Single‑column focus‑mode landing page for the vaire* digital agency launch blueprint."
+    />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="./style5.css" />
+    <script>
+      (function () {
+        try {
+          const stored = window.localStorage.getItem("vaire-plan-theme");
+          const prefersDark =
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches;
+          const initial = stored || (prefersDark ? "dark" : "light");
+          document.addEventListener("DOMContentLoaded", function () {
+            document.body.dataset.theme = initial;
+          });
+        } catch (e) {}
+      })();
+    </script>
+    <script src="../scripts.js" defer></script>
+  </head>
+  <body class="page landing-page-5">
+    <header class="lp5-header">
+      <div class="lp5-header-inner">
+        <a href="../index.html" class="brand lp5-brand">
+          <img src="../logo.svg" alt="vaire* digital logo" class="brand-logo" />
+          <div class="brand-mark" aria-hidden="true"></div>
+        </a>
+        <div class="lp5-controls">
+          <div class="font-toggle" aria-label="Font size">
+            <span class="font-toggle-label">Text</span>
+            <button
+              type="button"
+              class="font-toggle-button"
+              data-font-size="small"
+            >
+              A-
+            </button>
+            <button
+              type="button"
+              class="font-toggle-button"
+              data-font-size="medium"
+            >
+              A
+            </button>
+            <button
+              type="button"
+              class="font-toggle-button"
+              data-font-size="large"
+            >
+              A+
+            </button>
+          </div>
+          <div class="toggle" aria-label="Toggle dark mode">
+            <span class="toggle-label">Dark</span>
+            <button
+              class="toggle-track"
+              type="button"
+              data-role="theme-toggle"
+              aria-pressed="false"
+            >
+              <span class="sr-only">Toggle dark mode</span>
+              <span class="toggle-thumb"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="lp5-main">
+      <article class="lp5-article">
+        <header class="lp5-hero">
+          <p class="lp5-eyebrow">Reading view</p>
+          <h1 class="lp5-title">
+            A distraction‑free way to live with your business plan.
+          </h1>
+          <p class="lp5-lede">
+            This layout is built for long reading sessions: one column, large type, generous
+            line‑height, and nothing on the page that doesn’t help you understand what vaire*
+            digital is trying to become.
+          </p>
+        </header>
+
+        <section class="lp5-section">
+          <h2 class="lp5-heading">What this site promises you</h2>
+          <p>
+            When the full plan is wired into this layout, every section — services, operations,
+            roadmap, risks — will feel like a chapter of the same book. You won’t see tables
+            squeezed into sidebars or bullets pretending to be paragraphs. You’ll see sentences,
+            examples, and concrete next steps you can act on.
+          </p>
+          <p>
+            The goal is simple: you and your partner should be able to open any page, read for
+            five minutes, and close the laptop knowing what to do next week.
+          </p>
+        </section>
+
+        <section class="lp5-section">
+          <h2 class="lp5-heading">Why the font controls matter here</h2>
+          <p>
+            The <strong>A‑ / A / A+</strong> controls at the top make a much bigger difference in this view.
+            In “A+”, text moves toward book‑size reading, while spacing, margins, and line‑length
+            quietly adjust so paragraphs still feel balanced rather than oversized.
+          </p>
+          <p>
+            This is the layout to pick if you care most about comfort on laptops and tablets,
+            and you want the plan to feel like a calm Sunday‑afternoon read instead of a
+            dashboard.
+          </p>
+        </section>
+      </article>
+    </main>
+  </body>
+</html>
+

@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en" data-page="design7">
+  <head>
+    <meta charset="utf-8" />
+    <title>vaire* digital – Launch Blueprint (Framed journey)</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta
+      name="description"
+      content="Framed journey landing page for the vaire* digital launch blueprint, with a compact summary and focus‑mode toggle."
+    />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="./style7.css" />
+    <script>
+      (function () {
+        try {
+          const stored = window.localStorage.getItem("vaire-plan-theme");
+          const prefersDark =
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches;
+          const initial = stored || (prefersDark ? "dark" : "light");
+          document.addEventListener("DOMContentLoaded", function () {
+            document.body.dataset.theme = initial;
+          });
+        } catch (e) {}
+      })();
+    </script>
+    <script src="../scripts.js" defer></script>
+  </head>
+  <body class="page landing-page-7">
+    <header class="lp7-header">
+      <div class="lp7-header-inner">
+        <a href="../index.html" class="brand lp7-brand">
+          <img src="../logo.svg" alt="vaire* digital logo" class="brand-logo" />
+          <div class="brand-mark" aria-hidden="true"></div>
+        </a>
+        <div class="lp7-controls">
+          <button
+            type="button"
+            class="lp7-visual-toggle"
+            data-role="visual-toggle"
+          >
+            Focus mode
+          </button>
+          <div class="font-toggle" aria-label="Font size">
+            <span class="font-toggle-label">Text</span>
+            <button
+              type="button"
+              class="font-toggle-button"
+              data-font-size="small"
+            >
+              A-
+            </button>
+            <button
+              type="button"
+              class="font-toggle-button"
+              data-font-size="medium"
+            >
+              A
+            </button>
+            <button
+              type="button"
+              class="font-toggle-button"
+              data-font-size="large"
+            >
+              A+
+            </button>
+          </div>
+          <div class="toggle" aria-label="Toggle dark mode">
+            <span class="toggle-label">Dark</span>
+            <button
+              class="toggle-track"
+              type="button"
+              data-role="theme-toggle"
+              aria-pressed="false"
+            >
+              <span class="sr-only">Toggle dark mode</span>
+              <span class="toggle-thumb"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="lp7-main">
+      <section class="lp7-grid">
+        <article class="lp7-summary">
+          <p class="lp7-eyebrow">Summary</p>
+          <h1 class="lp7-title">
+            A quick, confidence‑building snapshot before you dive into the plan.
+          </h1>
+          <p class="lp7-intro">
+            This layout keeps a short, readable explanation on the left and a framed summary
+            card on the right. The steps below mirror the main chapters of the full site, so
+            your partner never has to ask “where does that live again?”.
+          </p>
+        </article>
+
+        <aside class="lp7-card" aria-label="Plan snapshot">
+          <h2 class="lp7-card-title">At a glance</h2>
+          <ul class="lp7-card-list">
+            <li>Format: internal website based on a 3‑part written plan.</li>
+            <li>Audience: you (junior dev) + your sales/marketing partner.</li>
+            <li>Focus: GTA small businesses who need clean, fast websites.</li>
+            <li>Goal: learn fast, earn steadily, avoid chaos.</li>
+          </ul>
+        </aside>
+      </section>
+
+      <section class="lp7-journey" aria-label="High‑level journey">
+        <article class="lp7-step">
+          <div class="lp7-step-header">
+            <span class="lp7-step-index">1</span>
+            <h2 class="lp7-step-title">Foundation &amp; story</h2>
+          </div>
+          <p class="lp7-step-text">
+            Agreeing on why vaire* digital exists, who you serve, and what “success” looks like
+            so every later decision makes sense.
+          </p>
+        </article>
+
+        <article class="lp7-step">
+          <div class="lp7-step-header">
+            <span class="lp7-step-index">2</span>
+            <h2 class="lp7-step-title">Offers &amp; pricing</h2>
+          </div>
+          <p class="lp7-step-text">
+            Turning services and packages into language you’d actually say in a meeting, backed
+            by realistic time estimates and margins.
+          </p>
+        </article>
+
+        <article class="lp7-step">
+          <div class="lp7-step-header">
+            <span class="lp7-step-index">3</span>
+            <h2 class="lp7-step-title">Operations</h2>
+          </div>
+          <p class="lp7-step-text">
+            Walking through what happens from first hello to launch so you never wonder “what’s
+            next?” in the middle of a project.
+          </p>
+        </article>
+
+        <article class="lp7-step">
+          <div class="lp7-step-header">
+            <span class="lp7-step-index">4</span>
+            <h2 class="lp7-step-title">Roadmap &amp; growth</h2>
+          </div>
+          <p class="lp7-step-text">
+            Laying out your first year month‑by‑month, then sketching the options once you’re
+            ready to grow or specialise.
+          </p>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
+

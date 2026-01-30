@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en" data-page="design2">
+  <head>
+    <meta charset="utf-8" />
+    <title>vaire* digital – Launch Blueprint (Two‑column)</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta
+      name="description"
+      content="Two‑column landing page for the vaire* digital agency launch blueprint: story on the left, summary on the right."
+    />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="./style2.css" />
+    <script>
+      (function () {
+        try {
+          const stored = window.localStorage.getItem("vaire-plan-theme");
+          const prefersDark =
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches;
+          const initial = stored || (prefersDark ? "dark" : "light");
+          document.addEventListener("DOMContentLoaded", function () {
+            document.body.dataset.theme = initial;
+          });
+        } catch (e) {}
+      })();
+    </script>
+    <script src="../scripts.js" defer></script>
+  </head>
+  <body class="page landing-page-2">
+    <header class="lp2-header">
+      <div class="lp2-header-inner">
+        <a href="../index.html" class="brand lp2-brand">
+          <img src="../logo.svg" alt="vaire* digital logo" class="brand-logo" />
+          <div class="brand-mark" aria-hidden="true"></div>
+        </a>
+        <div class="lp2-controls">
+          <div class="font-toggle" aria-label="Font size">
+            <span class="font-toggle-label">Text</span>
+            <button
+              type="button"
+              class="font-toggle-button"
+              data-font-size="small"
+            >
+              A-
+            </button>
+            <button
+              type="button"
+              class="font-toggle-button"
+              data-font-size="medium"
+            >
+              A
+            </button>
+            <button
+              type="button"
+              class="font-toggle-button"
+              data-font-size="large"
+            >
+              A+
+            </button>
+          </div>
+          <div class="toggle" aria-label="Toggle dark mode">
+            <span class="toggle-label">Dark</span>
+            <button
+              class="toggle-track"
+              type="button"
+              data-role="theme-toggle"
+              aria-pressed="false"
+            >
+              <span class="sr-only">Toggle dark mode</span>
+              <span class="toggle-thumb"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="lp2-main">
+      <div class="lp2-shell">
+        <section class="lp2-hero-grid">
+          <article class="lp2-column-main">
+            <p class="lp2-eyebrow">Internal launch blueprint</p>
+            <h1 class="lp2-title">
+              One shared page that explains the whole business.
+            </h1>
+            <p class="lp2-lede">
+              vaire* digital is a tiny GTA agency built on a junior developer + sales partner
+              model. This website is the “source of truth” for that partnership — the place you
+              come back to when you’re asking:
+            </p>
+            <ul class="lp2-questions">
+              <li>What exactly are we promising clients?</li>
+              <li>How much are we charging and why?</li>
+              <li>What does the next month of work look like?</li>
+            </ul>
+            <p class="lp2-body">
+              The full site will break the answers into calm, readable chapters. This landing
+              page just introduces the story and gives your partner confidence that “yes, this
+              is a real, thought‑through plan”.
+            </p>
+          </article>
+
+          <aside class="lp2-column-side" aria-label="At‑a‑glance summary">
+            <div class="lp2-card">
+              <h2 class="lp2-card-title">At a glance</h2>
+              <dl class="lp2-facts">
+                <div>
+                  <dt>Format</dt>
+                  <dd>Portable website version of a 3‑part business plan (~100+ pages).</dd>
+                </div>
+                <div>
+                  <dt>For</dt>
+                  <dd>Junior dev in the GTA + partner who handles sales and marketing.</dd>
+                </div>
+                <div>
+                  <dt>Focus</dt>
+                  <dd>Small local businesses: trades, restaurants, clinics, real estate, services.</dd>
+                </div>
+                <div>
+                  <dt>Goal</dt>
+                  <dd>Reach healthy Year‑1 income while you learn, build systems, and avoid burnout.</dd>
+                </div>
+              </dl>
+            </div>
+
+            <div class="lp2-card lp2-card-muted">
+              <h3 class="lp2-card-subtitle">What this page will grow into</h3>
+              <p class="lp2-card-text">
+                After you choose a design, we’ll attach navigation and chapter pages:
+                services &amp; pricing, operations, roadmap, risks, and checklists — all in the
+                same friendly tone you see here.
+              </p>
+            </div>
+          </aside>
+        </section>
+
+        <section class="lp2-strip">
+          <h2 class="lp2-strip-title">How you and your partner will actually use this</h2>
+          <p class="lp2-strip-text">
+            You’ll meet here before big decisions: new offers, price changes, marketing pushes,
+            or just a “where are we at?” check‑in. Because the content is written in full
+            sentences instead of tables and bullet dumps, it’s easy to read aloud and talk
+            through — like a book you’re working from together, not a spec sheet.
+          </p>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
+

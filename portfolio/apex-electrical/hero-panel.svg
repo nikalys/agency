@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 400" width="560" height="400" aria-hidden="true">
+  <defs>
+    <linearGradient id="panel-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2d3748"/>
+      <stop offset="100%" style="stop-color:#1a202c"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+  <rect width="560" height="400" fill="#e8eef4"/>
+  <g filter="url(#shadow)">
+    <rect x="120" y="60" width="320" height="280" rx="8" fill="url(#panel-bg)"/>
+    <rect x="140" y="80" width="280" height="40" rx="4" fill="#4a5568"/>
+    <text x="280" y="108" text-anchor="middle" fill="#e2e8f0" font-family="system-ui,sans-serif" font-size="14" font-weight="600">ELECTRICAL PANEL</text>
+    <g fill="none" stroke="#718096" stroke-width="2">
+      <rect x="160" y="140" width="50" height="70" rx="4"/>
+      <rect x="230" y="140" width="50" height="70" rx="4"/>
+      <rect x="300" y="140" width="50" height="70" rx="4"/>
+      <rect x="370" y="140" width="50" height="70" rx="4"/>
+      <rect x="160" y="230" width="50" height="70" rx="4"/>
+      <rect x="230" y="230" width="50" height="70" rx="4"/>
+      <rect x="300" y="230" width="50" height="70" rx="4"/>
+      <rect x="370" y="230" width="50" height="70" rx="4"/>
+    </g>
+    <circle cx="185" cy="165" r="4" fill="#48bb78"/>
+    <circle cx="255" cy="165" r="4" fill="#48bb78"/>
+    <circle cx="325" cy="165" r="4" fill="#ecc94b"/>
+    <circle cx="395" cy="165" r="4" fill="#48bb78"/>
+  </g>
+  <text x="280" y="380" text-anchor="middle" fill="#718096" font-family="system-ui,sans-serif" font-size="12">Modern panel · Safe &amp; reliable</text>
+</svg>

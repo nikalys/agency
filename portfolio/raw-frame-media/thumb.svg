@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" width="400" height="240" aria-hidden="true">
+  <rect width="400" height="240" fill="#0d0d0d"/>
+  <rect x="40" y="80" width="320" height="2" fill="rgba(255,255,255,0.12)" rx="1"/>
+  <text x="200" y="115" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="42" font-weight="700" letter-spacing="0.02em" fill="#fff">Raw Frame</text>
+  <text x="200" y="148" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="500" letter-spacing="0.3em" fill="rgba(255,255,255,0.65)">MEDIA</text>
+  <rect x="120" y="168" width="160" height="1" fill="rgba(255,255,255,0.08)" rx="0.5"/>
+</svg>

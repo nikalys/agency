@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en" data-page="services">
+  <head>
+    <meta charset="utf-8" />
+    <title>Services & Pricing – vaire* digital</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta
+      name="description"
+      content="Your complete menu of offers: landing pages, small sites, SEO, maintenance, and three tiered packages."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./site.css" />
+    <script>
+      (function () {
+        try {
+          var stored = window.localStorage.getItem("vaire-plan-theme");
+          var prefersDark =
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches;
+          var theme = stored || (prefersDark ? "dark" : "light");
+          var fontStored = window.localStorage.getItem("vaire-font-size");
+          var font = (fontStored === "small" || fontStored === "medium" || fontStored === "large") ? fontStored : "medium";
+          document.addEventListener("DOMContentLoaded", function () {
+            var body = document.body;
+            var root = document.documentElement;
+            if (body) body.setAttribute("data-theme", theme);
+            if (root) {
+              root.setAttribute("data-font-size", font);
+              root.classList.remove("font-size-small", "font-size-medium", "font-size-large");
+              root.classList.add("font-size-" + font);
+            }
+          });
+        } catch (e) {}
+      })();
+    </script>
+    <script src="./scripts.js" defer></script>
+  </head>
+  <body class="page chapter-page">
+    <header class="site-header">
+      <div class="site-header-inner">
+        <a href="./index.html" class="brand site-brand">
+          <img src="./logo.svg" alt="vaire* digital logo" class="brand-logo" />
+          <div class="brand-mark" aria-hidden="true"></div>
+        </a>
+        <nav class="site-nav">
+          <div class="nav-links" aria-label="Primary navigation">
+            <a href="./index.html" class="nav-link" data-nav="home">Home</a>
+            <a href="./portfolio/index.html" class="nav-link" data-nav="portfolio">Portfolio</a>
+            <a href="./foundation.html" class="nav-link" data-nav="foundation">Foundation</a>
+            <a href="./services.html" class="nav-link nav-link-active" data-nav="services">Services</a>
+            <a href="./operations.html" class="nav-link" data-nav="operations">Operations</a>
+            <a href="./roadmap.html" class="nav-link" data-nav="roadmap">Roadmap</a>
+            <a href="./risks.html" class="nav-link" data-nav="risks">Risks & Growth</a>
+            <a href="./checklists.html" class="nav-link" data-nav="checklists">Checklists</a>
+          </div>
+          <div class="site-controls">
+            <details class="site-controls-accordion" id="site-display-accordion">
+              <summary class="site-controls-accordion-header" aria-label="Display options">
+                <span class="display-trigger-box" aria-hidden="true"></span>
+              </summary>
+              <div class="accordion-panel" id="site-display-panel" role="region" aria-label="Display options">
+                <div class="accordion-inner site-controls-panel">
+                  <button type="button" class="site-visual-toggle" data-role="visual-toggle">Focus mode</button>
+                  <div class="font-toggle" aria-label="Font size">
+                    <span class="font-toggle-label">Text</span>
+                    <button type="button" class="font-toggle-button" data-font-size="small">A−</button>
+                    <button type="button" class="font-toggle-button" data-font-size="medium">A</button>
+                    <button type="button" class="font-toggle-button" data-font-size="large">A+</button>
+                  </div>
+                  <div class="toggle" aria-label="Toggle dark mode">
+                    <span class="toggle-label">Dark</span>
+                    <button class="toggle-track" type="button" data-role="theme-toggle" aria-pressed="false">
+                      <span class="sr-only">Toggle dark mode</span>
+                      <span class="toggle-thumb"></span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="chapter-main">
+      <header class="chapter-header">
+        <p class="chapter-eyebrow">Chapter 2</p>
+        <h1 class="chapter-title">Services, Pricing & What Clients Get</h1>
+        <p class="chapter-intro">
+          Your complete menu of offers — landing pages, small sites, SEO, maintenance, and three
+          tiered packages. Instead of a grid of numbers, this reads like a story about what each
+          offer actually feels like for a client and why your pricing makes sense.
+        </p>
+      </header>
+
+      <div class="chapter-content">
+        <section class="chapter-section">
+          <h2 class="chapter-section-title">Pricing Philosophy</h2>
+          <p>
+            Your pricing is built on five core principles. First, <strong>value-based pricing</strong> —
+            clients pay for results and business value, not your hours. Second, <strong>AI efficiency
+            pass-through</strong> — tools make you faster, so clients benefit from lower prices. Third,
+            <strong>transparent bundling</strong> — package savings are shown clearly to encourage bundling.
+            Fourth, <strong>flexibility within limits</strong> — you can adjust based on client budget, but
+            you have minimums. Fifth, <strong>no hidden fees</strong> — all costs are disclosed upfront.
+          </p>
+          <p>
+            Your advantage is clear: using AI tools like Claude Code and Cursor, you can deliver in 15
+            hours what traditionally takes 30–40 hours. This lets you charge below market rate while
+            maintaining healthy margins. Clients get professional results at 40–60% of agency prices,
+            and you still hit effective hourly rates of $30–40+ as you get faster.
+          </p>
+        </section>
+
+        <section class="chapter-section">
+          <h2 class="chapter-section-title">Core Services (À La Carte)</h2>
+          <p>All prices are in Canadian Dollars (CAD).</p>
+
+          <h3 class="chapter-section-subtitle">Website Development</h3>
+          <p>
+            <span class="price-label">Landing Page (1–3 pages)</span>
+            <span class="price-pill">$500–600</span>
+            — Mobile responsive design, contact form with spam protection, basic SEO setup (meta tags, sitemap),
+            hosting setup assistance, one round of revisions, and 30 days of email support. Timeline is 5–7 business
+            days, and your time investment is 12–15 hours.
+          </p>
+          <p>
+            <span class="price-label">Small Business Website (5–8 pages)</span>
+            <span class="price-pill">$1,000–1,500</span>
+            — Professional custom design, mobile responsive layout, contact forms plus Google Maps integration,
+            basic SEO setup (on-page optimization), image optimization, one round of revisions, and 30 days
+            of email support. Timeline is 10–14 business days, and your time investment is 25–35 hours.
+          </p>
+          <p>
+            <span class="price-label">E-commerce Setup (Shopify)</span>
+            <span class="price-pill">$2,000–2,500</span>
+            — Theme customization (not building from scratch), up to 25 products setup, payment integration
+            (Stripe, PayPal), shipping zones configuration, basic training (1-hour call), one round of revisions,
+            and 30 days of email support. Timeline is 14–21 business days, and your time investment is 30–40 hours.
+          </p>
+          <p>
+            <span class="price-label">Custom Features (Add-ons)</span>
+            <span class="price-pill">$300–800 / feature</span>
+            — Booking systems (Calendly integration or Amelia plugin), calculators (mortgage, ROI, pricing),
+            custom forms (multi-step, conditional logic), API integrations (third-party services), and other
+            quote-based custom functionality.
+          </p>
+
+          <h3 class="chapter-section-subtitle">Content Services</h3>
+          <p>
+            <span class="price-label">Content Writing</span>
+            <span class="price-pill">$50–100 / page</span>
+            — SEO-optimized copy (300–800 words), keyword integration, and one round of client revisions.
+            Your time is 2–3 hours per page using AI plus your editing.
+          </p>
+          <p>
+            <span class="price-label">Stock Photo Package</span>
+            <span class="price-pill">$150–250</span>
+            — 25–50 professionally curated stock images, editing and optimization for web, and license
+            verification (commercial use rights). Your time is 3–4 hours.
+          </p>
+          <p>
+            <span class="price-label">Copy Editing</span>
+            <span class="price-pill">$40 / page</span>
+            — Grammar, tone, readability optimization, and client-provided content cleanup. Your time is
+            1 hour per page.
+          </p>
+
+          <h3 class="chapter-section-subtitle">SEO Services</h3>
+          <p>
+            <span class="price-label">SEO Setup (One-time)</span>
+            <span class="price-pill">$300–500</span>
+            — Keyword research (10–20 target keywords), on-page optimization (meta tags, headers, alt text),
+            XML sitemap generation, Google Search Console setup, and schema markup basics (LocalBusiness).
+            Timeline is 7–10 business days, and your time is 8–12 hours.
+          </p>
+          <p>
+            <span class="price-label">Local SEO Package</span>
+            <span class="price-pill">$400–600</span>
+            — Everything in SEO Setup, plus Google Business Profile optimization, local citations (5–10 directories:
+            Yelp, Yellow Pages, etc.), and NAP consistency audit (Name, Address, Phone). Timeline is 10–12 business
+            days, and your time is 12–16 hours.
+          </p>
+          <p>
+            <span class="price-label">Monthly SEO (Basic)</span>
+            <span class="price-pill">$500–600 / month</span>
+            — Monthly keyword ranking tracking, 1–2 SEO-optimized blog posts (written by you/AI), technical SEO
+            monitoring, and monthly performance report. Ongoing time is 6–8 hours per month.
+          </p>
+          <p>
+            <span class="price-label">Monthly SEO (Advanced)</span>
+            <span class="price-pill">$800–1,000 / month</span>
+            — Everything in Basic, plus backlink outreach and building, competitor analysis, 3–4 SEO-optimized
+            blog posts, and conversion rate optimization suggestions. Ongoing time is 10–12 hours per month.
+          </p>
+
+          <h3 class="chapter-section-subtitle">Google Business Profile (GBP)</h3>
+          <p>
+            <span class="price-label">GBP Setup & Optimization</span>
+            <span class="price-pill">$200–300</span>
+            — Account setup and verification (you guide client through), profile optimization (description,
+            categories, hours, services), initial photo uploads (client-provided images), 3 initial posts
+            (announcements, offers, updates), and review request strategy document. Timeline is 3–5 business
+            days, and your time is 4–6 hours.
+          </p>
+          <p>
+            <span class="price-label">GBP Monthly Management</span>
+            <span class="price-pill">$150–250 / month</span>
+            — Weekly posts (4 posts per month), review monitoring and responses, Q&A management, monthly
+            insights report, and photo updates as needed. Ongoing time is 3–4 hours per month.
+          </p>
+          <p>
+            <span class="price-label">Review Generation System</span>
+            <span class="price-pill">$150–200</span>
+            — Email/SMS templates for review requests, QR code generation (print and digital), and follow-up
+            automation setup (using free tools). Timeline is 2–3 business days, and your time is 3–4 hours.
+          </p>
+
+          <h3 class="chapter-section-subtitle">Website Maintenance</h3>
+          <p>
+            <span class="price-label">Basic Maintenance</span>
+            <span class="price-pill">$150–200 / month</span>
+            — Monthly WordPress and plugin updates, weekly automated backups, security monitoring (Wordfence scans),
+            uptime monitoring (UptimeRobot), 2–3 minor content changes per month, and monthly status report. Ongoing
+            time is 2–3 hours per month.
+          </p>
+          <p>
+            <span class="price-label">Premium Maintenance</span>
+            <span class="price-pill">$250–350 / month</span>
+            — Everything in Basic plan, plus daily backups (instead of weekly), priority support (24–48 hour response),
+            5–7 content changes per month, SEO monitoring (rankings check), Google Analytics reporting, and form and
+            plugin troubleshooting. Ongoing time is 4–5 hours per month.
+          </p>
+          <p>
+            <span class="price-label">Emergency Support</span>
+            <span class="price-pill">$75–100 / hour</span>
+            — Urgent fixes (site down, hacked, critical bug) for clients without maintenance plans. Minimum 1 hour
+            charge, 24–48 hour response time.
+          </p>
+        </section>
+
+        <section class="chapter-section">
+          <h2 class="chapter-section-title">Service Packages (Best Value)</h2>
+          <p>
+            Packages save clients 15–25% compared to à la carte. This is your primary sales focus.
+          </p>
+
+          <h3 class="chapter-section-subtitle">Starter Package — $1,200 CAD</h3>
+          <p>
+            Perfect for contractors, local services, and new businesses. What's included: 5-page
+            professional website (Home, About, Services, Gallery/Portfolio, Contact), mobile responsive
+            design, contact form plus Google Maps integration, basic SEO setup (on-page optimization, meta
+            tags), Google Business Profile setup and optimization, hosting and domain setup assistance,
+            30 days of email support, and basic WordPress training (1-hour video call).
+          </p>
+          <p>
+            Timeline is 10–12 business days. À la carte value is approximately $1,500, so clients save
+            $300.
+          </p>
+
+          <h3 class="chapter-section-subtitle">Growth Package — $2,400 CAD</h3>
+          <p>
+            Perfect for restaurants, clinics, and established local businesses. What's included: 8-page
+            professional website with enhanced design (Home, About, Services (3 pages), Team, Blog,
+            Contact), everything in Starter Package, content writing for all 8 pages (SEO-optimized),
+            stock photo package (25 professionally curated images), enhanced SEO optimization (local
+            citations, schema markup), 3 months of website maintenance (Basic tier), 3 months of GBP
+            monthly management, priority email support (48-hour response), and extended WordPress training
+            (2-hour session).
+          </p>
+          <p>
+            Timeline is 14–18 business days. À la carte value is approximately $3,000, so clients save
+            $600.
+          </p>
+
+          <h3 class="chapter-section-subtitle">Premium Package — $4,200 CAD</h3>
+          <p>
+            Perfect for real estate agents, e-commerce, and established service businesses. What's included:
+            premium website with custom features (up to 12 pages OR Shopify e-commerce setup, advanced
+            design customization, custom functionality like booking, calculator, or similar feature),
+            everything in Growth Package, content strategy session plus 3 months of blog posts (1 per month),
+            premium stock photo package (50 images), 6 months of Premium website maintenance, 6 months of
+            GBP monthly management, 6 months of Basic monthly SEO, priority support (24-hour response),
+            and quarterly strategy review calls.
+          </p>
+          <p>
+            Timeline is 21–28 business days. À la carte value is approximately $5,200+, so clients save
+            $1,000+.
+          </p>
+        </section>
+
+        <section class="chapter-section">
+          <h2 class="chapter-section-title">Add-On Services</h2>
+          <p>
+            Additional pages cost $80–150 per page (beyond package limits). Blog setup plus 3 posts is
+            $300–400 (WordPress blog with SEO-optimized starter content). E-commerce upgrade is $800–1,200
+            (add WooCommerce to existing site). Email marketing setup is $200–300 (Mailchimp/ConvertKit
+            integration plus 3 templates). Social media integration is $100–150 (feed displays, share
+            buttons, profile links). Custom contact forms are $50–100 per form (advanced forms beyond basic
+            contact). Speed optimization is $200–300 (advanced performance tuning if site is slow).
+            Accessibility compliance is $300–500 (AODA/WCAG compliance audit plus fixes). Logo design is
+            $150–300 (simple professional logo with 3 concepts, 2 revisions). Brand color palette is
+            $100–150 (professional color scheme plus usage guidelines).
+          </p>
+        </section>
+
+        <section class="chapter-section">
+          <h2 class="chapter-section-title">Payment Terms & Policies</h2>
+          <p>
+            <strong>Standard Payment Structure:</strong> 50% deposit required before work begins
+            (non-refundable, covers setup time), 50% balance due upon project completion and client
+            approval, Net 15 payment terms (balance due within 15 days of final invoice).
+          </p>
+          <p>
+            <strong>Alternative for Larger Projects ($2,000+):</strong> 33% deposit to start work, 33% at
+            midpoint (design approval stage), 34% at completion.
+          </p>
+          <p>
+            <strong>Monthly Retainers:</strong> Billed monthly in advance on the 1st of each month, auto-pay
+            preferred (credit card on file via Stripe), 30-day cancellation notice required, pro-rated
+            first month if starting mid-month.
+          </p>
+          <p>
+            <strong>Late Payment Policy:</strong> Days 1–15 are payment period (no penalties). Days 16–30
+            get a reminder email sent (no penalties yet). Day 31+ gets 5% late fee applied, and website
+            access may be suspended. Day 60+ initiates collection process, small claims court if necessary.
+          </p>
+          <p>
+            <strong>Refund Policy:</strong> Deposits are non-refundable (covers initial research, setup, and
+            opportunity cost). Full refunds only if project not started within 14 days of deposit (your fault).
+            Partial refunds for work completed but not used (calculated pro-rata). No refunds for completed,
+            approved work that client later changes mind about. Dispute resolution: good faith negotiation
+            first, mediation if needed.
+          </p>
+          <p>
+            <strong>What Happens if Client Doesn't Pay Final Balance:</strong> Week 1 gets a friendly
+            reminder email. Week 2 gets formal payment request email plus phone call. Week 3 gets notice
+            of intent to restrict site access. Week 4 gets website taken offline OR login screen placed on
+            site. Week 6 gets collection agency referral or small claims court filing.
+          </p>
+          <p>
+            <strong>Scope Management:</strong> Unlimited minor revisions for 30 days (color changes, text
+            edits, image swaps). Major changes (layout redesign, new pages, new features) equal new quote
+            at $75/hour. After 30-day period, all changes billed at $75/hour OR switch to maintenance
+            retainer.
+          </p>
+          <p>
+            <strong>Currency & Payment Methods:</strong> All prices in Canadian Dollars (CAD). Accepted
+            payment methods include e-transfer (preferred, instant, no fees), Stripe (credit/debit cards,
+            3% fee passed to client), PayPal (available, 3.5% fee passed to client), cash (in-person
+            meetings only, receipt provided), and cheque (business accounts only, 3–5 day hold period).
+          </p>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div>© 2026 vaire* digital — Internal launch blueprint.</div>
+        <div class="footer-right">
+          <a href="./foundation.html" class="footer-link">← Foundation</a>
+          <a href="./operations.html" class="footer-link">Operations →</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

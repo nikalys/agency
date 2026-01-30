@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en" data-page="design9">
+  <head>
+    <meta charset="utf-8" />
+    <title>vaire* digital – Launch Blueprint (Compact rail)</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta
+      name="description"
+      content="Compact‑rail journey landing page for the vaire* digital launch blueprint, tuned for long‑form reading with a focus‑mode toggle."
+    />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="./style9.css" />
+    <script>
+      (function () {
+        try {
+          const stored = window.localStorage.getItem("vaire-plan-theme");
+          const prefersDark =
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches;
+          const initial = stored || (prefersDark ? "dark" : "light");
+          document.addEventListener("DOMContentLoaded", function () {
+            document.body.dataset.theme = initial;
+          });
+        } catch (e) {}
+      })();
+    </script>
+    <script src="../scripts.js" defer></script>
+  </head>
+  <body class="page landing-page-9">
+    <header class="lp9-header">
+      <div class="lp9-header-inner">
+        <a href="../index.html" class="brand lp9-brand">
+          <img src="../logo.svg" alt="vaire* digital logo" class="brand-logo" />
+          <div class="brand-mark" aria-hidden="true"></div>
+        </a>
+        <div class="lp9-controls">
+          <button
+            type="button"
+            class="lp9-visual-toggle"
+            data-role="visual-toggle"
+          >
+            Focus mode
+          </button>
+          <div class="font-toggle" aria-label="Font size">
+            <span class="font-toggle-label">Text</span>
+            <button
+              type="button"
+              class="font-toggle-button"
+              data-font-size="small"
+            >
+              A-
+            </button>
+            <button
+              type="button"
+              class="font-toggle-button"
+              data-font-size="medium"
+            >
+              A
+            </button>
+            <button
+              type="button"
+              class="font-toggle-button"
+              data-font-size="large"
+            >
+              A+
+            </button>
+          </div>
+          <div class="toggle" aria-label="Toggle dark mode">
+            <span class="toggle-label">Dark</span>
+            <button
+              class="toggle-track"
+              type="button"
+              data-role="theme-toggle"
+              aria-pressed="false"
+            >
+              <span class="sr-only">Toggle dark mode</span>
+              <span class="toggle-thumb"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="lp9-main">
+      <section class="lp9-hero">
+        <p class="lp9-eyebrow">Journey + reading view</p>
+        <h1 class="lp9-title">
+          A slimmer rail and more room for the story.
+        </h1>
+        <p class="lp9-intro">
+          This variation keeps the vertical “journey” idea but narrows the visual rail, so most
+          of the page is dedicated to text. It should feel close to a focus‑mode article even
+          before you hit the toggle.
+        </p>
+      </section>
+
+      <section class="lp9-journey" aria-label="High‑level journey">
+        <article class="lp9-step">
+          <div class="lp9-step-header">
+            <span class="lp9-step-index">1</span>
+            <h2 class="lp9-step-title">Start: foundation &amp; offers</h2>
+          </div>
+          <p class="lp9-step-text">
+            Where you and your partner agree on what vaire* digital is, who you serve, and what
+            you’re putting on the menu.
+          </p>
+        </article>
+
+        <article class="lp9-step">
+          <div class="lp9-step-header">
+            <span class="lp9-step-index">2</span>
+            <h2 class="lp9-step-title">Middle: operations &amp; client experience</h2>
+          </div>
+          <p class="lp9-step-text">
+            Where the site lays out, in simple language, how projects run and what clients
+            should feel at each phase.
+          </p>
+        </article>
+
+        <article class="lp9-step">
+          <div class="lp9-step-header">
+            <span class="lp9-step-index">3</span>
+            <h2 class="lp9-step-title">End: roadmap, risks &amp; growth</h2>
+          </div>
+          <p class="lp9-step-text">
+            Where you zoom out and decide how to pace your first year and what “good” numbers
+            look like.
+          </p>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
+

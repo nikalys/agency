@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en" data-page="overview">
+  <head>
+    <meta charset="utf-8" />
+    <title>vaire* digital – Agency Launch Blueprint (Old Version)</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta
+      name="description"
+      content="Previous version of the portable vaire* digital business plan site."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script>
+      (function () {
+        try {
+          const stored = window.localStorage.getItem("vaire-plan-theme");
+          const prefersDark =
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches;
+          const initial = stored || (prefersDark ? "dark" : "light");
+          document.addEventListener("DOMContentLoaded", function () {
+            document.body.dataset.theme = initial;
+          });
+        } catch (e) {}
+      })();
+    </script>
+    <script src="./scripts.js" defer></script>
+  </head>
+  <body class="page">
+    <!-- Archived copy of the previous landing + content layout.
+         Kept for reference while we redesign the site from scratch. -->
+    <header class="site-header">
+      <div class="site-header-inner">
+        <a href="#overview" class="brand">
+          <img src="./logo.svg" alt="vaire* digital logo" class="brand-logo" />
+          <div class="brand-mark" aria-hidden="true"></div>
+        </a>
+        <nav class="site-nav">
+          <div class="nav-links" aria-label="Primary navigation">
+            <a href="#overview" class="nav-link" data-nav="overview">Overview</a>
+            <a href="#services" class="nav-link" data-nav="services">Services &amp; pricing</a>
+            <a href="#operations" class="nav-link" data-nav="operations">Operations</a>
+            <a href="#roadmap" class="nav-link" data-nav="roadmap">Roadmap</a>
+            <a href="#risks" class="nav-link" data-nav="risks">Risks &amp; growth</a>
+            <a href="#checklists" class="nav-link" data-nav="checklists">Checklists &amp; tools</a>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.4rem">
+            <div class="font-toggle" aria-label="Font size">
+              <span class="font-toggle-label">Text</span>
+              <button
+                type="button"
+                class="font-toggle-button"
+                data-font-size="small"
+              >
+                A-
+              </button>
+              <button
+                type="button"
+                class="font-toggle-button"
+                data-font-size="medium"
+              >
+                A
+              </button>
+              <button
+                type="button"
+                class="font-toggle-button"
+                data-font-size="large"
+              >
+                A+
+              </button>
+            </div>
+            <div class="toggle" aria-label="Toggle dark mode">
+              <span class="toggle-label">Dark</span>
+              <button
+                class="toggle-track"
+                type="button"
+                data-role="theme-toggle"
+                aria-pressed="false"
+              >
+                <span class="sr-only">Toggle dark mode</span>
+                <span class="toggle-thumb"></span>
+              </button>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page-main">
+      <div class="shell">
+        <!-- Original hero and content from the previous index.html are kept here.
+             You can still open this file directly if you want to compare. -->
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div>© 2026 vaire* digital — Internal launch blueprint (old layout).</div>
+        <div class="footer-right">
+          <span class="footer-pill">White / dark theme</span>
+          <span class="footer-pill">Optimized for phones &amp; desktops</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+

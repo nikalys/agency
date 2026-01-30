@@ -1,0 +1,605 @@
+/* Main site styles based on design 6 */
+
+.site-page {
+  background: radial-gradient(circle at top left, rgba(34, 197, 94, 0.08), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.06), transparent 60%),
+    var(--bg);
+}
+
+.site-header {
+  border-bottom: 1px solid var(--border-subtle);
+  backdrop-filter: blur(14px);
+  background: color-mix(in srgb, var(--bg) 90%, transparent);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+
+.site-header-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0.6rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  flex: 1 1 auto;
+  justify-content: flex-end;
+  min-width: 0;
+}
+
+.nav-links {
+  display: none;
+  gap: 0.25rem;
+  font-size: 0.85rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .nav-links {
+    display: flex;
+  }
+}
+
+.nav-link {
+  padding: 0.35rem 0.65rem;
+  border-radius: 0.5rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  background-color: var(--bg-accent);
+  color: var(--text);
+  text-decoration: none;
+}
+
+.nav-link-active {
+  background-color: var(--accent);
+  color: #f9fafb;
+}
+
+body[data-theme="dark"] .nav-link-active {
+  background-color: #f9fafb;
+  color: #020617;
+}
+
+.site-controls {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* Display accordion in nav – small box trigger */
+.site-controls-accordion {
+  position: relative;
+  margin: 0;
+  display: inline-block;
+  border: 1px solid var(--border-subtle);
+  border-radius: 0.5rem;
+  background: var(--bg-elevated);
+  overflow: visible;
+}
+
+.site-controls-accordion-header {
+  list-style: none;
+  margin: 0;
+  padding: 0.35rem;
+  border-radius: 0.4rem;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.25rem;
+  min-width: 2.25rem;
+  box-sizing: border-box;
+}
+
+.site-controls-accordion-header::-webkit-details-marker {
+  display: none;
+}
+
+.site-controls-accordion-header::-moz-list-bullet {
+  list-style: none;
+}
+
+.site-controls-accordion-header:hover {
+  background: var(--bg-accent);
+}
+
+.site-controls-accordion-header:hover .display-trigger-box {
+  border-color: var(--text-muted);
+}
+
+/* Small box trigger (replaces "Display" text) */
+.display-trigger-box {
+  display: block;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid var(--border-subtle);
+  border-radius: 0.25rem;
+  background: var(--bg);
+  position: relative;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.site-controls-accordion[open] .display-trigger-box {
+  border-color: var(--text-muted);
+  background: var(--bg-accent);
+}
+
+
+/* Override base .accordion-panel so dropdown content is visible when open */
+.site-controls-accordion .accordion-panel {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 0.25rem;
+  min-width: 0;
+  max-height: none;
+  overflow: visible;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-soft);
+  z-index: 50;
+}
+
+/* When closed, hide panel */
+.site-controls-accordion:not([open]) .accordion-panel {
+  display: none;
+}
+
+.site-controls-panel {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.65rem 0.85rem;
+}
+
+.site-controls-panel .site-visual-toggle {
+  border-radius: 0.4rem;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg);
+  padding: 0.3rem 0.6rem;
+  font-size: 0.78rem;
+  cursor: pointer;
+  color: var(--text);
+}
+
+.site-controls-panel .site-visual-toggle:hover {
+  background: var(--bg-accent);
+}
+
+.site-controls-panel .font-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.site-controls-panel .toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.site-main {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 2.1rem 1.25rem 3rem;
+}
+
+.site-summary {
+  background: var(--bg-elevated);
+  border-radius: 1.2rem;
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-soft);
+  padding: 1.6rem 1.6rem 1.7rem;
+  margin-bottom: 1.85rem;
+}
+
+.site-eyebrow {
+  margin: 0 0 0.6rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.site-title {
+  margin: 0 0 0.8rem;
+  font-size: clamp(2rem, 3vw, 2.4rem);
+  letter-spacing: -0.03em;
+}
+
+.site-intro {
+  margin: 0 0 0.75rem;
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+.site-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+}
+
+.site-meta-pill {
+  font-size: 0.78rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg);
+  color: var(--text-muted);
+}
+
+.site-journey {
+  position: relative;
+  padding-left: 2.2rem;
+}
+
+.site-step {
+  position: relative;
+  background: var(--bg-elevated);
+  border-radius: 1rem;
+  border: 1px solid var(--border-subtle);
+  padding: 1.1rem 1.3rem 1.2rem;
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+}
+
+/* Soft visual accent band behind each journey step (hidden in focus mode) */
+.site-step::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(34, 197, 94, 0.12), transparent 55%);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.site-step-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.site-step-index {
+  position: absolute;
+  left: -2.1rem;
+  top: 1.2rem;
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 999px;
+  background: var(--bg);
+  border: 2px solid var(--accent-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent-green);
+}
+
+.site-step-title {
+  margin: 0;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+}
+
+.site-step-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-step-title a:hover {
+  text-decoration: underline;
+}
+
+.site-step-text {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+/* Chapter page styles */
+.chapter-page {
+  background: radial-gradient(circle at top left, rgba(34, 197, 94, 0.08), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.06), transparent 60%),
+    var(--bg);
+}
+
+.chapter-main {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 2.1rem 1.25rem 3rem;
+}
+
+.chapter-header {
+  margin-bottom: 2rem;
+}
+
+.chapter-eyebrow {
+  margin: 0 0 0.6rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.chapter-title {
+  margin: 0 0 0.8rem;
+  font-size: clamp(2rem, 3vw, 2.4rem);
+  letter-spacing: -0.03em;
+}
+
+.chapter-intro {
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+.chapter-content {
+  background: var(--bg-elevated);
+  border-radius: 1.2rem;
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-soft);
+  padding: 1.6rem 1.6rem 1.7rem;
+}
+
+.chapter-section {
+  margin-bottom: 2.4rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(148, 163, 184, 0.45);
+}
+
+.chapter-section:last-child {
+  margin-bottom: 0;
+}
+
+.chapter-section:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.chapter-section-title {
+  margin: 0 0 0.75rem;
+  font-size: 1.3rem;
+  letter-spacing: -0.02em;
+  font-weight: 650;
+  padding: 0.2rem 0.7rem 0.3rem;
+  border-radius: 0.55rem;
+  background: linear-gradient(90deg, rgba(34, 197, 94, 0.12), transparent 82%);
+  border-left: 3px solid rgba(34, 197, 94, 0.7);
+}
+
+.chapter-section-subtitle {
+  margin: 0.35rem 0 0.6rem;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+  padding: 0.15rem 0.6rem 0.2rem;
+  border-radius: 0.45rem;
+  background: linear-gradient(90deg, rgba(148, 163, 184, 0.14), transparent 70%);
+  border-left: 2px solid rgba(148, 163, 184, 0.8);
+}
+
+.chapter-content p {
+  margin: 0 0 0.9rem;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.chapter-content ul,
+.chapter-content ol {
+  margin: 0.5rem 0 0.9rem;
+  padding-left: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.chapter-content li {
+  margin-bottom: 0.4rem;
+}
+
+.chapter-content li:last-child {
+  margin-bottom: 0;
+}
+
+.chapter-content strong {
+  font-weight: 600;
+  color: var(--accent);
+  background: linear-gradient(90deg, rgba(34, 197, 94, 0.06), transparent 70%);
+  padding: 0.02rem 0.25rem;
+  border-radius: 0.35rem;
+}
+
+/* Inline price styling for services */
+.price-label {
+  font-weight: 600;
+}
+
+.price-pill {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0.05rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid rgba(34, 197, 94, 0.5);
+  background: radial-gradient(circle at top left, rgba(34, 197, 94, 0.16), transparent 70%);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--accent-green);
+}
+
+.chapter-content em {
+  font-style: italic;
+}
+
+.chapter-content h3 {
+  margin: 1.5rem 0 0.6rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.chapter-content h4 {
+  margin: 1.2rem 0 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.chapter-content code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  font-size: 0.9em;
+  background-color: var(--bg-accent);
+  padding: 0.15rem 0.35rem;
+  border-radius: 0.35rem;
+}
+
+.chapter-content pre {
+  background-color: var(--bg-accent);
+  padding: 0.9rem 1rem;
+  border-radius: 0.6rem;
+  overflow-x: auto;
+  font-size: 0.9rem;
+  margin: 0.9rem 0;
+}
+
+.chapter-content pre code {
+  padding: 0;
+  background: transparent;
+}
+
+.chapter-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.9rem 0;
+  font-size: 0.95rem;
+}
+
+.chapter-content th,
+.chapter-content td {
+  border: 1px solid var(--border-subtle);
+  padding: 0.5rem 0.7rem;
+  text-align: left;
+}
+
+.chapter-content th {
+  background-color: var(--bg-accent);
+  font-weight: 600;
+}
+
+.chapter-content blockquote {
+  margin: 0.9rem 0;
+  padding-left: 1rem;
+  border-left: 3px solid rgba(148, 163, 184, 0.8);
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.chapter-content hr {
+  border: none;
+  border-top: 1px solid var(--border-subtle);
+  margin: 2rem 0;
+}
+
+/* Focus mode */
+body[data-visual="focus"] .site-page,
+body[data-visual="focus"] .chapter-page {
+  background: var(--bg);
+}
+
+body[data-visual="focus"] .site-summary,
+body[data-visual="focus"] .site-step,
+body[data-visual="focus"] .chapter-content {
+  box-shadow: none;
+  border-radius: 0.5rem;
+}
+
+/* In focus mode, strip extra decorative accents */
+body[data-visual="focus"] .site-step::before {
+  display: none;
+}
+
+body[data-visual="focus"] .chapter-section-title {
+  background: none;
+  border-left: 2px solid var(--border-subtle);
+}
+
+body[data-visual="focus"] .chapter-section-subtitle {
+  border-left: 1px solid var(--border-subtle);
+}
+
+.site-footer {
+  border-top: 1px solid var(--border-subtle);
+  padding: 1.1rem 1.25rem 1.5rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 3rem;
+}
+
+.site-footer-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.footer-link {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  color: var(--text);
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  .site-header-inner {
+    flex-wrap: wrap;
+  }
+
+  .site-controls {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .site-visual-toggle {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.5rem;
+  }
+
+  .site-journey {
+    padding-left: 0;
+  }
+
+  .site-step-index {
+    position: static;
+    margin-right: 0.6rem;
+  }
+
+  .site-step {
+    padding-left: 1.1rem;
+  }
+}

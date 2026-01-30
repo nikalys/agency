@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en" data-page="operations">
+  <head>
+    <meta charset="utf-8" />
+    <title>Operations & Client Experience – vaire* digital</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta
+      name="description"
+      content="How projects run from first hello to launch day. Checklists, call scripts, email templates, and workflows."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./site.css" />
+    <script>
+      (function () {
+        try {
+          var stored = window.localStorage.getItem("vaire-plan-theme");
+          var prefersDark =
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches;
+          var theme = stored || (prefersDark ? "dark" : "light");
+          var fontStored = window.localStorage.getItem("vaire-font-size");
+          var font = (fontStored === "small" || fontStored === "medium" || fontStored === "large") ? fontStored : "medium";
+          document.addEventListener("DOMContentLoaded", function () {
+            var body = document.body;
+            var root = document.documentElement;
+            if (body) body.setAttribute("data-theme", theme);
+            if (root) {
+              root.setAttribute("data-font-size", font);
+              root.classList.remove("font-size-small", "font-size-medium", "font-size-large");
+              root.classList.add("font-size-" + font);
+            }
+          });
+        } catch (e) {}
+      })();
+    </script>
+    <script src="./scripts.js" defer></script>
+  </head>
+  <body class="page chapter-page">
+    <header class="site-header">
+      <div class="site-header-inner">
+        <a href="./index.html" class="brand site-brand">
+          <img src="./logo.svg" alt="vaire* digital logo" class="brand-logo" />
+          <div class="brand-mark" aria-hidden="true"></div>
+        </a>
+        <nav class="site-nav">
+          <div class="nav-links" aria-label="Primary navigation">
+            <a href="./index.html" class="nav-link" data-nav="home">Home</a>
+            <a href="./portfolio/index.html" class="nav-link" data-nav="portfolio">Portfolio</a>
+            <a href="./foundation.html" class="nav-link" data-nav="foundation">Foundation</a>
+            <a href="./services.html" class="nav-link" data-nav="services">Services</a>
+            <a href="./operations.html" class="nav-link nav-link-active" data-nav="operations">Operations</a>
+            <a href="./roadmap.html" class="nav-link" data-nav="roadmap">Roadmap</a>
+            <a href="./risks.html" class="nav-link" data-nav="risks">Risks & Growth</a>
+            <a href="./checklists.html" class="nav-link" data-nav="checklists">Checklists</a>
+          </div>
+          <div class="site-controls">
+            <details class="site-controls-accordion" id="site-display-accordion">
+              <summary class="site-controls-accordion-header" aria-label="Display options">
+                <span class="display-trigger-box" aria-hidden="true"></span>
+              </summary>
+              <div class="accordion-panel" id="site-display-panel" role="region" aria-label="Display options">
+                <div class="accordion-inner site-controls-panel">
+                  <button type="button" class="site-visual-toggle" data-role="visual-toggle">Focus mode</button>
+                  <div class="font-toggle" aria-label="Font size">
+                    <span class="font-toggle-label">Text</span>
+                    <button type="button" class="font-toggle-button" data-font-size="small">A−</button>
+                    <button type="button" class="font-toggle-button" data-font-size="medium">A</button>
+                    <button type="button" class="font-toggle-button" data-font-size="large">A+</button>
+                  </div>
+                  <div class="toggle" aria-label="Toggle dark mode">
+                    <span class="toggle-label">Dark</span>
+                    <button class="toggle-track" type="button" data-role="theme-toggle" aria-pressed="false">
+                      <span class="sr-only">Toggle dark mode</span>
+                      <span class="toggle-thumb"></span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="chapter-main">
+      <header class="chapter-header">
+        <p class="chapter-eyebrow">Chapter 3</p>
+        <h1 class="chapter-title">Operations & Client Experience</h1>
+        <p class="chapter-intro">
+          How projects run from first hello to launch day. Checklists, call scripts, email templates,
+          and project management workflows live here, ready to open during real projects. Plus your
+          sales strategy and financial projections.
+        </p>
+      </header>
+
+      <div class="chapter-content">
+        <section class="chapter-section">
+          <h2 class="chapter-section-title">Client Onboarding Process</h2>
+          <p>
+            Your onboarding process has four clear phases. <strong>Phase 1: Lead to Qualified Prospect</strong>
+            is handled by your partner. A lead comes in (ad, referral, website form, cold outreach), and
+            your partner qualifies them on budget (can afford $500+ minimum?), timeline (realistic
+            expectations of 2–4 weeks?), fit (target market local GTA business?), and authority (decision
+            maker or influencer?). If qualified, partner books discovery call. If not, partner politely
+            declines or refers elsewhere.
+          </p>
+          <p>
+            <strong>Phase 2: Discovery Call (30 minutes)</strong> includes your marketing partner leading,
+            you joining for technical questions, and the prospect. The agenda covers introductions (2 min),
+            understanding business goals (5 min), current pain points (5 min), reviewing service needs
+            (8 min), technical questions (5 min), pricing discussion (3 min), and next steps (2 min).
+            After the call, partner sends follow-up email with proposed package or custom quote, timeline
+            estimate, portfolio examples, and clear CTA.
+          </p>
+          <p>
+            <strong>Phase 3: Proposal & Closing</strong> is partner-led. Partner sends formal proposal,
+            client reviews (give 3–5 days), partner answers questions (loops you in for technical), partner
+            handles price negotiation (consults you on feasibility), and once agreed, partner sends contract,
+            client signs electronically, and 50% deposit invoice is sent immediately.
+          </p>
+          <p>
+            <strong>Phase 4: Project Kickoff</strong> is triggered by deposit payment received. Within 24
+            hours you send client welcome email, send intake questionnaire (Google Form), schedule kickoff
+            call (30 min, within 3 days), create project folder (Google Drive), add project to Trello/Notion,
+            and set calendar reminders for milestones.
+          </p>
+        </section>
+
+        <section class="chapter-section">
+          <h2 class="chapter-section-title">Kickoff Call Script</h2>
+          <p>
+            Use this script for every kickoff call — it ensures you don't forget critical details. The
+            call is 30 minutes with you, client, and partner (optional).
+          </p>
+          <p>
+            <strong>Introduction (3 min):</strong> "Hi [Client], great to officially get started! Today
+            we'll walk through exactly what I need from you, confirm the timeline, and answer any questions.
+            I've got 30 minutes — does that work?" Quick intro (who you are, your process), confirm they
+            reviewed/signed the proposal, set expectation: working call, you'll take notes together.
+          </p>
+          <p>
+            <strong>Scope Confirmation (5 min):</strong> "Let's make sure we're 100% aligned on what we're
+            building." Review deliverables: number of pages (list them), features (forms, booking, maps,
+            e-commerce), SEO included (yes/no), content writing included (yes/no), Google Business Profile
+            (yes/no). Confirm timeline: [X business days] = [TARGET DATE]. Clarify: unlimited minor revisions
+            for 30 days. Questions to ask: "Any features we haven't discussed yet?" "Any must-haves I should
+            prioritize?" "Anything to absolutely avoid?"
+          </p>
+          <p>
+            <strong>Design Preferences (7 min):</strong> "Let's talk about the look and feel." Competitor
+            analysis: "Who are your main competitors online?" "What do you like about their websites?"
+            "What DON'T you like?" Design inspiration: "I sent a questionnaire asking for 3 example sites
+            you like. Did you get a chance to look?" (If not: show 2–3 examples and ask which they prefer)
+            "What specifically appeals to you? Colors? Layout? Vibe?" Brand guidelines: Logo (do you have
+            high-res?), colors (brand colors or should I propose palette?), fonts (existing fonts or want
+            recommendations?), imagery (what vibe? professional, friendly, bold, minimal). Questions to ask:
+            "How should visitors FEEL when they land on your site?" "One word that describes your brand?"
+            "Any colors you absolutely hate?"
+          </p>
+          <p>
+            <strong>Content & Assets (8 min):</strong> "Let's talk about text, images, videos for your site."
+            Content responsibility matrix: Logo (client gives), business description (client gives or pay),
+            service details (client gives or pay), team photos (client gives), work photos (client gives),
+            stock photos (you handle if in package), testimonials (client gives), contact info (client gives).
+            Deadlines: Logo plus brand colors (within 3 days), text content (within 7 days), photos (within
+            7 days). Questions to ask: "Do you have professional photos of your work/team/products?" "Do you
+            have customer testimonials I can use?" "What are your top 3 services/products?" "What should
+            visitors DO on your site? (call, email, book, buy)"
+          </p>
+          <p>
+            <strong>Technical Setup (4 min):</strong> "Quick boring but important technical stuff." Domain
+            and hosting: Do you own a domain? (If yes: will need login access OR guide you through DNS later.
+            If no: you'll send buying guide, ~$15/year, client pays.) Do you have hosting? (If yes: need
+            login to install WordPress. If no: you'll recommend SiteGround/Hostinger, ~$10/mo, client pays.)
+            Email: Do you have business email? (If no: want one? Google Workspace $8/mo, client pays.)
+            Access and accounts: Google Business Profile (have one? If yes: you'll need manager access. If
+            no: you'll set it up if in package). Google Analytics (want tracking? Yes = you'll set it up).
+          </p>
+          <p>
+            <strong>Timeline & Communication (2 min):</strong> "Here's how we'll stay in touch." Timeline:
+            Design preview ([DATE — 5–7 days]), full site preview ([DATE — 10–12 days]), revisions ([DATE
+            — 2–3 days]), launch ([DATE — 14–16 days total]). Communication: Email updates every 3–4 days,
+            Loom video walkthroughs (easier than screenshots), client can email you anytime, you respond
+            within 24 hours (weekdays), urgent issues: text your number (site down only).
+          </p>
+          <p>
+            <strong>Q&A (1 min):</strong> "What questions do you have?" (Pause. Let them ask. If silent:)
+            "Clear on what I need from you?" "Does the timeline work?" "Anything concerning you?"
+          </p>
+          <p>
+            <strong>Next Steps (1 min):</strong> "Here's what happens next:" Today (you): you'll send Google
+            Form for content/assets. Within 3 days (client): fill out form with what you have. In 5–7 days
+            (you): design preview via Loom video. In 10–12 days (you): full site preview (staging site).
+            In 14–16 days: launch!
+          </p>
+          <p>
+            Post-call checklist (you, within 1 hour): Send recap email (meeting notes, action items, deadlines,
+            intake form link), create project folder (Google Drive), add to Trello/Notion with checklist,
+            set calendar reminders, start competitor research (if not done).
+          </p>
+        </section>
+
+        <section class="chapter-section">
+          <h2 class="chapter-section-title">Project Management</h2>
+          <p>
+            Use a Trello board called "vaire* digital — Client Projects" with these lists: Leads (partner
+            manages), Quoted (waiting on deposit), Kickoff (deposit received, gathering requirements), Design
+            (creating mockups, client review), Development (building site), Review (client testing, revisions),
+            Launch Prep (pre-launch QA checklist), Launched (live plus 7-day monitoring), Archived (project
+            complete).
+          </p>
+          <p>
+            Each card template includes: Title ([CLIENT NAME] — [PROJECT TYPE]), labels (Package: Starter/Growth/Premium/Custom,
+            Status: On Track/At Risk/Blocked, Priority: High/Normal/Low), checklist for project milestones,
+            attachments (link to project folder, contract/proposal, staging site, live site), due date
+            (target launch date), and comments (log all updates here with dates).
+          </p>
+        </section>
+
+        <section class="chapter-section">
+          <h2 class="chapter-section-title">Email Templates</h2>
+          <p>
+            You have copy-paste ready email templates for project kickoff recap, design preview, final review
+            before launch, and launch day. Each email clearly sets expectations, tells the client what to
+            review or deliver, and signals next steps so projects keep moving without confusion. These templates
+            are in your operational systems folder and can be customized per client.
+          </p>
+        </section>
+
+        <section class="chapter-section">
+          <h2 class="chapter-section-title">Pre-Launch QA Checklist</h2>
+          <p>
+            Use this checklist for every project before launch. It covers functionality (all links work, forms
+            submit, no JavaScript errors, no 404 errors), content (no placeholder text, proper heading hierarchy,
+            correct contact info), SEO (unique meta tags, sitemap submitted, schema markup, Google Analytics),
+            performance (page load speed under 3 seconds, Lighthouse score over 85, images optimized), mobile
+            responsiveness (test on iPhone, Android, iPad, navigation works, no horizontal scrolling), browser
+            testing (Chrome, Firefox, Safari, Edge, mobile browsers), security (SSL certificate, strong passwords,
+            security plugin), backups (backup plugin installed, initial backup completed, schedule set), compliance
+            (Privacy Policy page, cookie notice, AODA accessibility check), and client handoff (training call
+            scheduled, login credentials prepared, tutorial videos recorded).
+          </p>
+        </section>
+
+        <section class="chapter-section">
+          <h2 class="chapter-section-title">Sales & Client Acquisition</h2>
+          <p>
+            Lead generation channels in priority order: referrals (highest ROI, warmest leads), local SEO
+            (long-term, scalable), content marketing (authority building), social media (awareness and social
+            proof), paid ads (optional, budget-dependent), and cold outreach (last resort, partner-led).
+          </p>
+          <p>
+            Your role in sales: join discovery calls (30 min) for technical questions, provide realistic
+            timelines and feasibility checks, answer technical questions prospects ask, showcase portfolio
+            and explain your process, create sales collateral (portfolio, case studies, one-pagers). Your
+            partner's role: lead generation (ads, outreach, networking), initial contact with leads, lead
+            qualification, lead discovery calls, price negotiation, closing deals, follow-up emails, contract
+            sending.
+          </p>
+          <p>
+            Sales collateral includes portfolio/case studies (3–5 minimum), one-page service menu (PDF), and
+            proposal template. You need portfolio pieces before you can effectively sell — either real discounted
+            projects ($200–400 for 60–80% discount) or practice projects (fictional but professional).
+          </p>
+          <p>
+            Objection handling: "Too expensive" → "Most agencies charge $3,000–5,000 for this. We're at $1,200
+            because we use efficient tools. If budget is tight, we could start with a 3-page landing page for
+            $500, then add more later. Would that work?" "I can use Wix for $20/month" → "You could! The
+            difference is time and expertise. DIY takes 20–30 hours to learn. Plus we handle SEO, speed
+            optimization, and lead generation — not just pretty design. What's your time worth?" "I want to
+            think about it" → "Totally fair. Can I ask what specifically you're unsure about? I'll send you
+            [case study/testimonial] so you can see results we've delivered. When's a good time to follow up?"
+            "Need to talk to my partner" → "Makes sense! Would it help if I joined that conversation to answer
+            technical questions? Or I can send a one-pager summarizing everything. Which is better?" "Why you
+            over [competitor]?" → "We're different in 3 ways: (1) Local — same timezone, understand GTA market.
+            (2) Transparent — no jargon, clear pricing, you own everything. (3) Fast — AI tools let us deliver
+            in half the time. Most agencies take 4–6 weeks; we're done in 2."
+          </p>
+        </section>
+
+        <section class="chapter-section">
+          <h2 class="chapter-section-title">Financial Projections</h2>
+          <p>
+            Your 12-month revenue roadmap (conservative estimate) assumes 50/50 partnership split on all revenue,
+            mix of projects and retainers, gradual ramp as portfolio builds. Month 1: 1 project (portfolio build,
+            discounted), $400 gross, $200 your share. Month 2: 2 projects (1 portfolio plus 1 landing page),
+            $900 gross, $450 your share. Month 3: 3 projects (2 landing plus 1 Starter package), $1,700 gross,
+            $850 your share. Month 4: 3 projects (1 Starter plus 1 Growth plus 1 landing), $2,800 gross, $1,400
+            your share. Month 5: 4 projects (2 Starter plus 1 Growth plus 1 SEO), $4,200 gross, $2,100 your
+            share. Month 6: 4 projects (2 Starter plus 1 Growth plus 1 Premium) plus 2 retainers start, $5,600
+            gross, $2,800 your share. This continues growing through Month 12.
+          </p>
+          <p>
+            Year 1 totals: Gross revenue approximately $72,000, your share (50%) approximately $36,000. Project
+            revenue approximately $63,000 gross (your share: $31,500), retainer revenue approximately $9,000
+            gross (your share: $4,500), average monthly (Year 1) $3,000 per month to you. Key milestones: Month
+            3 first $850+ month (target: $1,000), Month 6 break $2,500/month, Month 9 break $4,000/month, Month
+            12 break $6,000/month. This is conservative — if your partner is a strong closer or you get referral
+            momentum, you could exceed this by 50–100%.
+          </p>
+          <p>
+            Startup costs (one-time): Domain for your site ($15–20 annual), hosting Vercel ($0 free tier),
+            business cards ($30–50 optional), logo design ($0–150), legal/business registration ($60–100),
+            accounting software ($0 Wave free). Total startup: $105–320.
+          </p>
+          <p>
+            Monthly operating costs: Domain (amortized ~$1.50), hosting ($0 Vercel free tier), business email
+            ($0–8), Cursor/Claude Pro ($0–20), software ($0 use free tiers), marketing/ads ($0–100 partner
+            may handle), phone ($0 use personal line), insurance ($0–50 defer until revenue). Total monthly:
+            $10–180. Your monthly costs can be as low as $10–30 if you use all free tiers and defer insurance/paid
+            tools.
+          </p>
+          <p>
+            Break-even analysis: Monthly costs $10–30 (minimal) or $50–100 (with paid tools). Break-even: 1
+            landing page project ($500 = $250 to you) covers 2–8 months of expenses. You're profitable from
+            Month 1 if you land even 1 discounted project.
+          </p>
+          <p>
+            Effective hourly rate tracking: Track your time per project to understand profitability. Example:
+            Project $1,200 Starter Package, your share (50%) $600, your time 25 hours, effective rate $600 ÷
+            25 = $24/hour. Target effective rates: Months 1–3 $15–20/hour (learning, building portfolio),
+            Months 4–6 $20–30/hour (getting faster), Months 7–12 $30–40/hour (efficient systems), Year 2+
+            $40–60/hour (expertise premium). As you get faster with AI tools and templates, your effective
+            hourly rate increases even if prices stay the same.
+          </p>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div>© 2026 vaire* digital — Internal launch blueprint.</div>
+        <div class="footer-right">
+          <a href="./services.html" class="footer-link">← Services</a>
+          <a href="./roadmap.html" class="footer-link">Roadmap →</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

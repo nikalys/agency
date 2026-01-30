@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Rustic Whisk Bakery | Artisan Bakery &amp; Cafe – Dundas, ON</title>
+  <meta name="description" content="Artisan bakery and cafe in Dundas, ON. Daily bread, pastries, coffee. Custom cakes for events. Visit us." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Minimal top strip: cream, not dark -->
+  <div class="top-strip">
+    <div class="top-strip-inner">
+      <a href="../index.html" class="top-strip-back">← Back to Portfolio</a>
+      <span class="top-strip-right">
+        <a href="tel:+19055550123" class="top-strip-phone">(905) 555-0123</a>
+        <a href="#contact" class="top-strip-cta">Order a cake</a>
+      </span>
+    </div>
+  </div>
+
+  <!-- Header: minimal, no box shadow, centered logo + nav -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <img src="logo.svg" alt="" class="logo-img" width="44" height="44" />
+        <span class="logo-text">The Rustic Whisk</span>
+      </a>
+      <button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-main" id="nav-toggle-btn">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+      <nav class="nav-main" id="nav-main" aria-label="Main navigation">
+        <a href="#menu">Menu</a>
+        <a href="#custom-cakes">Cakes</a>
+        <a href="#our-story">Story</a>
+        <a href="#contact">Visit</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Split hero: image left, text panel right (editorial) -->
+    <section class="hero-split">
+      <div class="hero-split-image" aria-hidden="true">
+        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=1000&q=80" alt="" />
+      </div>
+      <div class="hero-split-panel">
+        <p class="hero-eyebrow">Dundas, ON</p>
+        <h1 class="hero-split-title">Baked fresh. Served with care.</h1>
+        <p class="hero-split-sub">Daily bread, pastries &amp; coffee. Custom cakes for every occasion.</p>
+        <a href="#menu" class="hero-cta">See the menu</a>
+      </div>
+    </section>
+
+    <!-- Our Story: full-bleed image with overlay text block (not side-by-side) -->
+    <section class="story-banner" id="our-story">
+      <div class="story-banner-bg" aria-hidden="true">
+        <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=1400&q=80" alt="" />
+      </div>
+      <div class="story-banner-content">
+        <h2 class="story-banner-title">Our Story</h2>
+        <p class="story-banner-lead">A small bakery in the heart of Dundas, baking with care since 2018.</p>
+        <p>We use local ingredients where we can and traditional methods. Stop in for a coffee and a croissant, or get in touch to plan your event cake.</p>
+      </div>
+    </section>
+
+    <!-- Menu: board style – three columns, all visible, dotted lists (no tabs) -->
+    <section class="menu-board" id="menu">
+      <div class="menu-board-inner">
+        <p class="menu-board-eyebrow">Fresh daily</p>
+        <h2 class="menu-board-title">Menu</h2>
+
+        <div class="menu-board-grid">
+          <div class="menu-column">
+            <h3 class="menu-column-head">Daily Bread</h3>
+            <ul class="price-list">
+              <li><span class="price-item">Sourdough loaf</span><span class="price-dots"></span><span class="price-value">$7.50</span></li>
+              <li><span class="price-item">Multigrain</span><span class="price-dots"></span><span class="price-value">$6.50</span></li>
+              <li><span class="price-item">Baguette</span><span class="price-dots"></span><span class="price-value">$5.00</span></li>
+              <li><span class="price-item">Focaccia</span><span class="price-dots"></span><span class="price-value">$8.00</span></li>
+              <li><span class="price-item">Cinnamon raisin</span><span class="price-dots"></span><span class="price-value">$7.00</span></li>
+            </ul>
+          </div>
+          <div class="menu-column">
+            <h3 class="menu-column-head">Pastries</h3>
+            <ul class="price-list">
+              <li><span class="price-item">Croissant</span><span class="price-dots"></span><span class="price-value">$4.50</span></li>
+              <li><span class="price-item">Pain au chocolat</span><span class="price-dots"></span><span class="price-value">$5.50</span></li>
+              <li><span class="price-item">Almond Danish</span><span class="price-dots"></span><span class="price-value">$5.00</span></li>
+              <li><span class="price-item">Scone</span><span class="price-dots"></span><span class="price-value">$4.00</span></li>
+              <li><span class="price-item">Butter tart</span><span class="price-dots"></span><span class="price-value">$4.50</span></li>
+            </ul>
+          </div>
+          <div class="menu-column">
+            <h3 class="menu-column-head">Coffee</h3>
+            <ul class="price-list">
+              <li><span class="price-item">Drip coffee</span><span class="price-dots"></span><span class="price-value">$3.00</span></li>
+              <li><span class="price-item">Americano</span><span class="price-dots"></span><span class="price-value">$3.50</span></li>
+              <li><span class="price-item">Latte</span><span class="price-dots"></span><span class="price-value">$4.50</span></li>
+              <li><span class="price-item">Cappuccino</span><span class="price-dots"></span><span class="price-value">$4.50</span></li>
+              <li><span class="price-item">Tea (pot)</span><span class="price-dots"></span><span class="price-value">$4.00</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Custom Cakes: bento layout – one large, several small -->
+    <section class="cakes-bento" id="custom-cakes">
+      <div class="cakes-bento-inner">
+        <h2 class="bento-title">Custom Cakes</h2>
+        <p class="bento-intro">Wedding, birthday, or something special. We’ll make it yours.</p>
+
+        <div class="bento-grid">
+          <a href="#contact" class="bento-cell bento-feature" aria-label="Wedding cakes">
+            <img src="https://images.unsplash.com/photo-1535254973040-607b474cb50d?w=800&q=80" alt="Wedding cake" />
+            <span class="bento-label">Wedding</span>
+          </a>
+          <a href="#contact" class="bento-cell" aria-label="Birthday cakes">
+            <img src="https://images.unsplash.com/photo-1558636508-e0db3814bd1d?w=400&q=80" alt="Birthday cake" />
+            <span class="bento-label">Birthday</span>
+          </a>
+          <a href="#contact" class="bento-cell" aria-label="Seasonal cakes">
+            <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400&q=80" alt="Seasonal cake" />
+            <span class="bento-label">Seasonal</span>
+          </a>
+          <a href="#contact" class="bento-cell" aria-label="Custom order">
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&q=80" alt="Celebration cake" />
+            <span class="bento-label">Order yours</span>
+          </a>
+        </div>
+        <p class="bento-cta"><a href="#contact" class="btn-outline">Request a custom cake</a></p>
+      </div>
+    </section>
+
+    <!-- Contact: narrow centered column + map full width below -->
+    <section class="contact-strip" id="contact">
+      <div class="contact-strip-inner">
+        <h2 class="contact-strip-title">Find us</h2>
+        <div class="contact-strip-details">
+          <p><strong>42 King Street West</strong><br />Dundas, ON L9H 1T5</p>
+          <p><a href="tel:+19055550123">(905) 555-0123</a></p>
+          <p>Tue–Sun 7am–4pm · Closed Mondays</p>
+        </div>
+        <div class="contact-form-placeholder">
+          <p><strong>Custom cake request</strong> — Form would go here (date, occasion, details).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Map: full width -->
+    <section class="map-full">
+      <div class="map-full-placeholder">
+        <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=1400&q=80" alt="Dundas" width="1400" height="360" />
+        <span class="map-full-caption">Dundas, ON</span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <a href="index.html" class="footer-logo">
+        <img src="logo.svg" alt="" width="32" height="32" />
+        <span>The Rustic Whisk</span>
+      </a>
+      <p class="footer-address">42 King St W, Dundas, ON</p>
+      <a href="../index.html" class="footer-back">← Back to Portfolio</a>
+    </div>
+  </footer>
+
+  <a href="tel:+19055550123" class="sticky-cta" aria-label="Call us">Order a cake</a>
+
+  <script>
+    (function() {
+      var btn = document.getElementById('nav-toggle-btn');
+      var nav = document.getElementById('nav-main');
+      if (btn && nav) {
+        function open() { btn.setAttribute('aria-expanded', 'true'); btn.setAttribute('aria-label', 'Close menu'); nav.classList.add('nav-open'); document.body.classList.add('nav-open'); }
+        function close() { btn.setAttribute('aria-expanded', 'false'); btn.setAttribute('aria-label', 'Open menu'); nav.classList.remove('nav-open'); document.body.classList.remove('nav-open'); }
+        btn.addEventListener('click', function() { nav.classList.contains('nav-open') ? close() : open(); });
+        nav.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', close); });
+        document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close(); });
+      }
+    })();
+  </script>
+</body>
+</html>

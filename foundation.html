@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en" data-page="foundation">
+  <head>
+    <meta charset="utf-8" />
+    <title>Foundation & Business Structure – vaire* digital</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta
+      name="description"
+      content="Who vaire* digital is, what you stand for, who you serve, and why a small, calm agency is the goal."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./site.css" />
+    <script>
+      (function () {
+        try {
+          var stored = window.localStorage.getItem("vaire-plan-theme");
+          var prefersDark =
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches;
+          var theme = stored || (prefersDark ? "dark" : "light");
+          var fontStored = window.localStorage.getItem("vaire-font-size");
+          var font = (fontStored === "small" || fontStored === "medium" || fontStored === "large") ? fontStored : "medium";
+          document.addEventListener("DOMContentLoaded", function () {
+            var body = document.body;
+            var root = document.documentElement;
+            if (body) body.setAttribute("data-theme", theme);
+            if (root) {
+              root.setAttribute("data-font-size", font);
+              root.classList.remove("font-size-small", "font-size-medium", "font-size-large");
+              root.classList.add("font-size-" + font);
+            }
+          });
+        } catch (e) {}
+      })();
+    </script>
+    <script src="./scripts.js" defer></script>
+  </head>
+  <body class="page chapter-page">
+    <header class="site-header">
+      <div class="site-header-inner">
+        <a href="./index.html" class="brand site-brand">
+          <img src="./logo.svg" alt="vaire* digital logo" class="brand-logo" />
+          <div class="brand-mark" aria-hidden="true"></div>
+        </a>
+        <nav class="site-nav">
+          <div class="nav-links" aria-label="Primary navigation">
+            <a href="./index.html" class="nav-link" data-nav="home">Home</a>
+            <a href="./portfolio/index.html" class="nav-link" data-nav="portfolio">Portfolio</a>
+            <a href="./foundation.html" class="nav-link nav-link-active" data-nav="foundation">Foundation</a>
+            <a href="./services.html" class="nav-link" data-nav="services">Services</a>
+            <a href="./operations.html" class="nav-link" data-nav="operations">Operations</a>
+            <a href="./roadmap.html" class="nav-link" data-nav="roadmap">Roadmap</a>
+            <a href="./risks.html" class="nav-link" data-nav="risks">Risks & Growth</a>
+            <a href="./checklists.html" class="nav-link" data-nav="checklists">Checklists</a>
+          </div>
+          <div class="site-controls">
+            <details class="site-controls-accordion" id="site-display-accordion">
+              <summary class="site-controls-accordion-header" aria-label="Display options">
+                <span class="display-trigger-box" aria-hidden="true"></span>
+              </summary>
+              <div class="accordion-panel" id="site-display-panel" role="region" aria-label="Display options">
+                <div class="accordion-inner site-controls-panel">
+                  <button type="button" class="site-visual-toggle" data-role="visual-toggle">Focus mode</button>
+                  <div class="font-toggle" aria-label="Font size">
+                    <span class="font-toggle-label">Text</span>
+                    <button type="button" class="font-toggle-button" data-font-size="small">A−</button>
+                    <button type="button" class="font-toggle-button" data-font-size="medium">A</button>
+                    <button type="button" class="font-toggle-button" data-font-size="large">A+</button>
+                  </div>
+                  <div class="toggle" aria-label="Toggle dark mode">
+                    <span class="toggle-label">Dark</span>
+                    <button class="toggle-track" type="button" data-role="theme-toggle" aria-pressed="false">
+                      <span class="sr-only">Toggle dark mode</span>
+                      <span class="toggle-thumb"></span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="chapter-main">
+      <header class="chapter-header">
+        <p class="chapter-eyebrow">Chapter 1</p>
+        <h1 class="chapter-title">Foundation & Business Structure</h1>
+        <p class="chapter-intro">
+          Before you build anything, you need to know who you are, what you stand for, and who
+          you're building for. This chapter lays out the foundation: your business structure,
+          core values, target customers, competitive positioning, and the technical decisions
+          that shape everything you build.
+        </p>
+      </header>
+
+      <div class="chapter-content">
+        <section class="chapter-section">
+          <h2 class="chapter-section-title">Executive Summary</h2>
+          <p>
+            vaire* digital is a lean, modern web development agency targeting small local businesses
+            in the Greater Toronto Area. The agency specializes in WordPress website development,
+            SEO optimization, and Google Business Profile management with transparent pricing and
+            fast turnaround times powered by AI tools like Claude Code and Cursor.
+          </p>
+          <p>
+            Your core value proposition is simple: <strong>"Transparent Web Design for GTA Small
+            Businesses — No tech jargon, fast turnaround, affordable pricing with AI-powered
+            quality."</strong>
+          </p>
+          <p>
+            The revenue model is built on a 50/50 partnership split between technical delivery and
+            sales/marketing. You're targeting $1,000 per month by Month 3, growing to $5,000–10,000
+            per month by Month 12. Your key success factors are leveraging AI tools for 3–5x
+            productivity, WordPress-based solutions for client maintainability, local SEO focus,
+            strategic partnership, and a portfolio-first approach.
+          </p>
+        </section>
+
+        <section class="chapter-section">
+          <h2 class="chapter-section-title">Business Structure</h2>
+          <p>
+            <strong>Company Name:</strong> vaire* digital (or Nik Digital, depending on your final
+            branding decision). The legal structure will be registered as a Sole Proprietorship
+            initially, operating remotely-first with a local client focus in the Greater Toronto
+            Area, Ontario, Canada.
+          </p>
+          <p>
+            Your team structure is straightforward: you handle website development, maintenance,
+            technical SEO, and ongoing support. Your marketing partner handles client acquisition,
+            sales closing, client communication, and lead generation. The partnership split is
+            50/50 revenue share on all projects and retainers — clear, simple, and fair.
+          </p>
+        </section>
+
+        <section class="chapter-section">
+          <h2 class="chapter-section-title">Core Values & Mission</h2>
+          <p>
+            Your mission statement: <em>"Empowering GTA small businesses with professional web
+            presence through transparent, affordable, and maintainable digital solutions."</em>
+          </p>
+          <p>Your core values are:</p>
+          <ul>
+            <li><strong>Transparency</strong> — Plain English communication, no tech jargon, honest timelines</li>
+            <li><strong>Speed</strong> — Fast turnaround leveraging modern AI tools (2–3 weeks vs industry 4–6 weeks)</li>
+            <li><strong>Ownership</strong> — Clients own everything, no lock-in contracts</li>
+            <li><strong>Local</strong> — Supporting GTA businesses, understanding local market</li>
+            <li><strong>Growth</strong> — Flexible solutions that scale with client success</li>
+          </ul>
+        </section>
+
+        <section class="chapter-section">
+          <h2 class="chapter-section-title">Target Customer Profile</h2>
+          <p>
+            Your primary markets include contractors (plumbers, electricians, HVAC, renovation,
+            landscaping), restaurants and cafes, real estate agents, medical and dental clinics,
+            professional services (accountants, lawyers, consultants, insurance), and local retail
+            stores.
+          </p>
+          <p>
+            These customers are typically solo operators to 5-person teams, with annual revenue
+            between $50,000 and $500,000. They have low to medium tech savvy and need hand-holding.
+            Their pain points include outdated or no website, poor Google visibility, tech overwhelm,
+            previous bad experiences with agencies, limited budget for marketing, and needing quick
+            results for busy seasons.
+          </p>
+          <p>
+            Decision makers are business owners directly — not committees. Buying triggers include
+            losing business to competitors with better online presence, difficulty getting found on
+            Google searches, referrals from satisfied customers, seasonal business needs, and new
+            business launches requiring fast web presence.
+          </p>
+        </section>
+
+        <section class="chapter-section">
+          <h2 class="chapter-section-title">Market Analysis & Positioning</h2>
+          <p>
+            In the GTA market, your direct competitors include established local agencies charging
+            $5,000–$15,000 per project with 6–8 week timelines, freelance platforms like Fiverr and
+            Upwork with variable quality and communication challenges, DIY website builders like Wix
+            and Squarespace, and offshore agencies with quality and timezone problems.
+          </p>
+          <p>
+            Your competitive advantages are clear: professional results at 40–60% of agency prices,
+            AI-assisted development delivering 2–3x faster than competitors, local presence with
+            same timezone and GTA market understanding, transparent communication with no jargon,
+            and client empowerment through WordPress training and full ownership.
+          </p>
+          <p>
+            You fill market gaps between DIY builders and expensive agencies, communication gaps
+            with offshore providers, trust gaps from previous bad agency experiences, technical
+            complexity gaps, and speed gaps where most agencies take 4–6 weeks but you deliver in 2.
+          </p>
+          <p>
+            Your primary unique selling proposition is <strong>"Transparent Web Design for GTA Small
+            Businesses"</strong>, supported by messages about no tech jargon, full ownership, fast
+            turnaround, affordable pricing, local presence, and optional training. These work because
+            they address pain points directly, build trust through locality and honesty, differentiate
+            from both high-end agencies and low-cost options, and emphasize client empowerment.
+          </p>
+        </section>
+
+        <section class="chapter-section">
+          <h2 class="chapter-section-title">Market Opportunity</h2>
+          <p>
+            The GTA small business market includes approximately 200,000+ small businesses, with
+            roughly 50,000 businesses actively needing web services. Your target obtainable market
+            for Year 1 is 30–50 clients.
+          </p>
+          <p>
+            Revenue potential looks like this: with an average project value of $1,500, Year 1 target
+            of 35–45 projects equals $52,500–67,500 gross revenue. Your share (50%) would be
+            $26,250–33,750. Plus retainers from 6–8 clients by month 12 adds an additional $7,200–10,800
+            annually. Total Year 1 your share: $33,450–44,550.
+          </p>
+          <p>
+            Market trends favoring entry in 2025–2026 include increased local search importance
+            post-COVID, Google's local business focus with GBP growing in importance, AI tools
+            democratizing web development quality (your secret weapon), small business digital
+            transformation acceleration, growing demand for affordable maintainable solutions, and
+            trust premium for local providers.
+          </p>
+        </section>
+
+        <section class="chapter-section">
+          <h2 class="chapter-section-title">Technical Architecture</h2>
+          <p>
+            You'll use a dual-stack approach: WordPress for client projects (fast, maintainable,
+            client-friendly) and Next.js for your agency website (modern, fast, learning opportunity).
+            This gives you fast delivery for clients while developing modern skills for yourself.
+          </p>
+          <p>
+            For client projects, you'll use WordPress 6.4+, Elementor or Gutenberg page builders,
+            Astra or GeneratePress theme frameworks, LocalWP for local development, and essential
+            plugins like Rank Math SEO, Wordfence security, UpdraftPlus backups, LiteSpeed Cache
+            or WP Rocket for performance, WPForms for forms, and MonsterInsights for analytics.
+          </p>
+          <p>
+            For your agency website, you'll build with Next.js 14+ (App Router), TypeScript or
+            JavaScript, Tailwind CSS, Vercel hosting (free tier), Sanity CMS or MDX files, Resend
+            for email forms, Google Analytics 4, and optional Supabase for lead tracking. This
+            approach lets you learn modern in-demand skills while creating a portfolio piece that
+            showcases your capabilities.
+          </p>
+          <p>
+            Your development tools include Cursor (AI-assisted coding) as your primary tool, Claude
+            Code as your pair programmer, Git and GitHub for version control, LocalWP for local
+            WordPress, Figma and Canva for design, and Chrome DevTools for testing. AI tools are
+            your secret weapon, multiplying productivity by 3–5x and filling knowledge gaps instantly.
+          </p>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div>© 2026 vaire* digital — Internal launch blueprint.</div>
+        <div class="footer-right">
+          <a href="./index.html" class="footer-link">← Back to home</a>
+          <a href="./services.html" class="footer-link">Services & Pricing →</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

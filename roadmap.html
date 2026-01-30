@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en" data-page="roadmap">
+  <head>
+    <meta charset="utf-8" />
+    <title>Development Roadmap – vaire* digital</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta
+      name="description"
+      content="Your week-by-week learning plan: WordPress basics, building your agency site, taking on first clients, and scaling systems."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./site.css" />
+    <script>
+      (function () {
+        try {
+          var stored = window.localStorage.getItem("vaire-plan-theme");
+          var prefersDark =
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches;
+          var theme = stored || (prefersDark ? "dark" : "light");
+          var fontStored = window.localStorage.getItem("vaire-font-size");
+          var font = (fontStored === "small" || fontStored === "medium" || fontStored === "large") ? fontStored : "medium";
+          document.addEventListener("DOMContentLoaded", function () {
+            var body = document.body;
+            var root = document.documentElement;
+            if (body) body.setAttribute("data-theme", theme);
+            if (root) {
+              root.setAttribute("data-font-size", font);
+              root.classList.remove("font-size-small", "font-size-medium", "font-size-large");
+              root.classList.add("font-size-" + font);
+            }
+          });
+        } catch (e) {}
+      })();
+    </script>
+    <script src="./scripts.js" defer></script>
+  </head>
+  <body class="page chapter-page">
+    <header class="site-header">
+      <div class="site-header-inner">
+        <a href="./index.html" class="brand site-brand">
+          <img src="./logo.svg" alt="vaire* digital logo" class="brand-logo" />
+          <div class="brand-mark" aria-hidden="true"></div>
+        </a>
+        <nav class="site-nav">
+          <div class="nav-links" aria-label="Primary navigation">
+            <a href="./index.html" class="nav-link" data-nav="home">Home</a>
+            <a href="./portfolio/index.html" class="nav-link" data-nav="portfolio">Portfolio</a>
+            <a href="./foundation.html" class="nav-link" data-nav="foundation">Foundation</a>
+            <a href="./services.html" class="nav-link" data-nav="services">Services</a>
+            <a href="./operations.html" class="nav-link" data-nav="operations">Operations</a>
+            <a href="./roadmap.html" class="nav-link nav-link-active" data-nav="roadmap">Roadmap</a>
+            <a href="./risks.html" class="nav-link" data-nav="risks">Risks & Growth</a>
+            <a href="./checklists.html" class="nav-link" data-nav="checklists">Checklists</a>
+          </div>
+          <div class="site-controls">
+            <details class="site-controls-accordion" id="site-display-accordion">
+              <summary class="site-controls-accordion-header" aria-label="Display options">
+                <span class="display-trigger-box" aria-hidden="true"></span>
+              </summary>
+              <div class="accordion-panel" id="site-display-panel" role="region" aria-label="Display options">
+                <div class="accordion-inner site-controls-panel">
+                  <button type="button" class="site-visual-toggle" data-role="visual-toggle">Focus mode</button>
+                  <div class="font-toggle" aria-label="Font size">
+                    <span class="font-toggle-label">Text</span>
+                    <button type="button" class="font-toggle-button" data-font-size="small">A−</button>
+                    <button type="button" class="font-toggle-button" data-font-size="medium">A</button>
+                    <button type="button" class="font-toggle-button" data-font-size="large">A+</button>
+                  </div>
+                  <div class="toggle" aria-label="Toggle dark mode">
+                    <span class="toggle-label">Dark</span>
+                    <button class="toggle-track" type="button" data-role="theme-toggle" aria-pressed="false">
+                      <span class="sr-only">Toggle dark mode</span>
+                      <span class="toggle-thumb"></span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="chapter-main">
+      <header class="chapter-header">
+        <p class="chapter-eyebrow">Chapter 4</p>
+        <h1 class="chapter-title">Development Roadmap & Learning Path</h1>
+        <p class="chapter-intro">
+          Your week-by-week learning plan: WordPress basics, building your agency site, taking on first
+          clients, and scaling systems. This is the practical guide for going from "junior dev" to "running
+          a real agency" in your first 12 weeks.
+        </p>
+      </header>
+
+      <div class="chapter-content">
+        <section class="chapter-section">
+          <h2 class="chapter-section-title">Phase 1: Foundation (Weeks 1–2)</h2>
+          <p>
+            <strong>Goal:</strong> Get your development environment set up and build your first basic WordPress
+            site.
+          </p>
+          <p>
+            <strong>Week 1: Setup & WordPress Basics.</strong> Days 1–2: Environment setup — install Node.js
+            (LTS version), install Cursor IDE, set up Claude Code in Cursor, install LocalWP (local WordPress
+            environment), create GitHub account plus install Git, install Chrome plus DevTools familiarization.
+            Days 3–5: WordPress fundamentals — create first local WordPress site in LocalWP, install Astra theme
+            (free), install Elementor (free), practice building a simple 3-page site (Home, About, Contact),
+            add contact form with WPForms, learn Pages vs Posts, Media Library, Menus. Days 6–7: Portfolio
+            project #1 — build your first portfolio piece (fictional client), business type: local contractor
+            (plumber, electrician, etc.), 3 pages: Home, Services, Contact, use free stock photos (Unsplash),
+            make it look professional (good enough to show).
+          </p>
+          <p>
+            <strong>Week 2: WordPress Intermediate + First Real Project.</strong> Days 8–10: Essential plugins
+            and SEO — install Rank Math SEO plugin, learn meta titles, descriptions, sitemaps, install Wordfence
+            (security), install UpdraftPlus (backups), practice optimizing portfolio project #1 for SEO. Days
+            11–12: Portfolio project #2 — build second portfolio piece (fictional), business type: restaurant
+            or cafe, 5 pages: Home, Menu, About, Gallery, Contact, add Google Maps embed, make it mobile-responsive.
+            Days 13–14: Discounted real project #1 — find your first real client (friend/family), offer $200–300
+            for 3-page site, in exchange: testimonial plus portfolio permission, build it using what you've
+            learned, ask Claude Code for help when stuck.
+          </p>
+        </section>
+
+        <section class="chapter-section">
+          <h2 class="chapter-section-title">Phase 2: Your Agency Website (Weeks 3–6)</h2>
+          <p>
+            <strong>Goal:</strong> Build your professional agency website using Next.js (your portfolio piece
+            plus learning modern tech).
+          </p>
+          <p>
+            <strong>Week 3: Next.js Basics.</strong> Days 15–17: Next.js crash course — watch Next.js tutorial
+            (YouTube, 2–3 hours), read Next.js docs (quick start guide), create simple Next.js app with Cursor
+            plus Claude Code, build basic landing page (Home page), deploy: push to GitHub, connect Vercel.
+            Days 18–21: Agency site structure — plan sitemap for your agency site (Home, About, Services, Portfolio,
+            Contact), design: sketch wireframes (Figma or paper), build homepage with hero, services preview,
+            CTA, style: add Tailwind CSS classes, test: make sure it's responsive.
+          </p>
+          <p>
+            <strong>Week 4–5: Complete Agency Site.</strong> Days 22–26: Service and portfolio pages — build
+            services page (list your 3 packages), build portfolio page (grid of your 2–3 projects), build
+            individual case study pages, add contact form (using Resend API), test: all links work, forms submit.
+            Days 27–31: Content and polish — write homepage copy (with Claude's help), write about page (your
+            story, why you're different), write service descriptions, add SEO meta tags (titles, descriptions),
+            add Google Analytics, final polish: fix any bugs, improve mobile view. Days 32–35: Launch your site
+            — buy domain (yourname.ca or vairedigital.ca), connect domain to Vercel, test: everything works on
+            live domain, set up business email (Google Workspace or free Zoho), submit sitemap to Google Search
+            Console.
+          </p>
+          <p>
+            <strong>Week 6: Portfolio Building.</strong> Days 36–42: Discounted projects #2 and #3 — find 2 more
+            real clients (aim for $300–400 each), build sites using WordPress plus your templates, goal: get
+            testimonials plus portfolio pieces, document: screenshot process for case studies, add these projects
+            to your portfolio page.
+          </p>
+        </section>
+
+        <section class="chapter-section">
+          <h2 class="chapter-section-title">Phase 3: Client Work & Systems (Weeks 7–10)</h2>
+          <p>
+            <strong>Goal:</strong> Start taking on full-price clients and systemize your workflow.
+          </p>
+          <p>
+            <strong>Week 7–8: First Full-Price Projects.</strong> Partner starts pitching with your portfolio.
+            Take on 1–2 Starter Package clients ($1,200 each). Use templates and checklists from this guide.
+            Track time spent per task (learn your actual speed). Refine your project workflow based on learnings.
+            Request testimonials and referrals.
+          </p>
+          <p>
+            <strong>Week 9–10: System Optimization.</strong> Create project templates (folder structure, checklists).
+            Document common tasks (how-to guides for yourself). Set up Trello board for project management. Build
+            email templates for all client communications. Create reusable WordPress site templates. Automate
+            anything repetitive (backup schedules, etc.).
+          </p>
+        </section>
+
+        <section class="chapter-section">
+          <h2 class="chapter-section-title">Phase 4: Scale & Grow (Weeks 11–12+)</h2>
+          <p>
+            <strong>Goal:</strong> Take on more clients, add retainer services, optimize profitability.
+          </p>
+          <p>
+            <strong>Week 11–12: Retainer Setup.</strong> Identify clients who might need maintenance. Pitch
+            maintenance packages to past clients. Set up monthly processes (updates, backups, reports). Automate
+            as much as possible (MainWP for multi-site management). Upsell SEO services to existing clients.
+          </p>
+          <p>
+            <strong>Ongoing Growth:</strong> Aim for 3–5 projects per month. Build 5–8 retainer clients by Month
+            6. Systemize: templated workflows for speed. Learn new skills as needed (e.g., e-commerce if demand
+            exists). Delegate: consider hiring contractor for overflow work (Month 6+).
+          </p>
+        </section>
+
+        <section class="chapter-section">
+          <h2 class="chapter-section-title">Learning Resources</h2>
+          <p>
+            <strong>WordPress:</strong> WP Beginner (free tutorials), YouTube "WordPress for Beginners" (various
+            channels), official WordPress documentation.
+          </p>
+          <p>
+            <strong>Next.js:</strong> Next.js official docs (excellent), YouTube "Next.js 14 Crash Course"
+            (2–3 hour videos), Frontend Masters (paid, but high quality).
+          </p>
+          <p>
+            <strong>Tailwind CSS:</strong> Tailwind official docs (best resource), Tailwind UI (paid components,
+            optional), YouTube "Tailwind CSS Crash Course".
+          </p>
+          <p>
+            <strong>SEO:</strong> Moz Beginner's Guide to SEO (free), Ahrefs YouTube channel (free tutorials),
+            Backlinko blog (Brian Dean).
+          </p>
+          <p>
+            <strong>Business/Sales:</strong> "The Mom Test" (book, how to talk to customers), Y Combinator Startup
+            School (free online course), "Obviously Awesome" (book, positioning).
+          </p>
+          <p>
+            <strong>When You Get Stuck:</strong> Claude Code in Cursor (ask it anything), ChatGPT (free tier),
+            Stack Overflow (Google your error message), WordPress support forums, Reddit: r/webdev, r/wordpress.
+          </p>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div>© 2026 vaire* digital — Internal launch blueprint.</div>
+        <div class="footer-right">
+          <a href="./operations.html" class="footer-link">← Operations</a>
+          <a href="./risks.html" class="footer-link">Risks & Growth →</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

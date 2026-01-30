@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en" data-page="checklists">
+  <head>
+    <meta charset="utf-8" />
+    <title>Checklists, Tools & Prompts – vaire* digital</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta
+      name="description"
+      content="Your day-to-day reference section: launch checklists, success metrics, month-by-month action plans, and Cursor prompt template."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./site.css" />
+    <script>
+      (function () {
+        try {
+          var stored = window.localStorage.getItem("vaire-plan-theme");
+          var prefersDark =
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches;
+          var theme = stored || (prefersDark ? "dark" : "light");
+          var fontStored = window.localStorage.getItem("vaire-font-size");
+          var font = (fontStored === "small" || fontStored === "medium" || fontStored === "large") ? fontStored : "medium";
+          document.addEventListener("DOMContentLoaded", function () {
+            var body = document.body;
+            var root = document.documentElement;
+            if (body) body.setAttribute("data-theme", theme);
+            if (root) {
+              root.setAttribute("data-font-size", font);
+              root.classList.remove("font-size-small", "font-size-medium", "font-size-large");
+              root.classList.add("font-size-" + font);
+            }
+          });
+        } catch (e) {}
+      })();
+    </script>
+    <script src="./scripts.js" defer></script>
+  </head>
+  <body class="page chapter-page">
+    <header class="site-header">
+      <div class="site-header-inner">
+        <a href="./index.html" class="brand site-brand">
+          <img src="./logo.svg" alt="vaire* digital logo" class="brand-logo" />
+          <div class="brand-mark" aria-hidden="true"></div>
+        </a>
+        <nav class="site-nav">
+          <div class="nav-links" aria-label="Primary navigation">
+            <a href="./index.html" class="nav-link" data-nav="home">Home</a>
+            <a href="./portfolio/index.html" class="nav-link" data-nav="portfolio">Portfolio</a>
+            <a href="./foundation.html" class="nav-link" data-nav="foundation">Foundation</a>
+            <a href="./services.html" class="nav-link" data-nav="services">Services</a>
+            <a href="./operations.html" class="nav-link" data-nav="operations">Operations</a>
+            <a href="./roadmap.html" class="nav-link" data-nav="roadmap">Roadmap</a>
+            <a href="./risks.html" class="nav-link" data-nav="risks">Risks & Growth</a>
+            <a href="./checklists.html" class="nav-link nav-link-active" data-nav="checklists">Checklists</a>
+          </div>
+          <div class="site-controls">
+            <details class="site-controls-accordion" id="site-display-accordion">
+              <summary class="site-controls-accordion-header" aria-label="Display options">
+                <span class="display-trigger-box" aria-hidden="true"></span>
+              </summary>
+              <div class="accordion-panel" id="site-display-panel" role="region" aria-label="Display options">
+                <div class="accordion-inner site-controls-panel">
+                  <button type="button" class="site-visual-toggle" data-role="visual-toggle">Focus mode</button>
+                  <div class="font-toggle" aria-label="Font size">
+                    <span class="font-toggle-label">Text</span>
+                    <button type="button" class="font-toggle-button" data-font-size="small">A−</button>
+                    <button type="button" class="font-toggle-button" data-font-size="medium">A</button>
+                    <button type="button" class="font-toggle-button" data-font-size="large">A+</button>
+                  </div>
+                  <div class="toggle" aria-label="Toggle dark mode">
+                    <span class="toggle-label">Dark</span>
+                    <button class="toggle-track" type="button" data-role="theme-toggle" aria-pressed="false">
+                      <span class="sr-only">Toggle dark mode</span>
+                      <span class="toggle-thumb"></span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="chapter-main">
+      <header class="chapter-header">
+        <p class="chapter-eyebrow">Chapter 6</p>
+        <h1 class="chapter-title">Checklists, Tools & Prompts</h1>
+        <p class="chapter-intro">
+          Your day-to-day reference section: launch checklists, success metrics, month-by-month action
+          plans, and the complete Cursor prompt template for getting help from Claude Code on any client
+          project.
+        </p>
+      </header>
+
+      <div class="chapter-content">
+        <section class="chapter-section">
+          <h2 class="chapter-section-title">Business Launch Checklist</h2>
+          <p>
+            Before officially launching vaire* digital, ensure you've completed these items:
+          </p>
+          <p>
+            <strong>Business Foundation:</strong> Business name decided (vaire* digital or other), business
+            registered (or plan to register after first few clients), partnership agreement with marketing partner
+            (written, even informal), revenue split confirmed (50/50), roles clarified (you: build, partner: sell),
+            business bank account opened (or plan for separate account).
+          </p>
+          <p>
+            <strong>Legal & Admin:</strong> Client contract template acquired (Law Depot or lawyer), proposal template
+            created, invoice template created (Wave or Google Sheets), payment terms decided (50% deposit, 50% on
+            completion), refund policy written, Privacy Policy page drafted (for your site).
+          </p>
+          <p>
+            <strong>Technical Setup:</strong> LocalWP installed and working, Cursor IDE installed with Claude Code
+            access, GitHub account created, domain purchased for your agency site (yourname.ca), business email set
+            up (Google Workspace or free Zoho), Google Analytics account created, Google Search Console account created.
+          </p>
+          <p>
+            <strong>Your Agency Website:</strong> Next.js site built (or WordPress if you prefer), homepage with clear
+            value proposition, services page with 3 packages plus pricing, portfolio page with 3–5 case studies, contact
+            form working (tested), SEO basics done (meta tags, sitemap, analytics), mobile-responsive, deployed to
+            Vercel and live on your domain.
+          </p>
+          <p>
+            <strong>Portfolio Pieces (Minimum 3):</strong> Portfolio project #1 complete (fictional or real), portfolio
+            project #2 complete, portfolio project #3 complete, screenshots taken for each project, case studies written
+            (problem, solution, results), testimonials received (if real clients) or prepared (if fictional).
+          </p>
+          <p>
+            <strong>Sales Collateral:</strong> One-page service menu (PDF) created, proposal template finalized, email
+            templates created (kickoff, design preview, launch, etc.), pricing calculator or quote generator (optional,
+            spreadsheet is fine).
+          </p>
+          <p>
+            <strong>Operational Systems:</strong> Trello board set up (or Notion), project folder template created
+            (Google Drive), time tracking system decided (Toggl or spreadsheet), client intake form created (Google
+            Form), pre-launch QA checklist (from Operations chapter).
+          </p>
+          <p>
+            <strong>Marketing & Sales:</strong> Google Business Profile created for your agency, LinkedIn profile updated
+            (showcase web dev skills), Instagram business account created (optional), partner has list of warm leads to
+            contact, referral program decided (10% off for referrals).
+          </p>
+          <p>
+            <strong>Financial Tracking:</strong> Separate bank account or clear tracking system, accounting software (Wave
+            free) or spreadsheet, invoice numbering system, expense tracking system, budget for Year 1 operating costs
+            ($100–300).
+          </p>
+          <p>
+            <strong>Skills & Knowledge:</strong> Comfortable building WordPress sites with Elementor, know how to install
+            and configure essential plugins, can add basic SEO (meta tags, sitemap), can troubleshoot common WordPress
+            issues, comfortable using Claude Code in Cursor for help, understand client onboarding process, know how to
+            handle scope creep and difficult clients.
+          </p>
+        </section>
+
+        <section class="chapter-section">
+          <h2 class="chapter-section-title">Month-by-Month Action Plan</h2>
+          <p>
+            <strong>Month 1: Foundation.</strong> Set up all tools and accounts. Build 1 portfolio project. Launch your
+            agency website. Register business (or plan to).
+          </p>
+          <p>
+            <strong>Month 2: Portfolio Building.</strong> Build 2 more portfolio projects (real or fictional). Partner
+            starts outreach to warm network. Create all sales collateral. Set up operational systems (Trello, etc.).
+          </p>
+          <p>
+            <strong>Month 3: First Paid Clients.</strong> Target: 2–3 projects (landing pages or Starter packages).
+            Focus: deliver quality, get testimonials. Track: time spent per task (learn your speed). Refine: processes
+            based on learnings.
+          </p>
+          <p>
+            <strong>Months 4–6: Scaling Up.</strong> Target: 3–4 projects per month. Start: retainer conversations with
+            past clients. Optimize: templates, checklists, workflows. Build: referral momentum.
+          </p>
+          <p>
+            <strong>Months 7–9: Stabilizing.</strong> Target: 4–5 projects per month plus 5–6 retainers. Focus: quality
+            over quantity. Consider: raising prices 15–20%. Systemize: everything that's repetitive.
+          </p>
+          <p>
+            <strong>Months 10–12: Growing.</strong> Target: 5–7 projects per month plus 8–10 retainers. Evaluate: hiring
+            contractor if overwhelmed. Plan: Year 2 strategy (pricing, services, scaling). Celebrate: you've built a
+            real business!
+          </p>
+        </section>
+
+        <section class="chapter-section">
+          <h2 class="chapter-section-title">Success Metrics</h2>
+          <p>
+            Track these monthly: Projects (number of inquiries received, conversion rate inquiries to signed clients,
+            average project value, number of projects completed, number of projects in pipeline). Financial (gross
+            revenue, your share 50%, total expenses, net profit, effective hourly rate, revenue per project type).
+            Efficiency (average time per project type, time spent on billable vs non-billable work, percentage of time
+            on scope creep target less than 5%, number of revision rounds per project target 1–2). Client satisfaction
+            (number of testimonials received, referrals received target 1 per 3 projects, repeat clients coming back
+            for more work, client retention rate retainers staying active). Business health (cash flow money coming in
+            vs going out, accounts receivable unpaid invoices, project completion rate finishing on time, portfolio pieces
+            available target 8–10 by Month 6).
+          </p>
+          <p>
+            <strong>"On Track" Benchmarks:</strong> Month 3: 3+ projects completed, $800–1,200 revenue to you, 5+ portfolio
+            pieces, 1–2 testimonials. Month 6: 12–15 projects completed (cumulative), $2,000–3,000 revenue to you, 2–4
+            retainer clients, 8+ portfolio pieces, effective hourly rate: $20–25. Month 12: 35–45 projects completed
+            (cumulative), $30,000–40,000 revenue to you (cumulative Year 1), 6–10 retainer clients, effective hourly
+            rate: $30–40, can confidently build any small business site, streamlined processes.
+          </p>
+        </section>
+
+        <section class="chapter-section">
+          <h2 class="chapter-section-title">The Complete Cursor Prompt</h2>
+          <p>
+            This is the prompt you'll use in Cursor to have Claude Code help you build client websites. Copy-paste this
+            into Cursor whenever starting a new project.
+          </p>
+          <pre><code># PROJECT: [CLIENT NAME] - WordPress Website Build
+
+## CONTEXT
+I'm a junior web developer building a WordPress website for a local business client. I'm using:
+- LocalWP for local development
+- WordPress 6.4+ (latest stable)
+- Astra theme (free version) or GeneratePress (free)
+- Elementor page builder (free version)
+- Essential plugins: Rank Math SEO, Wordfence, UpdraftPlus, WPForms
+- Performance: LiteSpeed Cache (free, if host supports) or WP Super Cache; image optimization (e.g. Smush or ShortPixel free tier) if needed to hit load targets
+
+## CLIENT DETAILS
+- **Business Name:** [CLIENT BUSINESS NAME]
+- **Industry:** [e.g., HVAC contractor, restaurant, real estate]
+- **Location/City:** [e.g., Hamilton, ON — for local SEO and GBP]
+- **Target Audience:** [e.g., homeowners in Hamilton, ON seeking plumbing services]
+- **Website Goals:** [e.g., generate leads via contact form, show up in Google searches, appear professional]
+
+## PROJECT SCOPE
+- **Pages:** [List all pages, e.g., Home, About, Services, Gallery, Contact]
+- **Key Features:**
+  - [e.g., Contact form]
+  - [e.g., Google Maps integration]
+  - [e.g., Image gallery]
+  - [e.g., Mobile responsive design]
+- **Hosting:** [e.g., SiteGround, Hostinger, or TBD — affects caching options]
+- **Timeline:** [X] business days
+- **Budget:** $[AMOUNT] (client pays, I need to deliver efficiently)
+
+## CURRENT TASK
+[Describe what you're working on right now]
+
+Example:
+"I need to build the homepage. It should have:
+1. Hero section with headline, subheadline, CTA button
+2. Services section (3 columns showcasing main services)
+3. Testimonials section (2-3 client reviews)
+4. CTA section (call-to-action to contact)
+5. Footer with contact info and social links"
+
+If I'm stuck: I'll paste the exact error message or describe what I see vs what I expect.
+
+## WHAT I NEED FROM YOU
+Please help me:
+1. [Specific question or task]
+2. [Another specific question or task]
+3. [etc.]
+
+## MY SKILL LEVEL
+- I know basic HTML, CSS, JavaScript, Python, PHP
+- I'm comfortable reading code but not expert at writing from scratch
+- I use Cursor/Claude daily — you can suggest custom code (Custom HTML, CSS, or snippets) when Elementor can't do something
+- I'm learning WordPress, Elementor, and web development best practices
+- Please explain technical concepts briefly when you introduce them
+
+## CONSTRAINTS
+- Must use free plugins only (no premium unless absolutely necessary)
+- Prefer Astra/Elementor built-in options over adding extra plugins where possible
+- Must load in under 3 seconds (performance is critical — suggest caching and image optimization)
+- Must be mobile-responsive (majority of traffic is mobile)
+- Must be client-maintainable (they should be able to edit text/images easily)
+
+## EXPECTED OUTPUT FORMAT
+When providing code:
+- Include brief comments explaining what the code does
+- Tell me exactly WHERE to add the code (which file, which section, or in Elementor: which widget and which tab)
+- Explain WHY this approach (not just WHAT)
+
+When providing instructions (especially for Elementor):
+- Step-by-step (numbered list)
+- Use exact widget names and panel tabs (Content, Style, Advanced) so I can find the settings
+- Include screenshots or exact menu paths where possible
+- Warn me about common mistakes to avoid
+
+## ADDITIONAL NOTES
+[Any other relevant information about the project, client preferences, technical challenges, etc.]</code></pre>
+          <p>
+            <strong>How to Use This Prompt:</strong> Copy the template above. Fill in the bracketed sections with your
+            specific project details. Paste into Cursor whenever you start a new website or need help with a task. Update
+            "CURRENT TASK" section as you work through the project. Ask follow-up questions as needed — Claude Code remembers
+            context.
+          </p>
+        </section>
+
+        <section class="chapter-section">
+          <h2 class="chapter-section-title">Final Words of Advice</h2>
+          <p>
+            <strong>1. Start Scrappy, Scale Smart.</strong> You don't need everything perfect to start. You need 3 portfolio
+            pieces (even if fictional), a way to accept payment, a contract template, your skills plus AI tools. Launch
+            with that. Improve as you go.
+          </p>
+          <p>
+            <strong>2. AI Tools Are Your Superpower.</strong> Claude Code in Cursor is a force multiplier. Use it liberally:
+            ask it to review your code, ask it to explain concepts you don't understand, ask it to generate boilerplate,
+            ask it to debug errors, ask it "Why?" questions to learn. This is how you compete with experienced developers
+            despite being junior.
+          </p>
+          <p>
+            <strong>3. Under-Promise, Over-Deliver.</strong> If you think it'll take 2 weeks, say 3 weeks. If you think you
+            can do 5 features, promise 3. Clients LOVE when you deliver early and add bonuses. They HATE when you're late,
+            even if quality is great.
+          </p>
+          <p>
+            <strong>4. Your Reputation Is Everything.</strong> Especially early on: be honest about your experience level
+            ("I'm a junior dev but I use cutting-edge AI tools to deliver quality work fast"), deliver on time even if
+            imperfect (you can polish later), respond quickly to emails (within 24 hours), fix mistakes immediately and
+            without complaint, ask for testimonials and referrals (they're your best marketing).
+          </p>
+          <p>
+            <strong>5. Track Your Time Religiously.</strong> Even though you charge per project, track time: you'll learn
+            where time goes, you'll get better at estimating, you'll know if you're profitable, you'll identify bottlenecks
+            to optimize. Target: $25–40/hour effective rate by Month 6.
+          </p>
+          <p>
+            <strong>6. Say No to Bad Clients.</strong> Red flags: haggling excessively on price, wanting to skip the deposit,
+            vague scope ("I'll know it when I see it"), rushed timeline ("I need this in 3 days"), rude or condescending in
+            initial conversations. It's better to have no client than a nightmare client.
+          </p>
+          <p>
+            <strong>7. Your Partner Relationship Matters.</strong> Communicate openly and often. Have weekly check-ins.
+            Celebrate wins together. Address issues immediately (don't let resentment build). Be flexible but have boundaries.
+            Written agreement on split and roles.
+          </p>
+          <p>
+            <strong>8. Invest in Yourself.</strong> As soon as you can afford it: professional liability insurance ($300–600/year),
+            paid tools that save time (WP Rocket, premium themes), courses/books that level up skills, networking events
+            (local business groups), your own mental health (burnout is real).
+          </p>
+          <p>
+            <strong>9. You WILL Make Mistakes.</strong> You'll underestimate timelines. You'll have bugs go live. You'll have
+            a client not pay. You'll accidentally delete something important. You'll promise something you can't deliver. This
+            is normal. Learn from each one. Document what went wrong and how you'll avoid it next time. The fact that you're
+            reading this guide shows you're preparing well.
+          </p>
+          <p>
+            <strong>10. The First Year Is About Learning, Not Just Earning.</strong> Yes, you need money. But you also need
+            portfolio pieces, testimonials, processes and systems, technical skills, business skills (sales, project management,
+            client relations), confidence. If you end Year 1 with $30K in your pocket AND the skills/systems to do $80K+ in
+            Year 2, you've won.
+          </p>
+        </section>
+
+        <section class="chapter-section">
+          <h2 class="chapter-section-title">You're Ready. Now Go Build.</h2>
+          <p>
+            You have everything you need in this guide: business foundation (values, positioning, target market), services
+            and pricing (packages, à la carte, payment terms), technical architecture (WordPress plus Next.js dual stack),
+            operational workflows (onboarding, project management, QA), sales and marketing strategy (lead gen, objections,
+            collateral), financial projections (realistic monthly targets), development roadmap (week-by-week plan), risk
+            management (common pitfalls and solutions), scaling strategy (paths to $100K+ Year 2).
+          </p>
+          <p>
+            <strong>What happens next:</strong> Weeks 1–2: Set up your environment, build first portfolio project. Weeks
+            3–6: Build your agency site, create 2 more portfolio pieces. Weeks 7–8: Partner starts pitching, you land
+            first paid clients. Weeks 9–12: Refine systems, deliver quality, get testimonials. Month 4+: Scale up, add
+            retainers, raise prices gradually.
+          </p>
+          <p>
+            <strong>Remember:</strong> Progress over perfection. Ship fast, learn fast. AI is your co-pilot. Client success
+            equals your success. You got this.
+          </p>
+          <p>
+            <strong>Questions? Stuck? Unsure?</strong> Use the Cursor prompt (above) to ask Claude Code for help at any point.
+          </p>
+          <p>
+            Good luck! Now go build vaire* digital into a thriving business.
+          </p>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div>© 2026 vaire* digital — Internal launch blueprint.</div>
+        <div class="footer-right">
+          <a href="./risks.html" class="footer-link">← Risks & Growth</a>
+          <a href="./index.html" class="footer-link">Back to home →</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

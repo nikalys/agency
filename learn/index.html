@@ -1,0 +1,1424 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Web Development Learning Path – vaire* digital</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="description" content="Structured learning curriculum for web development fundamentals" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-inner">
+        <h1 class="header-title">Web Development Learning Path</h1>
+        <p class="header-subtitle">A structured curriculum to master web development fundamentals</p>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="container">
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <p class="progress-text" id="progressText">0% Complete</p>
+
+        <div class="curriculum">
+          <!-- Topic 1: HTML Fundamentals -->
+          <section class="topic" data-topic="1">
+            <div class="topic-header">
+              <span class="topic-number">01</span>
+              <div class="topic-info">
+                <h2 class="topic-title">HTML Fundamentals</h2>
+                <p class="topic-description">Learn the structure and semantics of web pages</p>
+              </div>
+              <button class="topic-toggle" aria-expanded="false" aria-label="Toggle topic details">
+                <span class="toggle-icon">▼</span>
+              </button>
+            </div>
+            <div class="topic-content">
+              <div class="steps">
+                <div class="step" data-step="1.1">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-1-1" />
+                    <label for="step-1-1" class="step-label">
+                      <span class="step-number">1.1</span>
+                      <span class="step-title">Understanding HTML Structure</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Learn what HTML stands for and its purpose in web development</li>
+                      <li>Understand the basic HTML document structure: <code>&lt;!DOCTYPE html&gt;</code>, <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, <code>&lt;body&gt;</code></li>
+                      <li>Study the difference between HTML elements, tags, and attributes</li>
+                      <li>Practice creating your first HTML file and opening it in a browser</li>
+                      <li>Learn about HTML comments and their importance</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> MDN HTML Basics, W3Schools HTML Tutorial
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step" data-step="1.2">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-1-2" />
+                    <label for="step-1-2" class="step-label">
+                      <span class="step-number">1.2</span>
+                      <span class="step-title">Text Elements & Headings</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Master heading tags: <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code> and their semantic hierarchy</li>
+                      <li>Learn paragraph tags: <code>&lt;p&gt;</code> and line breaks: <code>&lt;br&gt;</code></li>
+                      <li>Understand text formatting: <code>&lt;strong&gt;</code>, <code>&lt;em&gt;</code>, <code>&lt;mark&gt;</code>, <code>&lt;small&gt;</code></li>
+                      <li>Practice creating a simple text-based page with proper heading structure</li>
+                      <li>Learn about HTML entities for special characters (&amp;, &lt;, &gt;, &copy;)</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> MDN Text Content, HTML Entities Reference
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step" data-step="1.3">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-1-3" />
+                    <label for="step-1-3" class="step-label">
+                      <span class="step-number">1.3</span>
+                      <span class="step-title">Lists & Links</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Create ordered lists: <code>&lt;ol&gt;</code> and unordered lists: <code>&lt;ul&gt;</code></li>
+                      <li>Learn list items: <code>&lt;li&gt;</code> and nested lists</li>
+                      <li>Master anchor tags: <code>&lt;a&gt;</code> with href attribute</li>
+                      <li>Understand different link types: external, internal, anchor links, email links</li>
+                      <li>Practice creating navigation menus using lists and links</li>
+                      <li>Learn about relative vs absolute URLs</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> MDN Links, HTML Lists Guide
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step" data-step="1.4">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-1-4" />
+                    <label for="step-1-4" class="step-label">
+                      <span class="step-number">1.4</span>
+                      <span class="step-title">Images & Media</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Add images using <code>&lt;img&gt;</code> tag with src, alt, width, height attributes</li>
+                      <li>Understand the importance of alt text for accessibility</li>
+                      <li>Learn about image formats: JPEG, PNG, SVG, WebP and when to use each</li>
+                      <li>Embed videos: <code>&lt;video&gt;</code> and audio: <code>&lt;audio&gt;</code> elements</li>
+                      <li>Practice creating a gallery page with multiple images</li>
+                      <li>Learn about responsive images with srcset attribute</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> MDN Images, HTML5 Media Elements
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step" data-step="1.5">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-1-5" />
+                    <label for="step-1-5" class="step-label">
+                      <span class="step-number">1.5</span>
+                      <span class="step-title">Forms & Input Elements</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Create forms using <code>&lt;form&gt;</code> element with action and method attributes</li>
+                      <li>Learn input types: text, email, password, number, date, checkbox, radio, submit</li>
+                      <li>Understand form structure: <code>&lt;label&gt;</code>, <code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code>, <code>&lt;select&gt;</code>, <code>&lt;button&gt;</code></li>
+                      <li>Practice creating a contact form with validation attributes (required, pattern, min, max)</li>
+                      <li>Learn about form accessibility: proper label associations, fieldset, legend</li>
+                      <li>Understand GET vs POST methods</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> MDN Forms, HTML5 Form Validation
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step" data-step="1.6">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-1-6" />
+                    <label for="step-1-6" class="step-label">
+                      <span class="step-number">1.6</span>
+                      <span class="step-title">Semantic HTML5 Elements</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Learn semantic elements: <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;aside&gt;</code>, <code>&lt;footer&gt;</code></li>
+                      <li>Understand when to use <code>&lt;div&gt;</code> vs semantic elements</li>
+                      <li>Learn about <code>&lt;figure&gt;</code> and <code>&lt;figcaption&gt;</code> for images</li>
+                      <li>Practice converting a non-semantic page to semantic HTML5</li>
+                      <li>Understand the benefits of semantic HTML for SEO and accessibility</li>
+                      <li>Learn about HTML5 document outline algorithm</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> MDN HTML5 Semantic Elements, HTML5 Doctor
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step" data-step="1.7">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-1-7" />
+                    <label for="step-1-7" class="step-label">
+                      <span class="step-number">1.7</span>
+                      <span class="step-title">Tables & Data Display</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Create tables: <code>&lt;table&gt;</code>, <code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code>, <code>&lt;tfoot&gt;</code></li>
+                      <li>Learn table elements: <code>&lt;tr&gt;</code>, <code>&lt;th&gt;</code>, <code>&lt;td&gt;</code></li>
+                      <li>Understand table attributes: colspan, rowspan for merging cells</li>
+                      <li>Practice creating a pricing table or data table</li>
+                      <li>Learn about table accessibility: scope attribute, captions</li>
+                      <li>Understand when to use tables vs CSS Grid/Flexbox for layout</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> MDN HTML Tables, Accessible Tables Guide
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step" data-step="1.8">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-1-8" />
+                    <label for="step-1-8" class="step-label">
+                      <span class="step-number">1.8</span>
+                      <span class="step-title">HTML Best Practices & Validation</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Learn HTML validation using W3C Validator</li>
+                      <li>Understand proper indentation and code organization</li>
+                      <li>Learn about HTML5 doctype and meta tags (charset, viewport, description)</li>
+                      <li>Practice writing clean, readable, maintainable HTML</li>
+                      <li>Understand accessibility basics: ARIA labels, semantic HTML, alt text</li>
+                      <li>Learn about HTML5 features: data attributes, microdata</li>
+                      <li>Build a complete multi-page website using all HTML concepts learned</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> W3C Validator, HTML Best Practices Guide
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Topic 2: CSS Fundamentals -->
+          <section class="topic" data-topic="2">
+            <div class="topic-header">
+              <span class="topic-number">02</span>
+              <div class="topic-info">
+                <h2 class="topic-title">CSS Fundamentals</h2>
+                <p class="topic-description">Style and design beautiful, responsive web pages</p>
+              </div>
+              <button class="topic-toggle" aria-expanded="false" aria-label="Toggle topic details">
+                <span class="toggle-icon">▼</span>
+              </button>
+            </div>
+            <div class="topic-content">
+              <div class="steps">
+                <div class="step" data-step="2.1">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-2-1" />
+                    <label for="step-2-1" class="step-label">
+                      <span class="step-number">2.1</span>
+                      <span class="step-title">CSS Basics & Selectors</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Understand what CSS is and how it works with HTML</li>
+                      <li>Learn three ways to add CSS: inline, internal (style tag), external stylesheet</li>
+                      <li>Master CSS selectors: element, class (.), ID (#), attribute selectors</li>
+                      <li>Learn about specificity and the cascade</li>
+                      <li>Practice writing CSS rules: selector { property: value; }</li>
+                      <li>Understand CSS comments and organization</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> MDN CSS Basics, CSS Selectors Reference
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step" data-step="2.2">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-2-2" />
+                    <label for="step-2-2" class="step-label">
+                      <span class="step-number">2.2</span>
+                      <span class="step-title">Colors, Typography & Text Styling</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Learn color values: named colors, hex (#), rgb(), rgba(), hsl(), hsla()</li>
+                      <li>Master typography: font-family, font-size, font-weight, font-style, line-height</li>
+                      <li>Understand text properties: color, text-align, text-decoration, text-transform, letter-spacing</li>
+                      <li>Learn about Google Fonts and web fonts (@font-face)</li>
+                      <li>Practice creating a typography system with consistent font sizes and spacing</li>
+                      <li>Understand font fallbacks and font stacks</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> MDN Typography, Google Fonts, CSS Color Values
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step" data-step="2.3">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-2-3" />
+                    <label for="step-2-3" class="step-label">
+                      <span class="step-number">2.3</span>
+                      <span class="step-title">Box Model & Spacing</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Understand the CSS box model: content, padding, border, margin</li>
+                      <li>Learn about box-sizing: content-box vs border-box</li>
+                      <li>Master margin and padding: shorthand notation, individual sides</li>
+                      <li>Understand width and height: fixed (px), relative (%, em, rem), viewport units (vw, vh)</li>
+                      <li>Learn about min-width, max-width, min-height, max-height</li>
+                      <li>Practice creating layouts with proper spacing and sizing</li>
+                      <li>Understand collapsing margins</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> MDN Box Model, CSS Units Guide
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step" data-step="2.4">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-2-4" />
+                    <label for="step-2-4" class="step-label">
+                      <span class="step-number">2.4</span>
+                      <span class="step-title">Display & Positioning</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Learn display values: block, inline, inline-block, none, flex, grid</li>
+                      <li>Master CSS positioning: static, relative, absolute, fixed, sticky</li>
+                      <li>Understand z-index and stacking context</li>
+                      <li>Learn about float and clear (legacy, but good to know)</li>
+                      <li>Practice creating layouts with different positioning techniques</li>
+                      <li>Understand when to use each positioning method</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> MDN Display, CSS Positioning Guide
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step" data-step="2.5">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-2-5" />
+                    <label for="step-2-5" class="step-label">
+                      <span class="step-number">2.5</span>
+                      <span class="step-title">Flexbox Layout</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Learn flexbox container properties: display: flex, flex-direction, flex-wrap, justify-content, align-items, gap</li>
+                      <li>Master flex item properties: flex-grow, flex-shrink, flex-basis, align-self, order</li>
+                      <li>Understand the main axis and cross axis</li>
+                      <li>Practice creating navigation bars, card layouts, and centered content with flexbox</li>
+                      <li>Learn about flexbox vs float for layouts</li>
+                      <li>Build a responsive navigation menu using flexbox</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> CSS-Tricks Flexbox Guide, Flexbox Froggy Game
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step" data-step="2.6">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-2-6" />
+                    <label for="step-2-6" class="step-label">
+                      <span class="step-number">2.6</span>
+                      <span class="step-title">CSS Grid Layout</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Learn grid container: display: grid, grid-template-columns, grid-template-rows, gap</li>
+                      <li>Master grid item placement: grid-column, grid-row, grid-area</li>
+                      <li>Understand grid template areas for named layouts</li>
+                      <li>Learn about fr units, repeat(), minmax(), auto-fit, auto-fill</li>
+                      <li>Practice creating complex layouts: magazine-style, dashboard, card grids</li>
+                      <li>Understand when to use Grid vs Flexbox</li>
+                      <li>Build a responsive grid-based layout</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> CSS-Tricks Grid Guide, Grid Garden Game
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step" data-step="2.7">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-2-7" />
+                    <label for="step-2-7" class="step-label">
+                      <span class="step-number">2.7</span>
+                      <span class="step-title">Responsive Design & Media Queries</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Understand responsive design principles: mobile-first vs desktop-first</li>
+                      <li>Learn viewport meta tag and its importance</li>
+                      <li>Master media queries: @media (max-width), @media (min-width)</li>
+                      <li>Learn about breakpoints: mobile (320px), tablet (768px), desktop (1024px+)</li>
+                      <li>Practice making a website responsive with media queries</li>
+                      <li>Understand fluid typography: clamp(), min(), max()</li>
+                      <li>Learn about responsive images: srcset, sizes attribute</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> MDN Responsive Design, Media Queries Guide
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step" data-step="2.8">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-2-8" />
+                    <label for="step-2-8" class="step-label">
+                      <span class="step-number">2.8</span>
+                      <span class="step-title">CSS Advanced: Pseudo-classes, Pseudo-elements & Transitions</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Learn pseudo-classes: :hover, :focus, :active, :visited, :nth-child(), :first-child, :last-child</li>
+                      <li>Master pseudo-elements: ::before, ::after, ::first-line, ::first-letter</li>
+                      <li>Understand CSS transitions: transition-property, transition-duration, transition-timing-function, transition-delay</li>
+                      <li>Learn about CSS transforms: translate(), rotate(), scale(), skew()</li>
+                      <li>Practice creating interactive buttons and hover effects</li>
+                      <li>Build animated elements using transitions and transforms</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> MDN Pseudo-classes, CSS Transitions Guide
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step" data-step="2.9">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-2-9" />
+                    <label for="step-2-9" class="step-label">
+                      <span class="step-number">2.9</span>
+                      <span class="step-title">CSS Variables & Organization</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Learn CSS custom properties (variables): --variable-name: value; var(--variable-name)</li>
+                      <li>Understand CSS architecture: BEM methodology, component-based CSS</li>
+                      <li>Learn about CSS preprocessors: Sass/SCSS basics (variables, nesting, mixins)</li>
+                      <li>Practice organizing CSS: reset/normalize, variables, base styles, components, utilities</li>
+                      <li>Understand CSS specificity and how to avoid conflicts</li>
+                      <li>Learn about CSS methodologies: OOCSS, SMACSS, BEM</li>
+                      <li>Build a complete styled website with organized, maintainable CSS</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> MDN CSS Variables, BEM Methodology, Sass Basics
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Topic 3: JavaScript Fundamentals -->
+          <section class="topic" data-topic="3">
+            <div class="topic-header">
+              <span class="topic-number">03</span>
+              <div class="topic-info">
+                <h2 class="topic-title">JavaScript Fundamentals</h2>
+                <p class="topic-description">Add interactivity and dynamic behavior to websites</p>
+              </div>
+              <button class="topic-toggle" aria-expanded="false" aria-label="Toggle topic details">
+                <span class="toggle-icon">▼</span>
+              </button>
+            </div>
+            <div class="topic-content">
+              <div class="steps">
+                <div class="step" data-step="3.1">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-3-1" />
+                    <label for="step-3-1" class="step-label">
+                      <span class="step-number">3.1</span>
+                      <span class="step-title">JavaScript Basics & Variables</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Understand what JavaScript is and its role in web development</li>
+                      <li>Learn how to add JavaScript to HTML: inline, internal script tag, external .js file</li>
+                      <li>Master variables: var, let, const and when to use each</li>
+                      <li>Learn about data types: number, string, boolean, undefined, null, object, symbol</li>
+                      <li>Understand type coercion and typeof operator</li>
+                      <li>Practice writing your first JavaScript: console.log(), alert(), prompt()</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> MDN JavaScript Guide, JavaScript.info Variables
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step" data-step="3.2">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-3-2" />
+                    <label for="step-3-2" class="step-label">
+                      <span class="step-number">3.2</span>
+                      <span class="step-title">Operators & Expressions</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Learn arithmetic operators: +, -, *, /, %, ** (exponentiation)</li>
+                      <li>Master comparison operators: ==, ===, !=, !==, &lt;, &gt;, &lt;=, &gt;=</li>
+                      <li>Understand logical operators: &&, ||, !</li>
+                      <li>Learn assignment operators: =, +=, -=, *=, /=</li>
+                      <li>Understand operator precedence and parentheses</li>
+                      <li>Practice writing expressions and calculations</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> MDN Expressions and Operators
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step" data-step="3.3">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-3-3" />
+                    <label for="step-3-3" class="step-label">
+                      <span class="step-number">3.3</span>
+                      <span class="step-title">Conditionals & Control Flow</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Master if/else statements and conditional logic</li>
+                      <li>Learn switch statements for multiple conditions</li>
+                      <li>Understand ternary operator: condition ? value1 : value2</li>
+                      <li>Practice creating decision-making programs</li>
+                      <li>Learn about truthy and falsy values</li>
+                      <li>Build a simple calculator or decision tree</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> MDN Control Flow, JavaScript.info Conditionals
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step" data-step="3.4">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-3-4" />
+                    <label for="step-3-4" class="step-label">
+                      <span class="step-number">3.4</span>
+                      <span class="step-title">Loops & Iteration</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Learn for loops: for (initialization; condition; increment)</li>
+                      <li>Master while and do-while loops</li>
+                      <li>Understand for...in and for...of loops</li>
+                      <li>Learn about break and continue statements</li>
+                      <li>Practice iterating over arrays and objects</li>
+                      <li>Build programs that process lists of data</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> MDN Loops and Iteration
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step" data-step="3.5">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-3-5" />
+                    <label for="step-3-5" class="step-label">
+                      <span class="step-number">3.5</span>
+                      <span class="step-title">Functions & Scope</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Learn function declarations: function name() { }</li>
+                      <li>Master function expressions and arrow functions: () => { }</li>
+                      <li>Understand parameters and arguments</li>
+                      <li>Learn about return statements and function return values</li>
+                      <li>Understand scope: global scope, function scope, block scope</li>
+                      <li>Learn about hoisting and function hoisting</li>
+                      <li>Practice writing reusable functions</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> MDN Functions, JavaScript.info Functions
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step" data-step="3.6">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-3-6" />
+                    <label for="step-3-6" class="step-label">
+                      <span class="step-number">3.6</span>
+                      <span class="step-title">Arrays & Array Methods</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Learn array creation: [], new Array(), array literals</li>
+                      <li>Master array methods: push(), pop(), shift(), unshift(), splice(), slice()</li>
+                      <li>Understand array iteration: forEach(), map(), filter(), reduce(), find(), findIndex()</li>
+                      <li>Learn about array methods: includes(), indexOf(), join(), sort(), reverse()</li>
+                      <li>Practice manipulating arrays: adding, removing, searching, transforming</li>
+                      <li>Build programs that work with lists of data</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> MDN Arrays, Array Methods Guide
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step" data-step="3.7">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-3-7" />
+                    <label for="step-3-7" class="step-label">
+                      <span class="step-number">3.7</span>
+                      <span class="step-title">Objects & Object Methods</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Learn object creation: {}, new Object(), object literals</li>
+                      <li>Master accessing properties: dot notation, bracket notation</li>
+                      <li>Understand object methods and 'this' keyword</li>
+                      <li>Learn about Object.keys(), Object.values(), Object.entries()</li>
+                      <li>Practice creating and manipulating objects</li>
+                      <li>Understand JSON: JSON.stringify(), JSON.parse()</li>
+                      <li>Build programs that work with structured data</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> MDN Objects, JavaScript.info Objects
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step" data-step="3.8">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-3-8" />
+                    <label for="step-3-8" class="step-label">
+                      <span class="step-number">3.8</span>
+                      <span class="step-title">DOM Manipulation</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Understand the Document Object Model (DOM)</li>
+                      <li>Learn selecting elements: getElementById(), querySelector(), querySelectorAll(), getElementsByClassName()</li>
+                      <li>Master modifying content: textContent, innerHTML, innerText</li>
+                      <li>Learn about modifying attributes: setAttribute(), getAttribute(), classList</li>
+                      <li>Understand creating elements: createElement(), appendChild(), insertBefore()</li>
+                      <li>Practice dynamically updating page content</li>
+                      <li>Build interactive features: show/hide, add/remove elements</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> MDN DOM Manipulation, JavaScript.info DOM
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step" data-step="3.9">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-3-9" />
+                    <label for="step-3-9" class="step-label">
+                      <span class="step-number">3.9</span>
+                      <span class="step-title">Event Handling</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Learn event listeners: addEventListener(), removeEventListener()</li>
+                      <li>Master common events: click, submit, change, input, focus, blur, keydown, keyup</li>
+                      <li>Understand event object: event.target, event.preventDefault(), event.stopPropagation()</li>
+                      <li>Learn about event delegation</li>
+                      <li>Practice creating interactive forms and buttons</li>
+                      <li>Build features: modals, dropdowns, accordions, tabs</li>
+                      <li>Understand event bubbling and capturing</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> MDN Events, JavaScript.info Events
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step" data-step="3.10">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-3-10" />
+                    <label for="step-3-10" class="step-label">
+                      <span class="step-number">3.10</span>
+                      <span class="step-title">Async JavaScript: Promises & Async/Await</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Understand asynchronous JavaScript and why it's needed</li>
+                      <li>Learn about callbacks and callback hell</li>
+                      <li>Master Promises: new Promise(), .then(), .catch(), .finally()</li>
+                      <li>Learn async/await syntax: async function, await keyword</li>
+                      <li>Understand fetch() API for making HTTP requests</li>
+                      <li>Practice fetching data from APIs</li>
+                      <li>Learn about error handling: try/catch blocks</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> MDN Promises, JavaScript.info Async/Await, Fetch API Guide
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Topic 4: WordPress Development -->
+          <section class="topic" data-topic="4">
+            <div class="topic-header">
+              <span class="topic-number">04</span>
+              <div class="topic-info">
+                <h2 class="topic-title">WordPress Development</h2>
+                <p class="topic-description">Build and customize WordPress websites for clients</p>
+              </div>
+              <button class="topic-toggle" aria-expanded="false" aria-label="Toggle topic details">
+                <span class="toggle-icon">▼</span>
+              </button>
+            </div>
+            <div class="topic-content">
+              <div class="steps">
+                <div class="step" data-step="4.1">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-4-1" />
+                    <label for="step-4-1" class="step-label">
+                      <span class="step-number">4.1</span>
+                      <span class="step-title">WordPress Basics & Installation</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Understand what WordPress is and its role in web development</li>
+                      <li>Learn the difference between WordPress.com and WordPress.org</li>
+                      <li>Install LocalWP and set up your first local WordPress site</li>
+                      <li>Navigate the WordPress admin dashboard: Posts, Pages, Media, Appearance, Plugins, Users, Settings</li>
+                      <li>Understand WordPress file structure: wp-content, wp-admin, wp-includes</li>
+                      <li>Learn about WordPress database structure (basic overview)</li>
+                      <li>Practice creating pages and posts</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> WordPress.org Documentation, LocalWP Guide
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step" data-step="4.2">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-4-2" />
+                    <label for="step-4-2" class="step-label">
+                      <span class="step-number">4.2</span>
+                      <span class="step-title">Themes & Theme Installation</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Understand what themes are and how they control design</li>
+                      <li>Learn how to install themes: via admin, via upload, via FTP</li>
+                      <li>Install and activate Astra theme (free version)</li>
+                      <li>Explore theme customization: Appearance → Customize</li>
+                      <li>Learn about theme settings: colors, fonts, layout options</li>
+                      <li>Understand child themes and when to use them</li>
+                      <li>Practice customizing a theme to match a design</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> WordPress Theme Handbook, Astra Theme Documentation
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step" data-step="4.3">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-4-3" />
+                    <label for="step-4-3" class="step-label">
+                      <span class="step-number">4.3</span>
+                      <span class="step-title">Page Builders: Elementor Basics</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Install and activate Elementor (free version)</li>
+                      <li>Learn Elementor interface: widgets panel, settings panel, structure panel</li>
+                      <li>Master basic widgets: Heading, Text Editor, Image, Button, Spacer, Divider</li>
+                      <li>Understand sections, columns, and widgets structure</li>
+                      <li>Learn about responsive editing: desktop, tablet, mobile views</li>
+                      <li>Practice building a simple homepage with Elementor</li>
+                      <li>Understand Elementor templates and how to use them</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> Elementor Documentation, Elementor YouTube Tutorials
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step" data-step="4.4">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-4-4" />
+                    <label for="step-4-4" class="step-label">
+                      <span class="step-number">4.4</span>
+                      <span class="step-title">Essential Plugins Installation & Configuration</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Learn how to install plugins: via admin, via upload</li>
+                      <li>Install and configure Rank Math SEO: setup wizard, meta titles, descriptions, sitemap</li>
+                      <li>Install and configure Wordfence: security scan, firewall settings, login security</li>
+                      <li>Install and configure UpdraftPlus: backup schedule, storage location (Google Drive)</li>
+                      <li>Install and configure WPForms: create contact form, form settings, email notifications</li>
+                      <li>Learn about plugin conflicts and how to troubleshoot them</li>
+                      <li>Practice setting up a complete WordPress site with all essential plugins</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> Plugin Documentation (Rank Math, Wordfence, UpdraftPlus, WPForms)
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step" data-step="4.5">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-4-5" />
+                    <label for="step-4-5" class="step-label">
+                      <span class="step-number">4.5</span>
+                      <span class="step-title">Menus, Navigation & Site Structure</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Create and manage menus: Appearance → Menus</li>
+                      <li>Learn about menu locations: primary, footer, sidebar</li>
+                      <li>Understand custom links, pages, posts, categories in menus</li>
+                      <li>Practice creating a multi-level navigation menu</li>
+                      <li>Learn about widgets and widget areas</li>
+                      <li>Configure footer widgets and sidebar widgets</li>
+                      <li>Build a complete site structure: homepage, about, services, contact, etc.</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> WordPress Menu Guide, Widget Documentation
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step" data-step="4.6">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-4-6" />
+                    <label for="step-4-6" class="step-label">
+                      <span class="step-number">4.6</span>
+                      <span class="step-title">Media Library & Image Optimization</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Learn how to upload images: Media → Add New</li>
+                      <li>Understand image optimization: file size, dimensions, formats (JPEG, PNG, WebP)</li>
+                      <li>Learn about WordPress image sizes: thumbnail, medium, large, full</li>
+                      <li>Practice adding images to pages and posts</li>
+                      <li>Understand alt text and image accessibility</li>
+                      <li>Learn about featured images and how to set them</li>
+                      <li>Install and use image optimization plugins (optional: Smush, ShortPixel)</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> WordPress Media Library Guide, Image Optimization Best Practices
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step" data-step="4.7">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-4-7" />
+                    <label for="step-4-7" class="step-label">
+                      <span class="step-number">4.7</span>
+                      <span class="step-title">SEO Optimization with Rank Math</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Complete Rank Math setup wizard and connect Google Search Console</li>
+                      <li>Learn about on-page SEO: meta titles, meta descriptions, focus keywords</li>
+                      <li>Understand schema markup and how Rank Math adds it automatically</li>
+                      <li>Configure XML sitemap and submit to search engines</li>
+                      <li>Learn about local SEO: business schema, location schema</li>
+                      <li>Practice optimizing a page for SEO: keyword research, content optimization</li>
+                      <li>Understand SEO score and how to improve it</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> Rank Math Documentation, SEO Best Practices Guide
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step" data-step="4.8">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-4-8" />
+                    <label for="step-4-8" class="step-label">
+                      <span class="step-number">4.8</span>
+                      <span class="step-title">Forms & Contact Forms with WPForms</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Create a contact form: WPForms → Add New</li>
+                      <li>Learn form fields: name, email, phone, message, dropdown, checkbox, radio</li>
+                      <li>Configure form settings: notifications, confirmations, spam protection</li>
+                      <li>Add form to page using shortcode or Elementor widget</li>
+                      <li>Test form submission and email delivery</li>
+                      <li>Learn about form styling and customization</li>
+                      <li>Practice creating multiple forms: contact, quote request, newsletter signup</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> WPForms Documentation, Form Best Practices
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step" data-step="4.9">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-4-9" />
+                    <label for="step-4-9" class="step-label">
+                      <span class="step-number">4.9</span>
+                      <span class="step-title">Security & Backups</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Configure Wordfence security: firewall rules, scan schedule, login security</li>
+                      <li>Set up automated backups: UpdraftPlus schedule (daily/weekly), storage location</li>
+                      <li>Learn about WordPress security best practices: strong passwords, limit login attempts</li>
+                      <li>Understand SSL certificates and HTTPS</li>
+                      <li>Practice restoring a site from backup</li>
+                      <li>Learn about WordPress updates: core, themes, plugins</li>
+                      <li>Understand the importance of keeping everything updated</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> Wordfence Guide, UpdraftPlus Documentation, WordPress Security Guide
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step" data-step="4.10">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-4-10" />
+                    <label for="step-4-10" class="step-label">
+                      <span class="step-number">4.10</span>
+                      <span class="step-title">Performance Optimization</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Understand WordPress performance factors: hosting, plugins, images, caching</li>
+                      <li>Install and configure caching plugin: LiteSpeed Cache or WP Rocket</li>
+                      <li>Learn about image optimization: lazy loading, WebP format</li>
+                      <li>Understand database optimization: cleanup old revisions, spam comments</li>
+                      <li>Test site speed: Google PageSpeed Insights, GTmetrix</li>
+                      <li>Learn about CDN (Content Delivery Network) basics</li>
+                      <li>Practice optimizing a WordPress site for speed</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> WordPress Performance Guide, Caching Plugins Documentation
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step" data-step="4.11">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-4-11" />
+                    <label for="step-4-11" class="step-label">
+                      <span class="step-number">4.11</span>
+                      <span class="step-title">Deployment & Going Live</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Choose hosting: SiteGround, Hostinger, or client's existing hosting</li>
+                      <li>Learn about domain registration and DNS settings</li>
+                      <li>Understand FTP/SFTP and file transfer basics</li>
+                      <li>Practice migrating site from LocalWP to live server: manual export/import or migration plugin</li>
+                      <li>Configure WordPress settings for production: permalinks, site URL</li>
+                      <li>Test site on live server: all links work, forms submit, images load</li>
+                      <li>Learn about post-launch checklist: SSL, backups, security, analytics</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> WordPress Migration Guide, Hosting Setup Documentation
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Topic 5: Git & Version Control -->
+          <section class="topic" data-topic="5">
+            <div class="topic-header">
+              <span class="topic-number">05</span>
+              <div class="topic-info">
+                <h2 class="topic-title">Git & Version Control</h2>
+                <p class="topic-description">Track changes and collaborate on code projects</p>
+              </div>
+              <button class="topic-toggle" aria-expanded="false" aria-label="Toggle topic details">
+                <span class="toggle-icon">▼</span>
+              </button>
+            </div>
+            <div class="topic-content">
+              <div class="steps">
+                <div class="step" data-step="5.1">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-5-1" />
+                    <label for="step-5-1" class="step-label">
+                      <span class="step-number">5.1</span>
+                      <span class="step-title">Introduction to Version Control</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Understand what version control is and why it's essential</li>
+                      <li>Learn about Git vs GitHub: Git is the tool, GitHub is the hosting service</li>
+                      <li>Understand the benefits: track changes, collaborate, backup, rollback</li>
+                      <li>Learn about repositories: local vs remote</li>
+                      <li>Install Git on your computer</li>
+                      <li>Configure Git: git config --global user.name, git config --global user.email</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> Git Documentation, GitHub Guides
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step" data-step="5.2">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-5-2" />
+                    <label for="step-5-2" class="step-label">
+                      <span class="step-number">5.2</span>
+                      <span class="step-title">Basic Git Commands</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Initialize repository: git init</li>
+                      <li>Check status: git status</li>
+                      <li>Stage files: git add . (all files) or git add filename</li>
+                      <li>Commit changes: git commit -m "message"</li>
+                      <li>View commit history: git log</li>
+                      <li>Practice creating your first repository and making commits</li>
+                      <li>Understand the three states: working directory, staging area, repository</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> Git Basics Tutorial, Git Cheat Sheet
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step" data-step="5.3">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-5-3" />
+                    <label for="step-5-3" class="step-label">
+                      <span class="step-number">5.3</span>
+                      <span class="step-title">GitHub & Remote Repositories</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Create a GitHub account</li>
+                      <li>Create a new repository on GitHub</li>
+                      <li>Connect local repository to remote: git remote add origin URL</li>
+                      <li>Push to GitHub: git push -u origin main (or master)</li>
+                      <li>Clone a repository: git clone URL</li>
+                      <li>Pull changes: git pull</li>
+                      <li>Practice syncing local and remote repositories</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> GitHub Documentation, GitHub Hello World Guide
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step" data-step="5.4">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-5-4" />
+                    <label for="step-5-4" class="step-label">
+                      <span class="step-number">5.4</span>
+                      <span class="step-title">Branches & Merging</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Understand what branches are and why they're useful</li>
+                      <li>Create a branch: git branch branchname or git checkout -b branchname</li>
+                      <li>Switch branches: git checkout branchname or git switch branchname</li>
+                      <li>List branches: git branch</li>
+                      <li>Merge branches: git merge branchname</li>
+                      <li>Delete branches: git branch -d branchname</li>
+                      <li>Practice creating feature branches and merging them</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> Git Branching Guide, GitHub Flow
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step" data-step="5.5">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-5-5" />
+                    <label for="step-5-5" class="step-label">
+                      <span class="step-number">5.5</span>
+                      <span class="step-title">.gitignore & Best Practices</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Understand what .gitignore is and why it's important</li>
+                      <li>Create .gitignore file: node_modules/, .env, *.log, etc.</li>
+                      <li>Learn common patterns: /folder/, *.extension, !exception</li>
+                      <li>Understand commit message best practices: clear, descriptive, present tense</li>
+                      <li>Learn about README.md files and their importance</li>
+                      <li>Practice creating a proper project structure with .gitignore and README</li>
+                      <li>Understand when to commit: logical units of work, not too often, not too rarely</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> .gitignore Templates, Git Best Practices
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Topic 6: Responsive Design & Mobile-First -->
+          <section class="topic" data-topic="6">
+            <div class="topic-header">
+              <span class="topic-number">06</span>
+              <div class="topic-info">
+                <h2 class="topic-title">Responsive Design & Mobile-First</h2>
+                <p class="topic-description">Create websites that work beautifully on all devices</p>
+              </div>
+              <button class="topic-toggle" aria-expanded="false" aria-label="Toggle topic details">
+                <span class="toggle-icon">▼</span>
+              </button>
+            </div>
+            <div class="topic-content">
+              <div class="steps">
+                <div class="step" data-step="6.1">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-6-1" />
+                    <label for="step-6-1" class="step-label">
+                      <span class="step-number">6.1</span>
+                      <span class="step-title">Mobile-First Design Principles</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Understand why mobile-first design matters (mobile traffic statistics)</li>
+                      <li>Learn mobile-first vs desktop-first approach</li>
+                      <li>Understand viewport meta tag: width=device-width, initial-scale=1</li>
+                      <li>Learn about common breakpoints: 320px (mobile), 768px (tablet), 1024px (desktop)</li>
+                      <li>Practice designing for mobile screens first</li>
+                      <li>Understand touch targets: minimum 44x44px for buttons</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> Mobile-First Design Guide, Responsive Design Principles
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step" data-step="6.2">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-6-2" />
+                    <label for="step-6-2" class="step-label">
+                      <span class="step-number">6.2</span>
+                      <span class="step-title">Flexible Layouts & Fluid Typography</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Use relative units: %, em, rem, vw, vh instead of fixed px</li>
+                      <li>Learn about max-width for containers: max-width: 1200px; margin: 0 auto;</li>
+                      <li>Master fluid typography: clamp(), min(), max() functions</li>
+                      <li>Practice creating flexible layouts that adapt to screen size</li>
+                      <li>Understand rem vs em: rem is relative to root, em is relative to parent</li>
+                      <li>Learn about container queries (new CSS feature)</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> Fluid Typography Guide, CSS Units Best Practices
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step" data-step="6.3">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-6-3" />
+                    <label for="step-6-3" class="step-label">
+                      <span class="step-number">6.3</span>
+                      <span class="step-title">Media Queries Deep Dive</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Master media query syntax: @media (min-width: 768px) { }</li>
+                      <li>Learn about media types: screen, print, all</li>
+                      <li>Understand media features: width, height, orientation, resolution</li>
+                      <li>Practice writing complex media queries with multiple conditions</li>
+                      <li>Learn about mobile-first media queries: min-width approach</li>
+                      <li>Understand when to use max-width vs min-width</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> MDN Media Queries, Responsive Breakpoints Guide
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step" data-step="6.4">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-6-4" />
+                    <label for="step-6-4" class="step-label">
+                      <span class="step-number">6.4</span>
+                      <span class="step-title">Responsive Images & Media</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Learn srcset attribute for responsive images</li>
+                      <li>Understand sizes attribute for responsive images</li>
+                      <li>Master picture element: &lt;picture&gt; with &lt;source&gt; and &lt;img&gt;</li>
+                      <li>Learn about art direction: different images for different screen sizes</li>
+                      <li>Practice implementing responsive images</li>
+                      <li>Understand responsive videos: aspect-ratio, object-fit</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> MDN Responsive Images, Picture Element Guide
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step" data-step="6.5">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-6-5" />
+                    <label for="step-6-5" class="step-label">
+                      <span class="step-number">6.5</span>
+                      <span class="step-title">Testing & Debugging Responsive Designs</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Use browser DevTools for responsive testing</li>
+                      <li>Learn about device emulation in Chrome DevTools</li>
+                      <li>Test on real devices: iOS, Android phones and tablets</li>
+                      <li>Use online tools: BrowserStack, Responsive Design Checker</li>
+                      <li>Practice debugging layout issues on different screen sizes</li>
+                      <li>Understand common responsive design problems and solutions</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> Chrome DevTools Guide, Responsive Testing Tools
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Topic 7: SEO Fundamentals -->
+          <section class="topic" data-topic="7">
+            <div class="topic-header">
+              <span class="topic-number">07</span>
+              <div class="topic-info">
+                <h2 class="topic-title">SEO Fundamentals</h2>
+                <p class="topic-description">Optimize websites to rank higher in search engines</p>
+              </div>
+              <button class="topic-toggle" aria-expanded="false" aria-label="Toggle topic details">
+                <span class="toggle-icon">▼</span>
+              </button>
+            </div>
+            <div class="topic-content">
+              <div class="steps">
+                <div class="step" data-step="7.1">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-7-1" />
+                    <label for="step-7-1" class="step-label">
+                      <span class="step-number">7.1</span>
+                      <span class="step-title">SEO Basics & How Search Engines Work</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Understand what SEO is and why it matters</li>
+                      <li>Learn how search engines work: crawling, indexing, ranking</li>
+                      <li>Understand the difference between organic and paid search</li>
+                      <li>Learn about search engine algorithms and ranking factors</li>
+                      <li>Understand on-page SEO vs off-page SEO</li>
+                      <li>Learn about Google Search Console and its importance</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> Google SEO Starter Guide, Moz SEO Basics
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step" data-step="7.2">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-7-2" />
+                    <label for="step-7-2" class="step-label">
+                      <span class="step-number">7.2</span>
+                      <span class="step-title">Keyword Research</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Understand what keywords are and their role in SEO</li>
+                      <li>Learn about keyword research tools: Google Keyword Planner, Ubersuggest, AnswerThePublic</li>
+                      <li>Master keyword types: short-tail, long-tail, branded, local</li>
+                      <li>Understand keyword intent: informational, navigational, transactional</li>
+                      <li>Practice finding keywords for a local business</li>
+                      <li>Learn about keyword difficulty and search volume</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> Keyword Research Guide, Google Keyword Planner Tutorial
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step" data-step="7.3">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-7-3" />
+                    <label for="step-7-3" class="step-label">
+                      <span class="step-number">7.3</span>
+                      <span class="step-title">On-Page SEO: Meta Tags & Content</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Learn about title tags: &lt;title&gt; and their importance</li>
+                      <li>Master meta descriptions: &lt;meta name="description"&gt;</li>
+                      <li>Understand heading structure: H1, H2, H3 hierarchy</li>
+                      <li>Learn about alt text for images and accessibility</li>
+                      <li>Practice optimizing page content for keywords</li>
+                      <li>Understand content quality: E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness)</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> On-Page SEO Guide, Meta Tags Best Practices
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step" data-step="7.4">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-7-4" />
+                    <label for="step-7-4" class="step-label">
+                      <span class="step-number">7.4</span>
+                      <span class="step-title">Technical SEO: Site Structure & XML Sitemaps</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Understand URL structure: clean, descriptive URLs</li>
+                      <li>Learn about internal linking and site architecture</li>
+                      <li>Master XML sitemaps: what they are, how to create them, submit to Google</li>
+                      <li>Understand robots.txt file and its purpose</li>
+                      <li>Learn about canonical URLs and duplicate content</li>
+                      <li>Practice creating a proper site structure for SEO</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> Technical SEO Guide, XML Sitemap Tutorial
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step" data-step="7.5">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-7-5" />
+                    <label for="step-7-5" class="step-label">
+                      <span class="step-number">7.5</span>
+                      <span class="step-title">Local SEO for Small Businesses</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Understand what local SEO is and why it matters for small businesses</li>
+                      <li>Learn about Google Business Profile (GBP) optimization</li>
+                      <li>Master local keywords: "near me", location-based searches</li>
+                      <li>Understand NAP consistency: Name, Address, Phone number</li>
+                      <li>Learn about local citations and directories</li>
+                      <li>Practice optimizing a website for local search</li>
+                      <li>Understand schema markup for local businesses</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> Local SEO Guide, Google Business Profile Optimization
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step" data-step="7.6">
+                  <div class="step-header">
+                    <input type="checkbox" class="step-checkbox" id="step-7-6" />
+                    <label for="step-7-6" class="step-label">
+                      <span class="step-number">7.6</span>
+                      <span class="step-title">Page Speed & Performance SEO</span>
+                    </label>
+                  </div>
+                  <div class="step-content">
+                    <ul class="step-details">
+                      <li>Understand how page speed affects SEO rankings</li>
+                      <li>Learn about Core Web Vitals: LCP, FID, CLS</li>
+                      <li>Master tools: Google PageSpeed Insights, GTmetrix</li>
+                      <li>Learn optimization techniques: image compression, caching, minification</li>
+                      <li>Practice optimizing a website for speed</li>
+                      <li>Understand mobile page speed and its importance</li>
+                    </ul>
+                    <div class="step-resources">
+                      <strong>Resources:</strong> Page Speed Optimization Guide, Core Web Vitals
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <p>© 2026 vaire* digital — Learning Path</p>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en" data-page="design10">
+  <head>
+    <meta charset="utf-8" />
+    <title>vaire* digital – Launch Blueprint (Ultra focus journey)</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta
+      name="description"
+      content="Ultra‑focus journey landing page for the vaire* digital launch blueprint, which collapses almost entirely to a design‑5‑style reading view."
+    />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="./style10.css" />
+    <script>
+      (function () {
+        try {
+          const stored = window.localStorage.getItem("vaire-plan-theme");
+          const prefersDark =
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches;
+          const initial = stored || (prefersDark ? "dark" : "light");
+          document.addEventListener("DOMContentLoaded", function () {
+            document.body.dataset.theme = initial;
+          });
+        } catch (e) {}
+      })();
+    </script>
+    <script src="../scripts.js" defer></script>
+  </head>
+  <body class="page landing-page-10">
+    <header class="lp10-header">
+      <div class="lp10-header-inner">
+        <a href="../index.html" class="brand lp10-brand">
+          <img src="../logo.svg" alt="vaire* digital logo" class="brand-logo" />
+          <div class="brand-mark" aria-hidden="true"></div>
+        </a>
+        <div class="lp10-controls">
+          <button
+            type="button"
+            class="lp10-visual-toggle"
+            data-role="visual-toggle"
+          >
+            Focus mode
+          </button>
+          <div class="font-toggle" aria-label="Font size">
+            <span class="font-toggle-label">Text</span>
+            <button
+              type="button"
+              class="font-toggle-button"
+              data-font-size="small"
+            >
+              A-
+            </button>
+            <button
+              type="button"
+              class="font-toggle-button"
+              data-font-size="medium"
+            >
+              A
+            </button>
+            <button
+              type="button"
+              class="font-toggle-button"
+              data-font-size="large"
+            >
+              A+
+            </button>
+          </div>
+          <div class="toggle" aria-label="Toggle dark mode">
+            <span class="toggle-label">Dark</span>
+            <button
+              class="toggle-track"
+              type="button"
+              data-role="theme-toggle"
+              aria-pressed="false"
+            >
+              <span class="sr-only">Toggle dark mode</span>
+              <span class="toggle-thumb"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="lp10-main">
+      <article class="lp10-article">
+        <header class="lp10-hero">
+          <p class="lp10-eyebrow">Journey, then almost pure reading</p>
+          <h1 class="lp10-title">
+            A journey layout that melts into a reading view when you need it.
+          </h1>
+          <p class="lp10-intro">
+            In rich mode, you get gentle dots and section labels to show where you are in the
+            plan. In focus mode, those almost disappear, leaving something very close to the
+            clean, single‑column feel of design&nbsp;5.
+          </p>
+        </header>
+
+        <section class="lp10-journey" aria-label="High‑level journey">
+          <div class="lp10-step">
+            <h2 class="lp10-step-heading">1 · Foundation &amp; offers</h2>
+            <p>
+              A brief, honest explanation of what vaire* digital is and how you intend to earn
+              a living with it — not just a list of services.
+            </p>
+          </div>
+
+          <div class="lp10-step">
+            <h2 class="lp10-step-heading">2 · Operations &amp; experience</h2>
+            <p>
+              A walkthrough of what clients feel from first contact to launch day, written so
+              you could read it out loud without sounding like a contract.
+            </p>
+          </div>
+
+          <div class="lp10-step">
+            <h2 class="lp10-step-heading">3 · Roadmap, risks &amp; growth</h2>
+            <p>
+              A chapter that keeps you grounded in realistic numbers, risk planning, and a
+              simple picture of how Year&nbsp;2 could look if you stick with it.
+            </p>
+          </div>
+        </section>
+      </article>
+    </main>
+  </body>
+</html>
+

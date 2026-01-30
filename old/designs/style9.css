@@ -1,0 +1,138 @@
+.landing-page-9 {
+  background: radial-gradient(circle at top, rgba(34, 197, 94, 0.08), transparent 55%),
+    var(--bg);
+}
+
+.lp9-header {
+  border-bottom: 1px solid var(--border-subtle);
+  backdrop-filter: blur(14px);
+  background: color-mix(in srgb, var(--bg) 90%, transparent);
+}
+
+.lp9-header-inner {
+  max-width: 840px;
+  margin: 0 auto;
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.lp9-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.lp9-visual-toggle {
+  border-radius: 999px;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-elevated);
+  padding: 0.25rem 0.7rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.lp9-main {
+  max-width: 840px;
+  margin: 0 auto;
+  padding: 2.1rem 1.25rem 3rem;
+}
+
+.lp9-hero {
+  margin-bottom: 1.6rem;
+}
+
+.lp9-eyebrow {
+  margin: 0 0 0.55rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.lp9-title {
+  margin: 0 0 0.8rem;
+  font-size: clamp(2rem, 3.1vw, 2.4rem);
+  letter-spacing: -0.03em;
+}
+
+.lp9-intro {
+  margin: 0;
+  font-size: 1.02rem;
+}
+
+.lp9-journey {
+  position: relative;
+  padding-left: 1.7rem;
+  margin-top: 1.8rem;
+}
+
+.lp9-journey::before {
+  content: "";
+  position: absolute;
+  left: 0.7rem;
+  top: 0.2rem;
+  bottom: 0.2rem;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    rgba(34, 197, 94, 0.8),
+    rgba(34, 197, 94, 0.2)
+  );
+}
+
+.lp9-step {
+  position: relative;
+  padding: 1rem 0 1.05rem;
+}
+
+.lp9-step + .lp9-step {
+  border-top: 1px solid var(--border-subtle);
+}
+
+.lp9-step-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.lp9-step-index {
+  position: absolute;
+  left: -1.7rem;
+  top: 1.1rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 999px;
+  background: var(--bg);
+  border: 2px solid var(--accent-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--accent-green);
+}
+
+.lp9-step-title {
+  margin: 0;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+}
+
+.lp9-step-text {
+  margin: 0;
+  font-size: 1.02rem;
+}
+
+/* Focus mode */
+body[data-visual="focus"] .landing-page-9 {
+  background: var(--bg);
+}
+
+body[data-visual="focus"] .lp9-journey::before {
+  opacity: 0.12;
+}
+

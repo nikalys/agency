@@ -1,0 +1,127 @@
+.landing-page-8 {
+  background: var(--bg);
+}
+
+.lp8-header {
+  border-bottom: 1px solid var(--border-subtle);
+  backdrop-filter: blur(14px);
+  background: color-mix(in srgb, var(--bg) 90%, transparent);
+}
+
+.lp8-header-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.lp8-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.lp8-visual-toggle {
+  border-radius: 999px;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-elevated);
+  padding: 0.25rem 0.7rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.lp8-main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2.1rem 1.25rem 3rem;
+}
+
+.lp8-summary {
+  margin-bottom: 1.4rem;
+}
+
+.lp8-eyebrow {
+  margin: 0 0 0.4rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.lp8-intro {
+  margin: 0;
+  font-size: 1.02rem;
+}
+
+.lp8-journey {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.lp8-step {
+  border-radius: 1rem;
+  border: 1px solid var(--border-subtle);
+  padding: 1.1rem 1.3rem 1.2rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.lp8-step-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+}
+
+.lp8-step-text {
+  margin: 0;
+  font-size: 0.98rem;
+}
+
+.lp8-step--foundation {
+  background: linear-gradient(
+    to right,
+    rgba(34, 197, 94, 0.1),
+    transparent 60%
+  );
+}
+
+.lp8-step--services {
+  background: linear-gradient(
+    to right,
+    rgba(59, 130, 246, 0.1),
+    transparent 60%
+  );
+}
+
+.lp8-step--operations {
+  background: linear-gradient(
+    to right,
+    rgba(234, 179, 8, 0.12),
+    transparent 60%
+  );
+}
+
+.lp8-step--roadmap {
+  background: linear-gradient(
+    to right,
+    rgba(244, 63, 94, 0.12),
+    transparent 60%
+  );
+}
+
+/* Focus mode */
+body[data-visual="focus"] .lp8-step {
+  box-shadow: none;
+  border-radius: 0.5rem;
+}
+
+body[data-visual="focus"] .lp8-step--foundation,
+body[data-visual="focus"] .lp8-step--services,
+body[data-visual="focus"] .lp8-step--operations,
+body[data-visual="focus"] .lp8-step--roadmap {
+  background: var(--bg-elevated);
+}
+

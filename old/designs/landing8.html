@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en" data-page="design8">
+  <head>
+    <meta charset="utf-8" />
+    <title>vaire* digital – Launch Blueprint (Soft bands)</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta
+      name="description"
+      content="Soft colour‑banded journey landing page for the vaire* digital launch blueprint, with a brief summary and focus‑mode toggle."
+    />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="./style8.css" />
+    <script>
+      (function () {
+        try {
+          const stored = window.localStorage.getItem("vaire-plan-theme");
+          const prefersDark =
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches;
+          const initial = stored || (prefersDark ? "dark" : "light");
+          document.addEventListener("DOMContentLoaded", function () {
+            document.body.dataset.theme = initial;
+          });
+        } catch (e) {}
+      })();
+    </script>
+    <script src="../scripts.js" defer></script>
+  </head>
+  <body class="page landing-page-8">
+    <header class="lp8-header">
+      <div class="lp8-header-inner">
+        <a href="../index.html" class="brand lp8-brand">
+          <img src="../logo.svg" alt="vaire* digital logo" class="brand-logo" />
+          <div class="brand-mark" aria-hidden="true"></div>
+        </a>
+        <div class="lp8-controls">
+          <button
+            type="button"
+            class="lp8-visual-toggle"
+            data-role="visual-toggle"
+          >
+            Focus mode
+          </button>
+          <div class="font-toggle" aria-label="Font size">
+            <span class="font-toggle-label">Text</span>
+            <button
+              type="button"
+              class="font-toggle-button"
+              data-font-size="small"
+            >
+              A-
+            </button>
+            <button
+              type="button"
+              class="font-toggle-button"
+              data-font-size="medium"
+            >
+              A
+            </button>
+            <button
+              type="button"
+              class="font-toggle-button"
+              data-font-size="large"
+            >
+              A+
+            </button>
+          </div>
+          <div class="toggle" aria-label="Toggle dark mode">
+            <span class="toggle-label">Dark</span>
+            <button
+              class="toggle-track"
+              type="button"
+              data-role="theme-toggle"
+              aria-pressed="false"
+            >
+              <span class="sr-only">Toggle dark mode</span>
+              <span class="toggle-thumb"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="lp8-main">
+      <section class="lp8-summary">
+        <p class="lp8-eyebrow">Summary</p>
+        <p class="lp8-intro">
+          This version keeps the journey structure but uses soft horizontal colour bands to
+          separate sections. It’s still a single, scrollable story — just with a little more
+          visual rhythm that you can switch off with “Focus mode”.
+        </p>
+      </section>
+
+      <section class="lp8-journey" aria-label="High‑level journey">
+        <article class="lp8-step lp8-step--foundation">
+          <h2 class="lp8-step-title">Foundation &amp; who this is for</h2>
+          <p class="lp8-step-text">
+            A quick, narrative description of what vaire* digital is and who you help, based on
+            the written plan’s Part&nbsp;1. No charts — just a few paragraphs you can read
+            together at the start of the year.
+          </p>
+        </article>
+
+        <article class="lp8-step lp8-step--services">
+          <h2 class="lp8-step-title">Services &amp; pricing, in human language</h2>
+          <p class="lp8-step-text">
+            Instead of listing rows and columns, this section explains how each offer solves a
+            real client problem, then backs it up with numbers in the body of the site.
+          </p>
+        </article>
+
+        <article class="lp8-step lp8-step--operations">
+          <h2 class="lp8-step-title">How projects run, end‑to‑end</h2>
+          <p class="lp8-step-text">
+            Here you’ll see the story version of your workflows: what “onboarding” and “handoff”
+            mean in practice, and what clients should feel at each stage.
+          </p>
+        </article>
+
+        <article class="lp8-step lp8-step--roadmap">
+          <h2 class="lp8-step-title">Roadmap, risks &amp; growth paths</h2>
+          <p class="lp8-step-text">
+            The last band zooms out: what your first 12 months look like, what could get in the
+            way, and how you’ll know when it’s time to grow or specialise.
+          </p>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
+

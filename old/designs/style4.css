@@ -1,0 +1,131 @@
+.landing-page-4 {
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(148, 163, 184, 0.16),
+      rgba(148, 163, 184, 0.16) 1px,
+      transparent 1px,
+      transparent 26px
+    ),
+    var(--bg);
+}
+
+.lp4-header {
+  border-bottom: 1px solid var(--border-subtle);
+  backdrop-filter: blur(14px);
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+}
+
+.lp4-header-inner {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.lp4-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.lp4-main {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+}
+
+.lp4-notebook {
+  display: grid;
+  gap: 1.25rem;
+}
+
+@media (min-width: 900px) {
+  .lp4-notebook {
+    grid-template-columns: 260px minmax(0, 1fr);
+  }
+}
+
+.lp4-margin {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.lp4-sticky {
+  background: #fef3c7;
+  border-radius: 0.6rem;
+  padding: 0.75rem 0.8rem 0.8rem;
+  box-shadow: 0 12px 20px rgba(15, 23, 42, 0.2);
+  border: 1px solid rgba(234, 179, 8, 0.3);
+}
+
+.lp4-sticky-title {
+  margin: 0 0 0.4rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+
+.lp4-sticky-body {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.lp4-margin-note {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  padding-left: 0.4rem;
+  border-left: 2px solid rgba(148, 163, 184, 0.6);
+}
+
+.lp4-page {
+  background: var(--bg-elevated);
+  border-radius: 1.25rem;
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-soft);
+  padding: 1.7rem 1.8rem 2.1rem;
+}
+
+.lp4-page-label {
+  margin: 0 0 0.6rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.lp4-title {
+  margin: 0 0 0.9rem;
+  font-size: clamp(2rem, 3.1vw, 2.4rem);
+  letter-spacing: -0.03em;
+}
+
+.lp4-intro {
+  margin: 0 0 1rem;
+  font-size: 1.02rem;
+}
+
+.lp4-heading {
+  margin: 1.3rem 0 0.5rem;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+}
+
+.lp4-page p {
+  font-size: 0.98rem;
+}
+
+.lp4-list {
+  padding-left: 1.2rem;
+  margin: 0.3rem 0 0.9rem;
+  font-size: 0.98rem;
+}
+
+.lp4-list li + li {
+  margin-top: 0.2rem;
+}
+

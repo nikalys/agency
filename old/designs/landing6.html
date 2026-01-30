@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en" data-page="design6">
+  <head>
+    <meta charset="utf-8" />
+    <title>vaire* digital – Launch Blueprint (Journey + summary)</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta
+      name="description"
+      content="Journey‑style landing page for the vaire* digital launch blueprint, with a short summary at the top and a focus‑mode toggle."
+    />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="./style6.css" />
+    <script>
+      (function () {
+        try {
+          const stored = window.localStorage.getItem("vaire-plan-theme");
+          const prefersDark =
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches;
+          const initial = stored || (prefersDark ? "dark" : "light");
+          document.addEventListener("DOMContentLoaded", function () {
+            document.body.dataset.theme = initial;
+          });
+        } catch (e) {}
+      })();
+    </script>
+    <script src="../scripts.js" defer></script>
+  </head>
+  <body class="page landing-page-6">
+    <header class="lp6-header">
+      <div class="lp6-header-inner">
+        <a href="../index.html" class="brand lp6-brand">
+          <img src="../logo.svg" alt="vaire* digital logo" class="brand-logo" />
+          <div class="brand-mark" aria-hidden="true"></div>
+        </a>
+        <div class="lp6-controls">
+          <button
+            type="button"
+            class="lp6-visual-toggle"
+            data-role="visual-toggle"
+          >
+            Focus mode
+          </button>
+          <div class="font-toggle" aria-label="Font size">
+            <span class="font-toggle-label">Text</span>
+            <button
+              type="button"
+              class="font-toggle-button"
+              data-font-size="small"
+            >
+              A-
+            </button>
+            <button
+              type="button"
+              class="font-toggle-button"
+              data-font-size="medium"
+            >
+              A
+            </button>
+            <button
+              type="button"
+              class="font-toggle-button"
+              data-font-size="large"
+            >
+              A+
+            </button>
+          </div>
+          <div class="toggle" aria-label="Toggle dark mode">
+            <span class="toggle-label">Dark</span>
+            <button
+              class="toggle-track"
+              type="button"
+              data-role="theme-toggle"
+              aria-pressed="false"
+            >
+              <span class="sr-only">Toggle dark mode</span>
+              <span class="toggle-thumb"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="lp6-main">
+      <section class="lp6-summary">
+        <p class="lp6-eyebrow">Summary for this page</p>
+        <h1 class="lp6-title">
+          A one‑screen overview of how the whole plan fits together.
+        </h1>
+        <p class="lp6-intro">
+          This page introduces the journey your business plan walks you through: starting the
+          agency, running projects without chaos, learning the tech, and growing safely. Each
+          step below will become its own chapter in the full site once we lock in this layout.
+        </p>
+      </section>
+
+      <section class="lp6-journey" aria-label="High‑level journey">
+        <article class="lp6-step">
+          <div class="lp6-step-header">
+            <span class="lp6-step-index">1</span>
+            <h2 class="lp6-step-title">Who this is for &amp; what you’re building</h2>
+          </div>
+          <p class="lp6-step-text">
+            A tiny GTA‑based web studio run by a junior developer and a partner who loves sales.
+            The full chapter here explains your values, who you serve, and why a small, calm
+            agency is the goal — not a 20‑person team.
+          </p>
+        </article>
+
+        <article class="lp6-step">
+          <div class="lp6-step-header">
+            <span class="lp6-step-index">2</span>
+            <h2 class="lp6-step-title">Services, pricing &amp; what clients can expect</h2>
+          </div>
+          <p class="lp6-step-text">
+            You’ll see how landing pages, small sites, SEO, and maintenance fit together into a
+            simple menu of offers. Instead of a grid of numbers, the chapter beneath this step
+            reads like a story about what each offer actually feels like for a client.
+          </p>
+        </article>
+
+        <article class="lp6-step">
+          <div class="lp6-step-header">
+            <span class="lp6-step-index">3</span>
+            <h2 class="lp6-step-title">Operations &amp; client experience</h2>
+          </div>
+          <p class="lp6-step-text">
+            Here the site walks you through onboarding, kickoff, project management, and launch
+            in plain language. Checklists, call scripts, and email templates live in that
+            chapter, ready to open during real projects.
+          </p>
+        </article>
+
+        <article class="lp6-step">
+          <div class="lp6-step-header">
+            <span class="lp6-step-index">4</span>
+            <h2 class="lp6-step-title">Roadmap, risks &amp; growth</h2>
+          </div>
+          <p class="lp6-step-text">
+            The final part lays out what to focus on in your first months, what can go wrong,
+            and a few ways to grow once Year‑1 feels steady. It’s written to be read together
+            over coffee, not scanned like a spreadsheet.
+          </p>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
+

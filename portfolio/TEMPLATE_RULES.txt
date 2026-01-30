@@ -1,0 +1,166 @@
+================================================================================
+PORTFOLIO TEMPLATES & EXAMPLES — RULES & INTENT
+================================================================================
+Reference this file when building or updating template/example sites in the
+portfolio. Keep it updated if the rules change.
+
+--------------------------------------------------------------------------------
+1. WHERE TEMPLATES LIVE
+--------------------------------------------------------------------------------
+• Every template/example lives ENTIRELY inside a subfolder of portfolio/.
+• Example: portfolio/apex-electrical/ contains all files for that demo (HTML,
+  CSS, JS, images, etc.).
+• The main portfolio site (portfolio/index.html) is the only "live" page;
+  templates are reached via links like portfolio/apex-electrical/ on that
+  same host. No separate domains or hosting for individual templates.
+
+--------------------------------------------------------------------------------
+2. WHAT THESE ARE (vs real client sites)
+--------------------------------------------------------------------------------
+• TEMPLATES/EXAMPLES = Static, locally visible demos. Purpose: show clients
+  what a completed website could LOOK like (layout, hero, colours, copy).
+  They are visual only — built with HTML/CSS/JS (or similar), no WordPress,
+  no CMS, no live backend. Everything runs inside the portfolio subfolder.
+
+• REAL CLIENT SITES = When you build a full WordPress (or other) site for a
+  client, that site lives on its own URL (e.g. client’s domain). You LINK to
+  that actual website from your portfolio or elsewhere. You do NOT build or
+  host that full site inside portfolio/ — only the static visual demos go
+  here.
+
+--------------------------------------------------------------------------------
+3. HOW TO USE THE PROMPT
+--------------------------------------------------------------------------------
+• When you receive a project brief/prompt (e.g. "Apex Electrical Solutions —
+  WordPress build with hero, header, …"):
+  → Use it as a GUIDE for the VISUAL of the completed website.
+  → Build a static template in portfolio/<folder>/ that matches that look:
+    same structure (hero, header, sections), same feel (copy, colours, CTAs),
+    so you have something to show clients.
+  → ALWAYS apply the default template structure (Section 4) and mobile-friendly
+    requirements (Section 5) — e.g. Back to Portfolio, hamburger nav, touch
+    targets, safe areas — without waiting for a follow-up request.
+  → Give each template a DISTINCT layout and style (Section 7). Do not clone
+    the same hero pattern, grid, and typography for every business; vary
+    structure and visuals so the portfolio demonstrates range.
+  → Do NOT produce WordPress-specific deliverables (Astra CSS, Elementor
+    settings, Rank Math schema, etc.) unless explicitly asked. Those belong
+    to the real WordPress build, which is separate and linked to when live.
+
+--------------------------------------------------------------------------------
+4. DEFAULT TEMPLATE STRUCTURE (USE UNLESS PROMPT SAYS OTHERWISE)
+--------------------------------------------------------------------------------
+When building a new business template from a prompt, include these by default:
+
+• Top bar: "← Back to Portfolio" link (to ../index.html) + business phone +
+  primary CTA (e.g. "Call Now").
+• Header: logo + main nav (Services, About, Reviews, Contact or equivalent).
+  On small screens, hide the nav and show a hamburger that opens a mobile menu
+  (see Section 5).
+• Hero: full-viewport or strong visual block, headline, subheadline, CTA button.
+• Sections: Services (or equivalent), About, Why Us / value prop, Reviews,
+  Contact (info + form placeholder), map placeholder.
+• Footer: business name, location line, "← Back to Portfolio" link.
+• Sticky CTA on mobile only (e.g. "Call Now" fixed at bottom, min 44–48px
+  touch target, respect safe-area-inset-bottom).
+• Stock images: use Unsplash (or similar) hotlinks for hero, about, why-us,
+  map placeholder unless the prompt specifies otherwise. Prefer reliable
+  hotlinks over local placeholder SVGs that may not render.
+• Logo and thumbnail: each template should have logo.svg and thumb.svg (the
+  thumbnail is used on the portfolio index card; it can be the logo at 75%
+  of the card area or a custom design).
+
+Adjust section names and copy to match the business; the structure stays
+consistent so prompts can be reused across different businesses.
+
+--------------------------------------------------------------------------------
+5. MOBILE-FRIENDLY REQUIREMENTS (APPLY BY DEFAULT)
+--------------------------------------------------------------------------------
+Every template must be mobile-friendly from the start. Do not wait for a
+separate "check mobile" request — build these in from the first pass:
+
+• Viewport: <meta name="viewport" content="width=device-width, initial-scale=1,
+  viewport-fit=cover" /> so notched devices use safe areas.
+• No horizontal scroll: use overflow-x: hidden on body; ensure all images
+  have max-width: 100%; height: auto so nothing overflows the viewport.
+• Mobile navigation: When the main nav is hidden at a small breakpoint (e.g.
+  max-width: 500px), provide a hamburger button that toggles a dropdown or
+  drawer with the same links. Close the menu on link click (for in-page
+  anchors) and on Escape. Use aria-expanded and aria-label ("Open menu" /
+  "Close menu") on the button. Lock body scroll while menu is open. Ensure
+  the dropdown is positioned correctly (e.g. position: relative on header-inner,
+  absolute dropdown below it) and has adequate z-index and max-height so it
+  scrolls if needed.
+• Touch targets: Primary CTAs and key links must have at least 44px min-height
+  (48px preferred for main buttons) on mobile. Apply to: top-bar CTA, hero CTA,
+  sticky CTA, and each mobile menu link.
+• No horizontal overflow: Allow logo text to wrap or constrain width on small
+  screens. Scale down hero title and section titles on mobile (e.g. 1.65rem).
+• Hero on mobile: give the hero enough padding-top so content is not hidden
+  under a fixed header; consider putting the hero image first when stacking
+  (order) if it improves flow; cap hero image height (e.g. max-height: 50vh)
+  so the section doesn’t dominate the fold.
+• Safe areas: Use env(safe-area-inset-bottom) for sticky bottom CTAs;
+  env(safe-area-inset-left/right) for top bar and optionally for main sections
+  and footer on small screens so notched devices display correctly.
+• Responsive grids: Stack multi-column grids to 2 columns, then 1 column at
+  appropriate breakpoints (e.g. 900px, 500px). About/contact/map stay readable
+  and tap-friendly.
+
+When the user says "same prompts but for different businesses," apply this
+section to each new template without being asked.
+
+--------------------------------------------------------------------------------
+6. TYPOGRAPHY, READABILITY & CTA PROMINENCE (REDUCE REDUNDANCY)
+--------------------------------------------------------------------------------
+Apply these by default so the user does not have to ask for "larger fonts" or
+"CTA that stands out":
+
+• Base font size: use at least 1.125rem (18px) for body text; 1.25rem is
+  better for readability. Scale headings proportionally (e.g. hero title
+  clamp or 2rem+, section titles 1.75rem–2.25rem).
+• Hero CTA: make it clearly prominent — centered or high-contrast, adequate
+  padding (e.g. 1rem 2rem), font-size 1rem–1.25rem, optional box-shadow or
+  slight lift on hover so it stands out. Avoid small or easy-to-miss buttons.
+• Theme consistency: if a template uses a dark theme (e.g. dark blue + gold),
+  apply it consistently across all sections (backgrounds, cards, footer) so
+  the user does not have to ask to "make it dark mode" or "make the colours
+  more universal."
+
+--------------------------------------------------------------------------------
+7. STYLISTIC VARIATION BETWEEN TEMPLATES (REDUCE REDUNDANCY)
+--------------------------------------------------------------------------------
+The portfolio should show that you can produce different styles of websites,
+not different iterations of the same template. For each new template:
+
+• Vary layout: use a different hero treatment (e.g. split hero, full-bleed
+  image with overlay, asymmetric columns), different section order or
+  presentation (e.g. menu board vs tabs, bento gallery vs uniform grid).
+• Vary typography: use a different font pairing or scale (e.g. serif + sans,
+  or a distinct Google Font) so the template does not look like the previous
+  one with only colours changed.
+• Vary section treatment: avoid repeating the same "centered title + intro +
+  three-column grid" pattern for every template; use full-bleed blocks,
+  narrow centered columns, or alternating light/dark strips where appropriate.
+
+When in doubt, ask: "Would this look like a different style of site, or the
+same template with a new skin?"
+
+--------------------------------------------------------------------------------
+8. SUMMARY
+--------------------------------------------------------------------------------
+• Portfolio site = live.
+• Templates/examples = live only as paths under that portfolio (e.g.
+  yoursite.com/portfolio/apex-electrical/). They are static, local, visual
+  demos only.
+• Real client sites = their own live URLs; link to them from the portfolio,
+  do not build them inside portfolio/.
+• Prompts = guide for visuals; keep templates self-contained in subfolders.
+• Default structure (Section 4) and mobile requirements (Section 5) apply to
+  every new template unless the prompt explicitly says otherwise.
+• Typography/readability and CTA prominence (Section 6) and stylistic
+  variation (Section 7) reduce back-and-forth; apply them from the first pass.
+
+================================================================================
+Last updated: 2026-01-29
+================================================================================

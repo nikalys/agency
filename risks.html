@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en" data-page="risks">
+  <head>
+    <meta charset="utf-8" />
+    <title>Risks, Protection & Growth Paths – vaire* digital</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta
+      name="description"
+      content="What can go wrong and how you'll handle it. Common pitfalls, insurance and legal protection, and scaling paths."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./site.css" />
+    <script>
+      (function () {
+        try {
+          var stored = window.localStorage.getItem("vaire-plan-theme");
+          var prefersDark =
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches;
+          var theme = stored || (prefersDark ? "dark" : "light");
+          var fontStored = window.localStorage.getItem("vaire-font-size");
+          var font = (fontStored === "small" || fontStored === "medium" || fontStored === "large") ? fontStored : "medium";
+          document.addEventListener("DOMContentLoaded", function () {
+            var body = document.body;
+            var root = document.documentElement;
+            if (body) body.setAttribute("data-theme", theme);
+            if (root) {
+              root.setAttribute("data-font-size", font);
+              root.classList.remove("font-size-small", "font-size-medium", "font-size-large");
+              root.classList.add("font-size-" + font);
+            }
+          });
+        } catch (e) {}
+      })();
+    </script>
+    <script src="./scripts.js" defer></script>
+  </head>
+  <body class="page chapter-page">
+    <header class="site-header">
+      <div class="site-header-inner">
+        <a href="./index.html" class="brand site-brand">
+          <img src="./logo.svg" alt="vaire* digital logo" class="brand-logo" />
+          <div class="brand-mark" aria-hidden="true"></div>
+        </a>
+        <nav class="site-nav">
+          <div class="nav-links" aria-label="Primary navigation">
+            <a href="./index.html" class="nav-link" data-nav="home">Home</a>
+            <a href="./portfolio/index.html" class="nav-link" data-nav="portfolio">Portfolio</a>
+            <a href="./foundation.html" class="nav-link" data-nav="foundation">Foundation</a>
+            <a href="./services.html" class="nav-link" data-nav="services">Services</a>
+            <a href="./operations.html" class="nav-link" data-nav="operations">Operations</a>
+            <a href="./roadmap.html" class="nav-link" data-nav="roadmap">Roadmap</a>
+            <a href="./risks.html" class="nav-link nav-link-active" data-nav="risks">Risks & Growth</a>
+            <a href="./checklists.html" class="nav-link" data-nav="checklists">Checklists</a>
+          </div>
+          <div class="site-controls">
+            <details class="site-controls-accordion" id="site-display-accordion">
+              <summary class="site-controls-accordion-header" aria-label="Display options">
+                <span class="display-trigger-box" aria-hidden="true"></span>
+              </summary>
+              <div class="accordion-panel" id="site-display-panel" role="region" aria-label="Display options">
+                <div class="accordion-inner site-controls-panel">
+                  <button type="button" class="site-visual-toggle" data-role="visual-toggle">Focus mode</button>
+                  <div class="font-toggle" aria-label="Font size">
+                    <span class="font-toggle-label">Text</span>
+                    <button type="button" class="font-toggle-button" data-font-size="small">A−</button>
+                    <button type="button" class="font-toggle-button" data-font-size="medium">A</button>
+                    <button type="button" class="font-toggle-button" data-font-size="large">A+</button>
+                  </div>
+                  <div class="toggle" aria-label="Toggle dark mode">
+                    <span class="toggle-label">Dark</span>
+                    <button class="toggle-track" type="button" data-role="theme-toggle" aria-pressed="false">
+                      <span class="sr-only">Toggle dark mode</span>
+                      <span class="toggle-thumb"></span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="chapter-main">
+      <header class="chapter-header">
+        <p class="chapter-eyebrow">Chapter 5</p>
+        <h1 class="chapter-title">Risks, Protection & Growth Paths</h1>
+        <p class="chapter-intro">
+          What can go wrong and how you'll handle it. Common pitfalls, insurance and legal protection,
+          and four different paths to scale in Year 2. Written to be read together over coffee, not
+          scanned like a spreadsheet.
+        </p>
+      </header>
+
+      <div class="chapter-content">
+        <section class="chapter-section">
+          <h2 class="chapter-section-title">Common Risks & Mitigation Strategies</h2>
+          
+          <h3 class="chapter-section-subtitle">Risk 1: Not Enough Clients</h3>
+          <p>
+            <strong>Likelihood:</strong> High (Months 1–3). <strong>Impact:</strong> High (no revenue).
+          </p>
+          <p>
+            <strong>Mitigation:</strong> Build 3 portfolio pieces BEFORE officially launching. Offer discounted
+            projects to friends/family/network. Partner focuses on lead generation while you build portfolio.
+            Have 6 months of personal expenses saved (if possible). Keep part-time job until Month 3–6.
+          </p>
+          <p>
+            <strong>Early Warning Signs:</strong> Month 3: Less than 2 inquiries per week. Month 6: Less than
+            2 projects closed per month.
+          </p>
+          <p>
+            <strong>Action Plan:</strong> Adjust pricing (temporarily lower if needed), increase partner's
+            outreach efforts, run limited-time promotions, expand service area (beyond GTA if needed).
+          </p>
+
+          <h3 class="chapter-section-subtitle">Risk 2: Projects Take Longer Than Expected</h3>
+          <p>
+            <strong>Likelihood:</strong> High (Months 1–6, you're learning). <strong>Impact:</strong> Medium
+            (low effective hourly rate, unhappy clients).
+          </p>
+          <p>
+            <strong>Mitigation:</strong> Use AI tools aggressively (Claude Code, ChatGPT). Create templates
+            and reusable components. Add 30% buffer to your internal timeline estimates. Be honest with clients
+            about being a junior dev (builds trust). Under-promise, over-deliver on timelines.
+          </p>
+          <p>
+            <strong>Early Warning Signs:</strong> Projects consistently taking 2x your estimate, clients asking
+            "When will it be done?", you're working 50+ hours/week and falling behind.
+          </p>
+          <p>
+            <strong>Action Plan:</strong> Analyze where time is going (track meticulously), automate or template
+            repetitive tasks, ask Claude Code to help optimize your workflow, consider raising prices to reduce
+            volume (more time per project), pause new projects until current ones are complete.
+          </p>
+
+          <h3 class="chapter-section-subtitle">Risk 3: Scope Creep</h3>
+          <p>
+            <strong>Likelihood:</strong> High (especially with new clients). <strong>Impact:</strong> Medium
+            (reduces profitability, delays).
+          </p>
+          <p>
+            <strong>Mitigation:</strong> Very clear scope in proposal and contract. "Unlimited minor revisions"
+            clearly defined (text edits, image swaps). Major changes equal new quote (in writing). Use project
+            management tool (Trello) to track approved scope. Politely but firmly say "That's outside the current
+            scope, but I can quote it separately."
+          </p>
+          <p>
+            <strong>Early Warning Signs:</strong> Client asking for "just one more page", revisions expanding
+            beyond minor changes, requests for features not in original proposal.
+          </p>
+          <p>
+            <strong>Action Plan:</strong> Reference the original proposal: "In our agreement we specified [X].
+            What you're asking for is [Y], which I'm happy to do for an additional $[amount]." Document everything
+            in email (paper trail). Be kind but firm. Offer options: add to current project (pay more) OR add
+            after launch (separate project).
+          </p>
+
+          <h3 class="chapter-section-subtitle">Risk 4: Non-Paying Clients</h3>
+          <p>
+            <strong>Likelihood:</strong> Medium. <strong>Impact:</strong> High (waste of time, loss of income).
+          </p>
+          <p>
+            <strong>Mitigation:</strong> ALWAYS get 50% deposit before starting. Deposits are non-refundable
+            (in contract). Final 50% due before site goes live on their domain. Keep site on staging subdomain
+            until paid. Use payment processors (Stripe) for card-on-file. Clear payment terms in contract (Net
+            15).
+          </p>
+          <p>
+            <strong>Early Warning Signs:</strong> Client delays paying deposit, client doesn't respond to final
+            invoice, client disputes work quality after completion.
+          </p>
+          <p>
+            <strong>Action Plan:</strong> Follow payment policy strictly. Take site offline if payment not received
+            by Day 45. Small claims court if necessary (for amounts over $1,000). Learn from it: tighten contract,
+            better client qualification.
+          </p>
+
+          <h3 class="chapter-section-subtitle">Risk 5: Technical Issues</h3>
+          <p>
+            <strong>Likelihood:</strong> Low–Medium. <strong>Impact:</strong> High (reputation damage, client trust).
+          </p>
+          <p>
+            <strong>Mitigation:</strong> Security plugin on every site (Wordfence). Weekly automated backups
+            (UpdraftPlus to Google Drive). Test backup restoration (at least once). SSL certificate on every site
+            (HTTPS). Strong passwords, limit login attempts. Update WordPress, themes, plugins regularly. Uptime
+            monitoring (UptimeRobot free).
+          </p>
+          <p>
+            <strong>Early Warning Signs:</strong> Client reports site is slow or down, Wordfence alerts about
+            suspicious activity, Google flags site as "unsafe".
+          </p>
+          <p>
+            <strong>Action Plan:</strong> Immediate response (within 2 hours for critical issues). Restore from
+            backup if site compromised. Scan with Wordfence, clean malware. Change all passwords. Notify client
+            immediately and honestly. If your fault: offer refund or free month of maintenance.
+          </p>
+
+          <h3 class="chapter-section-subtitle">Risk 6: Partner Relationship Issues</h3>
+          <p>
+            <strong>Likelihood:</strong> Medium. <strong>Impact:</strong> High (business could collapse).
+          </p>
+          <p>
+            <strong>Mitigation:</strong> Clear written agreement on revenue split (50/50). Define roles clearly
+            (you build, they sell). Regular check-ins (weekly 30-min calls). Transparent communication on financials.
+            Separate business bank account (split deposits). Written partnership agreement (even if informal initially).
+          </p>
+          <p>
+            <strong>Early Warning Signs:</strong> Disagreements on pricing or scope, one partner not pulling their
+            weight, money disputes, poor communication.
+          </p>
+          <p>
+            <strong>Action Plan:</strong> Address issues immediately (don't let resentment build). Revisit agreement
+            (is it still fair as business grows?). Consider mediation if serious conflict. Have exit clause in
+            partnership agreement (how to split if it ends).
+          </p>
+        </section>
+
+        <section class="chapter-section">
+          <h2 class="chapter-section-title">Insurance & Legal Protection</h2>
+          <p>
+            <strong>Professional Liability Insurance (Errors & Omissions):</strong> What it covers: mistakes, missed
+            deadlines, negligence claims. Cost: $300–600/year for $1M coverage. When to get: before your 5th client
+            or $10K in revenue. Recommended providers: Simply Business, Hiscox, Thimble.
+          </p>
+          <p>
+            <strong>General Liability Insurance:</strong> What it covers: bodily injury, property damage (less relevant
+            for web dev). Cost: $200–400/year. When to get: if meeting clients in person or at their location. Often
+            bundled with professional liability.
+          </p>
+          <p>
+            <strong>Cyber Liability Insurance:</strong> What it covers: data breaches, cyber attacks on client sites.
+            Cost: $500–1,000/year. When to get: if handling sensitive client data (e-commerce, medical).
+          </p>
+          <p>
+            <strong>Recommendation:</strong> Start with professional liability only once you hit $10K revenue or 5
+            clients. Defer others until Year 2.
+          </p>
+          <p>
+            <strong>Legal Contracts:</strong> Client Service Agreement (Contract) should cover scope of work, payment
+            terms, revision policy, ownership of work, limitation of liability, termination clause. Where to get:
+            Law Depot (Canada-specific templates, ~$50), Legal Zoom, local lawyer (consultation plus custom contract:
+            $500–1,000). Start with template from Law Depot, have lawyer review once you can afford it.
+          </p>
+        </section>
+
+        <section class="chapter-section">
+          <h2 class="chapter-section-title">Scaling Strategy (Months 12–24)</h2>
+          <p>
+            <strong>Month 12 Targets:</strong> 35–45 projects completed (Year 1 total), 6–8 retainer clients,
+            $60,000–75,000 gross revenue, $30,000–37,500 your share, effective hourly rate: $30–40/hour.
+          </p>
+
+          <h3 class="chapter-section-subtitle">Scaling Path A: Increase Volume</h3>
+          <p>
+            Take on more projects (6–8 per month). Hire contractor or junior dev to help with delivery. You become
+            project manager plus quality control. Partner continues to handle all sales. Pros: more revenue, predictable
+            income. Cons: still trading time for money, capped by your hours. Revenue potential Year 2: $80,000–120,000
+            gross.
+          </p>
+
+          <h3 class="chapter-section-subtitle">Scaling Path B: Increase Prices</h3>
+          <p>
+            Raise prices by 30–50% (you've proven value). Focus on fewer, higher-value clients. Add premium services
+            (e-commerce, custom apps). Position as "premium" vs "affordable". Pros: higher margins, less work, better
+            clients. Cons: slower growth, smaller market. Revenue potential Year 2: $90,000–130,000 gross.
+          </p>
+
+          <h3 class="chapter-section-subtitle">Scaling Path C: Recurring Revenue Focus</h3>
+          <p>
+            Shift focus to retainer services (maintenance, SEO, GBP). Target: 20–30 retainer clients by end of Year
+            2. Reduce one-time projects (or charge more for them). Build semi-passive income. Pros: predictable income,
+            less sales effort, scalable. Cons: takes time to build, requires excellent service. Revenue potential Year
+            2: $50,000–80,000 gross (but recurring!).
+          </p>
+
+          <h3 class="chapter-section-subtitle">Scaling Path D: Productize & Automate</h3>
+          <p>
+            Create "website-in-a-box" templates by industry. Use page builders plus AI for ultra-fast delivery. Reduce
+            custom work, increase templated work. Aim for 8–12 sites per month with templates. Pros: ultra-fast delivery,
+            very profitable. Cons: less creative, commodity pricing pressure. Revenue potential Year 2: $120,000–180,000
+            gross.
+          </p>
+
+          <p>
+            <strong>Recommended:</strong> Hybrid of B plus C — raise prices gradually (15–20% every 6 months), build
+            retainer base to 15–20 clients (recurring income), take on fewer but higher-value projects. Year 2 target:
+            $100,000–140,000 gross revenue.
+          </p>
+
+          <h3 class="chapter-section-subtitle">When & How to Hire</h3>
+          <p>
+            DON'T hire too early. Common mistake. When to consider hiring: you're consistently turning away work (good
+            problem), you're working 50+ hours/week for 3+ months, you have 10+ retainer clients (need support), revenue
+            is $8,000+/month consistently (can afford it).
+          </p>
+          <p>
+            <strong>Who to hire first:</strong> Option 1: Junior Developer (Part-Time Contractor) — role: build sites
+            under your direction, cost: $20–30/hour CAD, 10–20 hours/week, when: you're booked solid with projects.
+            Option 2: Virtual Assistant (VA) — role: client communication, scheduling, admin tasks, cost: $15–25/hour
+            CAD, 10–15 hours/week, when: you're spending over 10 hours/week on admin. Option 3: SEO Specialist (Contractor)
+            — role: handle all SEO work (you just build sites), cost: $25–40/hour CAD or revenue share, when: you have
+            5+ SEO retainer clients.
+          </p>
+          <p>
+            <strong>Recommendation:</strong> Start with VA to free up your time, then hire dev if volume justifies it.
+          </p>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div>© 2026 vaire* digital — Internal launch blueprint.</div>
+        <div class="footer-right">
+          <a href="./roadmap.html" class="footer-link">← Roadmap</a>
+          <a href="./checklists.html" class="footer-link">Checklists →</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
