@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" width="400" height="240">
+  <rect fill="#000" width="400" height="240"/>
+  <rect x="1" y="1" width="398" height="238" fill="none" stroke="#39FF14" stroke-width="2"/>
+  <text x="200" y="120" font-family="ui-monospace, monospace" font-size="24" font-weight="700" letter-spacing="0.15em" fill="#39FF14" text-anchor="middle" dominant-baseline="middle">VOID DIGITAL</text>
+  <text x="200" y="150" font-family="ui-monospace, monospace" font-size="12" letter-spacing="0.2em" fill="#39FF14" text-anchor="middle" dominant-baseline="middle" opacity="0.8">DIGITAL STRATEGY</text>
+</svg>
