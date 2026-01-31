@@ -1,0 +1,411 @@
+/* AXIS DENTAL & AESTHETICS — Swiss-style. White space, rigid grid, left-aligned type. */
+
+:root {
+  --axis-white: #fff;
+  --axis-black: #111;
+  --axis-gray: #666;
+  --axis-border: #e5e5e5;
+  --axis-pad: clamp(1rem, 3vw, 2.5rem);
+  --axis-max: 1200px;
+  --axis-gap: 1.25rem;
+  --axis-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --header-height: 5rem;
+  --bp: 768px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--axis-font);
+  font-size: 1.375rem;
+  line-height: 1.6;
+  color: var(--axis-black);
+  background: var(--axis-white);
+  overflow-x: hidden;
+}
+
+a {
+  color: var(--axis-black);
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ========== Top bar (Back to Portfolio) ========== */
+.top-bar {
+  padding: 0.75rem var(--axis-pad);
+  background: var(--axis-white);
+  border-bottom: 1px solid var(--axis-border);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.top-bar a { color: var(--axis-gray); }
+.top-bar a:hover { color: var(--axis-black); text-decoration: underline; }
+
+/* ========== Header — minimal nav top right ========== */
+.site-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 0.75rem var(--axis-pad);
+  background: var(--axis-white);
+  border-bottom: 1px solid var(--axis-border);
+}
+
+.site-header-inner {
+  width: 100%;
+  max-width: var(--axis-max);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--axis-black);
+}
+.logo:hover { text-decoration: none; color: var(--axis-black); }
+
+.logo-tooth {
+  height: 2.25rem;
+  width: auto;
+  flex-shrink: 0;
+}
+
+.logo-img { height: 3.5rem; width: auto; }
+
+/* Nav: vertical list, top right */
+.nav-main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.125rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-main a {
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--axis-gray);
+  padding: 0.2rem 0;
+  display: inline-block;
+}
+.nav-main a:hover { color: var(--axis-black); }
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--axis-border);
+  background: var(--axis-white);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.nav-toggle-bar {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: var(--axis-black);
+}
+
+@media (max-width: 768px) {
+  .nav-main {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 0.5rem;
+    padding: 1rem 1.25rem;
+    background: var(--axis-white);
+    border: 1px solid var(--axis-border);
+    min-width: 160px;
+  }
+  .nav-main.nav-open { display: flex; }
+  .nav-main.nav-open a {
+    font-size: 1rem;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  .nav-toggle { display: flex; }
+  .site-header-inner { position: relative; }
+}
+
+/* ========== Main — 12-col feel, massive padding ========== */
+.main-inner {
+  max-width: var(--axis-max);
+  margin: 0 auto;
+  padding: var(--axis-pad);
+}
+
+/* Hero: massive headline, left-aligned */
+.hero {
+  padding: 2.5rem 0 2rem;
+  max-width: 900px;
+}
+
+.hero-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--axis-gray);
+  margin: 0 0 1rem;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0 0 1.5rem;
+  color: var(--axis-black);
+}
+
+.hero-lead {
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--axis-gray);
+  margin: 0 0 1.5rem;
+  max-width: 36em;
+}
+
+.hero-cta {
+  display: inline-block;
+  padding: 0.875rem 1.5rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--axis-white);
+  background: var(--axis-black);
+  border: none;
+  cursor: pointer;
+}
+.hero-cta:hover { background: var(--axis-gray); text-decoration: none; }
+
+/* Grid block: 2/3 text, 1/3 image */
+.grid-block {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--axis-gap);
+  align-items: start;
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--axis-border);
+}
+
+.grid-block:first-of-type { border-top: none; }
+
+.grid-content { min-width: 0; }
+
+.grid-content .section-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--axis-gray);
+  margin: 0 0 1rem;
+}
+
+.grid-content .section-title .icon {
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--axis-gray);
+}
+
+.grid-content .section-title .icon svg { width: 100%; height: 100%; display: block; }
+
+.grid-content h2 {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin: 0 0 1rem;
+  color: var(--axis-black);
+}
+
+.grid-content p {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.65;
+  color: var(--axis-gray);
+  max-width: 40em;
+}
+
+.grid-media {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #f5f5f5;
+}
+
+.grid-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (max-width: 768px) {
+  .grid-block {
+    grid-template-columns: 1fr;
+    padding: 2rem 0;
+  }
+  .grid-media { order: -1; aspect-ratio: 16 / 10; }
+}
+
+/* Section: full-width block, left-aligned */
+.section {
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--axis-border);
+}
+
+.section-inner {
+  max-width: var(--axis-max);
+  margin: 0 auto;
+  padding: 0 var(--axis-pad);
+}
+
+.section-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--axis-gray);
+  margin: 0 0 1.5rem;
+}
+
+.section-title .icon {
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--axis-gray);
+}
+
+.section-title .icon svg { width: 100%; height: 100%; display: block; }
+
+.section-heading {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin: 0 0 1rem;
+  color: var(--axis-black);
+}
+
+.section-lead {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.65;
+  color: var(--axis-gray);
+  max-width: 40em;
+}
+
+/* Services list */
+.services-list {
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+}
+
+.services-list li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--axis-border);
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--axis-black);
+}
+
+.services-list li:last-child { border-bottom: none; }
+
+/* CTA block */
+.cta-block {
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--axis-border);
+}
+
+.cta-block .hero-cta { margin-top: 0.5rem; }
+
+/* Footer */
+.site-footer {
+  padding: 2rem var(--axis-pad) 1.5rem;
+  border-top: 1px solid var(--axis-border);
+  font-size: 0.8rem;
+  color: var(--axis-gray);
+}
+
+.footer-inner {
+  max-width: var(--axis-max);
+  margin: 0 auto;
+}
+
+.footer-name { margin: 0; }
+
+.footer-back {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--axis-gray);
+  font-weight: 500;
+}
+
+.footer-back:hover { color: var(--axis-black); text-decoration: underline; }
+
+/* Sticky CTA — mobile */
+.sticky-cta {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  padding: 0.875rem var(--axis-pad);
+  padding-bottom: max(0.875rem, env(safe-area-inset-bottom));
+  background: var(--axis-black);
+  color: var(--axis-white);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .sticky-cta { display: flex; }
+}

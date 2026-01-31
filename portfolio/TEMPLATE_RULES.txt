@@ -147,7 +147,33 @@ When in doubt, ask: "Would this look like a different style of site, or the
 same template with a new skin?"
 
 --------------------------------------------------------------------------------
-8. SUMMARY
+8. SECTION & HEADING ICONS (ADD LIFE TO CONTENT)
+--------------------------------------------------------------------------------
+On future templates, add small inline SVG icons beside section titles and
+key headings where it fits. This adds visual interest and helps users scan.
+
+• Section titles: Place a relevant icon next to each main section heading
+  (e.g. magnifying glass beside "Services" or "Intel", envelope beside
+  "Contact", document beside "Strategy", upward trend arrow beside
+  "Growth", play/gear beside "Execution", broadcast icon beside "Signal").
+• Card/subheadings: For service cards or feature blocks, add a small icon
+  beside each card title (e.g. paper/note for strategy, chart-up for
+  growth, cog or play for execution).
+• Implementation: Use inline SVG (stroke-based, currentColor) so icons
+  inherit the site accent colour. Size icons to match the heading
+  (e.g. 1.25rem–1.5rem). Wrap in a span with class "icon" and
+  aria-hidden="true". Use display: inline-flex; align-items: center;
+  gap on the heading so icon and text align.
+• Keep icons simple and recognizable; match the icon to the meaning of
+  the section (search = find, envelope = contact, chart up = growth,
+  document = strategy, etc.). Do not overdo — use where it clarifies
+  or adds polish, not on every single label.
+
+Reference: VOID DIGITAL template (portfolio/void-digital/) for examples
+of section-title and intel-card heading icons.
+
+--------------------------------------------------------------------------------
+9. SUMMARY
 --------------------------------------------------------------------------------
 • Portfolio site = live.
 • Templates/examples = live only as paths under that portfolio (e.g.
@@ -160,6 +186,8 @@ same template with a new skin?"
   every new template unless the prompt explicitly says otherwise.
 • Typography/readability and CTA prominence (Section 6) and stylistic
   variation (Section 7) reduce back-and-forth; apply them from the first pass.
+• Section and heading icons (Section 8): add small inline SVG icons beside
+  section titles and card headings where it fits; reference VOID DIGITAL.
 
 ================================================================================
 Last updated: 2026-01-29
