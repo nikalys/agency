@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nikalys — Who We Are</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect fill='%23000000' width='32' height='32'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-size='20' font-weight='bold' fill='%23ffd700' font-family='monospace'>N</text></svg>">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial Black', Arial, sans-serif;
+            background: #ffffff;
+            color: #000000;
+            line-height: 1.3;
+            font-size: 14px;
+        }
+
+        /* Back to Showcase Link */
+        .back-link {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            text-decoration: underline;
+            color: #000000;
+            font-size: 12px;
+            font-family: 'Courier New', monospace;
+            z-index: 1000;
+            font-weight: bold;
+            border: 2px solid #000000;
+            padding: 6px 10px;
+        }
+
+        .back-link:hover {
+            background: #000000;
+            color: #ffd700;
+        }
+
+        /* Header */
+        header {
+            padding: 40px;
+            background: #ffffff;
+            border-bottom: 6px solid #000000;
+        }
+
+        header h1 {
+            font-size: 120px;
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 0.9;
+            letter-spacing: -3px;
+            margin-bottom: 20px;
+            transform: skew(-10deg);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1000px;
+            padding: 40px;
+            margin: 0 auto;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 40px;
+        }
+
+        /* Dense Text Block - NO PARAGRAPH SPACING */
+        .text-block {
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        .text-block p {
+            margin: 0;
+            padding: 0;
+            display: inline;
+        }
+
+        .text-block p::after {
+            content: ' ';
+        }
+
+        /* Red underlined links */
+        a {
+            color: #0000ff;
+            text-decoration: underline;
+        }
+
+        .red-link {
+            color: #ff0000;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .red-link:hover {
+            background: #ff0000;
+            color: #ffffff;
+        }
+
+        /* Blinking cursor */
+        .cursor {
+            display: inline-block;
+            width: 8px;
+            height: 16px;
+            background: #000000;
+            margin-left: 2px;
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        /* Sidebar with photo */
+        .sidebar {
+            position: relative;
+        }
+
+        .team-photo {
+            width: 100%;
+            height: 300px;
+            background: #cccccc;
+            border: 4px solid #000000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-family: 'Courier New', monospace;
+            color: #666666;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Compression artifacts effect */
+        .team-photo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(0, 0, 0, 0.03) 0px,
+                    rgba(0, 0, 0, 0.03) 1px,
+                    transparent 1px,
+                    transparent 2px
+                ),
+                repeating-linear-gradient(
+                    90deg,
+                    rgba(255, 0, 0, 0.02) 0px,
+                    rgba(255, 0, 0, 0.02) 2px,
+                    transparent 2px,
+                    transparent 4px
+                ),
+                repeating-linear-gradient(
+                    45deg,
+                    rgba(0, 0, 255, 0.02) 0px,
+                    rgba(0, 0, 255, 0.02) 3px,
+                    transparent 3px,
+                    transparent 6px
+                );
+            pointer-events: none;
+        }
+
+        .team-photo-text {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        /* Stats section */
+        .stats-section {
+            margin-top: 30px;
+            border: 3px solid #000000;
+            padding: 20px;
+            background: #ffd700;
+        }
+
+        .stats-section h3 {
+            font-size: 14px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            letter-spacing: 2px;
+        }
+
+        .stat-item {
+            margin: 0;
+            padding: 0;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        /* Section breaks */
+        .section-break {
+            border-top: 4px solid #000000;
+            margin: 30px 0;
+            padding: 20px 0;
+        }
+
+        /* History section with visible compression */
+        .history {
+            background: #f5f5f5;
+            border-left: 6px solid #ff0000;
+            padding: 20px;
+            margin: 30px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        .history p {
+            margin: 0;
+            display: inline;
+        }
+
+        .history p::after {
+            content: ' ';
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px;
+            background: #000000;
+            color: #ffd700;
+            border-top: 6px solid #ffd700;
+            margin-top: 60px;
+        }
+
+        footer h3 {
+            font-size: 14px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            letter-spacing: 2px;
+        }
+
+        footer p {
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            line-height: 1.8;
+            margin-bottom: 16px;
+            margin: 0;
+            display: inline;
+        }
+
+        footer p::after {
+            content: ' ';
+        }
+
+        footer a {
+            color: #ffd700;
+        }
+
+        footer a:hover {
+            background: #ffd700;
+            color: #000000;
+            padding: 2px 4px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 60px;
+            }
+
+            .team-photo {
+                height: 250px;
+            }
+
+            .container {
+                padding: 30px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 40px;
+                letter-spacing: -1px;
+            }
+
+            .text-block,
+            .history,
+            footer {
+                font-size: 12px;
+            }
+
+            .container {
+                padding: 20px 15px;
+            }
+
+            .back-link {
+                font-size: 10px;
+                padding: 4px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="../../index.html" class="back-link">← BACK</a>
+
+    <header>
+        <h1>WHO WE ARE</h1>
+    </header>
+
+    <div class="container">
+        <div class="content">
+            <div class="text-block">
+                <p>Nikalys is a design agency founded in 2006 by a collective of designers and developers who refused to compromise on quality. We exist in the space between art and engineering, between function and form, between idealism and pragmatism. Our work speaks for itself. We don't do trends. We don't follow the herd. We build systems that work. We create identities that endure. We design experiences that respect the user's intelligence. The word "design" comes from the Latin "designare" meaning to mark out, to designate. That's what we do. We mark out the essential. We designate what matters. We strip away the unnecessary. We believe that good design is invisible. It doesn't scream for attention. It doesn't beg for validation. It exists quietly, doing its job with precision and purpose. Our team is composed of <span class="red-link">twelve permanent members</span> and a network of collaborators across the globe. We've worked with <span class="red-link">Fortune 500 companies</span>, <span class="red-link">startups</span>, <span class="red-link">nonprofits</span>, and cultural institutions. We've won awards, yes, but awards aren't why we do this. We do this because we have to. Because the alternative—mediocrity, compromise, trend-chasing—is unbearable. Our philosophy is simple: design is not decoration. Design is strategy. Design is problem-solving. Design is the intersection of constraint and creativity. Every project is a negotiation between what's possible and what's necessary. We've turned down projects worth millions because they didn't align with our values. We've worked for peanuts on projects that mattered. We've fought with clients, <span class="red-link">walked away from bad deals</span>, and stood firm on principles when it would have been easier to capitulate. This is not a business model. This is a way of life. We believe in craft. We believe in process. We believe that the work we do today will outlast the trends of tomorrow. We believe that <span class="red-link">design has consequences</span>. The choices we make ripple outward, affecting users, affecting cultures, affecting the fabric of society itself. That responsibility weighs on us every single day. We work long hours. We argue about details that most people would overlook. We obsess over <span class="red-link">typography</span>, <span class="red-link">spacing</span>, <span class="red-link">color theory</span>, <span class="red-link">user behavior</span>. We test. We iterate. We fail. We try again. This is what design demands. This is what excellence demands. And we refuse to offer anything less. <span class="cursor"></span></p>
+            </div>
+
+            <div class="sidebar">
+                <div class="team-photo">
+                    <div class="team-photo-text">
+                        [LOW RES TEAM PHOTO]<br>
+                        [VISIBLE COMPRESSION<br>
+                        ARTIFACTS HERE]
+                    </div>
+                </div>
+
+                <div class="stats-section">
+                    <h3>By The Numbers</h3>
+                    <p class="stat-item">Founded: 2006</p>
+                    <p class="stat-item">Team Members: 12</p>
+                    <p class="stat-item">Completed Projects: 250+</p>
+                    <p class="stat-item">Years of Excellence: 18</p>
+                    <p class="stat-item">Awards Won: 47</p>
+                    <p class="stat-item">Countries Served: 28</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-break"></div>
+
+        <div class="history">
+            <p><strong>THE NIKALYS STORY:</strong> In 2006, five designers met in a small studio in Brooklyn. We had just been laid off from a major agency. Instead of looking for new jobs, we decided to start our own thing. We had no money. We had no clients. We had nothing but a shared conviction that design could be better, that the industry was bloated with mediocrity, and that we could do something about it. Our first client was a local bookstore. We were paid in free books and coffee. We designed their entire visual identity—logo, signage, website, everything—for almost nothing. But we did our best work. Because that's who we are. That's what we do. Word of mouth led to the next client. And the next. By 2010, we had a team of eight. By 2015, we were in a proper studio with natural light. By 2020, the pandemic forced us to go remote. By 2024, we realized we never wanted to go back to an office. We've turned down investment. We've rejected buyout offers. We've stayed small by choice. Because scale compromises quality. Because too many cooks spoil the broth. Because we value autonomy and craftsmanship over growth and profit. We've made mistakes. We've failed on projects. We've delivered work that didn't live up to our standards. We've learned from every one of those failures. That's how you improve. That's how you become excellent. We don't have a five-year plan. We don't have quarterly targets. We have principles. We have standards. We have a commitment to doing the best work possible, every single day, regardless of the external pressures. <span class="cursor"></span></p>
+        </div>
+
+        <div class="section-break"></div>
+
+        <p style="font-weight: bold; margin: 30px 0; font-size: 14px;">OUR CORE VALUES</p>
+        <p style="margin: 0; display: inline; line-height: 1.3;">
+            <strong>Integrity:</strong> We tell the truth, even when it's uncomfortable. <strong>Craftsmanship:</strong> We obsess over details. <strong>Autonomy:</strong> We don't follow trends; we set them. <strong>Sustainability:</strong> We build things to last. <strong>Collaboration:</strong> We work <span class="red-link">with</span> our clients, not <span class="red-link">for</span> them. <strong>Education:</strong> We share what we know. <strong>Community:</strong> We support other designers and creators. These aren't buzzwords. They're how we operate. They're the criteria by which we judge ourselves. They're the reason we get up in the morning. If you're looking for an agency that will tell you what you want to hear, this isn't it. If you're looking for an agency that will cut corners to make deadlines, this isn't it. If you're looking for an agency that treats design as a commodity, this definitely isn't it. But if you're looking for a partner who will push you to be better, who will challenge your assumptions, who will deliver work that stands the test of time, then we might be a good fit. <span class="cursor"></span>
+        </p>
+    </div>
+
+    <footer>
+        <h3>Get In Touch</h3>
+        <p>Email: <a href="mailto:hello@nikalys.com">hello@nikalys.com</a> | Phone: <a href="tel:+15550123">+1 (555) 0123</a> | Studio: <a href="#">NYC</a> | <a href="../../index.html">← BACK TO SHOWCASE</a></p>
+        <p style="margin-top: 20px; border-top: 2px solid #ffd700; padding-top: 20px;">© 2006-2024 Nikalys Design. All work protected by copyright. No part of this website may be reproduced without permission. We mean it. <span class="cursor"></span></p>
+    </footer>
+</body>
+</html>

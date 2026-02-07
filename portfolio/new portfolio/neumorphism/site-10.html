@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nikalys — Navigation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect fill='%23e0e5ec' width='32' height='32'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-size='18' font-weight='bold' fill='%234a90e2' font-family='system-ui'>N</text></svg>">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #e0e5ec 0%, #f0f3f8 100%);
+            color: #5a6c7d;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        /* Back to Showcase Link */
+        .back-link {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            text-decoration: none;
+            color: #4a90e2;
+            font-size: 13px;
+            font-weight: 500;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 4px 15px rgba(74, 144, 226, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header Section */
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 40px 20px;
+        }
+
+        .logo-section {
+            margin-bottom: 40px;
+        }
+
+        .embossed-logo {
+            font-size: 52px;
+            font-weight: 700;
+            color: #4a90e2;
+            display: inline-block;
+            padding: 30px 40px;
+            background: #e0e5ec;
+            border-radius: 20px;
+            box-shadow: 
+                8px 8px 16px rgba(163, 177, 198, 0.6),
+                -8px -8px 16px rgba(255, 255, 255, 0.5),
+                inset 2px 2px 4px rgba(255, 255, 255, 0.5),
+                inset -2px -2px 4px rgba(163, 177, 198, 0.3);
+            letter-spacing: -1px;
+            transition: all 0.4s ease;
+        }
+
+        .embossed-logo:hover {
+            transform: translateY(-4px);
+            box-shadow: 
+                12px 12px 24px rgba(163, 177, 198, 0.7),
+                -12px -12px 24px rgba(255, 255, 255, 0.5),
+                inset 2px 2px 4px rgba(255, 255, 255, 0.5),
+                inset -2px -2px 4px rgba(163, 177, 198, 0.3);
+        }
+
+        header h1 {
+            font-size: 44px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            font-size: 16px;
+            color: #7a8fa3;
+            font-weight: 300;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Navigation Hub */
+        .nav-hub {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        /* Floating 3D Navigation Buttons */
+        .nav-button {
+            position: relative;
+            padding: 0;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+            border: none;
+            outline: none;
+            background: none;
+        }
+
+        .nav-button-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            padding: 40px 32px;
+            background: #e0e5ec;
+            border-radius: 20px;
+            box-shadow: 
+                12px 12px 20px rgba(163, 177, 198, 0.6),
+                -12px -12px 20px rgba(255, 255, 255, 0.5);
+            border: none;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+            outline: none;
+        }
+
+        .nav-button:hover .nav-button-inner {
+            transform: translateY(-12px);
+            box-shadow: 
+                16px 16px 28px rgba(163, 177, 198, 0.7),
+                -16px -16px 28px rgba(255, 255, 255, 0.5);
+        }
+
+        .nav-button:active .nav-button-inner {
+            transform: translateY(-6px);
+            box-shadow: 
+                8px 8px 16px rgba(163, 177, 198, 0.5),
+                -8px -8px 16px rgba(255, 255, 255, 0.5);
+        }
+
+        .nav-icon {
+            font-size: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+            border-radius: 18px;
+            box-shadow: 
+                inset 4px 4px 8px rgba(0, 0, 0, 0.1),
+                inset -4px -4px 8px rgba(255, 255, 255, 0.2);
+            transition: all 0.4s ease;
+        }
+
+        .nav-button:hover .nav-icon {
+            transform: scale(1.1);
+            box-shadow: 
+                inset 6px 6px 12px rgba(0, 0, 0, 0.15),
+                inset -4px -4px 8px rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        .nav-description {
+            font-size: 13px;
+            color: #7a8fa3;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        /* Quick Links Section */
+        .quick-links-section {
+            background: #e0e5ec;
+            padding: 50px 40px;
+            border-radius: 24px;
+            box-shadow: 
+                12px 12px 20px rgba(163, 177, 198, 0.6),
+                -12px -12px 20px rgba(255, 255, 255, 0.5);
+            margin-bottom: 60px;
+        }
+
+        .quick-links-section h2 {
+            font-size: 32px;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .quick-links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .quick-link {
+            padding: 16px 20px;
+            background: #e0e5ec;
+            border-radius: 12px;
+            text-align: center;
+            text-decoration: none;
+            color: #4a90e2;
+            font-weight: 500;
+            font-size: 13px;
+            transition: all 0.3s ease;
+            box-shadow: 
+                4px 4px 8px rgba(163, 177, 198, 0.4),
+                -4px -4px 8px rgba(255, 255, 255, 0.5),
+                inset 1px 1px 2px rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+        }
+
+        .quick-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 
+                6px 6px 12px rgba(163, 177, 198, 0.5),
+                -6px -6px 12px rgba(255, 255, 255, 0.5),
+                inset 1px 1px 3px rgba(255, 255, 255, 0.4);
+            color: #357abd;
+        }
+
+        /* Info Cards */
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .info-card {
+            background: #e0e5ec;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 
+                8px 8px 16px rgba(163, 177, 198, 0.6),
+                -8px -8px 16px rgba(255, 255, 255, 0.5);
+            transition: all 0.4s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 
+                10px 10px 20px rgba(163, 177, 198, 0.7),
+                -10px -10px 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .info-card h3 {
+            font-size: 18px;
+            color: #2c3e50;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .info-card p {
+            font-size: 14px;
+            color: #7a8fa3;
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        footer {
+            background: #e0e5ec;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 
+                9px 9px 16px rgba(163, 177, 198, 0.6),
+                -9px -9px 16px rgba(255, 255, 255, 0.5);
+        }
+
+        footer h3 {
+            font-size: 18px;
+            color: #2c3e50;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        footer p {
+            font-size: 14px;
+            color: #7a8fa3;
+            margin-bottom: 12px;
+        }
+
+        footer a {
+            color: #4a90e2;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #357abd;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 32px;
+            }
+
+            .embossed-logo {
+                font-size: 40px;
+                padding: 24px 32px;
+            }
+
+            .nav-hub {
+                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+                gap: 30px;
+            }
+
+            .nav-button-inner {
+                padding: 32px 24px;
+            }
+
+            .nav-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 40px;
+            }
+
+            .quick-links-section {
+                padding: 40px 30px;
+            }
+
+            .quick-links-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            }
+
+            .nav-button:hover .nav-button-inner {
+                transform: translateY(-8px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 24px;
+            }
+
+            header p {
+                font-size: 14px;
+            }
+
+            .embossed-logo {
+                font-size: 32px;
+                padding: 20px 24px;
+                margin-bottom: 30px;
+            }
+
+            .nav-hub {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .nav-button-inner {
+                padding: 28px 20px;
+                gap: 12px;
+            }
+
+            .nav-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 32px;
+            }
+
+            .nav-title {
+                font-size: 18px;
+            }
+
+            .nav-description {
+                font-size: 12px;
+            }
+
+            .quick-links-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            .quick-link {
+                padding: 12px 16px;
+                font-size: 12px;
+            }
+
+            .info-cards {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .back-link {
+                font-size: 11px;
+                padding: 6px 10px;
+                top: 15px;
+                left: 15px;
+            }
+
+            .nav-button:hover .nav-button-inner {
+                transform: translateY(-6px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="../../index.html" class="back-link">← Back</a>
+
+    <div class="container">
+        <header>
+            <div class="logo-section">
+                <div class="embossed-logo">NIKALYS</div>
+            </div>
+            <h1>Main Navigation</h1>
+            <p>Explore our services and discover how we can help bring your vision to life.</p>
+        </header>
+
+        <!-- Floating 3D Navigation Buttons -->
+        <div class="nav-hub">
+            <button class="nav-button" onclick="alert('Portfolio section')">
+                <div class="nav-button-inner">
+                    <div class="nav-icon">🎨</div>
+                    <div class="nav-title">Portfolio</div>
+                    <div class="nav-description">View our latest projects and case studies</div>
+                </div>
+            </button>
+
+            <button class="nav-button" onclick="alert('Services section')">
+                <div class="nav-button-inner">
+                    <div class="nav-icon">⭐</div>
+                    <div class="nav-title">Services</div>
+                    <div class="nav-description">Explore our design solutions and offerings</div>
+                </div>
+            </button>
+
+            <button class="nav-button" onclick="alert('About section')">
+                <div class="nav-button-inner">
+                    <div class="nav-icon">👥</div>
+                    <div class="nav-title">About Us</div>
+                    <div class="nav-description">Learn our story, values, and approach</div>
+                </div>
+            </button>
+
+            <button class="nav-button" onclick="alert('Contact section')">
+                <div class="nav-button-inner">
+                    <div class="nav-icon">💬</div>
+                    <div class="nav-title">Contact</div>
+                    <div class="nav-description">Get in touch and start your project</div>
+                </div>
+            </button>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="quick-links-section">
+            <h2>Quick Links</h2>
+            <div class="quick-links-grid">
+                <a href="#" class="quick-link">Brand Identity</a>
+                <a href="#" class="quick-link">Web Design</a>
+                <a href="#" class="quick-link">App Design</a>
+                <a href="#" class="quick-link">UX Strategy</a>
+                <a href="#" class="quick-link">Design Systems</a>
+                <a href="#" class="quick-link">Marketing</a>
+                <a href="#" class="quick-link">Case Studies</a>
+                <a href="#" class="quick-link">Blog</a>
+                <a href="#" class="quick-link">FAQ</a>
+                <a href="#" class="quick-link">Careers</a>
+                <a href="#" class="quick-link">Team</a>
+                <a href="#" class="quick-link">Press</a>
+            </div>
+        </div>
+
+        <!-- Information Cards -->
+        <div class="info-cards">
+            <div class="info-card">
+                <h3>🚀 Getting Started</h3>
+                <p>New to our agency? Start by browsing our portfolio to see examples of our work across different industries and design disciplines.</p>
+            </div>
+
+            <div class="info-card">
+                <h3>📋 Our Process</h3>
+                <p>We follow a proven 4-step process: discovery, design, refinement, and delivery. Each step ensures quality and collaboration with you.</p>
+            </div>
+
+            <div class="info-card">
+                <h3>🎯 Work With Us</h3>
+                <p>Ready to start your project? Fill out our contact form or schedule a call to discuss your needs and explore how we can help.</p>
+            </div>
+
+            <div class="info-card">
+                <h3>💡 Best Practices</h3>
+                <p>Check out our blog for insights on design trends, UX best practices, and case studies that showcase our approach and expertise.</p>
+            </div>
+
+            <div class="info-card">
+                <h3>🤝 Join Our Team</h3>
+                <p>Interested in joining a world-class design team? Visit our careers page to see current openings and learn about our culture.</p>
+            </div>
+
+            <div class="info-card">
+                <h3>📞 Support</h3>
+                <p>Have questions? Our support team is here to help. Email us or visit our FAQ page for answers to common questions.</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <h3>Ready to Get Started?</h3>
+            <p>Let's create something amazing together. Contact us today to discuss your next project.</p>
+            <p><a href="mailto:hello@nikalys.com">📧 hello@nikalys.com</a> | <a href="tel:+15550123">📞 +1 (555) 0123</a> | <a href="#">🗓️ Schedule a Call</a></p>
+            <p style="margin-top: 20px; font-size: 12px; color: #9aacbe;">© 2024 Nikalys Design. All rights reserved. | <a href="../../index.html">← Back to Showcase</a></p>
+        </footer>
+    </div>
+</body>
+</html>

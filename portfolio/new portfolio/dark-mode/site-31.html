@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Dark Mode Interactive Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0a0a;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #d0d0d0;
+            overflow-x: hidden;
+            padding: 70px 20px 40px 20px;
+            min-height: 100vh;
+        }
+
+        .back-link {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: rgba(0, 255, 136, 0.15);
+            padding: 12px 20px;
+            border: 2px solid #00ff88;
+            text-decoration: none;
+            color: #00ff88;
+            font-weight: 600;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .back-link:hover {
+            background: rgba(0, 255, 136, 0.25);
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+            transform: translateX(-5px);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #fff;
+            margin-bottom: 15px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.1em;
+            color: #808080;
+            margin-bottom: 50px;
+        }
+
+        .form-container {
+            background: radial-gradient(ellipse 800px 600px at 50% 50%, rgba(0, 255, 136, 0.05) 0%, transparent 70%), 
+                        linear-gradient(180deg, rgba(0, 212, 255, 0.05) 0%, rgba(10, 10, 10, 0.8) 100%);
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            border-radius: 12px;
+            padding: 60px;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 8px 32px rgba(0, 255, 136, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1em;
+            color: #00ff88;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(0, 255, 136, 0.3);
+            border-radius: 6px;
+            color: #d0d0d0;
+            font-family: inherit;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        input[type="date"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            background: rgba(0, 255, 136, 0.08);
+            border-color: #00ff88;
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.3), inset 0 0 15px rgba(0, 255, 136, 0.05);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: #606060;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            color: #b0b0b0;
+            cursor: pointer;
+            font-size: 0.95em;
+            transition: color 0.3s;
+        }
+
+        .checkbox-label:hover {
+            color: #00ff88;
+        }
+
+        input[type="checkbox"] {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
+            background: rgba(0, 255, 136, 0.1);
+            border: 2px solid rgba(0, 255, 136, 0.3);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        input[type="checkbox"]:hover {
+            border-color: #00ff88;
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.2);
+        }
+
+        input[type="checkbox"]:checked {
+            background: rgba(0, 255, 136, 0.3);
+            border-color: #00ff88;
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+        }
+
+        input[type="checkbox"]:checked::after {
+            content: '✓';
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #00ff88;
+            font-weight: bold;
+        }
+
+        .required {
+            color: #ff6b6b;
+        }
+
+        button {
+            background: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%);
+            color: #0a0a0a;
+            border: none;
+            padding: 16px 40px;
+            font-size: 1.05em;
+            font-weight: 700;
+            border-radius: 6px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.3);
+            width: 100%;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 50px rgba(0, 255, 136, 0.5), 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .form-info {
+            background: rgba(0, 212, 255, 0.08);
+            border-left: 4px solid #00d4ff;
+            padding: 25px;
+            border-radius: 6px;
+            margin: 40px 0;
+        }
+
+        .form-info h3 {
+            color: #00d4ff;
+            margin-bottom: 12px;
+            font-size: 1.1em;
+        }
+
+        .form-info p {
+            color: #a0a0a0;
+            line-height: 1.6;
+            font-size: 0.95em;
+        }
+
+        .form-info p + p {
+            margin-top: 10px;
+        }
+
+        .success-message {
+            display: none;
+            background: rgba(0, 255, 136, 0.15);
+            border: 2px solid #00ff88;
+            border-radius: 6px;
+            padding: 25px;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #00ff88;
+            font-weight: 600;
+            animation: slideIn 0.5s ease;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .glow-pulse {
+            animation: glowPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes glowPulse {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(0, 255, 136, 0.5);
+            }
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 80px;
+            padding-top: 60px;
+            border-top: 1px solid rgba(0, 255, 136, 0.2);
+        }
+
+        .contact-item {
+            text-align: center;
+            padding: 30px;
+            background: rgba(0, 255, 136, 0.05);
+            border: 1px solid rgba(0, 255, 136, 0.15);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(0, 255, 136, 0.12);
+            border-color: rgba(0, 255, 136, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .contact-label {
+            font-size: 0.9em;
+            color: #808080;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .contact-value {
+            color: #00ff88;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .contact-value:hover {
+            text-shadow: 0 0 15px rgba(0, 255, 136, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2em; }
+            .form-container { padding: 30px; }
+            .back-link { position: static; margin-bottom: 30px; display: inline-block; }
+            .form-row { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <a href="../../index.html" class="back-link">← Back to Showcase</a>
+
+    <div class="container">
+        <header>
+            <h1>Get In Touch</h1>
+            <p class="subtitle">We'd love to hear from you. Send us a message anytime.</p>
+        </header>
+
+        <div class="form-container glow-pulse">
+            <div class="success-message" id="successMessage">
+                ✓ Thank you! Your message has been sent successfully.
+            </div>
+
+            <form id="contactForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Full Name <span class="required">*</span></label>
+                        <input type="text" id="name" name="name" placeholder="Your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000">
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company</label>
+                        <input type="text" id="company" name="company" placeholder="Your company name">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="service">Service of Interest <span class="required">*</span></label>
+                    <select id="service" name="service" required>
+                        <option value="">Select a service...</option>
+                        <option value="web">Web Design</option>
+                        <option value="branding">Branding</option>
+                        <option value="ux">UX/UI Design</option>
+                        <option value="mobile">Mobile App Design</option>
+                        <option value="consultation">Design Consultation</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Project Details <span class="required">*</span></label>
+                    <textarea id="message" name="message" placeholder="Tell us about your project, goals, and timeline..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>How did you hear about us? <span class="required">*</span></label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="source" value="referral" required>
+                            Referral from a friend
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="source" value="social">
+                            Social media
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="source" value="search">
+                            Search engine
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="source" value="portfolio">
+                            Saw our portfolio
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="source" value="other">
+                            Other
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-info">
+                    <h3>🔒 Your Privacy Matters</h3>
+                    <p>We take your privacy seriously. Your information will only be used to respond to your inquiry and won't be shared with third parties.</p>
+                </div>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+
+        <div class="contact-info">
+            <div class="contact-item">
+                <div class="contact-icon">📧</div>
+                <div class="contact-label">Email</div>
+                <a href="mailto:hello@nikalys.com" class="contact-value">hello@nikalys.com</a>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">📍</div>
+                <div class="contact-label">Location</div>
+                <div class="contact-value">New York, USA</div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">⏰</div>
+                <div class="contact-label">Response Time</div>
+                <div class="contact-value">Within 24 hours</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('contactForm');
+        const successMessage = document.getElementById('successMessage');
+        const checkboxes = document.querySelectorAll('input[name="source"]');
+
+        // Only allow one checkbox to be selected
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                if (this.checked) {
+                    checkboxes.forEach(cb => {
+                        if (cb !== this) cb.checked = false;
+                    });
+                }
+            });
+        });
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Validate at least one checkbox is selected
+            const anyChecked = Array.from(checkboxes).some(cb => cb.checked);
+            if (!anyChecked) {
+                alert('Please select at least one option for "How did you hear about us?"');
+                return;
+            }
+
+            // Show success message
+            successMessage.classList.add('show');
+
+            // Reset form
+            form.reset();
+
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                successMessage.classList.remove('show');
+            }, 5000);
+        });
+
+        // Add focus glow effect to form container
+        const inputs = form.querySelectorAll('input, select, textarea');
+        const formContainer = document.querySelector('.form-container');
+
+        inputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                formContainer.style.boxShadow = '0 8px 32px rgba(0, 255, 136, 0.25), 0 0 40px rgba(0, 255, 136, 0.15)';
+            });
+
+            input.addEventListener('blur', function() {
+                formContainer.style.boxShadow = '0 8px 32px rgba(0, 255, 136, 0.1)';
+            });
+        });
+    </script>
+</body>
+</html>

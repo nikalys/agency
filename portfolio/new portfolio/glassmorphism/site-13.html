@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nikalys — Pricing Plans</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' style='stop-color:%2315aabf;stop-opacity:1' /><stop offset='100%' style='stop-color:%237c3aed;stop-opacity:1' /></linearGradient></defs><rect fill='url(%23grad)' width='32' height='32'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-size='18' font-weight='bold' fill='%23ffffff' font-family='system-ui'>N</text></svg>">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(180deg, #0a0e27 0%, #1a1640 40%, #0d1f3c 100%);
+            color: #ffffff;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 40px 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Animated background elements */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 5%;
+            right: -15%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(21, 170, 191, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float 30s infinite ease-in-out;
+            z-index: 0;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -10%;
+            left: -10%;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(124, 58, 237, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float 35s infinite ease-in-out reverse;
+            z-index: 0;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(40px); }
+        }
+
+        /* Back to Showcase Link */
+        .back-link {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 500;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 80px;
+            padding: 60px 40px;
+            animation: fadeInDown 0.8s ease;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: 700;
+            background: linear-gradient(90deg, #15aabf 0%, #7c3aed 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 30px;
+            letter-spacing: -1px;
+        }
+
+        header h1 {
+            font-size: 52px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -1.5px;
+            background: linear-gradient(90deg, #06b6d4 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        header p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Pricing Grid */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
+            perspective: 1000px;
+        }
+
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 40px;
+            border-radius: 28px;
+            transition: all 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            animation: fadeInUp 0.8s ease;
+            animation-fill-mode: both;
+        }
+
+        .pricing-card:nth-child(1) { animation-delay: 0.1s; }
+        .pricing-card:nth-child(2) { animation-delay: 0.2s; }
+        .pricing-card:nth-child(3) { animation-delay: 0.3s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            right: -1px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(21, 170, 191, 0.3), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .pricing-card:hover::before {
+            opacity: 1;
+        }
+
+        .pricing-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(124, 58, 237, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .pricing-card.featured {
+            transform: scale(1.05);
+            background: rgba(124, 58, 237, 0.1);
+            border-color: rgba(124, 58, 237, 0.3);
+        }
+
+        .pricing-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-12px);
+            box-shadow: 
+                0 30px 60px rgba(21, 170, 191, 0.15),
+                0 0 100px rgba(124, 58, 237, 0.1);
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-12px);
+            box-shadow: 
+                0 40px 80px rgba(124, 58, 237, 0.25),
+                0 0 120px rgba(124, 58, 237, 0.15);
+        }
+
+        .pricing-badge {
+            display: inline-block;
+            background: rgba(124, 58, 237, 0.2);
+            border: 1px solid rgba(124, 58, 237, 0.4);
+            color: #a78bfa;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            width: fit-content;
+        }
+
+        .pricing-name {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #ffffff;
+            position: relative;
+            z-index: 2;
+        }
+
+        .pricing-description {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.65);
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .pricing-amount {
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .price {
+            font-size: 48px;
+            font-weight: 800;
+            background: linear-gradient(90deg, #06b6d4 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 4px;
+            letter-spacing: -1px;
+        }
+
+        .price-period {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 500;
+        }
+
+        .features-list {
+            flex-grow: 1;
+            margin-bottom: 32px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .feature {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .feature::before {
+            content: '✓';
+            color: #06b6d4;
+            font-weight: 700;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .feature:last-child {
+            border-bottom: none;
+        }
+
+        .cta-button {
+            padding: 14px 28px;
+            background: linear-gradient(90deg, #06b6d4 0%, #8b5cf6 100%);
+            color: #ffffff;
+            border: none;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(6, 182, 212, 0.3);
+        }
+
+        .cta-button:active {
+            transform: translateY(0);
+        }
+
+        .pricing-card.featured .cta-button {
+            background: linear-gradient(90deg, #8b5cf6 0%, #06b6d4 100%);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 60px 40px;
+            border-radius: 28px;
+            margin-bottom: 60px;
+        }
+
+        .faq-section h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: center;
+            background: linear-gradient(90deg, #06b6d4 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .faq-item {
+            padding: 24px;
+            background: rgba(124, 58, 237, 0.05);
+            border: 1px solid rgba(124, 58, 237, 0.15);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            background: rgba(124, 58, 237, 0.1);
+            border-color: rgba(124, 58, 237, 0.3);
+        }
+
+        .faq-item h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .faq-item p {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.75);
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        footer h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        footer p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 12px;
+        }
+
+        footer a {
+            color: #06b6d4;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #8b5cf6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 32px;
+            }
+
+            header p {
+                font-size: 16px;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .pricing-card {
+                padding: 30px;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .pricing-card.featured:hover {
+                transform: translateY(-12px);
+            }
+
+            .price {
+                font-size: 40px;
+            }
+
+            .faq-section {
+                padding: 40px 30px;
+            }
+
+            .faq-section h2 {
+                font-size: 28px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 28px;
+            }
+
+            header p {
+                font-size: 14px;
+            }
+
+            .logo {
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .pricing-card {
+                padding: 24px;
+            }
+
+            .pricing-name {
+                font-size: 20px;
+            }
+
+            .price {
+                font-size: 36px;
+            }
+
+            .cta-button {
+                padding: 12px 24px;
+                font-size: 12px;
+            }
+
+            .faq-section {
+                padding: 30px 20px;
+            }
+
+            .faq-section h2 {
+                font-size: 24px;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .faq-item {
+                padding: 18px;
+            }
+
+            .back-link {
+                font-size: 11px;
+                padding: 6px 10px;
+                top: 15px;
+                left: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="../../index.html" class="back-link">← Back</a>
+
+    <div class="container">
+        <header>
+            <div class="logo">NIKALYS</div>
+            <h1>Simple, Transparent Pricing</h1>
+            <p>Choose the perfect plan for your project. Scale as you grow with flexible options.</p>
+        </header>
+
+        <!-- Pricing Plans -->
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <span class="pricing-badge">Starter</span>
+                <h3 class="pricing-name">Starter</h3>
+                <p class="pricing-description">Perfect for small projects and exploration</p>
+                <div class="pricing-amount">
+                    <div class="price">$5K</div>
+                    <div class="price-period">per project</div>
+                </div>
+                <div class="features-list">
+                    <div class="feature">Logo design</div>
+                    <div class="feature">Brand guidelines</div>
+                    <div class="feature">2 rounds of revisions</div>
+                    <div class="feature">Email support</div>
+                    <div class="feature">3-month turnaround</div>
+                </div>
+                <button class="cta-button">Get Started</button>
+            </div>
+
+            <div class="pricing-card featured">
+                <span class="pricing-badge">Most Popular</span>
+                <h3 class="pricing-name">Professional</h3>
+                <p class="pricing-description">Best for established businesses</p>
+                <div class="pricing-amount">
+                    <div class="price">$15K</div>
+                    <div class="price-period">per project</div>
+                </div>
+                <div class="features-list">
+                    <div class="feature">Complete brand identity</div>
+                    <div class="feature">Website design (up to 5 pages)</div>
+                    <div class="feature">Unlimited revisions</div>
+                    <div class="feature">Priority support</div>
+                    <div class="feature">Design system</div>
+                    <div class="feature">6-week turnaround</div>
+                </div>
+                <button class="cta-button">Choose Plan</button>
+            </div>
+
+            <div class="pricing-card">
+                <span class="pricing-badge">Enterprise</span>
+                <h3 class="pricing-name">Enterprise</h3>
+                <p class="pricing-description">For ambitious, complex projects</p>
+                <div class="pricing-amount">
+                    <div class="price">$50K+</div>
+                    <div class="price-period">custom pricing</div>
+                </div>
+                <div class="features-list">
+                    <div class="feature">Full-stack design services</div>
+                    <div class="feature">Web & app design</div>
+                    <div class="feature">Dedicated account manager</div>
+                    <div class="feature">24/7 priority support</div>
+                    <div class="feature">Post-launch support</div>
+                    <div class="feature">Custom timeline</div>
+                </div>
+                <button class="cta-button">Contact Us</button>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>Can I switch plans later?</h3>
+                    <p>Absolutely! You can upgrade or downgrade your plan at any time. We'll adjust billing accordingly for the remainder of your engagement.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>What's included in revisions?</h3>
+                    <p>Revisions cover design concept changes and adjustments. Additional services like content changes or scope expansions may be billed separately.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>How long does a project take?</h3>
+                    <p>Timelines vary by plan and project complexity. Starter projects typically take 3 months, Professional 6 weeks, and Enterprise timelines are custom.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Do you offer payment plans?</h3>
+                    <p>Yes! We offer flexible payment schedules. Typically 50% upfront and 50% on delivery, but we can customize terms based on your needs.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>What about ongoing support?</h3>
+                    <p>All plans include ongoing support for the term of the engagement. Enterprise clients get dedicated support beyond project delivery.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Is there a contract?</h3>
+                    <p>We use simple, fair contracts that protect both parties. Nothing hidden—just clear terms and mutual expectations laid out upfront.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <h3>Ready to Get Started?</h3>
+            <p>Let's discuss your project and find the perfect plan for your needs.</p>
+            <p><a href="mailto:hello@nikalys.com">📧 hello@nikalys.com</a> | <a href="tel:+15550123">📞 +1 (555) 0123</a></p>
+            <p style="margin-top: 20px; font-size: 12px; color: rgba(255, 255, 255, 0.6);">© 2024 Nikalys Design. All rights reserved. | <a href="../../index.html">← Back to Showcase</a></p>
+        </footer>
+    </div>
+</body>
+</html>

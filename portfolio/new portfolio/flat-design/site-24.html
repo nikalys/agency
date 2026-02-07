@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIKALYS - Pricing & Plans</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f7fa;
+            color: #2c3e50;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: #fff;
+            padding: 30px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.6em;
+            font-weight: 900;
+            color: #2c3e50;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .back-link {
+            background: #34495e;
+            padding: 10px 20px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: #2c3e50;
+        }
+
+        /* Hero */
+        .hero {
+            background: #fff;
+            padding: 140px 40px 80px 40px;
+            text-align: center;
+            margin-top: 70px;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            font-weight: 900;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            color: #7f8c8d;
+            margin-bottom: 10px;
+            font-weight: 400;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1em;
+            color: #95a5a6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 100px 40px;
+            background: #f5f7fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.8em;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 60px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #2c3e50;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .pricing-card {
+            background: #fff;
+            padding: 40px;
+            text-align: center;
+            border: 3px solid #ecf0f1;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            position: relative;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            border-color: #3498db;
+        }
+
+        .pricing-card.featured {
+            border-color: #e74c3c;
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured:hover {
+            border-color: #c0392b;
+        }
+
+        .badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #e74c3c;
+            color: #fff;
+            padding: 8px 16px;
+            font-weight: 900;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .plan-name {
+            font-size: 1.5em;
+            font-weight: 900;
+            color: #2c3e50;
+            margin: 20px 0 15px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .price {
+            font-size: 3.5em;
+            font-weight: 900;
+            color: #3498db;
+            margin: 20px 0;
+        }
+
+        .price-period {
+            color: #95a5a6;
+            font-size: 1em;
+            font-weight: 700;
+        }
+
+        .description {
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        .features-list {
+            text-align: left;
+            margin-bottom: 30px;
+            border-top: 2px solid #ecf0f1;
+            border-bottom: 2px solid #ecf0f1;
+            padding: 30px 0;
+        }
+
+        .feature-item {
+            padding: 10px 0;
+            color: #2c3e50;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+
+        .feature-item::before {
+            content: '✓';
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background: #2ecc71;
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            margin-right: 12px;
+            font-weight: 900;
+            flex-shrink: 0;
+        }
+
+        .cta-button {
+            background: #3498db;
+            color: #fff;
+            padding: 15px 40px;
+            border: none;
+            font-weight: 900;
+            font-size: 0.95em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            width: 100%;
+        }
+
+        .cta-button:hover {
+            background: #2980b9;
+        }
+
+        .pricing-card.featured .cta-button {
+            background: #e74c3c;
+        }
+
+        .pricing-card.featured .cta-button:hover {
+            background: #c0392b;
+        }
+
+        /* Comparison Table */
+        .comparison {
+            padding: 100px 40px;
+            background: #fff;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 40px;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 20px;
+            text-align: left;
+            border-bottom: 2px solid #ecf0f1;
+            font-weight: 700;
+        }
+
+        .comparison-table th {
+            background: #34495e;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.95em;
+        }
+
+        .comparison-table td {
+            color: #2c3e50;
+        }
+
+        .comparison-table tbody tr:hover {
+            background: #f8f9fa;
+        }
+
+        .feature-name {
+            font-weight: 900;
+            color: #2c3e50;
+            min-width: 200px;
+        }
+
+        .checkmark {
+            color: #2ecc71;
+            font-weight: 900;
+            font-size: 1.3em;
+        }
+
+        .xmark {
+            color: #e74c3c;
+            font-weight: 900;
+            font-size: 1.3em;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 40px;
+            background: #ecf0f1;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .testimonial-card {
+            background: #fff;
+            padding: 40px;
+            border-left: 4px solid #3498db;
+        }
+
+        .testimonial-card:nth-child(2) {
+            border-left-color: #e74c3c;
+        }
+
+        .testimonial-card:nth-child(3) {
+            border-left-color: #f39c12;
+        }
+
+        .stars {
+            color: #f39c12;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            letter-spacing: 3px;
+        }
+
+        .quote {
+            color: #2c3e50;
+            font-size: 1em;
+            margin-bottom: 20px;
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        .author {
+            font-weight: 900;
+            color: #34495e;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.95em;
+        }
+
+        .author-title {
+            color: #95a5a6;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        /* CTA Section */
+        .final-cta {
+            padding: 80px 40px;
+            background: #2c3e50;
+            color: #fff;
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-size: 2.8em;
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .final-cta p {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+
+        .final-cta button {
+            background: #e74c3c;
+            color: #fff;
+            padding: 18px 50px;
+            border: none;
+            font-weight: 900;
+            font-size: 1em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .final-cta button:hover {
+            background: #c0392b;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a252f;
+            color: #fff;
+            padding: 50px 40px;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .section-title {
+                font-size: 1.8em;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .price {
+                font-size: 2.5em;
+            }
+
+            .comparison-table {
+                font-size: 0.9em;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">NIKALYS</div>
+        <a href="../../index.html" class="back-link">← Back to Showcase</a>
+    </header>
+
+    <section class="hero">
+        <h1>Simple, Transparent Pricing</h1>
+        <p>Choose the perfect plan for your needs</p>
+        <p class="hero-subtitle">All plans include 24/7 support, regular updates, and access to our full resource library.</p>
+    </section>
+
+    <section class="pricing">
+        <div class="container">
+            <h2 class="section-title">Our Plans</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="plan-name">Starter</div>
+                    <div class="price">$29<span class="price-period">/mo</span></div>
+                    <p class="description">Perfect for freelancers and small projects</p>
+                    <div class="features-list">
+                        <div class="feature-item">Up to 3 projects</div>
+                        <div class="feature-item">5 GB storage</div>
+                        <div class="feature-item">Email support</div>
+                        <div class="feature-item">Basic analytics</div>
+                        <div class="feature-item">Community access</div>
+                    </div>
+                    <button class="cta-button">Get Started</button>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="badge">Most Popular</div>
+                    <div class="plan-name">Professional</div>
+                    <div class="price">$79<span class="price-period">/mo</span></div>
+                    <p class="description">For growing teams and ambitious projects</p>
+                    <div class="features-list">
+                        <div class="feature-item">Unlimited projects</div>
+                        <div class="feature-item">100 GB storage</div>
+                        <div class="feature-item">Priority support</div>
+                        <div class="feature-item">Advanced analytics</div>
+                        <div class="feature-item">Team collaboration</div>
+                    </div>
+                    <button class="cta-button">Get Started</button>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="plan-name">Enterprise</div>
+                    <div class="price">Custom<span class="price-period"></span></div>
+                    <p class="description">For large organizations with custom needs</p>
+                    <div class="features-list">
+                        <div class="feature-item">Everything in Pro</div>
+                        <div class="feature-item">Unlimited storage</div>
+                        <div class="feature-item">Dedicated support</div>
+                        <div class="feature-item">Custom integrations</div>
+                        <div class="feature-item">SLA guarantee</div>
+                    </div>
+                    <button class="cta-button">Contact Sales</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="comparison">
+        <div class="container">
+            <h2 class="section-title">Feature Comparison</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Starter</th>
+                        <th>Professional</th>
+                        <th>Enterprise</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="feature-name">Projects</td>
+                        <td><span class="checkmark">3</span></td>
+                        <td><span class="checkmark">∞</span></td>
+                        <td><span class="checkmark">∞</span></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Storage</td>
+                        <td>5 GB</td>
+                        <td>100 GB</td>
+                        <td><span class="checkmark">∞</span></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Support</td>
+                        <td>Email</td>
+                        <td><span class="checkmark">Priority</span></td>
+                        <td><span class="checkmark">Dedicated</span></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">API Access</td>
+                        <td><span class="xmark">✕</span></td>
+                        <td><span class="checkmark">✓</span></td>
+                        <td><span class="checkmark">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Custom Domain</td>
+                        <td><span class="xmark">✕</span></td>
+                        <td><span class="checkmark">✓</span></td>
+                        <td><span class="checkmark">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Team Seats</td>
+                        <td>1</td>
+                        <td>5</td>
+                        <td><span class="checkmark">Unlimited</span></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">White Label</td>
+                        <td><span class="xmark">✕</span></td>
+                        <td><span class="xmark">✕</span></td>
+                        <td><span class="checkmark">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Analytics</td>
+                        <td>Basic</td>
+                        <td><span class="checkmark">Advanced</span></td>
+                        <td><span class="checkmark">Custom</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Customers Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="quote">"NIKALYS transformed our design process. The tools are intuitive and the support team is incredibly helpful."</p>
+                    <div class="author">Sarah Johnson</div>
+                    <div class="author-title">CEO, Tech Innovations Inc.</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="quote">"Best investment we've made. Our design time has been cut in half and the quality has improved significantly."</p>
+                    <div class="author">Michael Chen</div>
+                    <div class="author-title">Design Director, Creative Studio</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="quote">"The pricing is fair, the features are comprehensive, and the customer service is outstanding. Highly recommend!"</p>
+                    <div class="author">Emma Wilson</div>
+                    <div class="author-title">Founder, Digital Agency</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-cta">
+        <h2>Ready to Get Started?</h2>
+        <p>Join hundreds of teams already using NIKALYS</p>
+        <button>Start Your Free Trial</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 NIKALYS. All rights reserved.</p>
+    </footer>
+</body>
+</html>

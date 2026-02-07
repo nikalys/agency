@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIKALYS - Our Story & Team</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #fff;
+            color: #2c3e50;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #fff;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            z-index: 1000;
+        }
+
+        .nav-logo {
+            font-size: 1.5em;
+            font-weight: 900;
+            color: #2c3e50;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .back-link {
+            background: #3498db;
+            padding: 10px 20px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: #2980b9;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            padding: 160px 40px 80px 40px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            font-weight: 900;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 400;
+        }
+
+        /* Timeline Section */
+        .timeline-section {
+            padding: 100px 40px;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.8em;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 80px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #2c3e50;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #3498db;
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: 0;
+            margin-right: auto;
+            width: calc(50% - 30px);
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: auto;
+            margin-right: 0;
+            width: calc(50% - 30px);
+            text-align: left;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border: 4px solid #3498db;
+            border-radius: 50%;
+            transform: translateX(-50%);
+        }
+
+        .timeline-content {
+            background: #fff;
+            padding: 30px;
+            border: 2px solid #ecf0f1;
+        }
+
+        .timeline-item:nth-child(2) .timeline-content {
+            border-color: #e74c3c;
+        }
+
+        .timeline-item:nth-child(2) .timeline-dot {
+            border-color: #e74c3c;
+        }
+
+        .timeline-item:nth-child(3) .timeline-content {
+            border-color: #f39c12;
+        }
+
+        .timeline-item:nth-child(3) .timeline-dot {
+            border-color: #f39c12;
+        }
+
+        .timeline-item:nth-child(4) .timeline-content {
+            border-color: #2ecc71;
+        }
+
+        .timeline-item:nth-child(4) .timeline-dot {
+            border-color: #2ecc71;
+        }
+
+        .timeline-item:nth-child(5) .timeline-content {
+            border-color: #9b59b6;
+        }
+
+        .timeline-item:nth-child(5) .timeline-dot {
+            border-color: #9b59b6;
+        }
+
+        .timeline-year {
+            font-size: 2em;
+            font-weight: 900;
+            margin-bottom: 8px;
+            color: #3498db;
+        }
+
+        .timeline-item:nth-child(2) .timeline-year {
+            color: #e74c3c;
+        }
+
+        .timeline-item:nth-child(3) .timeline-year {
+            color: #f39c12;
+        }
+
+        .timeline-item:nth-child(4) .timeline-year {
+            color: #2ecc71;
+        }
+
+        .timeline-item:nth-child(5) .timeline-year {
+            color: #9b59b6;
+        }
+
+        .timeline-title {
+            font-size: 1.3em;
+            font-weight: 900;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .timeline-description {
+            color: #7f8c8d;
+            line-height: 1.6;
+            font-size: 0.95em;
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 100px 40px;
+            background: #fff;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .team-member {
+            text-align: center;
+        }
+
+        .member-avatar {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 3em;
+            color: #fff;
+        }
+
+        .team-member:nth-child(1) .member-avatar {
+            background: #3498db;
+        }
+
+        .team-member:nth-child(2) .member-avatar {
+            background: #e74c3c;
+        }
+
+        .team-member:nth-child(3) .member-avatar {
+            background: #f39c12;
+        }
+
+        .team-member:nth-child(4) .member-avatar {
+            background: #2ecc71;
+        }
+
+        .team-member:nth-child(5) .member-avatar {
+            background: #9b59b6;
+        }
+
+        .team-member:nth-child(6) .member-avatar {
+            background: #1abc9c;
+        }
+
+        .member-name {
+            font-size: 1.3em;
+            font-weight: 900;
+            color: #2c3e50;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .member-role {
+            color: #3498db;
+            font-weight: 700;
+            font-size: 0.95em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .member-bio {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            margin-top: 15px;
+            line-height: 1.6;
+        }
+
+        /* Values Section */
+        .values-section {
+            padding: 100px 40px;
+            background: #ecf0f1;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 0;
+            margin-top: 60px;
+        }
+
+        .value-card {
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .value-card:nth-child(1) {
+            background: #3498db;
+        }
+
+        .value-card:nth-child(2) {
+            background: #e74c3c;
+        }
+
+        .value-card:nth-child(3) {
+            background: #f39c12;
+        }
+
+        .value-card:nth-child(4) {
+            background: #2ecc71;
+        }
+
+        .value-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .value-name {
+            font-size: 1.4em;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .value-description {
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 40px;
+            background: #2c3e50;
+            color: #fff;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.8em;
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .cta-section p {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+
+        .cta-button {
+            background: #3498db;
+            color: #fff;
+            padding: 18px 50px;
+            border: none;
+            font-weight: 900;
+            font-size: 0.95em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #2980b9;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a252f;
+            color: #fff;
+            padding: 50px 40px;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .section-title {
+                font-size: 1.8em;
+            }
+
+            .timeline::before {
+                left: 0;
+            }
+
+            .timeline-dot {
+                left: 0;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                width: 100%;
+                margin-left: 40px;
+                margin-right: 0;
+                text-align: left;
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-logo">NIKALYS</div>
+        <a href="../../index.html" class="back-link">← Back to Showcase</a>
+    </nav>
+
+    <section class="hero">
+        <h1>Our Journey</h1>
+        <p>Crafting beautiful digital experiences since 2010</p>
+    </section>
+
+    <section class="timeline-section">
+        <div class="container">
+            <h2 class="section-title">Milestones</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2010</div>
+                        <h3 class="timeline-title">Founded</h3>
+                        <p class="timeline-description">NIKALYS started as a small design studio with a passion for creating beautiful digital experiences.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2013</div>
+                        <h3 class="timeline-title">First International Expansion</h3>
+                        <p class="timeline-description">Opened our first international office in Berlin, bringing European design sensibilities to our work.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2016</div>
+                        <h3 class="timeline-title">Industry Recognition</h3>
+                        <p class="timeline-description">Won multiple design awards and became recognized as leaders in UX/UI design innovation.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2019</div>
+                        <h3 class="timeline-title">Team Growth</h3>
+                        <p class="timeline-description">Expanded to over 100 team members across 5 continents, doubling our creative capacity.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2024</div>
+                        <h3 class="timeline-title">Digital Transformation</h3>
+                        <p class="timeline-description">Launched our innovative design platform, bringing our expertise directly to clients worldwide.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="team-section">
+        <div class="container">
+            <h2 class="section-title">Leadership Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-avatar">👨</div>
+                    <h3 class="member-name">David Santos</h3>
+                    <p class="member-role">Founder & CEO</p>
+                    <p class="member-bio">Visionary leader with 20+ years of design experience and a passion for innovation.</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">👩</div>
+                    <h3 class="member-name">Maria Garcia</h3>
+                    <p class="member-role">Chief Design Officer</p>
+                    <p class="member-bio">Award-winning designer known for pushing creative boundaries and setting industry standards.</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">👨</div>
+                    <h3 class="member-name">James Chen</h3>
+                    <p class="member-role">VP of Technology</p>
+                    <p class="member-bio">Tech innovator leading our digital transformation and cutting-edge platform development.</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">👩</div>
+                    <h3 class="member-name">Sophie Laurent</h3>
+                    <p class="member-role">Head of Strategy</p>
+                    <p class="member-bio">Strategic thinker focused on market trends and ensuring our clients stay ahead of the curve.</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">👨</div>
+                    <h3 class="member-name">Marcus Johnson</h3>
+                    <p class="member-role">Director of Creative</p>
+                    <p class="member-bio">Creative powerhouse leading our diverse team of talented designers and developers.</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">👩</div>
+                    <h3 class="member-name">Luna Kim</h3>
+                    <p class="member-role">VP of Client Success</p>
+                    <p class="member-bio">Dedicated to ensuring every client partnership delivers exceptional results and lasting value.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="values-section">
+        <div class="container">
+            <h2 class="section-title">Our Core Values</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">💡</div>
+                    <h3 class="value-name">Innovation</h3>
+                    <p class="value-description">Constantly pushing boundaries and exploring new possibilities in design and technology.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🎯</div>
+                    <h3 class="value-name">Excellence</h3>
+                    <p class="value-description">Committed to delivering the highest quality work and exceeding expectations always.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🤝</div>
+                    <h3 class="value-name">Collaboration</h3>
+                    <p class="value-description">Working together with clients and team members to achieve extraordinary results.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🌍</div>
+                    <h3 class="value-name">Impact</h3>
+                    <p class="value-description">Creating meaningful change and positive influence in the digital world and beyond.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>Join Our Community</h2>
+        <p>Be part of the next generation of design innovation</p>
+        <button class="cta-button">Get Started Today</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 NIKALYS. All rights reserved.</p>
+    </footer>
+</body>
+</html>

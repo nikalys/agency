@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIKALYS — Team</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background: #f5f5f5;
+            color: #000000;
+            line-height: 1.4;
+            overflow-x: hidden;
+        }
+
+        /* Scroll Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .animate-fade {
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .animate-left {
+            opacity: 0;
+            animation: slideInLeft 0.8s ease forwards;
+        }
+
+        .animate-right {
+            opacity: 0;
+            animation: slideInRight 0.8s ease forwards;
+        }
+
+        .animate-scale {
+            opacity: 0;
+            animation: scaleIn 0.8s ease forwards;
+        }
+
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
+        .stagger-5 { animation-delay: 0.5s; }
+        .stagger-6 { animation-delay: 0.6s; }
+        .stagger-7 { animation-delay: 0.7s; }
+        .stagger-8 { animation-delay: 0.8s; }
+
+        /* Mathematical Typography Scale: 1.333 (Perfect Fourth) */
+        .scale-1 { font-size: 11px; }
+        .scale-2 { font-size: 15px; }
+        .scale-3 { font-size: 20px; }
+        .scale-4 { font-size: 27px; }
+        .scale-5 { font-size: 36px; }
+        .scale-6 { font-size: 48px; }
+        .scale-7 { font-size: 64px; }
+        .scale-8 { font-size: 85px; }
+
+        /* Strict Modular Grid: 8px base unit */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 64px;
+        }
+
+        /* Navigation - Ultra Minimal */
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #000000;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: box-shadow 0.3s ease;
+        }
+
+        header.scrolled {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 24px 64px;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .logo {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 48px;
+            align-items: baseline;
+        }
+
+        .header-nav a {
+            font-size: 11px;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: #000000;
+            position: relative;
+        }
+
+        .header-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #000000;
+            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .header-nav a:hover::after {
+            width: 100%;
+        }
+
+        /* SVG Icon Styles */
+        .icon {
+            width: 24px;
+            height: 24px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .icon-large {
+            width: 48px;
+            height: 48px;
+        }
+
+        .icon-small {
+            width: 16px;
+            height: 16px;
+        }
+
+        .back-link {
+            font-size: 11px;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: #000000;
+            border: 1px solid #000000;
+            padding: 8px 16px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-link:hover {
+            background: #000000;
+            color: #ffffff;
+            transform: translateX(-4px);
+        }
+
+        .back-link svg {
+            transition: transform 0.3s ease;
+        }
+
+        .back-link:hover svg {
+            transform: translateX(-4px);
+        }
+
+        /* Hero Section - Full Width B&W Photo */
+        .hero {
+            height: 75vh;
+            background: #000000;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.85;
+            filter: grayscale(100%) contrast(1.1);
+            animation: scaleIn 1.2s ease forwards;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.7) 100%);
+            display: flex;
+            align-items: flex-end;
+            padding: 80px 64px;
+        }
+
+        .hero-content {
+            max-width: 1280px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 85px;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 0.95;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            color: #ffffff;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            opacity: 0.9;
+        }
+
+        /* Section Padding */
+        section {
+            padding: 120px 0;
+        }
+
+        /* Introduction Section - Two Column Split */
+        .intro-section {
+            background: #ffffff;
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .intro-left h2 {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 32px;
+        }
+
+        .intro-left .divider {
+            width: 80px;
+            height: 2px;
+            background: #000000;
+            margin-bottom: 32px;
+            animation: slideInLeft 0.8s ease forwards;
+        }
+
+        .intro-left .icon-wrapper {
+            width: 80px;
+            height: 80px;
+            border: 2px solid #000000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 32px;
+            transition: transform 0.4s ease;
+        }
+
+        .intro-left .icon-wrapper:hover {
+            transform: rotate(90deg);
+        }
+
+        .intro-right p {
+            font-size: 20px;
+            line-height: 1.6;
+            font-weight: 300;
+            margin-bottom: 24px;
+        }
+
+        .intro-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 64px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 32px 0;
+            border-top: 2px solid #000000;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #000000;
+            transition: width 0.6s ease;
+        }
+
+        .stat-item:hover::before {
+            width: 100%;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-8px);
+        }
+
+        .stat-number {
+            font-size: 64px;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 8px;
+            transition: color 0.3s ease;
+        }
+
+        .stat-item:hover .stat-number {
+            color: #666666;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .stat-label svg {
+            width: 16px;
+            height: 16px;
+            opacity: 0.6;
+        }
+
+        /* Team Grid - Precise Mathematical Layout */
+        .team-section {
+            background: #f5f5f5;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-number {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #666666;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .section-number::before,
+        .section-number::after {
+            content: '';
+            width: 40px;
+            height: 1px;
+            background: #666666;
+        }
+
+        .section-title {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.1;
+        }
+
+        /* Team Grid - 4 Column Strict Grid */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+        }
+
+        .team-member {
+            background: #ffffff;
+            border: 1px solid #000000;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .team-member::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background: rgba(0, 0, 0, 0.05);
+            transition: height 0.4s ease;
+            z-index: 1;
+        }
+
+        .team-member:hover::before {
+            height: 100%;
+        }
+
+        .team-member:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .member-photo {
+            width: 100%;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+            filter: grayscale(100%) contrast(1.1);
+            display: block;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .team-member:hover .member-photo {
+            filter: grayscale(0%) contrast(1);
+            transform: scale(1.05);
+        }
+
+        .member-info {
+            padding: 24px;
+            background: #ffffff;
+            position: relative;
+            z-index: 2;
+        }
+
+        .member-name {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 4px;
+            letter-spacing: -0.01em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .member-name svg {
+            width: 16px;
+            height: 16px;
+            opacity: 0;
+            transform: translateX(-8px);
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover .member-name svg {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .member-role {
+            font-size: 15px;
+            font-weight: 300;
+            color: #666666;
+            margin-bottom: 16px;
+            letter-spacing: 0.02em;
+        }
+
+        .member-bio {
+            font-size: 13px;
+            line-height: 1.5;
+            color: #333333;
+            margin-bottom: 16px;
+        }
+
+        .member-contact {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: #000000;
+            border-bottom: 1px solid #000000;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding-bottom: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .member-contact:hover {
+            gap: 10px;
+            padding-left: 4px;
+        }
+
+        .member-contact svg {
+            width: 12px;
+            height: 12px;
+        }
+
+        /* Leadership Row - Full Width Cards */
+        .leadership-section {
+            background: #ffffff;
+        }
+
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            border: 1px solid #000000;
+        }
+
+        .leadership-card {
+            border-right: 1px solid #000000;
+            padding: 48px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .leadership-card::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background: rgba(0, 0, 0, 0.02);
+            transition: height 0.4s ease;
+        }
+
+        .leadership-card:hover::before {
+            height: 100%;
+        }
+
+        .leadership-card:hover {
+            transform: scale(1.02);
+        }
+
+        .leadership-card:last-child {
+            border-right: none;
+        }
+
+        .leadership-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            filter: grayscale(100%) contrast(1.1);
+            margin-bottom: 32px;
+            border: 2px solid #000000;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .leadership-card:hover .leadership-photo {
+            filter: grayscale(0%) contrast(1);
+            border-width: 4px;
+            transform: scale(1.05);
+        }
+
+        .leadership-name {
+            font-size: 27px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .leadership-title {
+            font-size: 15px;
+            font-weight: 300;
+            color: #666666;
+            margin-bottom: 24px;
+            letter-spacing: 0.05em;
+        }
+
+        .leadership-quote {
+            font-size: 15px;
+            line-height: 1.6;
+            font-style: italic;
+            color: #333333;
+            max-width: 280px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .leadership-quote::before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            top: -8px;
+            font-size: 48px;
+            font-weight: 700;
+            color: #000000;
+            opacity: 0.2;
+            font-style: normal;
+        }
+
+        /* Values Grid - Horizontal Cards */
+        .values-section {
+            background: #000000;
+            color: #ffffff;
+        }
+
+        .values-section .section-number {
+            color: #999999;
+        }
+
+        .values-section .section-title {
+            color: #ffffff;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2px;
+            background: #ffffff;
+            border: 2px solid #ffffff;
+        }
+
+        .value-card {
+            background: #000000;
+            padding: 64px 48px;
+            display: flex;
+            align-items: start;
+            gap: 32px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .value-card:hover::before {
+            left: 100%;
+        }
+
+        .value-card:hover {
+            transform: translateX(8px);
+        }
+
+        .value-number {
+            font-size: 64px;
+            font-weight: 700;
+            line-height: 1;
+            opacity: 0.3;
+            flex-shrink: 0;
+            transition: all 0.4s ease;
+        }
+
+        .value-card:hover .value-number {
+            opacity: 0.6;
+            transform: scale(1.1);
+        }
+
+        .value-content h3 {
+            font-size: 27px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .value-content h3 svg {
+            width: 24px;
+            height: 24px;
+            stroke: #ffffff;
+        }
+
+        .value-content p {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #cccccc;
+        }
+
+        /* Join Section - Centered CTA */
+        .join-section {
+            background: #f5f5f5;
+            text-align: center;
+        }
+
+        .join-content {
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        .join-content h2 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.1;
+        }
+
+        .join-content p {
+            font-size: 20px;
+            line-height: 1.6;
+            font-weight: 300;
+            margin-bottom: 48px;
+            color: #333333;
+        }
+
+        .join-cta {
+            display: inline-block;
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: #ffffff;
+            background: #000000;
+            padding: 20px 56px;
+            border: 2px solid #000000;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .join-cta::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: #ffffff;
+            transform: translate(-50%, -50%);
+            transition: all 0.5s ease;
+        }
+
+        .join-cta:hover::before {
+            width: 400px;
+            height: 400px;
+        }
+
+        .join-cta:hover {
+            color: #000000;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .join-cta span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Footer - Minimal Grid */
+        footer {
+            background: #ffffff;
+            border-top: 2px solid #000000;
+            padding: 80px 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 80px;
+        }
+
+        .footer-column h4 {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .footer-column p,
+        .footer-column a {
+            font-size: 13px;
+            line-height: 1.8;
+            color: #666666;
+            text-decoration: none;
+            display: block;
+        }
+
+        .footer-column a:hover {
+            color: #000000;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid #000000;
+        }
+
+        .footer-bottom p {
+            font-size: 11px;
+            color: #666666;
+            letter-spacing: 0.1em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .container,
+            .header-inner,
+            .hero-content {
+                padding-left: 40px;
+                padding-right: 40px;
+            }
+
+            .hero-overlay {
+                padding: 60px 40px;
+            }
+
+            .hero-title {
+                font-size: 64px;
+            }
+
+            .intro-grid {
+                gap: 60px;
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .leadership-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .leadership-card {
+                border-right: none;
+                border-bottom: 1px solid #000000;
+            }
+
+            .leadership-card:last-child {
+                border-bottom: none;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container,
+            .header-inner,
+            .hero-content {
+                padding-left: 24px;
+                padding-right: 24px;
+            }
+
+            .hero-overlay {
+                padding: 40px 24px;
+            }
+
+            .hero-title {
+                font-size: 48px;
+            }
+
+            .hero-subtitle {
+                font-size: 15px;
+            }
+
+            section {
+                padding: 80px 0;
+            }
+
+            .intro-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .intro-stats {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .header-nav {
+                gap: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-title {
+                font-size: 36px;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+
+            .intro-left h2 {
+                font-size: 36px;
+            }
+
+            .join-content h2 {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-inner">
+            <div class="logo">NIKALYS</div>
+            <nav class="header-nav">
+                <a href="#team">Team</a>
+                <a href="#leadership">Leadership</a>
+                <a href="#values">Values</a>
+                <a href="#join">Careers</a>
+                <a href="../../index.html" class="back-link">
+                    <svg class="icon-small" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Index
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&h=900&fit=crop" alt="Team collaboration" class="hero-image">
+        <div class="hero-overlay">
+            <div class="hero-content">
+                <h1 class="hero-title animate-fade">The Team<br>Behind The<br>Vision</h1>
+                <p class="hero-subtitle animate-fade stagger-2">Design Excellence Through Systematic Thinking</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="intro-section">
+        <div class="container">
+            <div class="intro-grid">
+                <div class="intro-left">
+                    <div class="icon-wrapper animate-scale">
+                        <svg class="icon-large" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75M13 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h2 class="animate-left">Building The<br>Future Of<br>Design</h2>
+                    <div class="divider"></div>
+                </div>
+                <div class="intro-right">
+                    <p class="animate-right stagger-1">We are a collective of designers, strategists, and technologists united by a shared commitment to clarity, precision, and systematic design thinking.</p>
+                    <p class="animate-right stagger-2">Our approach is rooted in Swiss design principles: grid-based layouts, objective photography, and typography as the primary design element.</p>
+                    <p class="animate-right stagger-3">Every member brings unique expertise while adhering to our core philosophy—form follows function, always.</p>
+                </div>
+            </div>
+            <div class="intro-stats">
+                <div class="stat-item animate-scale stagger-1">
+                    <div class="stat-number">42</div>
+                    <div class="stat-label">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 7a4 4 0 1 0 0 8 4 4 0 0 0 0-8z" stroke="currentColor" stroke-width="1.5"/>
+                        </svg>
+                        Team Members
+                    </div>
+                </div>
+                <div class="stat-item animate-scale stagger-2">
+                    <div class="stat-number">15</div>
+                    <div class="stat-label">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke="currentColor" stroke-width="1.5"/>
+                        </svg>
+                        Countries
+                    </div>
+                </div>
+                <div class="stat-item animate-scale stagger-3">
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M12 6v6l4 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                        Years Experience
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Grid Section -->
+    <section id="team" class="team-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">01 — Our Team</div>
+                <h2 class="section-title">Core Team Members</h2>
+            </div>
+            <div class="team-grid">
+                <!-- Team Member 1 -->
+                <div class="team-member animate-on-scroll stagger-1">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop" alt="Alex Chen" class="member-photo">
+                    <div class="member-info">
+                        <h3 class="member-name">
+                            Alex Chen
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <polyline points="9 11 12 14 22 4" stroke="currentColor" stroke-width="2"/>
+                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </h3>
+                        <p class="member-role">Senior Designer</p>
+                        <p class="member-bio">Specializes in grid systems and typographic hierarchy with 8 years of experience.</p>
+                        <a href="mailto:alex@nikalys.com" class="member-contact">
+                            Contact
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="team-member animate-on-scroll stagger-2">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=500&fit=crop" alt="Sarah Mueller" class="member-photo">
+                    <div class="member-info">
+                        <h3 class="member-name">
+                            Sarah Mueller
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <polyline points="9 11 12 14 22 4" stroke="currentColor" stroke-width="2"/>
+                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </h3>
+                        <p class="member-role">Art Director</p>
+                        <p class="member-bio">Leads visual strategy with expertise in modular design and systematic approaches.</p>
+                        <a href="mailto:sarah@nikalys.com" class="member-contact">
+                            Contact
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="team-member animate-on-scroll stagger-3">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=500&fit=crop" alt="Marcus Berg" class="member-photo">
+                    <div class="member-info">
+                        <h3 class="member-name">
+                            Marcus Berg
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <polyline points="9 11 12 14 22 4" stroke="currentColor" stroke-width="2"/>
+                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </h3>
+                        <p class="member-role">UX Strategist</p>
+                        <p class="member-bio">Focuses on functional design and user-centered systematic problem solving.</p>
+                        <a href="mailto:marcus@nikalys.com" class="member-contact">
+                            Contact
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Team Member 4 -->
+                <div class="team-member animate-on-scroll stagger-4">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=500&fit=crop" alt="Elena Rossi" class="member-photo">
+                    <div class="member-info">
+                        <h3 class="member-name">
+                            Elena Rossi
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <polyline points="9 11 12 14 22 4" stroke="currentColor" stroke-width="2"/>
+                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </h3>
+                        <p class="member-role">Brand Designer</p>
+                        <p class="member-bio">Develops identity systems with precision, clarity, and mathematical rigor.</p>
+                        <a href="mailto:elena@nikalys.com" class="member-contact">
+                            Contact
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Team Member 5 -->
+                <div class="team-member animate-on-scroll stagger-5">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop" alt="James Park" class="member-photo">
+                    <div class="member-info">
+                        <h3 class="member-name">
+                            James Park
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <polyline points="9 11 12 14 22 4" stroke="currentColor" stroke-width="2"/>
+                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </h3>
+                        <p class="member-role">Front-End Dev</p>
+                        <p class="member-bio">Translates design systems into precise, accessible, and performant code.</p>
+                        <a href="mailto:james@nikalys.com" class="member-contact">
+                            Contact
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Team Member 6 -->
+                <div class="team-member animate-on-scroll stagger-6">
+                    <img src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=400&h=500&fit=crop" alt="Nina Schmidt" class="member-photo">
+                    <div class="member-info">
+                        <h3 class="member-name">
+                            Nina Schmidt
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <polyline points="9 11 12 14 22 4" stroke="currentColor" stroke-width="2"/>
+                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </h3>
+                        <p class="member-role">Design Lead</p>
+                        <p class="member-bio">Ensures consistency and systematic thinking across all projects and teams.</p>
+                        <a href="mailto:nina@nikalys.com" class="member-contact">
+                            Contact
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Team Member 7 -->
+                <div class="team-member animate-on-scroll stagger-7">
+                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=500&fit=crop" alt="David Torres" class="member-photo">
+                    <div class="member-info">
+                        <h3 class="member-name">
+                            David Torres
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <polyline points="9 11 12 14 22 4" stroke="currentColor" stroke-width="2"/>
+                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </h3>
+                        <p class="member-role">Motion Designer</p>
+                        <p class="member-bio">Creates kinetic typography and systematic animation with precise timing.</p>
+                        <a href="mailto:david@nikalys.com" class="member-contact">
+                            Contact
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Team Member 8 -->
+                <div class="team-member animate-on-scroll stagger-8">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=500&fit=crop" alt="Lisa Wang" class="member-photo">
+                    <div class="member-info">
+                        <h3 class="member-name">
+                            Lisa Wang
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <polyline points="9 11 12 14 22 4" stroke="currentColor" stroke-width="2"/>
+                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </h3>
+                        <p class="member-role">Product Designer</p>
+                        <p class="member-bio">Designs scalable systems and interfaces with ruthless functional clarity.</p>
+                        <a href="mailto:lisa@nikalys.com" class="member-contact">
+                            Contact
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <section id="leadership" class="leadership-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">02 — Leadership</div>
+                <h2 class="section-title">Executive Team</h2>
+            </div>
+            <div class="leadership-grid">
+                <!-- Leader 1 -->
+                <div class="leadership-card">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=300&h=300&fit=crop" alt="Thomas Weber" class="leadership-photo">
+                    <h3 class="leadership-name">Thomas Weber</h3>
+                    <p class="leadership-title">Founder & Creative Director</p>
+                    <p class="leadership-quote">"Design is not what it looks like. Design is how it works—systematically, logically, beautifully."</p>
+                </div>
+
+                <!-- Leader 2 -->
+                <div class="leadership-card">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop" alt="Anna Fischer" class="leadership-photo">
+                    <h3 class="leadership-name">Anna Fischer</h3>
+                    <p class="leadership-title">Chief Design Officer</p>
+                    <p class="leadership-quote">"Every grid, every typeface, every pixel placement—these are decisions that shape human experience."</p>
+                </div>
+
+                <!-- Leader 3 -->
+                <div class="leadership-card">
+                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300&h=300&fit=crop" alt="Michael Hoffmann" class="leadership-photo">
+                    <h3 class="leadership-name">Michael Hoffmann</h3>
+                    <p class="leadership-title">Strategy Director</p>
+                    <p class="leadership-quote">"Clarity emerges from constraint. Great design requires discipline, not decoration."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section id="values" class="values-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">03 — Core Values</div>
+                <h2 class="section-title">What We Stand For</h2>
+            </div>
+            <div class="values-grid">
+                <!-- Value 1 -->
+                <div class="value-card animate-on-scroll stagger-1">
+                    <div class="value-number">01</div>
+                    <div class="value-content">
+                        <h3>
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="3" y="3" width="7" height="7" stroke="currentColor" stroke-width="1.5"/>
+                                <rect x="14" y="3" width="7" height="7" stroke="currentColor" stroke-width="1.5"/>
+                                <rect x="14" y="14" width="7" height="7" stroke="currentColor" stroke-width="1.5"/>
+                                <rect x="3" y="14" width="7" height="7" stroke="currentColor" stroke-width="1.5"/>
+                            </svg>
+                            Systematic Thinking
+                        </h3>
+                        <p>Every design decision is rooted in logic, grids, and mathematical proportions. We believe in systems over styles.</p>
+                    </div>
+                </div>
+
+                <!-- Value 2 -->
+                <div class="value-card animate-on-scroll stagger-2">
+                    <div class="value-number">02</div>
+                    <div class="value-content">
+                        <h3>
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Functional Clarity
+                        </h3>
+                        <p>Form follows function. We remove unnecessary decoration to reveal the essential structure beneath.</p>
+                    </div>
+                </div>
+
+                <!-- Value 3 -->
+                <div class="value-card animate-on-scroll stagger-3">
+                    <div class="value-number">03</div>
+                    <div class="value-content">
+                        <h3>
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 7V4h16v3M9 20h6M12 4v16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Typographic Excellence
+                        </h3>
+                        <p>Typography is the voice of design. We treat every letterform with precision and respect for hierarchy.</p>
+                    </div>
+                </div>
+
+                <!-- Value 4 -->
+                <div class="value-card animate-on-scroll stagger-4">
+                    <div class="value-number">04</div>
+                    <div class="value-content">
+                        <h3>
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Collaborative Rigor
+                        </h3>
+                        <p>Great design requires diverse perspectives aligned by shared principles and mutual respect for craft.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Section -->
+    <section id="join" class="join-section">
+        <div class="container">
+            <div class="join-content">
+                <h2 class="animate-on-scroll">Join Our Team</h2>
+                <p class="animate-on-scroll stagger-1">We're always looking for talented designers, developers, and strategists who share our commitment to systematic design excellence.</p>
+                <a href="#careers" class="join-cta animate-on-scroll stagger-2"><span>View Open Positions</span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <p>Zurich, Switzerland</p>
+                    <a href="mailto:hello@nikalys.com">hello@nikalys.com</a>
+                    <a href="tel:+41445551234">+41 44 555 1234</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Connect</h4>
+                    <a href="#">LinkedIn</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">Behance</a>
+                    <a href="#">Dribbble</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 NIKALYS. All Rights Reserved. Designed With Systematic Precision.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll shadow effect
+        const header = document.querySelector('header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

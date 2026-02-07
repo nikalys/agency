@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nikalys — Portfolio</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect fill='%231a1a1a' width='32' height='32'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-size='20' font-weight='bold' fill='%23ffffff' font-family='system-ui'>N</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #ffffff;
+            color: #000000;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        /* Back to Showcase Link */
+        .back-link {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            text-decoration: none;
+            color: #000000;
+            font-size: 14px;
+            font-weight: 400;
+            transition: opacity 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-link:hover {
+            opacity: 0.5;
+        }
+
+        /* Navigation */
+        nav {
+            padding: 80px 60px 40px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 60px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #000000;
+            font-size: 14px;
+            font-weight: 400;
+            transition: opacity 0.3s ease;
+        }
+
+        nav a:hover {
+            opacity: 0.5;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 100px 60px 120px;
+            max-width: 1200px;
+        }
+
+        .logo {
+            font-size: 80px;
+            font-weight: 500;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+        }
+
+        .hero h1 {
+            font-size: 120px;
+            font-weight: 300;
+            line-height: 1.1;
+            margin-bottom: 40px;
+            letter-spacing: -1px;
+            max-width: 900px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #666666;
+            max-width: 600px;
+            line-height: 1.7;
+        }
+
+        /* Projects Grid */
+        .projects {
+            padding: 0 60px 120px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+            margin-bottom: 100px;
+        }
+
+        .project-card {
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover {
+            opacity: 0.6;
+        }
+
+        .project-icon {
+            width: 24px;
+            height: 24px;
+            margin-bottom: 12px;
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover .project-icon {
+            opacity: 1;
+        }
+
+        .project-thumbnail {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            background: #f5f5f5;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #cccccc;
+            font-size: 14px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-number {
+            font-size: 96px;
+            font-weight: 300;
+            color: #f0f0f0;
+        }
+
+        .project-title {
+            font-size: 18px;
+            font-weight: 400;
+            margin-bottom: 8px;
+        }
+
+        .project-type {
+            font-size: 14px;
+            color: #999999;
+        }
+
+        /* About Section */
+        .about {
+            padding: 120px 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 100px;
+        }
+
+        .about-title {
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            color: #999999;
+        }
+
+        .section-icon {
+            width: 20px;
+            height: 20px;
+            margin-bottom: 15px;
+            opacity: 0.7;
+        }
+
+        .about-text {
+            font-size: 24px;
+            font-weight: 300;
+            line-height: 1.6;
+            color: #000000;
+        }
+
+        .about-description {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #666666;
+            margin-top: 40px;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 0 60px 120px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .services-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+        }
+
+        .service-item h3 {
+            font-size: 18px;
+            font-weight: 400;
+            margin-bottom: 12px;
+        }
+
+        .service-item p {
+            font-size: 14px;
+            color: #666666;
+            line-height: 1.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+            }
+
+            .services-list {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            nav {
+                padding: 60px 40px 30px;
+                gap: 40px;
+            }
+
+            .hero {
+                padding: 80px 40px 100px;
+            }
+
+            .hero h1 {
+                font-size: 56px;
+            }
+
+            .projects {
+                padding: 0 40px 100px;
+            }
+
+            .about {
+                padding: 100px 40px;
+            }
+
+            .services {
+                padding: 0 40px 100px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .services-list {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .about-content {
+                gap: 30px;
+            }
+
+            nav {
+                padding: 60px 30px 20px;
+                gap: 30px;
+            }
+
+            .hero {
+                padding: 60px 30px 80px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .about-text {
+                font-size: 20px;
+            }
+
+            .projects {
+                padding: 0 30px 80px;
+            }
+
+            .about {
+                padding: 80px 30px;
+            }
+
+            .services {
+                padding: 0 30px 80px;
+            }
+
+            .back-link {
+                top: 20px;
+                left: 20px;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="../../index.html" class="back-link">← Back to Showcase</a>
+
+    <nav>
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section class="hero">
+        <div class="logo">NIKALYS</div>
+        <h1>We design digital experiences that matter.</h1>
+        <p>Nikalys is a web design agency focused on creating clean, functional, and beautiful websites for modern brands.</p>
+    </section>
+
+    <section class="projects">
+        <div class="projects-grid">
+            <div class="project-card">
+                <svg class="project-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+                <div class="project-thumbnail">
+                    <div class="project-number">01</div>
+                </div>
+                <div class="project-title">Minimal E-commerce</div>
+                <div class="project-type">Web Design</div>
+            </div>
+
+            <div class="project-card">
+                <svg class="project-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                </svg>
+                <div class="project-thumbnail">
+                    <div class="project-number">02</div>
+                </div>
+                <div class="project-title">Brand Identity System</div>
+                <div class="project-type">Branding</div>
+            </div>
+
+            <div class="project-card">
+                <svg class="project-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                    <polyline points="13 2 13 9 20 9"></polyline>
+                </svg>
+                <div class="project-thumbnail">
+                    <div class="project-number">03</div>
+                </div>
+                <div class="project-title">Portfolio Website</div>
+                <div class="project-type">Web Development</div>
+            </div>
+
+            <div class="project-card">
+                <svg class="project-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
+                    <path d="M16 4m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path>
+                    <path d="M12 4m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path>
+                </svg>
+                <div class="project-thumbnail">
+                    <div class="project-number">04</div>
+                </div>
+                <div class="project-title">Mobile App Interface</div>
+                <div class="project-type">UI/UX Design</div>
+            </div>
+
+            <div class="project-card">
+                <svg class="project-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 6v6l4 2"></path>
+                </svg>
+                <div class="project-thumbnail">
+                    <div class="project-number">05</div>
+                </div>
+                <div class="project-title">Corporate Rebranding</div>
+                <div class="project-type">Branding</div>
+            </div>
+
+            <div class="project-card">
+                <svg class="project-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                </svg>
+                <div class="project-thumbnail">
+                    <div class="project-number">06</div>
+                </div>
+                <div class="project-title">SaaS Platform Design</div>
+                <div class="project-type">Web Development</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="about-content">
+            <div class="about-title">ABOUT</div>
+            <div>
+                <div class="about-text">
+                    We believe great design is invisible. It works seamlessly, looks effortless, and feels natural.
+                </div>
+                <div class="about-description">
+                    Founded in 2020, Nikalys has partnered with forward-thinking companies to create digital products that resonate with users. Our approach combines strategic thinking with meticulous craft, resulting in experiences that are both beautiful and functional. We work with a select number of clients each year, ensuring every project receives the attention it deserves.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="services-list">
+            <div class="service-item">
+                <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
+                </svg>
+                <h3>Brand Identity</h3>
+                <p>Creating cohesive visual systems that communicate your brand's values and personality across all touchpoints.</p>
+            </div>
+            <div class="service-item">
+                <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                    <line x1="2" y1="20" x2="22" y2="20"></line>
+                </svg>
+                <h3>Web Development</h3>
+                <p>Building fast, responsive websites with clean code and attention to performance, accessibility, and user experience.</p>
+            </div>
+            <div class="service-item">
+                <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+                <h3>UX Design</h3>
+                <p>Designing intuitive interfaces through research, prototyping, and testing to ensure products that users love.</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nikalys — Material Motion Gallery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect fill='%23f57c00' width='32' height='32'/><circle cx='8' cy='16' r='3' fill='%23ffffff' opacity='0.5'/><circle cx='16' cy='16' r='3' fill='%23ffffff'/><circle cx='24' cy='16' r='3' fill='%23ffffff' opacity='0.5'/></svg>">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0d0d0d;
+            color: #ffffff;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        /* Back Link */
+        .back-link {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            text-decoration: none;
+            color: #0d0d0d;
+            font-size: 12px;
+            font-weight: 500;
+            z-index: 999;
+            padding: 12px 20px;
+            background: #ff9100;
+            border: none;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 12px rgba(255, 145, 0, 0.4);
+        }
+
+        .back-link:hover {
+            background: #ffb74d;
+            box-shadow: 0 8px 20px rgba(255, 145, 0, 0.6);
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 60px 40px;
+            background: linear-gradient(135deg, #ff9100 0%, #f57c00 100%);
+            border-radius: 8px;
+            color: #0d0d0d;
+        }
+
+        header h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+
+        header p {
+            font-size: 16px;
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Section */
+        section {
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 500;
+            margin-bottom: 32px;
+            color: #ff9100;
+            padding-bottom: 16px;
+            border-bottom: 2px solid #ff9100;
+        }
+
+        /* Animation Cards */
+        .animation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin-bottom: 40px;
+        }
+
+        .animation-card {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            padding: 40px;
+            border-radius: 4px;
+            border: 1px solid #333;
+            text-align: center;
+        }
+
+        .animation-label {
+            font-size: 12px;
+            color: #ff9100;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .animation-title {
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 24px;
+            color: #ffffff;
+        }
+
+        /* IMPRESSIVE VISUAL FEATURE: Animated boxes with different easing functions */
+        .animation-demo {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 145, 0, 0.1);
+            border-radius: 4px;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .anim-box {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #ff9100 0%, #ffb74d 100%);
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(255, 145, 0, 0.5);
+        }
+
+        /* Easing animations */
+        .anim-box.ease-linear {
+            animation: slide-linear 2s linear infinite;
+        }
+
+        .anim-box.ease-ease {
+            animation: slide-ease 2s ease-in-out infinite;
+        }
+
+        .anim-box.ease-bounce {
+            animation: slide-bounce 2s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+        }
+
+        .anim-box.ease-elastic {
+            animation: slide-elastic 2s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite;
+        }
+
+        .anim-box.ease-rotation {
+            animation: rotate-spin 2s linear infinite;
+        }
+
+        .anim-box.ease-pulse {
+            animation: pulse-scale 2s ease-in-out infinite;
+        }
+
+        .anim-box.ease-float {
+            animation: float-up-down 3s ease-in-out infinite;
+        }
+
+        .anim-box.ease-swing {
+            animation: swing-pendulum 2s ease-in-out infinite;
+            transform-origin: top center;
+        }
+
+        .anim-box.ease-wave {
+            animation: wave-motion 3s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+        }
+
+        .anim-box.ease-squeeze {
+            animation: squeeze-morph 2s ease-in-out infinite;
+        }
+
+        @keyframes slide-linear {
+            0%, 100% { transform: translateX(-30px); }
+            50% { transform: translateX(30px); }
+        }
+
+        @keyframes slide-ease {
+            0%, 100% { transform: translateX(-30px); }
+            50% { transform: translateX(30px); }
+        }
+
+        @keyframes slide-bounce {
+            0%, 100% { transform: translateX(-30px); }
+            50% { transform: translateX(30px); }
+        }
+
+        @keyframes slide-elastic {
+            0%, 100% { transform: translateX(-30px); }
+            50% { transform: translateX(30px); }
+        }
+
+        @keyframes rotate-spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse-scale {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.5); opacity: 1; }
+        }
+
+        @keyframes float-up-down {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-40px); }
+        }
+
+        @keyframes swing-pendulum {
+            0%, 100% { transform: rotateZ(-15deg); }
+            50% { transform: rotateZ(15deg); }
+        }
+
+        @keyframes wave-motion {
+            0%, 100% { transform: translateX(-30px) translateY(0); }
+            25% { transform: translateX(0) translateY(-20px); }
+            50% { transform: translateX(30px) translateY(0); }
+            75% { transform: translateX(0) translateY(20px); }
+        }
+
+        @keyframes squeeze-morph {
+            0%, 100% { transform: scaleX(1) scaleY(1); }
+            25% { transform: scaleX(0.7) scaleY(1.4); }
+            50% { transform: scaleX(1.4) scaleY(0.7); }
+            75% { transform: scaleX(0.7) scaleY(1.4); }
+        }
+
+        .animation-desc {
+            font-size: 12px;
+            color: #aaa;
+            font-family: 'Courier New', monospace;
+            margin-top: 16px;
+        }
+
+        /* Choreography Section - IMPRESSIVE: Multi-element animation */
+        .choreography-demo {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            padding: 60px 40px;
+            border-radius: 4px;
+            border: 1px solid #333;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .choreography-title {
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 40px;
+            color: #ff9100;
+        }
+
+        .anim-dots {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            height: 100px;
+            align-items: center;
+        }
+
+        .dot {
+            width: 16px;
+            height: 16px;
+            background: #ff9100;
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(255, 145, 0, 0.8);
+        }
+
+        .dot:nth-child(1) {
+            animation: bounce-dots 1.4s infinite;
+        }
+
+        .dot:nth-child(2) {
+            animation: bounce-dots 1.4s 0.2s infinite;
+        }
+
+        .dot:nth-child(3) {
+            animation: bounce-dots 1.4s 0.4s infinite;
+        }
+
+        .dot:nth-child(4) {
+            animation: bounce-dots 1.4s 0.6s infinite;
+        }
+
+        .dot:nth-child(5) {
+            animation: bounce-dots 1.4s 0.8s infinite;
+        }
+
+        @keyframes bounce-dots {
+            0%, 80%, 100% {
+                transform: translateY(0);
+                opacity: 0.5;
+            }
+            40% {
+                transform: translateY(-30px);
+                opacity: 1;
+            }
+        }
+
+        .choreography-desc {
+            font-size: 14px;
+            color: #aaa;
+            margin-top: 32px;
+        }
+
+        /* Choreography Card - Uniform styling for sections */
+        .choreography-card {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            padding: 40px;
+            border-radius: 4px;
+            border: 1px solid #333;
+            text-align: center;
+        }
+
+        .choreography-card .choreography-title {
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 32px;
+            color: #ff9100;
+        }
+
+        /* Principles List */
+        .principles-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-top: 24px;
+            text-align: left;
+        }
+
+        .principle-item {
+            background: rgba(255, 145, 0, 0.08);
+            padding: 24px;
+            border-radius: 4px;
+            border: 1px solid rgba(255, 145, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .principle-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .principle-label {
+            font-size: 16px;
+            font-weight: 600;
+            color: #ff9100;
+            margin-bottom: 8px;
+        }
+
+        .principle-text {
+            font-size: 13px;
+            color: #aaa;
+            line-height: 1.6;
+        }
+
+        /* Timeline Visualization */
+        .timing-slider {
+            margin: 32px 0;
+            text-align: center;
+        }
+
+        .timeline {
+            width: 100%;
+            height: 4px;
+            background: #333;
+            border-radius: 2px;
+            position: relative;
+            margin: 16px 0;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: #ff9100;
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+            box-shadow: 0 0 12px rgba(255, 145, 0, 0.6);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #ff9100 0%, #f57c00 100%);
+            color: #0d0d0d;
+            padding: 40px;
+            text-align: center;
+            font-size: 14px;
+            border-radius: 4px;
+            margin-top: 60px;
+        }
+
+        footer p {
+            margin-bottom: 12px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                padding: 40px 20px;
+            }
+
+            header h1 {
+                font-size: 32px;
+            }
+
+            .animation-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .back-link {
+                top: 12px;
+                left: 12px;
+                padding: 10px 16px;
+                font-size: 11px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            header h1 {
+                font-size: 24px;
+            }
+
+            header p {
+                font-size: 14px;
+            }
+
+            .section-title {
+                font-size: 20px;
+            }
+
+            .animation-card {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="../../index.html" class="back-link">← Back</a>
+
+    <header>
+        <h1>Material Motion</h1>
+        <p>Explore animation easing functions and choreographed motion sequences</p>
+    </header>
+
+    <div class="container">
+        <section>
+            <h2 class="section-title">Easing Functions & Motion Types</h2>
+            <div class="animation-grid">
+                <div class="animation-card">
+                    <div class="animation-label">Linear</div>
+                    <div class="animation-title">Constant Speed</div>
+                    <div class="animation-demo">
+                        <div class="anim-box ease-linear"></div>
+                    </div>
+                    <div class="animation-desc">Uniform motion throughout animation</div>
+                </div>
+
+                <div class="animation-card">
+                    <div class="animation-label">Ease-In-Out</div>
+                    <div class="animation-title">Natural Motion</div>
+                    <div class="animation-demo">
+                        <div class="anim-box ease-ease"></div>
+                    </div>
+                    <div class="animation-desc">Slow start and end, fast middle</div>
+                </div>
+
+                <div class="animation-card">
+                    <div class="animation-label">Bounce</div>
+                    <div class="animation-title">Playful Energy</div>
+                    <div class="animation-demo">
+                        <div class="anim-box ease-bounce"></div>
+                    </div>
+                    <div class="animation-desc">Overshoots with elastic feel</div>
+                </div>
+
+                <div class="animation-card">
+                    <div class="animation-label">Elastic</div>
+                    <div class="animation-title">Springy Feel</div>
+                    <div class="animation-demo">
+                        <div class="anim-box ease-elastic"></div>
+                    </div>
+                    <div class="animation-desc">Spring-like tension and release</div>
+                </div>
+
+                <div class="animation-card">
+                    <div class="animation-label">Rotation</div>
+                    <div class="animation-title">Spinning Motion</div>
+                    <div class="animation-demo">
+                        <div class="anim-box ease-rotation"></div>
+                    </div>
+                    <div class="animation-desc">Full 360° continuous spin</div>
+                </div>
+
+                <div class="animation-card">
+                    <div class="animation-label">Pulse</div>
+                    <div class="animation-title">Breathing Scale</div>
+                    <div class="animation-demo">
+                        <div class="anim-box ease-pulse"></div>
+                    </div>
+                    <div class="animation-desc">Scales and fades in rhythmic pulse</div>
+                </div>
+
+                <div class="animation-card">
+                    <div class="animation-label">Float</div>
+                    <div class="animation-title">Vertical Drift</div>
+                    <div class="animation-demo">
+                        <div class="anim-box ease-float"></div>
+                    </div>
+                    <div class="animation-desc">Smooth up and down floating motion</div>
+                </div>
+
+                <div class="animation-card">
+                    <div class="animation-label">Swing</div>
+                    <div class="animation-title">Pendulum Wave</div>
+                    <div class="animation-demo">
+                        <div class="anim-box ease-swing"></div>
+                    </div>
+                    <div class="animation-desc">Back and forth swinging rotation</div>
+                </div>
+
+                <div class="animation-card">
+                    <div class="animation-label">Wave</div>
+                    <div class="animation-title">Complex Path Motion</div>
+                    <div class="animation-demo">
+                        <div class="anim-box ease-wave"></div>
+                    </div>
+                    <div class="animation-desc">Combined horizontal and vertical waves</div>
+                </div>
+
+                <div class="animation-card">
+                    <div class="animation-label">Squeeze</div>
+                    <div class="animation-title">Morphing Scale</div>
+                    <div class="animation-demo">
+                        <div class="anim-box ease-squeeze"></div>
+                    </div>
+                    <div class="animation-desc">Elastic squeezing and stretching effect</div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Choreographed Sequences</h2>
+            <div class="choreography-card">
+                <div class="choreography-title">Staggered Wave Animation</div>
+                <div class="anim-dots">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                <div class="choreography-desc">
+                    Five elements animating in sequence with 200ms stagger delay
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Animation Principles</h2>
+            <div class="choreography-card">
+                <div class="choreography-title">Timing & Spacing Fundamentals</div>
+                <div class="principles-list">
+                    <div class="principle-item">
+                        <div class="principle-icon">⏱️</div>
+                        <div class="principle-content">
+                            <div class="principle-label">Duration</div>
+                            <div class="principle-text">Keep animations between 200-500ms for UI feedback and natural feel</div>
+                        </div>
+                    </div>
+                    <div class="principle-item">
+                        <div class="principle-icon">📍</div>
+                        <div class="principle-content">
+                            <div class="principle-label">Easing</div>
+                            <div class="principle-text">Use ease-in-out for natural, material-like motion and smooth transitions</div>
+                        </div>
+                    </div>
+                    <div class="principle-item">
+                        <div class="principle-icon">🔗</div>
+                        <div class="principle-content">
+                            <div class="principle-label">Choreography</div>
+                            <div class="principle-text">Stagger animations for visual flow, hierarchy, and connected storytelling</div>
+                        </div>
+                    </div>
+                    <div class="principle-item">
+                        <div class="principle-icon">👁️</div>
+                        <div class="principle-content">
+                            <div class="principle-label">Purpose</div>
+                            <div class="principle-text">Every animation should communicate meaning or guide user attention intentionally</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Nikalys Design Templates. All rights reserved.</p>
+        <p>Material Motion Gallery</p>
+    </footer>
+</body>
+</html>

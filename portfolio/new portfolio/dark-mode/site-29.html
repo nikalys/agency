@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nikalys - Dark Mode Design</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0a0a;
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            color: #e0e0e0;
+            overflow-x: hidden;
+            padding: 70px 20px 20px 20px;
+        }
+
+        .back-link {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: rgba(0, 213, 255, 0.15);
+            padding: 12px 20px;
+            border: 2px solid #00d5ff;
+            text-decoration: none;
+            color: #00d5ff;
+            font-weight: 600;
+            font-size: 0.9em;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            backdrop-filter: blur(10px);
+        }
+
+        .back-link:hover {
+            background: rgba(0, 213, 255, 0.25);
+            box-shadow: 0 0 20px rgba(0, 213, 255, 0.5);
+            transform: translateX(-5px);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        h1 {
+            font-size: 4em;
+            color: #fff;
+            margin-bottom: 10px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #00d5ff, #00a8e8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.4em;
+            color: #a0a0a0;
+            font-weight: 300;
+            margin-bottom: 40px;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, rgba(0, 213, 255, 0.1), rgba(138, 43, 226, 0.1));
+            border: 1px solid rgba(0, 213, 255, 0.2);
+            border-radius: 12px;
+            padding: 60px 40px;
+            margin-bottom: 60px;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 213, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h2 {
+            font-size: 2.5em;
+            color: #fff;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero-content p {
+            font-size: 1.1em;
+            color: #b0b0b0;
+            line-height: 1.8;
+            max-width: 800px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 60px 0;
+        }
+
+        .stat-card {
+            background: rgba(0, 213, 255, 0.08);
+            border: 1px solid rgba(0, 213, 255, 0.15);
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            background: rgba(0, 213, 255, 0.15);
+            border-color: rgba(0, 213, 255, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 213, 255, 0.1);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            color: #00d5ff;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            color: #808080;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .services-section {
+            margin: 60px 0;
+        }
+
+        .section-title {
+            font-size: 2em;
+            color: #fff;
+            margin-bottom: 40px;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #00d5ff, #8a2be2);
+            border-radius: 2px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .service-card {
+            background: rgba(20, 20, 30, 0.8);
+            border: 1px solid rgba(0, 213, 255, 0.2);
+            border-radius: 8px;
+            padding: 35px;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00d5ff, transparent);
+            transition: left 0.5s ease;
+        }
+
+        .service-card:hover {
+            background: rgba(0, 213, 255, 0.08);
+            border-color: rgba(0, 213, 255, 0.5);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 213, 255, 0.15);
+        }
+
+        .service-card:hover::before {
+            left: 100%;
+        }
+
+        .service-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            font-size: 1.3em;
+            color: #fff;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            font-size: 0.95em;
+            color: #a0a0a0;
+            line-height: 1.6;
+        }
+
+        .cta-section {
+            margin-top: 80px;
+            text-align: center;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #00d5ff, #8a2be2);
+            color: #000;
+            padding: 18px 50px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 213, 255, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 50px rgba(0, 213, 255, 0.5);
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.5);
+            border-top: 1px solid rgba(0, 213, 255, 0.2);
+            padding: 40px;
+            text-align: center;
+            margin-top: 80px;
+            color: #808080;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5em; }
+            .hero-section { padding: 40px 20px; }
+            .services-grid { grid-template-columns: 1fr; }
+            .back-link { position: static; margin-bottom: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <a href="../../index.html" class="back-link">← Back to Showcase</a>
+
+    <header>
+        <h1>NIKALYS</h1>
+        <p class="subtitle">Illuminate Your Digital Presence</p>
+    </header>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h2>Dark Mode Excellence</h2>
+            <p>We design digital experiences that look stunning in darkness. Our dark mode designs feature electric blue accents, sophisticated color palettes, and interfaces that reduce eye strain while maximizing visual impact. Every element is crafted for clarity and elegance.</p>
+        </div>
+    </section>
+
+    <section class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-number">450+</div>
+            <div class="stat-label">Projects Delivered</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">98%</div>
+            <div class="stat-label">Client Satisfaction</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">12+</div>
+            <div class="stat-label">Years of Experience</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">24/7</div>
+            <div class="stat-label">Support Available</div>
+        </div>
+    </section>
+
+    <section class="services-section">
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🌙</div>
+                <h3>Dark UI Design</h3>
+                <p>Custom dark mode interfaces optimized for readability and user comfort. We create sophisticated, modern designs that shine with strategic use of electric blue and neon accents.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">✨</div>
+                <h3>Visual Branding</h3>
+                <p>Complete brand identity systems designed specifically for dark mode environments. Logos, color palettes, and visual systems that maintain impact and recognition.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">⚡</div>
+                <h3>Interactive Experiences</h3>
+                <p>Engaging animations, hover effects, and micro-interactions that enhance dark mode interfaces. Smooth transitions and visual feedback that delight users.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎯</div>
+                <h3>Web Development</h3>
+                <p>Full-stack dark mode web applications with modern frameworks. Performance-optimized, accessible, and responsive across all devices and screen sizes.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3>Dashboard Design</h3>
+                <p>Data visualization dashboards with intuitive dark mode interfaces. Complex information presented clearly with proper contrast and visual hierarchy.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <h3>Consulting</h3>
+                <p>Strategic guidance on dark mode implementation, accessibility standards, and best practices. Expert advice to ensure your dark mode shines.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2 class="section-title" style="margin-bottom: 30px;">Ready to Illuminate?</h2>
+        <button class="cta-button">Start Your Dark Mode Project</button>
+    </section>
+
+    <footer>
+        <p>© 2026 Nikalys Design Studio | Dark Mode Design Excellence</p>
+    </footer>
+</body>
+</html>

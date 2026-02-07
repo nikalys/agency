@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nikalys — Material Responsive Visualizer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect fill='%234caf50' width='32' height='32'/><rect x='4' y='8' width='24' height='16' rx='2' stroke='%23ffffff' stroke-width='2' fill='none'/><circle cx='16' cy='24' r='1.5' fill='%23ffffff'/></svg>">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
+            color: #ffffff;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        /* Back Link */
+        .back-link {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            text-decoration: none;
+            color: #1b5e20;
+            font-size: 12px;
+            font-weight: 500;
+            z-index: 999;
+            padding: 12px 20px;
+            background: #4caf50;
+            border: none;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
+        }
+
+        .back-link:hover {
+            background: #66bb6a;
+            box-shadow: 0 8px 20px rgba(76, 175, 80, 0.6);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 60px 40px;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        header h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+
+        header p {
+            font-size: 16px;
+            font-weight: 300;
+            opacity: 0.95;
+        }
+
+        /* Size Control Section */
+        .size-control {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 32px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 40px;
+            backdrop-filter: blur(10px);
+        }
+
+        .control-title {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+
+        .size-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+
+        .size-btn {
+            padding: 10px 20px;
+            background: rgba(76, 175, 80, 0.3);
+            border: 1px solid #4caf50;
+            color: #ffffff;
+            font-weight: 500;
+            font-family: 'Roboto', sans-serif;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 13px;
+        }
+
+        .size-btn:hover,
+        .size-btn.active {
+            background: #4caf50;
+            color: #1b5e20;
+            box-shadow: 0 4px 12px rgba(76, 175, 80, 0.5);
+        }
+
+        .slider-group {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .slider-label {
+            font-size: 14px;
+            min-width: 100px;
+        }
+
+        .size-slider {
+            flex: 1;
+            height: 8px;
+            border-radius: 4px;
+            background: rgba(76, 175, 80, 0.2);
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        .size-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #4caf50;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(76, 175, 80, 0.5);
+        }
+
+        .size-slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #4caf50;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 2px 8px rgba(76, 175, 80, 0.5);
+        }
+
+        .size-display {
+            font-size: 14px;
+            min-width: 120px;
+            text-align: right;
+            font-weight: 500;
+        }
+
+        /* IMPRESSIVE FEATURE: Responsive Layout Viewer */
+        .viewport-container {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid #4caf50;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .viewport-header {
+            background: rgba(76, 175, 80, 0.2);
+            padding: 16px 20px;
+            border-bottom: 1px solid rgba(76, 175, 80, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+        }
+
+        .viewport-size-display {
+            font-weight: 600;
+            color: #4caf50;
+        }
+
+        .viewport-breakpoint {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        .viewport-content {
+            padding: 40px;
+            transition: all 0.3s ease;
+        }
+
+        /* Grid Layout Showcase */
+        .grid-demo {
+            display: grid;
+            gap: 16px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            transition: grid-template-columns 0.3s ease;
+        }
+
+        .grid-item {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.3) 0%, rgba(76, 175, 80, 0.1) 100%);
+            border: 1px solid rgba(76, 175, 80, 0.3);
+            border-radius: 4px;
+            padding: 24px;
+            text-align: center;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .grid-item:hover {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.5) 0%, rgba(76, 175, 80, 0.2) 100%);
+            border-color: rgba(76, 175, 80, 0.6);
+        }
+
+        /* Breakpoint Indicators */
+        .breakpoint-info {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 24px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-top: 40px;
+            backdrop-filter: blur(10px);
+        }
+
+        .breakpoint-title {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 16px;
+            color: #4caf50;
+        }
+
+        .breakpoint-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+        }
+
+        .breakpoint-item {
+            background: rgba(76, 175, 80, 0.1);
+            padding: 16px;
+            border-left: 3px solid #4caf50;
+            border-radius: 2px;
+            font-size: 13px;
+        }
+
+        .breakpoint-size {
+            font-weight: 600;
+            color: #4caf50;
+            margin-bottom: 4px;
+        }
+
+        .breakpoint-desc {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            padding: 40px;
+            text-align: center;
+            font-size: 14px;
+            margin-top: 60px;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        footer p {
+            margin-bottom: 12px;
+        }
+
+        /* Responsive Grid Updates */
+        @media (max-width: 1024px) {
+            .grid-demo {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 40px 20px;
+            }
+
+            header h1 {
+                font-size: 32px;
+            }
+
+            .size-buttons {
+                flex-direction: column;
+            }
+
+            .size-btn {
+                width: 100%;
+            }
+
+            .back-link {
+                top: 12px;
+                left: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 20px 10px;
+            }
+
+            header h1 {
+                font-size: 24px;
+            }
+
+            .size-slider {
+                width: 120px;
+            }
+
+            .grid-demo {
+                grid-template-columns: 1fr;
+            }
+
+            .slider-group {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .slider-label {
+                min-width: auto;
+            }
+
+            .size-display {
+                min-width: auto;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="../../index.html" class="back-link">← Back</a>
+
+    <div class="container">
+        <header>
+            <h1>Responsive Breakpoints</h1>
+            <p>Interactive viewport resizer to visualize how layouts adapt across devices</p>
+        </header>
+
+        <section class="size-control">
+            <div class="control-title">Quick Select Devices</div>
+            <div class="size-buttons">
+                <button class="size-btn" data-width="375">📱 Mobile (375px)</button>
+                <button class="size-btn" data-width="768">📱 Tablet (768px)</button>
+                <button class="size-btn" data-width="1024">💻 Desktop (1024px)</button>
+                <button class="size-btn" data-width="1440">💻 Large (1440px)</button>
+            </div>
+
+            <div class="slider-group">
+                <div class="slider-label">Custom Width:</div>
+                <input type="range" class="size-slider" id="sizeSlider" min="300" max="1600" value="1024">
+                <div class="size-display" id="sizeDisplay">1024px</div>
+            </div>
+        </section>
+
+        <section class="viewport-container">
+            <div class="viewport-header">
+                <div>
+                    <div class="viewport-size-display" id="viewportSize">1024 × 768</div>
+                    <div class="viewport-breakpoint" id="breakpointLabel">Desktop Breakpoint</div>
+                </div>
+                <div style="opacity: 0.6;">← Drag slider to resize →</div>
+            </div>
+            <div class="viewport-content" id="viewportContent" style="width: 1024px; margin: 0 auto;">
+                <div class="grid-demo" id="gridDemo">
+                    <div class="grid-item">Card 1</div>
+                    <div class="grid-item">Card 2</div>
+                    <div class="grid-item">Card 3</div>
+                    <div class="grid-item">Card 4</div>
+                    <div class="grid-item">Card 5</div>
+                    <div class="grid-item">Card 6</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="breakpoint-info">
+            <div class="breakpoint-title">Material Design Breakpoints</div>
+            <div class="breakpoint-grid">
+                <div class="breakpoint-item">
+                    <div class="breakpoint-size">Small (480px)</div>
+                    <div class="breakpoint-desc">Mobile phones in portrait</div>
+                </div>
+                <div class="breakpoint-item">
+                    <div class="breakpoint-size">Medium (768px)</div>
+                    <div class="breakpoint-desc">Tablets and landscape phones</div>
+                </div>
+                <div class="breakpoint-item">
+                    <div class="breakpoint-size">Large (1024px)</div>
+                    <div class="breakpoint-desc">Desktop and large tablets</div>
+                </div>
+                <div class="breakpoint-item">
+                    <div class="breakpoint-size">XLarge (1440px+)</div>
+                    <div class="breakpoint-desc">Wide desktop and TV displays</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Nikalys Design Templates. All rights reserved.</p>
+        <p>Material Design Responsive Visualizer</p>
+    </footer>
+
+    <script>
+        const slider = document.getElementById('sizeSlider');
+        const sizeDisplay = document.getElementById('sizeDisplay');
+        const viewportSize = document.getElementById('viewportSize');
+        const breakpointLabel = document.getElementById('breakpointLabel');
+        const viewportContent = document.getElementById('viewportContent');
+        const gridDemo = document.getElementById('gridDemo');
+        const sizeButtons = document.querySelectorAll('.size-btn');
+
+        function updateSize() {
+            const width = parseInt(slider.value);
+            sizeDisplay.textContent = width + 'px';
+            viewportContent.style.width = width + 'px';
+            viewportSize.textContent = width + ' × 768';
+
+            // Update breakpoint label
+            if (width < 480) {
+                breakpointLabel.textContent = 'Mobile (small)';
+            } else if (width < 768) {
+                breakpointLabel.textContent = 'Mobile (large)';
+            } else if (width < 1024) {
+                breakpointLabel.textContent = 'Tablet';
+            } else if (width < 1440) {
+                breakpointLabel.textContent = 'Desktop';
+            } else {
+                breakpointLabel.textContent = 'Desktop (XLarge)';
+            }
+
+            // Update grid columns based on viewport width
+            if (width < 480) {
+                gridDemo.style.gridTemplateColumns = '1fr';
+            } else if (width < 768) {
+                gridDemo.style.gridTemplateColumns = 'repeat(2, 1fr)';
+            } else if (width < 1024) {
+                gridDemo.style.gridTemplateColumns = 'repeat(2, 1fr)';
+            } else if (width < 1440) {
+                gridDemo.style.gridTemplateColumns = 'repeat(3, 1fr)';
+            } else {
+                gridDemo.style.gridTemplateColumns = 'repeat(3, 1fr)';
+            }
+        }
+
+        slider.addEventListener('input', updateSize);
+
+        // Quick select buttons
+        sizeButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const width = this.dataset.width;
+                slider.value = width;
+                updateSize();
+                
+                // Update active button
+                sizeButtons.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Initialize
+        updateSize();
+    </script>
+</body>
+</html>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect fill='%23d32f2f' width='32' height='32'/><rect x='6' y='6' width='7' height='7' fill='%23ffffff'/><rect x='19' y='6' width='7' height='7' fill='%23ffffff'/><rect x='6' y='19' width='7' height='7' fill='%23ffffff'/><rect x='19' y='19' width='7' height='7' fill='%23ffffff'/></svg>">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #fafafa;
+            color: #212121;
+            line-height: 1.6;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Navigation Drawer */
+        .drawer {
+            width: 280px;
+            background: #d32f2f;
+            color: #ffffff;
+            padding: 24px;
+            box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 900;
+            transition: transform 0.3s ease;
+        }
+
+        .drawer.hidden {
+            transform: translateX(-100%);
+        }
+
+        .drawer-header {
+            margin-bottom: 40px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .drawer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .drawer-nav {
+            list-style: none;
+        }
+
+        .drawer-nav li {
+            margin-bottom: 8px;
+        }
+
+        .drawer-nav a {
+            display: block;
+            padding: 12px 16px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .drawer-nav a:hover {
+            background: rgba(0, 0, 0, 0.1);
+            color: #ffffff;
+        }
+
+        .drawer-nav a.active {
+            background: rgba(0, 0, 0, 0.2);
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        /* Hamburger Menu */
+        .menu-toggle {
+            display: none;
+            position: fixed;
+            top: 16px;
+            left: 16px;
+            width: 48px;
+            height: 48px;
+            background: #d32f2f;
+            border: none;
+            color: #ffffff;
+            font-size: 24px;
+            cursor: pointer;
+            border-radius: 2px;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .back-link {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 500;
+            z-index: 999;
+            padding: 12px 20px;
+            background: #b71c1c;
+            border: none;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.06);
+        }
+
+        .back-link:hover {
+            background: #9c0d0d;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15), 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            margin-left: 280px;
+            padding: 40px;
+            transition: margin-left 0.3s ease;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            background: #ffffff;
+            padding: 24px;
+            border-radius: 2px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.06);
+        }
+
+        .header-top h1 {
+            font-size: 28px;
+            font-weight: 500;
+            color: #212121;
+        }
+
+        .search-box {
+            width: 300px;
+            padding: 12px 16px;
+            border: 1px solid #e0e0e0;
+            border-radius: 2px;
+            font-size: 14px;
+            font-family: 'Roboto', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: #d32f2f;
+            box-shadow: 0 2px 4px rgba(211, 47, 47, 0.1);
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .service-card {
+            background: #ffffff;
+            border-radius: 2px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15), 0 12px 24px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .service-color {
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .service-card:nth-child(1) .service-color {
+            background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
+        }
+
+        .service-card:nth-child(2) .service-color {
+            background: linear-gradient(135deg, #f57c00 0%, #e65100 100%);
+        }
+
+        .service-card:nth-child(3) .service-color {
+            background: linear-gradient(135deg, #7b1fa2 0%, #6a0dad 100%);
+        }
+
+        .service-card:nth-child(4) .service-color {
+            background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+        }
+
+        .service-card:nth-child(5) .service-color {
+            background: linear-gradient(135deg, #00796b 0%, #004d40 100%);
+        }
+
+        .service-card:nth-child(6) .service-color {
+            background: linear-gradient(135deg, #455a64 0%, #37474f 100%);
+        }
+
+        .service-content {
+            padding: 24px;
+        }
+
+        .service-content h3 {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: #212121;
+        }
+
+        .service-content p {
+            font-size: 14px;
+            color: #757575;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .service-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: #9e9e9e;
+        }
+
+        .status-badge {
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+
+        .status-badge.inactive {
+            background: #ffebee;
+            color: #c62828;
+        }
+
+        /* Categories Section */
+        .categories {
+            background: #ffffff;
+            padding: 32px;
+            border-radius: 2px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.06);
+        }
+
+        .categories h2 {
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 24px;
+            color: #212121;
+        }
+
+        .category-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .chip {
+            padding: 8px 16px;
+            background: #f5f5f5;
+            border: 1px solid #e0e0e0;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .chip:hover {
+            background: #eeeeee;
+            border-color: #d32f2f;
+            color: #d32f2f;
+        }
+
+        .chip.active {
+            background: #d32f2f;
+            color: #ffffff;
+            border-color: #d32f2f;
+        }
+
+        /* Overlay for mobile drawer */
+        .drawer-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 899;
+        }
+
+        .drawer-overlay.active {
+            display: block;
+        }
+
+        /* Responsive */
+        @media (max-width: 960px) {
+            .drawer {
+                width: 240px;
+            }
+
+            .main-content {
+                margin-left: 240px;
+                padding: 24px;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            }
+
+            .header-top {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .search-box {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .back-link {
+                top: 70px;
+                right: 16px;
+                padding: 10px 16px;
+                font-size: 11px;
+            }
+
+            .drawer {
+                width: 240px;
+                transform: translateX(-100%);
+            }
+
+            .drawer.active {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .header-top {
+                margin-top: 60px;
+            }
+
+            .search-box {
+                width: 100%;
+            }
+
+            .categories {
+                padding: 20px;
+            }
+
+            .chip {
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-content {
+                padding: 16px;
+            }
+
+            .header-top h1 {
+                font-size: 20px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .drawer-nav a {
+                padding: 10px 12px;
+                font-size: 13px;
+            }
+
+            .category-chips {
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="menu-toggle" id="menuToggle">☰</button>
+    <a href="../../index.html" class="back-link">← Back</a>
+
+    <nav class="drawer" id="drawer">
+        <div class="drawer-header">
+            <div class="drawer-logo">Services</div>
+        </div>
+        <ul class="drawer-nav">
+            <li><a href="#" class="active">Dashboard</a></li>
+            <li><a href="#">Branding</a></li>
+            <li><a href="#">Web Design</a></li>
+            <li><a href="#">Development</a></li>
+            <li><a href="#">Mobile Apps</a></li>
+            <li><a href="#">Consulting</a></li>
+            <li><a href="#">Analytics</a></li>
+            <li><a href="#">Support</a></li>
+        </ul>
+    </nav>
+
+    <div class="drawer-overlay" id="overlay"></div>
+
+    <main class="main-content">
+        <div class="header-top">
+            <h1>Our Services</h1>
+            <input type="text" class="search-box" placeholder="Search services...">
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-color">🎨</div>
+                <div class="service-content">
+                    <h3>Brand Identity</h3>
+                    <p>Create a memorable brand with our comprehensive identity design services including logos and guidelines.</p>
+                    <div class="service-footer">
+                        <span>Starting $2,500</span>
+                        <span class="status-badge">Active</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-color">🌐</div>
+                <div class="service-content">
+                    <h3>Web Design</h3>
+                    <p>Beautiful, responsive websites that engage users and convert visitors into customers effectively.</p>
+                    <div class="service-footer">
+                        <span>Starting $5,000</span>
+                        <span class="status-badge">Active</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-color">⚙️</div>
+                <div class="service-content">
+                    <h3>Development</h3>
+                    <p>Full-stack development services to bring your ideas to life with scalable, maintainable code.</p>
+                    <div class="service-footer">
+                        <span>Starting $8,000</span>
+                        <span class="status-badge">Active</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-color">📱</div>
+                <div class="service-content">
+                    <h3>Mobile Apps</h3>
+                    <p>Native and cross-platform mobile applications for iOS and Android with exceptional UX.</p>
+                    <div class="service-footer">
+                        <span>Starting $10,000</span>
+                        <span class="status-badge">Active</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-color">📊</div>
+                <div class="service-content">
+                    <h3>Analytics & Optimization</h3>
+                    <p>Data-driven insights and continuous optimization to improve user experience and conversions.</p>
+                    <div class="service-footer">
+                        <span>Starting $3,000</span>
+                        <span class="status-badge">Active</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-color">💬</div>
+                <div class="service-content">
+                    <h3>Consulting</h3>
+                    <p>Strategic design and product consulting to maximize your digital transformation initiatives.</p>
+                    <div class="service-footer">
+                        <span>Starting $1,500</span>
+                        <span class="status-badge inactive">New</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="categories">
+            <h2>Filter by Service Type</h2>
+            <div class="category-chips">
+                <span class="chip active">All Services</span>
+                <span class="chip">Design</span>
+                <span class="chip">Development</span>
+                <span class="chip">Mobile</span>
+                <span class="chip">Consulting</span>
+                <span class="chip">Ongoing Support</span>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const drawer = document.getElementById('drawer');
+        const overlay = document.getElementById('overlay');
+
+        menuToggle.addEventListener('click', function() {
+            drawer.classList.toggle('active');
+            overlay.classList.toggle('active');
+        });
+
+        overlay.addEventListener('click', function() {
+            drawer.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+
+        // Close drawer when link is clicked
+        document.querySelectorAll('.drawer-nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    drawer.classList.remove('active');
+                    overlay.classList.remove('active');
+                }
+            });
+        });
+
+        // Filter chips
+        document.querySelectorAll('.chip').forEach(chip => {
+            chip.addEventListener('click', function() {
+                document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

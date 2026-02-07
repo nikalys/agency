@@ -31,6 +31,65 @@
   margin-top: 0.5rem;
 }
 
+/* Portfolio Categories */
+.portfolio-category {
+  margin-bottom: 3rem;
+  scroll-margin-top: 6rem; /* Smooth scroll offset for sticky headers */
+}
+
+.portfolio-category:last-of-type {
+  margin-bottom: 0;
+}
+
+.portfolio-category-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin: 0 0 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--border-subtle);
+  color: var(--text-heading);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.portfolio-category-description {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin: 0 0 1.25rem;
+  max-width: 800px;
+}
+
+.portfolio-category-count {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: var(--bg-elevated);
+  padding: 0.25rem 0.75rem;
+  border-radius: 2rem;
+  border: 1px solid var(--border-subtle);
+  letter-spacing: 0;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  .portfolio-category {
+    scroll-margin-top: 0;
+  }
+}
+
 .portfolio-grid {
   list-style: none;
   margin: 0;
@@ -87,6 +146,91 @@
 /* Dark theme thumbnail placeholder */
 body[data-theme="dark"] .portfolio-thumb-img {
   filter: brightness(0.92);
+}
+
+/* Portfolio Stats Summary */
+.portfolio-stats {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.portfolio-stat {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+  flex: 1;
+  min-width: 150px;
+}
+
+.portfolio-stat-number {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--accent-green);
+  display: block;
+  line-height: 1.2;
+  margin-bottom: 0.25rem;
+}
+
+.portfolio-stat-label {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+  .portfolio-page .portfolio-main {
+    padding: 1.5rem 1rem 2rem;
+  }
+  
+  .portfolio-intro {
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .portfolio-category {
+    margin-bottom: 2.5rem;
+  }
+  
+  .portfolio-category-title {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+  }
+  
+  .portfolio-category-description {
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+  }
+  
+  .portfolio-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.25rem;
+  }
+  
+  .portfolio-stats {
+    gap: 1rem;
+  }
+  
+  .portfolio-stat {
+    min-width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .portfolio-category-title {
+    font-size: 1.125rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 /* Optional: filter bar placeholder for future use */

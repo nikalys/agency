@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nikalys — Services</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect fill='%231a1a1a' width='32' height='32'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-size='20' font-weight='bold' fill='%23ffffff' font-family='system-ui'>N</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #fafafa;
+            color: #1a1a1a;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* Back to Showcase Link */
+        .back-link {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            text-decoration: none;
+            color: #000000;
+            font-size: 14px;
+            font-weight: 400;
+            transition: opacity 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-link:hover {
+            opacity: 0.5;
+        }
+
+        /* Header */
+        header {
+            padding: 100px 0 80px;
+            border-bottom: none;
+            background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+        }
+
+        .header-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 60px;
+        }
+
+        .logo {
+            font-size: 200px;
+            font-weight: 500;
+            letter-spacing: 3px;
+            margin-bottom: 40px;
+            color: #8b8b8b;
+        }
+
+        header h1 {
+            font-size: 100px;
+            font-weight: 300;
+            line-height: 1.25;
+            letter-spacing: -0.8px;
+            max-width: 800px;
+            color: #1a1a1a;
+        }
+
+        /* Services Section */
+        .services-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 120px 60px;
+        }
+
+        .services-intro {
+            margin-bottom: 120px;
+            max-width: 700px;
+        }
+
+        .services-intro p {
+            font-size: 18px;
+            color: #5a5a5a;
+            line-height: 1.85;
+            font-weight: 300;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 100px;
+        }
+
+        .service-card {
+            padding: 80px 0;
+            border-bottom: 1px solid #e5e5e5;
+            border-top: 1px solid #e5e5e5;
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .service-card:hover {
+            padding: 80px 0;
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .service-card:last-child {
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .service-number {
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 3px;
+            color: #c0c0c0;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .service-title {
+            font-size: 38px;
+            font-weight: 300;
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+            color: #1a1a1a;
+        }
+
+        .service-subtitle {
+            font-size: 13px;
+            color: #a0a0a0;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+
+        .service-description {
+            font-size: 16px;
+            color: #5a5a5a;
+            line-height: 1.85;
+            max-width: 700px;
+            margin-bottom: 60px;
+            font-weight: 300;
+        }
+
+        .service-features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 50px;
+        }
+
+        .feature {
+            padding: 0;
+        }
+
+        .feature-name {
+            font-size: 13px;
+            font-weight: 500;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+            letter-spacing: 1px;
+        }
+
+        .feature-description {
+            font-size: 13px;
+            color: #8b8b8b;
+            line-height: 1.7;
+        }
+
+        /* Process Section */
+        .process-section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 120px 60px;
+            background: #ffffff;
+        }
+
+        .process-title {
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 3px;
+            color: #a0a0a0;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+
+        .process-heading {
+            font-size: 42px;
+            font-weight: 300;
+            margin-bottom: 100px;
+            max-width: 700px;
+            color: #1a1a1a;
+            letter-spacing: -0.5px;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 50px;
+        }
+
+        .process-step {
+            padding: 0;
+        }
+
+        .step-number {
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 3px;
+            color: #c0c0c0;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .step-name {
+            font-size: 16px;
+            font-weight: 400;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+            letter-spacing: -0.3px;
+        }
+
+        .step-description {
+            font-size: 13px;
+            color: #8b8b8b;
+            line-height: 1.7;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 140px 60px;
+            text-align: center;
+        }
+
+        .cta-text {
+            font-size: 48px;
+            font-weight: 300;
+            margin-bottom: 50px;
+            line-height: 1.3;
+            color: #1a1a1a;
+            letter-spacing: -0.5px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 16px 50px;
+            border: 1.5px solid #1a1a1a;
+            background: #ffffff;
+            color: #1a1a1a;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .cta-button:hover {
+            background: #1a1a1a;
+            color: #ffffff;
+            transform: scale(1.02);
+        }
+
+        /* Footer */
+        footer {
+            padding: 100px 60px 80px;
+            border-top: 1px solid #e5e5e5;
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #fafafa;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 100px;
+        }
+
+        .footer-block h3 {
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            color: #8b8b8b;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
+        .footer-block p {
+            font-size: 14px;
+            color: #5a5a5a;
+            line-height: 2;
+            font-weight: 300;
+        }
+
+        .footer-block a {
+            color: #1a1a1a;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-block a:hover {
+            color: #8b8b8b;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .service-features {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+            }
+
+            .process-steps {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 60px;
+            }
+
+            header {
+                padding: 80px 0 60px;
+            }
+
+            .header-content {
+                padding: 0 40px;
+            }
+
+            header h1 {
+                font-size: 42px;
+            }
+
+            .services-container {
+                padding: 100px 40px;
+            }
+
+            .process-section {
+                padding: 100px 40px;
+            }
+
+            .cta-section {
+                padding: 100px 40px;
+            }
+
+            footer {
+                padding: 80px 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .service-features {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            header {
+                padding: 60px 0 50px;
+            }
+
+            .header-content {
+                padding: 0 30px;
+            }
+
+            header h1 {
+                font-size: 32px;
+            }
+
+            .logo {
+                font-size: 60px;
+                margin-bottom: 40px;
+            }
+
+            .services-container {
+                padding: 80px 30px;
+            }
+
+            .service-card {
+                padding: 60px 0;
+            }
+
+            .service-title {
+                font-size: 28px;
+            }
+
+            .service-description {
+                font-size: 15px;
+            }
+
+            .process-section {
+                padding: 80px 30px;
+            }
+
+            .process-heading {
+                font-size: 32px;
+                margin-bottom: 60px;
+            }
+
+            .cta-section {
+                padding: 100px 30px;
+            }
+
+            .cta-text {
+                font-size: 32px;
+            }
+
+            footer {
+                padding: 60px 30px;
+            }
+
+            .back-link {
+                top: 20px;
+                left: 20px;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="../../index.html" class="back-link">← Back to Showcase</a>
+
+    <header>
+        <div class="header-content">
+            <div class="logo">NIKALYS</div>
+            <h1>Services that bring your vision to life.</h1>
+        </div>
+    </header>
+
+    <section class="services-container">
+        <div class="services-intro">
+            <p>We offer a comprehensive range of services designed to transform your ideas into exceptional digital products. Each service is crafted with precision and delivered with care.</p>
+        </div>
+
+        <div class="services-grid">
+            <!-- Service 1 -->
+            <div class="service-card">
+                <div class="service-number">01</div>
+                <h2 class="service-title">Brand Identity Design</h2>
+                <div class="service-subtitle">Visual Strategy & System Design</div>
+                <p class="service-description">We create cohesive visual systems that authentically represent your brand. From logo design to comprehensive brand guidelines, we ensure every touchpoint communicates your values consistently and powerfully.</p>
+                <div class="service-features">
+                    <div class="feature">
+                        <div class="feature-name">Logo Design</div>
+                        <div class="feature-description">Timeless marks that capture your essence</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-name">Brand Guidelines</div>
+                        <div class="feature-description">Comprehensive visual documentation</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-name">Stationery Design</div>
+                        <div class="feature-description">Business cards, letterheads & more</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="service-card">
+                <div class="service-number">02</div>
+                <h2 class="service-title">Web Design & Development</h2>
+                <div class="service-subtitle">Digital Products Built to Perform</div>
+                <p class="service-description">We design and develop websites and web applications that are both beautiful and functional. Our approach combines strategic thinking with technical excellence to create experiences that users love.</p>
+                <div class="service-features">
+                    <div class="feature">
+                        <div class="feature-name">Responsive Design</div>
+                        <div class="feature-description">Works perfectly on all devices</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-name">Web Development</div>
+                        <div class="feature-description">Clean, semantic code & fast performance</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-name">CMS Integration</div>
+                        <div class="feature-description">Easy-to-manage content systems</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="service-card">
+                <div class="service-number">03</div>
+                <h2 class="service-title">User Experience Design</h2>
+                <div class="service-subtitle">Research-Driven Design Solutions</div>
+                <p class="service-description">We design intuitive interfaces through extensive research, thoughtful prototyping, and rigorous testing. Every interaction is deliberate, every element serves a purpose, and every detail enhances the user journey.</p>
+                <div class="service-features">
+                    <div class="feature">
+                        <div class="feature-name">User Research</div>
+                        <div class="feature-description">Understanding your audience deeply</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-name">Wireframing & Prototyping</div>
+                        <div class="feature-description">Interactive mockups & testing</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-name">Usability Testing</div>
+                        <div class="feature-description">Validating design decisions with users</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="process-section">
+        <div class="header-content">
+            <div class="process-title">OUR PROCESS</div>
+            <h2 class="process-heading">A structured approach to exceptional design.</h2>
+
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">01</div>
+                    <div class="step-name">Discovery</div>
+                    <div class="step-description">We immerse ourselves in understanding your business, goals, and users. Research informs every decision.</div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">02</div>
+                    <div class="step-name">Strategy</div>
+                    <div class="step-description">We develop a comprehensive strategy that aligns design with your business objectives.</div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">03</div>
+                    <div class="step-name">Design</div>
+                    <div class="step-description">We create beautiful, functional designs that bring your vision to life with precision.</div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">04</div>
+                    <div class="step-name">Launch</div>
+                    <div class="step-description">We see projects through to completion, ensuring quality and supporting your success.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2 class="cta-text">Ready to start your next project?</h2>
+        <button class="cta-button">Get in Touch</button>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-block">
+                <h3>Contact</h3>
+                <p><a href="mailto:hello@nikalys.com">hello@nikalys.com</a></p>
+                <p><a href="tel:+1234567890">+1 (234) 567-8900</a></p>
+            </div>
+            <div class="footer-block">
+                <h3>Location</h3>
+                <p>San Francisco, CA<br>New York, NY</p>
+            </div>
+            <div class="footer-block">
+                <h3>Follow</h3>
+                <p><a href="#">Instagram</a><br><a href="#">Twitter</a><br><a href="#">LinkedIn</a></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIKALYS - Cyberpunk Design Studio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @keyframes glitch {
+            0% {
+                clip-path: inset(40% 0 61% 0);
+                transform: translate(0);
+            }
+            20% {
+                clip-path: inset(92% 0 1% 0);
+                transform: translate(-2px, 2px);
+            }
+            40% {
+                clip-path: inset(43% 0 1% 0);
+                transform: translate(-2px, -2px);
+            }
+            60% {
+                clip-path: inset(25% 0 58% 0);
+                transform: translate(2px, -2px);
+            }
+            80% {
+                clip-path: inset(54% 0 7% 0);
+                transform: translate(2px, 2px);
+            }
+            100% {
+                clip-path: inset(58% 0 43% 0);
+                transform: translate(0);
+            }
+        }
+
+        @keyframes scanlines {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(10px);
+            }
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(0, 255, 200, 0.6), inset 0 0 20px rgba(0, 255, 200, 0.1);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(0, 255, 200, 0.8), inset 0 0 30px rgba(0, 255, 200, 0.2);
+            }
+        }
+
+        @keyframes circuit-pulse {
+            0%, 100% {
+                opacity: 0.3;
+            }
+            50% {
+                opacity: 0.7;
+            }
+        }
+
+        body {
+            background: #0a0e27;
+            color: #b8c5d6;
+            font-family: 'Arial Black', 'Trebuchet MS', sans-serif;
+            overflow-x: hidden;
+            padding: 70px 20px 40px 20px;
+            position: relative;
+            font-weight: 700;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 255, 200, 0.01) 0px,
+                rgba(0, 255, 200, 0.01) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            pointer-events: none;
+            animation: scanlines 8s linear infinite;
+            z-index: 1;
+            opacity: 0.3;
+        }
+
+        .back-link {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: rgba(0, 255, 200, 0.1);
+            padding: 12px 20px;
+            border: 2px solid #00ffcc;
+            text-decoration: none;
+            color: #00ffcc;
+            font-weight: 600;
+            font-size: 0.85em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 20px rgba(0, 255, 200, 0.3);
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .back-link:hover {
+            background: rgba(0, 255, 200, 0.2);
+            box-shadow: 0 0 40px rgba(0, 255, 200, 0.6);
+            transform: translateX(-5px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        header {
+            margin-bottom: 80px;
+            text-align: center;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 4.5em;
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            background: linear-gradient(135deg, #00ffcc 0%, #00d4ff 50%, #00ff88 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 30px rgba(0, 255, 200, 0.5));
+            animation: none;
+        }
+
+        .tagline {
+            font-size: 1.2em;
+            color: #00d4ff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, rgba(0, 255, 200, 0.05) 0%, rgba(0, 212, 255, 0.05) 100%);
+            border: 2px solid #00ffcc;
+            padding: 60px 40px;
+            margin: 60px 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 50px rgba(0, 255, 200, 0.3), inset 0 0 50px rgba(0, 255, 200, 0.05);
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 100% 0%, rgba(0, 255, 200, 0.1) 0%, transparent 70%);
+            animation: pulse-glow 4s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+        }
+
+        .hero-content h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero-content p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #b8c5d6;
+            margin-bottom: 15px;
+        }
+
+        .services-section {
+            margin: 100px 0;
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 50px;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #00ffcc, #00d4ff);
+            box-shadow: 0 0 20px rgba(0, 255, 200, 0.6);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .service-card {
+            background: rgba(0, 255, 200, 0.05);
+            border: 2px solid #00ffcc;
+            padding: 35px;
+            position: relative;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 200, 0.2), transparent);
+            transition: width 0.6s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 40px rgba(0, 255, 200, 0.4), inset 0 0 30px rgba(0, 255, 200, 0.1);
+            border-color: #00d4ff;
+        }
+
+        .service-card:hover::before {
+            width: 100%;
+        }
+
+        .service-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            display: inline-block;
+            filter: drop-shadow(0 0 10px rgba(0, 255, 200, 0.5));
+        }
+
+        .service-card h3 {
+            font-size: 1.3em;
+            color: #00ffcc;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .service-card p {
+            color: #b8c5d6;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        .portfolio-section {
+            margin: 100px 0;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        .portfolio-item {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, rgba(0, 255, 200, 0.1), rgba(0, 212, 255, 0.1));
+            border: 2px solid rgba(0, 255, 200, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3em;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .portfolio-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 200, 0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .portfolio-item:hover {
+            border-color: #00ffcc;
+            box-shadow: 0 0 30px rgba(0, 255, 200, 0.5), inset 0 0 20px rgba(0, 255, 200, 0.1);
+            transform: scale(1.05);
+        }
+
+        .portfolio-item:hover::before {
+            left: 100%;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, rgba(0, 255, 200, 0.08), rgba(0, 212, 255, 0.08));
+            border: 2px solid #00ffcc;
+            padding: 60px 40px;
+            text-align: center;
+            margin: 80px 0;
+            box-shadow: 0 0 40px rgba(0, 255, 200, 0.25);
+        }
+
+        .cta-section h2 {
+            font-size: 2.2em;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.1em;
+            color: #b8c5d6;
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 16px 40px;
+            background: linear-gradient(135deg, #00ffcc 0%, #00d4ff 100%);
+            color: #0a0e27;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 2px;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 30px rgba(0, 255, 200, 0.5);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 50px rgba(0, 255, 200, 0.7), 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        footer {
+            border-top: 2px solid #00ffcc;
+            padding: 40px;
+            text-align: center;
+            color: #b8c5d6;
+            margin-top: 80px;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5em; }
+            .hero-section { padding: 40px 20px; }
+            .back-link { position: static; margin-bottom: 30px; display: inline-block; }
+            .services-grid { grid-template-columns: 1fr; }
+            .portfolio-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <a href="../../index.html" class="back-link">← Back to Showcase</a>
+
+    <div class="container">
+        <header>
+            <div class="tagline">⚡ Cyberpunk Design Studio</div>
+            <h1>NIKALYS</h1>
+            <p style="color: #00ffcc; font-size: 1.1em; letter-spacing: 1px; text-transform: uppercase;">Future-Forward Digital Experiences</p>
+        </header>
+
+        <section class="hero-section">
+            <div class="hero-content">
+                <h2>Welcome to the Future</h2>
+                <p>We craft cutting-edge digital experiences that push boundaries and redefine possibilities. Our cyberpunk-inspired designs blend high-tech aesthetics with bold, visionary thinking.</p>
+                <p>Where technology meets art. Where innovation becomes reality.</p>
+            </div>
+        </section>
+
+        <section class="services-section">
+            <h2 class="section-title">Core Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">⚙️</div>
+                    <h3>Digital Architecture</h3>
+                    <p>Complex system design with advanced UI/UX principles. We engineer experiences that feel futuristic and intuitive.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🌐</div>
+                    <h3>Immersive Interfaces</h3>
+                    <p>Interactive experiences that push technical boundaries. Real-time animations, dynamic content, and live data visualization.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🚀</div>
+                    <h3>Future Tech Solutions</h3>
+                    <p>Next-generation design for emerging platforms. VR-ready interfaces, AI integration, and Web3 experiences.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💻</div>
+                    <h3>Brand Systems</h3>
+                    <p>Comprehensive design systems for complex digital products. Scalable, consistent, and adaptable across all touchpoints.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔮</div>
+                    <h3>Visual Innovation</h3>
+                    <p>Breakthrough aesthetics that challenge convention. Glitch art, holographic effects, and neon-inspired digital design.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <h3>Motion Design</h3>
+                    <p>Choreographed animations and transitions. Every pixel moves with purpose in synchronized digital orchestration.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="portfolio-section">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">🎮</div>
+                <div class="portfolio-item">🤖</div>
+                <div class="portfolio-item">🛸</div>
+                <div class="portfolio-item">💾</div>
+                <div class="portfolio-item">🌌</div>
+                <div class="portfolio-item">⚛️</div>
+                <div class="portfolio-item">🔌</div>
+                <div class="portfolio-item">📡</div>
+                <div class="portfolio-item">🧬</div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2>Ready to Build the Future?</h2>
+            <p>Join visionary brands creating the next generation of digital experiences. Let's design something extraordinary together.</p>
+            <a href="#contact" class="cta-button">Start Your Project</a>
+        </section>
+
+        <footer>
+            <p>© 2026 NIKALYS Design Studio | Cyberpunk/Futuristic Design</p>
+        </footer>
+    </div>
+</body>
+</html>

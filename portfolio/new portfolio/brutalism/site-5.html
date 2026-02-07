@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nikalys — Brutalism</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect fill='%23000000' width='32' height='32'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-size='20' font-weight='bold' fill='%23ffd700' font-family='monospace'>N</text></svg>">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', Georgia, serif;
+            background: #ffffff;
+            color: #000000;
+            line-height: 1.2;
+            font-size: 16px;
+        }
+
+        /* Back to Showcase Link */
+        .back-link {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            text-decoration: underline;
+            color: #000000;
+            font-size: 12px;
+            font-family: 'Courier New', monospace;
+            z-index: 1000;
+            font-weight: bold;
+        }
+
+        .back-link:hover {
+            background: #000000;
+            color: #ffd700;
+            padding: 4px 8px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 60px;
+            right: 40px;
+            border: 3px solid #000000;
+            padding: 20px;
+            background: #ffffff;
+            z-index: 999;
+        }
+
+        nav ul {
+            list-style: disc;
+            margin-left: 20px;
+        }
+
+        nav li {
+            margin: 12px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+
+        nav a {
+            color: #000000;
+            text-decoration: none;
+            border: 2px solid #000000;
+            padding: 4px 8px;
+            display: inline-block;
+            transition: all 0.1s linear;
+        }
+
+        nav a:hover {
+            background: #ffd700;
+            transform: skew(-5deg);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 40px 60px;
+            border-bottom: 5px solid #000000;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 10px,
+                    rgba(255, 215, 0, 0.05) 10px,
+                    rgba(255, 215, 0, 0.05) 20px
+                );
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: 92px;
+            font-weight: normal;
+            letter-spacing: -3px;
+            line-height: 0.9;
+            margin-bottom: 40px;
+            font-family: 'Arial Black', sans-serif;
+            text-transform: uppercase;
+            transform: skew(-8deg);
+        }
+
+        .hero p {
+            font-size: 18px;
+            font-family: 'Courier New', monospace;
+            border-left: 6px solid #ffd700;
+            padding-left: 20px;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .hero-tagline {
+            font-size: 24px;
+            font-weight: bold;
+            font-family: 'Arial Black', sans-serif;
+            color: #ffd700;
+            text-transform: uppercase;
+            border: 3px solid #ffd700;
+            padding: 12px 16px;
+            display: inline-block;
+            transform: rotate(-2deg);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 40px;
+            background: #ffffff;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .services-title {
+            font-size: 56px;
+            font-family: 'Arial Black', sans-serif;
+            text-transform: uppercase;
+            font-weight: normal;
+            line-height: 1.1;
+            border: 3px solid #000000;
+            padding: 20px;
+            transform: skew(-5deg);
+            margin-bottom: 40px;
+        }
+
+        .services-list {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .service-item {
+            border-left: 8px solid #ffd700;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .service-item::before {
+            content: '';
+            position: absolute;
+            left: -4px;
+            top: -4px;
+            width: 16px;
+            height: 16px;
+            background: #000000;
+            border: 2px solid #ffffff;
+        }
+
+        .service-icon {
+            font-size: 32px;
+            margin-bottom: 8px;
+            display: inline-block;
+        }
+
+        .service-item h3 {
+            font-size: 28px;
+            font-family: 'Arial Black', sans-serif;
+            text-transform: uppercase;
+            margin: 12px 0;
+            font-weight: normal;
+            letter-spacing: -1px;
+        }
+
+        .service-item p {
+            font-size: 14px;
+            font-family: 'Courier New', monospace;
+            line-height: 1.6;
+            color: #333333;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 80px 40px;
+            background: #ffd700;
+            border-top: 5px solid #000000;
+            border-bottom: 5px solid #000000;
+        }
+
+        .testimonials-title {
+            font-size: 48px;
+            font-family: 'Arial Black', sans-serif;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+            font-weight: normal;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .testimonial {
+            background: #ffffff;
+            border: 4px solid #000000;
+            padding: 30px;
+            transform: rotate(1deg);
+        }
+
+        .testimonial:nth-child(2) {
+            transform: rotate(-2deg);
+            margin-top: 40px;
+        }
+
+        .testimonial-text {
+            font-size: 16px;
+            font-family: 'Courier New', monospace;
+            margin-bottom: 20px;
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-size: 14px;
+            font-family: 'Arial Black', sans-serif;
+            text-transform: uppercase;
+            font-weight: normal;
+        }
+
+        /* Process Section */
+        .process {
+            padding: 100px 40px;
+            background: #ffffff;
+        }
+
+        .process-title {
+            font-size: 64px;
+            font-family: 'Arial Black', sans-serif;
+            text-transform: uppercase;
+            margin-bottom: 60px;
+            font-weight: normal;
+            letter-spacing: -2px;
+            border: 4px solid #000000;
+            padding: 20px;
+            display: inline-block;
+            transform: skew(-8deg);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .step {
+            background: #ffffff;
+            border: 3px solid #000000;
+            padding: 30px;
+            position: relative;
+        }
+
+        .step:nth-child(1) {
+            transform: translateY(-20px);
+        }
+
+        .step:nth-child(2) {
+            transform: translateY(10px) rotate(1deg);
+        }
+
+        .step:nth-child(3) {
+            transform: translateY(-10px) rotate(-1deg);
+        }
+
+        .step:nth-child(4) {
+            transform: translateY(15px);
+        }
+
+        .step-number {
+            font-size: 48px;
+            font-family: 'Arial Black', sans-serif;
+            font-weight: normal;
+            color: #ffd700;
+            margin-bottom: 16px;
+        }
+
+        .step-icon {
+            font-size: 36px;
+            margin-bottom: 12px;
+        }
+
+        .step-title {
+            font-size: 18px;
+            font-family: 'Arial Black', sans-serif;
+            text-transform: uppercase;
+            font-weight: normal;
+            margin-bottom: 12px;
+        }
+
+        .step-description {
+            font-size: 13px;
+            font-family: 'Courier New', monospace;
+            line-height: 1.6;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: #000000;
+            color: #ffd700;
+            padding: 60px 40px;
+            border: 5px solid #ffd700;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin: 40px;
+        }
+
+        .stat {
+            text-align: center;
+            border: 3px solid #ffd700;
+            padding: 30px;
+            transform: rotate(-1deg);
+        }
+
+        .stat:nth-child(2) {
+            transform: rotate(2deg);
+        }
+
+        .stat-number {
+            font-size: 52px;
+            font-family: 'Arial Black', sans-serif;
+            font-weight: normal;
+            margin-bottom: 12px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            font-family: 'Courier New', monospace;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 80px 40px;
+            background: #ffffff;
+            border-top: 5px solid #000000;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 52px;
+            font-family: 'Arial Black', sans-serif;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            font-weight: normal;
+            letter-spacing: -1px;
+        }
+
+        .cta-button {
+            background: #000000;
+            color: #ffd700;
+            border: 4px solid #000000;
+            padding: 24px 48px;
+            font-size: 18px;
+            font-family: 'Arial Black', sans-serif;
+            text-transform: uppercase;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.1s linear;
+            transform: skew(-5deg);
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            background: #ffd700;
+            color: #000000;
+            transform: skew(-5deg) scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px;
+            background: #000000;
+            color: #ffd700;
+            border-top: 5px solid #ffd700;
+        }
+
+        footer p {
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            line-height: 1.8;
+            border: 2px solid #ffd700;
+            padding: 12px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .footer-section h3 {
+            font-size: 14px;
+            font-family: 'Arial Black', sans-serif;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            border-bottom: 2px solid #ffd700;
+            padding-bottom: 8px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 8px;
+        }
+
+        .footer-section a {
+            color: #ffd700;
+            text-decoration: underline;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            transition: all 0.1s linear;
+        }
+
+        .footer-section a:hover {
+            background: #ffd700;
+            color: #000000;
+            padding: 2px 4px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .services {
+                grid-template-columns: 1fr;
+            }
+
+            .process-steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-links {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                top: auto;
+                right: auto;
+                left: 20px;
+                bottom: 20px;
+            }
+
+            .hero h1 {
+                font-size: 52px;
+            }
+
+            .hero-tagline {
+                font-size: 16px;
+            }
+
+            .services-title {
+                font-size: 36px;
+            }
+
+            .process-title {
+                font-size: 36px;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-title {
+                font-size: 32px;
+            }
+
+            .cta h2 {
+                font-size: 32px;
+            }
+
+            .cta-button {
+                font-size: 14px;
+                padding: 16px 32px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 60px 20px 40px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .services,
+            .process,
+            .testimonials,
+            .cta {
+                padding: 60px 20px;
+            }
+
+            .services-title {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="../../index.html" class="back-link">← BACK</a>
+
+    <nav>
+        <ul>
+            <li><a href="#services">SERVICES</a></li>
+            <li><a href="#process">PROCESS</a></li>
+            <li><a href="#work">WORK</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>NIKALYS</h1>
+            <p>Raw design. Brutal honesty. No compromise. We build digital experiences that refuse to apologize for their existence.</p>
+            <div class="hero-tagline">DESIGN IS NOT DECORATION</div>
+        </div>
+    </section>
+
+    <section class="services">
+        <div>
+            <h2 class="services-title">OUR<br>SERVICES</h2>
+        </div>
+        <div class="services-list">
+            <div class="service-item">
+                <div class="service-icon">⚒️</div>
+                <h3>Brand Brutalism</h3>
+                <p>We strip away unnecessary decoration and expose the raw truth of your brand. Honest, uncompromising identity design that refuses to blend in.</p>
+            </div>
+            <div class="service-item">
+                <div class="service-icon">🔩</div>
+                <h3>Raw Code & Structure</h3>
+                <p>Web development that prioritizes function over form. We build systems that work relentlessly, with visible scaffolding and honest architecture.</p>
+            </div>
+            <div class="service-item">
+                <div class="service-icon">⚡</div>
+                <h3>Uncompromising UX</h3>
+                <p>User experiences stripped down to their essential elements. No polish, no tricks—just direct, effective interaction design.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <h2 class="testimonials-title">WHAT CLIENTS SAY</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial">
+                <p class="testimonial-text">"They forced us to confront what our brand actually is, not what we wanted it to be. Uncomfortable but necessary."</p>
+                <p class="testimonial-author">— CEO, INDUSTRIAL CORP</p>
+            </div>
+            <div class="testimonial">
+                <p class="testimonial-text">"No trends, no bullshit. Just solid, lasting design that works. Five years later, still relevant."</p>
+                <p class="testimonial-author">— FOUNDER, TECH STARTUP</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="process">
+        <h2 class="process-title">PROCESS</h2>
+        <div class="process-steps">
+            <div class="step">
+                <div class="step-number">01</div>
+                <div class="step-icon">🔍</div>
+                <div class="step-title">DECONSTRUCT</div>
+                <div class="step-description">Strip away assumptions. Understand what's essential. Identify what doesn't belong.</div>
+            </div>
+            <div class="step">
+                <div class="step-number">02</div>
+                <div class="step-icon">🎯</div>
+                <div class="step-title">ANALYZE</div>
+                <div class="step-description">Brutal assessment of goals, audience, and constraints. No room for compromise.</div>
+            </div>
+            <div class="step">
+                <div class="step-number">03</div>
+                <div class="step-icon">🔨</div>
+                <div class="step-title">BUILD</div>
+                <div class="step-description">Construct with honesty and precision. Every element serves a purpose.</div>
+            </div>
+            <div class="step">
+                <div class="step-number">04</div>
+                <div class="step-icon">⚙️</div>
+                <div class="step-title">REFINE</div>
+                <div class="step-description">Polish through iteration. Expose imperfections. Refine what remains.</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="stat">
+            <div class="stat-number">250+</div>
+            <div class="stat-label">Projects Completed</div>
+        </div>
+        <div class="stat">
+            <div class="stat-number">87%</div>
+            <div class="stat-label">Honest Feedback Rating</div>
+        </div>
+        <div class="stat">
+            <div class="stat-number">12 YRS</div>
+            <div class="stat-label">Uncompromising Excellence</div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <h2>READY FOR BRUTAL HONESTY?</h2>
+        <a href="../modern-minimalism/site-3.html" class="cta-button">START A PROJECT</a>
+    </section>
+
+    <footer>
+        <p>// NIKALYS BRUTALISM DESIGN STUDIO<br>// Raw. Honest. Uncompromising.<br>// Since 2012</p>
+        <div class="footer-links">
+            <div class="footer-section">
+                <h3>WORK</h3>
+                <ul>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#case-studies">Case Studies</a></li>
+                    <li><a href="#clients">Clients</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>SERVICES</h3>
+                <ul>
+                    <li><a href="#branding">Branding</a></li>
+                    <li><a href="#web">Web Design</a></li>
+                    <li><a href="#strategy">Strategy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>COMPANY</h3>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#philosophy">Philosophy</a></li>
+                    <li><a href="../../index.html">Back to Showcase</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>CONTACT</h3>
+                <ul>
+                    <li><a href="mailto:hello@nikalys.com">Email</a></li>
+                    <li><a href="#phone">+1 (555) 0123</a></li>
+                    <li><a href="#studio">NYC Studio</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

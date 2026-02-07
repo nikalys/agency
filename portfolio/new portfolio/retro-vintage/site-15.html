@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nikalys — 1990s Design</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect fill='%23cc00ff' width='32' height='32'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-size='18' font-weight='bold' fill='%2300ff00' font-family='Arial Black'>N</text></svg>">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Georgia, serif;
+            background-image: 
+                repeating-linear-gradient(45deg, #6600cc, #6600cc 10px, #3300ff 10px, #3300ff 20px),
+                repeating-linear-gradient(-45deg, #00ff66, #00ff66 10px, #ff00ff 10px, #ff00ff 20px);
+            background-size: 40px 40px, 40px 40px;
+            color: #000000;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 40px 20px;
+            position: relative;
+        }
+
+        /* Starburst pattern overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(circle at 20% 80%, transparent 20%, rgba(255, 0, 0, 0.1) 21%, rgba(255, 0, 0, 0.1) 34%, transparent 35%, transparent);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Back to Showcase Link */
+        .back-link {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            text-decoration: none;
+            color: #cc00ff;
+            font-size: 12px;
+            font-weight: bold;
+            z-index: 999;
+            padding: 8px 12px;
+            background: #00ff66;
+            border: 3px outset #ff00ff;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .back-link:hover {
+            background: #ff00ff;
+            color: #00ff66;
+            border-style: inset;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 40px;
+            background: linear-gradient(90deg, #6600cc, #3300ff, #cc00ff, #00ff66);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            border: 5px outset #ffff00;
+            box-shadow: inset 2px 2px 0px rgba(255, 255, 255, 0.5), inset -2px -2px 0px rgba(0, 0, 0, 0.5);
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .logo {
+            font-size: 44px;
+            font-weight: bold;
+            color: #ffff00;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 0px #000000;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        header h1 {
+            font-size: 56px;
+            font-weight: bold;
+            color: #ffff00;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            text-shadow: 4px 4px 0px #000000;
+            letter-spacing: 3px;
+        }
+
+        header p {
+            font-size: 14px;
+            color: #ffffff;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        /* Portfolio Grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .portfolio-item {
+            background: linear-gradient(135deg, #ff00ff, #00ff66);
+            border: 4px inset #ffff00;
+            padding: 25px;
+            box-shadow: 
+                inset 2px 2px 0px rgba(255, 255, 255, 0.6),
+                inset -2px -2px 0px rgba(0, 0, 0, 0.4),
+                8px 8px 0px rgba(0, 0, 0, 0.3);
+            transform: perspective(600px) rotateY(0deg);
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: perspective(600px) rotateY(2deg) translateY(-5px);
+            box-shadow: 
+                inset 2px 2px 0px rgba(255, 255, 255, 0.6),
+                inset -2px -2px 0px rgba(0, 0, 0, 0.4),
+                12px 12px 0px rgba(0, 0, 0, 0.4);
+        }
+
+        .portfolio-icon {
+            font-size: 40px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .portfolio-item h3 {
+            font-size: 20px;
+            color: #000000;
+            margin-bottom: 8px;
+            text-shadow: 1px 1px 0px #ffff00;
+            font-weight: bold;
+        }
+
+        .portfolio-item p {
+            font-size: 12px;
+            color: #000000;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .portfolio-link {
+            display: inline-block;
+            background: #000000;
+            color: #00ff66;
+            text-decoration: none;
+            padding: 8px 16px;
+            border: 2px solid #ffff00;
+            font-weight: bold;
+            font-size: 11px;
+            text-transform: uppercase;
+            transition: all 0.2s ease;
+        }
+
+        .portfolio-link:hover {
+            background: #ffff00;
+            color: #000000;
+            transform: translate(1px, 1px);
+        }
+
+        /* Features Section */
+        .features-section {
+            background: #cc00ff;
+            border: 5px outset #00ff66;
+            padding: 50px 40px;
+            text-align: center;
+            margin-bottom: 60px;
+            box-shadow: inset 2px 2px 0px rgba(255, 255, 255, 0.3);
+        }
+
+        .features-section h2 {
+            font-size: 40px;
+            color: #ffff00;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 0px #000000;
+            letter-spacing: 2px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-item {
+            background: #00ff66;
+            border: 3px outset #000000;
+            padding: 20px;
+            box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.5);
+        }
+
+        .feature-icon {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .feature-item h4 {
+            font-size: 14px;
+            color: #cc00ff;
+            margin-bottom: 6px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .feature-item p {
+            font-size: 11px;
+            color: #000000;
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(90deg, #3300ff, #cc00ff, #ff00ff);
+            border: 5px outset #ffff00;
+            padding: 40px;
+            text-align: center;
+            box-shadow: inset 2px 2px 0px rgba(255, 255, 255, 0.3);
+        }
+
+        footer h3 {
+            font-size: 24px;
+            color: #00ff66;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 0px #000000;
+        }
+
+        footer p {
+            font-size: 12px;
+            color: #ffff00;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        footer a {
+            color: #00ff66;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            background: #ffff00;
+            color: #cc00ff;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 32px;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 20px;
+            }
+
+            .features-section h2 {
+                font-size: 28px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 24px;
+                letter-spacing: 1px;
+            }
+
+            .logo {
+                font-size: 28px;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .portfolio-item {
+                padding: 18px;
+                border-width: 3px;
+            }
+
+            .features-section {
+                padding: 30px 20px;
+                border-width: 3px;
+            }
+
+            .features-grid {
+                gap: 12px;
+            }
+
+            .feature-item {
+                padding: 14px;
+                border-width: 2px;
+            }
+
+            .back-link {
+                font-size: 10px;
+                padding: 6px 10px;
+                border-width: 2px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="../../index.html" class="back-link">← Back</a>
+
+    <div class="container">
+        <header>
+            <div class="logo">NIKALYS</div>
+            <h1>90s Web Vibes</h1>
+            <p>Welcome to the web, man!</p>
+        </header>
+
+        <!-- Portfolio Grid -->
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <span class="portfolio-icon">🎨</span>
+                <h3>Digital Art</h3>
+                <p>All your favorite digital art projects from the golden era of web design. Totally radical stuff.</p>
+                <a href="#" class="portfolio-link">View →</a>
+            </div>
+
+            <div class="portfolio-item">
+                <span class="portfolio-icon">💿</span>
+                <h3>CD-ROM Design</h3>
+                <p>Multimedia experiences on physical media. CD covers, case designs, and interactive menus galore.</p>
+                <a href="#" class="portfolio-link">View →</a>
+            </div>
+
+            <div class="portfolio-item">
+                <span class="portfolio-icon">🌐</span>
+                <h3>Web Design</h3>
+                <p>Early websites with all the bells and whistles. Marquees, under construction signs, and spinning globes.</p>
+                <a href="#" class="portfolio-link">View →</a>
+            </div>
+
+            <div class="portfolio-item">
+                <span class="portfolio-icon">🎬</span>
+                <h3>Flash Animations</h3>
+                <p>Interactive Flash experiences that pushed the boundaries. Splash screens and animated intros included.</p>
+                <a href="#" class="portfolio-link">View →</a>
+            </div>
+
+            <div class="portfolio-item">
+                <span class="portfolio-icon">📱</span>
+                <h3>Interface Design</h3>
+                <p>User interfaces with beveled buttons and neon accents. That authentic 90s tech feel in every pixel.</p>
+                <a href="#" class="portfolio-link">View →</a>
+            </div>
+
+            <div class="portfolio-item">
+                <span class="portfolio-icon">✨</span>
+                <h3>Special Effects</h3>
+                <p>Glowing text, starfields, and impossible geometries. Making the web weird and wonderful since 1995.</p>
+                <a href="#" class="portfolio-link">View →</a>
+            </div>
+        </div>
+
+        <!-- Features -->
+        <div class="features-section">
+            <h2>Why Choose Our 90s Styles</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">🎯</div>
+                    <h4>Authentic</h4>
+                    <p>Real 90s design principles and aesthetics</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">🚀</div>
+                    <h4>Bold</h4>
+                    <p>Fearless color choices and wild layouts</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">🎪</div>
+                    <h4>Fun</h4>
+                    <p>Totally awesome and full of personality</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">🌈</div>
+                    <h4>Vibrant</h4>
+                    <p>Colors that pop and textures that shine</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">⭐</div>
+                    <h4>Retro</h4>
+                    <p>Nostalgic yet completely irreverent</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">💯</div>
+                    <h4>Quality</h4>
+                    <p>Premium work with pixel-perfect details</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <h3>Get Your Site Updated</h3>
+            <p>Let's make something groovy for the modern web</p>
+            <p><a href="mailto:hello@nikalys.com">📧 hello@nikalys.com</a> | <a href="tel:+15550123">📞 +1 (555) 0123</a></p>
+            <p style="margin-top: 20px; font-size: 11px;">© 2024 Nikalys Design. All rights reserved. | <a href="../../index.html">← Back to Showcase</a></p>
+        </footer>
+    </div>
+</body>
+</html>

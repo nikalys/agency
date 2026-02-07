@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nikalys - Maximalist Design</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif, 'Courier New', monospace, 'Arial Black', sans-serif;
+            background: linear-gradient(45deg, #ff006e, #00f5ff, #ffbe0b, #8338ec);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
+            color: #000;
+            overflow-x: hidden;
+            padding-top: 70px;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .back-link {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 12px 20px;
+            border: 3px solid #000;
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+            font-size: 1em;
+            transform: rotate(-2deg);
+            box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s;
+        }
+
+        .back-link:hover {
+            transform: rotate(2deg) scale(1.1);
+            box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.5);
+        }
+
+        header {
+            position: relative;
+            padding: 40px 20px;
+            text-align: center;
+            border: 8px dashed #000;
+            background: rgba(255, 255, 255, 0.9);
+            margin: 30px;
+            transform: rotate(-2deg);
+            box-shadow: 15px 15px 0px rgba(0, 0, 0, 0.3), -10px -10px 0px rgba(255, 0, 110, 0.5);
+        }
+
+        h1 {
+            font-size: 4em;
+            color: #ff006e;
+            text-shadow: 3px 3px 0px #00f5ff, 6px 6px 0px #ffbe0b;
+            font-style: italic;
+            letter-spacing: 3px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .tagline {
+            font-size: 1.5em;
+            color: #8338ec;
+            margin-top: 10px;
+            font-family: 'Comic Sans MS', cursive;
+            text-decoration: underline wavy;
+        }
+
+        nav {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            margin: 20px;
+            border: 5px solid #ffbe0b;
+            transform: skewY(-3deg);
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #00f5ff;
+            text-decoration: none;
+            font-size: 1.3em;
+            font-weight: bold;
+            border: 3px solid #ff006e;
+            padding: 10px 20px;
+            background: linear-gradient(90deg, #ffbe0b, #ff006e);
+            transform: rotate(3deg);
+            transition: all 0.3s;
+        }
+
+        nav a:hover {
+            transform: rotate(-3deg) scale(1.1);
+            box-shadow: 0 0 20px #00f5ff;
+        }
+
+        .hero {
+            margin: 40px;
+            padding: 40px;
+            background: repeating-linear-gradient(45deg, #ffbe0b, #ffbe0b 10px, #ff006e 10px, #ff006e 20px);
+            border: 8px solid #000;
+            position: relative;
+            transform: rotate(1deg);
+            box-shadow: 20px 20px 0px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border: 4px dashed #8338ec;
+            position: relative;
+        }
+
+        .hero h2 {
+            font-size: 3em;
+            color: #00f5ff;
+            margin-bottom: 20px;
+            font-family: 'Impact', sans-serif;
+            text-shadow: 2px 2px #ff006e, 4px 4px #ffbe0b;
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            color: #000;
+            line-height: 1.6;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 0;
+            margin: 40px;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, #ff006e, #8338ec, #00f5ff);
+            padding: 30px;
+            border: 6px solid;
+            border-color: #ffbe0b;
+            position: relative;
+            transform: rotate(-2deg);
+            margin: -10px;
+            z-index: 1;
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            transform: rotate(2deg) scale(1.05);
+            z-index: 10;
+        }
+
+        .service-card:nth-child(2) {
+            transform: rotate(3deg);
+            background: linear-gradient(135deg, #00f5ff, #ffbe0b, #ff006e);
+        }
+
+        .service-card:nth-child(3) {
+            transform: rotate(-3deg);
+            background: linear-gradient(135deg, #ffbe0b, #ff006e, #8338ec);
+        }
+
+        .service-card h3 {
+            font-size: 2em;
+            color: #fff;
+            margin-bottom: 15px;
+            font-family: 'Georgia', serif;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .service-card p {
+            color: #fff;
+            font-size: 1.1em;
+            line-height: 1.5;
+        }
+
+        .decorative-element {
+            position: absolute;
+            opacity: 0.3;
+            font-size: 5em;
+        }
+
+        .elem1 { top: 10px; left: 10px; transform: rotate(-45deg); }
+        .elem2 { bottom: 10px; right: 10px; color: #ff006e; }
+        .elem3 { top: 50%; left: -50px; color: #00f5ff; font-size: 6em; }
+
+        .cta-section {
+            text-align: center;
+            margin: 60px 40px;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.9);
+            border: 8px dashed #00f5ff;
+            transform: skewX(-5deg);
+        }
+
+        .cta-section h2 {
+            font-size: 2.5em;
+            color: #ffbe0b;
+            margin-bottom: 30px;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(90deg, #ff006e, #00f5ff);
+            color: #000;
+            padding: 20px 40px;
+            font-size: 1.5em;
+            border: 4px solid #ffbe0b;
+            cursor: pointer;
+            transform: rotate(-5deg);
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 8px 8px 0px #8338ec;
+        }
+
+        .cta-button:hover {
+            transform: rotate(5deg) scale(1.1);
+            box-shadow: 12px 12px 0px #ffbe0b;
+        }
+
+        footer {
+            background: repeating-linear-gradient(90deg, #ff006e 0px, #ff006e 20px, #00f5ff 20px, #00f5ff 40px, #ffbe0b 40px, #ffbe0b 60px);
+            padding: 30px;
+            text-align: center;
+            border-top: 6px solid #000;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: "✦ ✧ ✦ ✧ ✦";
+            font-size: 1.5em;
+            color: #000;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2em; }
+            .services-grid { grid-template-columns: 1fr; }
+            nav { flex-direction: column; gap: 10px; }
+            .back-link { position: static; margin-bottom: 10px; transform: none; }
+        }
+    </style>
+</head>
+<body>
+    <a href="../../index.html" class="back-link">← Back to Showcase</a>
+
+    <header>
+        <h1>NIKALYS</h1>
+        <p class="tagline">Where Design Gets Deliciously Chaotic</p>
+        <div class="decorative-element elem1">★</div>
+        <div class="decorative-element elem2">◆</div>
+    </header>
+
+    <nav>
+        <a href="#work">WORK</a>
+        <a href="#services">SERVICES</a>
+        <a href="#about">ABOUT</a>
+        <a href="#contact">CONTACT</a>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Design Explosion</h2>
+            <p>We don't believe in boring websites. Our maximalist approach floods your digital presence with personality, pattern, and pizzazz. Every pixel is precious. Every color matters. Nothing is ever left blank.</p>
+        </div>
+        <div class="decorative-element elem3">⚡</div>
+    </section>
+
+    <section class="services-grid" id="services">
+        <div class="service-card">
+            <h3>🎨 Brand Identity</h3>
+            <p>Explosive visual systems that scream your brand from every corner of the internet. We layer, we mix, we maximize every creative impulse.</p>
+        </div>
+        <div class="service-card">
+            <h3>🌐 Web Development</h3>
+            <p>Dynamic, animated websites that dance across screens with color-shifting gradients, interactive elements, and visual abundance that captivates.</p>
+        </div>
+        <div class="service-card">
+            <h3>✨ UX Design</h3>
+            <p>Rich, textured interfaces that embrace complexity while maintaining usability. Chaos with purpose. Color with meaning. Design with attitude.</p>
+        </div>
+    </section>
+
+    <section class="cta-section" id="contact">
+        <h2>Ready to Maximize Your Impact?</h2>
+        <button class="cta-button">START YOUR PROJECT NOW</button>
+    </section>
+
+    <footer>
+        <p>© 2026 Nikalys Design Studio | More is More</p>
+    </footer>
+</body>
+</html>

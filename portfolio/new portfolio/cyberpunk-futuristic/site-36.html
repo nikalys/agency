@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIKALYS - Digital Gallery</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @keyframes matrixRain {
+            0% {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+        }
+
+        @keyframes hexGlow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(0, 255, 136, 0.4), inset 0 0 20px rgba(0, 255, 136, 0.1);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(0, 255, 136, 0.8), inset 0 0 30px rgba(0, 255, 136, 0.2);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        body {
+            background: #0a0e27;
+            color: #00ff88;
+            font-family: 'Arial Black', 'Trebuchet MS', sans-serif;
+            overflow-x: hidden;
+            padding: 70px 20px 40px 20px;
+            font-weight: 700;
+        }
+
+        .back-link {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: rgba(0, 255, 136, 0.1);
+            padding: 12px 20px;
+            border: 2px solid #00ff88;
+            text-decoration: none;
+            color: #00ff88;
+            font-weight: 600;
+            font-size: 0.85em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+        }
+
+        .back-link:hover {
+            background: rgba(0, 255, 136, 0.2);
+            box-shadow: 0 0 40px rgba(0, 255, 136, 0.6);
+            transform: translateX(-5px);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 80px;
+            animation: slideIn 0.6s ease;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            font-weight: 900;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 25px rgba(0, 255, 136, 0.4));
+        }
+
+        .subtitle {
+            font-size: 1.1em;
+            color: #00d4ff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            font-size: 1em;
+            color: #00ffb3;
+            max-width: 600px;
+            margin: 20px auto 0;
+            line-height: 1.6;
+        }
+
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 60px 0 80px 0;
+            flex-wrap: wrap;
+            animation: slideIn 0.6s ease 0.1s backwards;
+        }
+
+        .filter-btn {
+            padding: 12px 25px;
+            background: rgba(0, 255, 136, 0.1);
+            border: 2px solid #00ff88;
+            color: #00ff88;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+            font-family: 'Courier New', monospace;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%);
+            color: #0a0e27;
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.6);
+            transform: scale(1.05);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .hexagon {
+            aspect-ratio: 1;
+            position: relative;
+            cursor: pointer;
+            animation: slideIn 0.6s ease backwards;
+        }
+
+        .hexagon:nth-child(1) { animation-delay: 0.1s; }
+        .hexagon:nth-child(2) { animation-delay: 0.15s; }
+        .hexagon:nth-child(3) { animation-delay: 0.2s; }
+        .hexagon:nth-child(4) { animation-delay: 0.25s; }
+        .hexagon:nth-child(5) { animation-delay: 0.3s; }
+        .hexagon:nth-child(6) { animation-delay: 0.35s; }
+        .hexagon:nth-child(7) { animation-delay: 0.4s; }
+        .hexagon:nth-child(8) { animation-delay: 0.45s; }
+        .hexagon:nth-child(9) { animation-delay: 0.5s; }
+        .hexagon:nth-child(10) { animation-delay: 0.55s; }
+        .hexagon:nth-child(11) { animation-delay: 0.6s; }
+        .hexagon:nth-child(12) { animation-delay: 0.65s; }
+
+        .hex-inner {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.15), rgba(0, 212, 255, 0.15));
+            border: 2px solid rgba(0, 255, 136, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            clip-path: polygon(50% 0%, 93.3% 25%, 93.3% 75%, 50% 100%, 6.7% 75%, 6.7% 25%);
+        }
+
+        .hexagon:hover .hex-inner {
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.3), rgba(0, 212, 255, 0.3));
+            border-color: #00ff88;
+            /* box-shadow: 0 0 40px rgba(0, 255, 136, 0.6), inset 0 0 30px rgba(0, 255, 136, 0.15); */
+            transform: scale(1.08);
+        }
+
+        .hex-icon {
+            font-size: 3em;
+            filter: drop-shadow(0 0 15px rgba(0, 255, 136, 0.5));
+            z-index: 2;
+            position: relative;
+        }
+
+        .hex-label {
+            position: absolute;
+            bottom: 75px;
+            left: 0;
+            right: 0;
+            /* background: linear-gradient(to top, rgba(0, 20, 40, 0.95), transparent); */
+            padding: 15px 10px 10px;
+            text-align: center;
+            font-size: 0.85em;
+            color: #00ff88;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            opacity: 0;
+            transition: all 0.3s ease;
+            clip-path: polygon(50% 0%, 93.3% 25%, 93.3% 75%, 50% 100%, 6.7% 75%, 6.7% 25%);
+        }
+
+        .hexagon:hover .hex-label {
+            opacity: 1;
+            /* bottom: 20px; */
+        }
+
+        .stats {
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.08), rgba(0, 212, 255, 0.08));
+            border: 2px solid #00ff88;
+            padding: 50px;
+            text-align: center;
+            margin: 80px 0;
+            box-shadow: 0 0 40px rgba(0, 255, 136, 0.25);
+        }
+
+        .stats h2 {
+            font-size: 2em;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.8em;
+            color: #00ff88;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(0, 255, 136, 0.6);
+        }
+
+        .stat-label {
+            font-size: 0.95em;
+            color: #00d4ff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .about {
+            background: rgba(0, 255, 136, 0.05);
+            border: 2px solid rgba(0, 255, 136, 0.3);
+            padding: 50px;
+            margin: 80px 0;
+            line-height: 1.8;
+        }
+
+        .about h2 {
+            font-size: 2em;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+        }
+
+        .about p {
+            font-size: 1.05em;
+            color: #00d4ff;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            border-top: 2px solid #00ff88;
+            padding: 40px;
+            text-align: center;
+            color: #00d4ff;
+            margin-top: 80px;
+            font-size: 0.9em;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2em; }
+            .gallery { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+            .back-link { position: static; margin-bottom: 30px; display: inline-block; }
+        }
+    </style>
+</head>
+<body>
+    <a href="../../index.html" class="back-link">← Back to Showcase</a>
+
+    <div class="container">
+        <header>
+            <div class="subtitle">⚡ Cyberpunk Portfolio</div>
+            <h1>NIKALYS Gallery</h1>
+            <p class="description">Exploring the intersection of technology and design through hexagonal digital artistry</p>
+        </header>
+
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">All Projects</button>
+            <button class="filter-btn" data-filter="interface">Interface Design</button>
+            <button class="filter-btn" data-filter="experience">Experience</button>
+            <button class="filter-btn" data-filter="branding">Branding</button>
+            <button class="filter-btn" data-filter="visualization">Visualization</button>
+        </div>
+
+        <div class="gallery">
+            <div class="hexagon" data-category="interface">
+                <div class="hex-inner">
+                    <div class="hex-icon">🎮</div>
+                    <div class="hex-label">UI System</div>
+                </div>
+            </div>
+            <div class="hexagon" data-category="experience">
+                <div class="hex-inner">
+                    <div class="hex-icon">🌐</div>
+                    <div class="hex-label">Web App</div>
+                </div>
+            </div>
+            <div class="hexagon" data-category="branding">
+                <div class="hex-inner">
+                    <div class="hex-icon">🔮</div>
+                    <div class="hex-label">Brand ID</div>
+                </div>
+            </div>
+            <div class="hexagon" data-category="visualization">
+                <div class="hex-inner">
+                    <div class="hex-icon">📊</div>
+                    <div class="hex-label">Data Viz</div>
+                </div>
+            </div>
+            <div class="hexagon" data-category="interface">
+                <div class="hex-inner">
+                    <div class="hex-icon">💻</div>
+                    <div class="hex-label">Dashboard</div>
+                </div>
+            </div>
+            <div class="hexagon" data-category="experience">
+                <div class="hex-inner">
+                    <div class="hex-icon">🚀</div>
+                    <div class="hex-label">Platform</div>
+                </div>
+            </div>
+            <div class="hexagon" data-category="branding">
+                <div class="hex-inner">
+                    <div class="hex-icon">🎨</div>
+                    <div class="hex-label">Campaign</div>
+                </div>
+            </div>
+            <div class="hexagon" data-category="visualization">
+                <div class="hex-inner">
+                    <div class="hex-icon">⚛️</div>
+                    <div class="hex-label">Analytics</div>
+                </div>
+            </div>
+            <div class="hexagon" data-category="interface">
+                <div class="hex-inner">
+                    <div class="hex-icon">🔧</div>
+                    <div class="hex-label">Tools</div>
+                </div>
+            </div>
+            <div class="hexagon" data-category="experience">
+                <div class="hex-inner">
+                    <div class="hex-icon">🌌</div>
+                    <div class="hex-label">Experience</div>
+                </div>
+            </div>
+            <div class="hexagon" data-category="branding">
+                <div class="hex-inner">
+                    <div class="hex-icon">✨</div>
+                    <div class="hex-label">Motion</div>
+                </div>
+            </div>
+            <div class="hexagon" data-category="visualization">
+                <div class="hex-inner">
+                    <div class="hex-icon">📡</div>
+                    <div class="hex-label">Network</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats">
+            <h2>Our Impact</h2>
+            <div class="stats-grid">
+                <div class="stat">
+                    <div class="stat-number">150+</div>
+                    <div class="stat-label">Projects Delivered</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">89</div>
+                    <div class="stat-label">Design Awards</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">42</div>
+                    <div class="stat-label">Clients Globally</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Satisfaction Rate</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="about">
+            <h2>About This Gallery</h2>
+            <p>Each hexagon represents a unique digital creation, showcasing the intersection of form and function. Our portfolio spans interface design, brand identity, data visualization, and immersive digital experiences.</p>
+            <p>We specialize in cyberpunk aesthetics with a focus on innovation, technical excellence, and visionary thinking. Every project is crafted with precision and a commitment to pushing design boundaries.</p>
+            <p>Filter by category to explore specific disciplines, or browse all projects to see our complete body of work.</p>
+        </div>
+
+        <footer>
+            <p>© 2026 NIKALYS Design Studio | Digital Portfolio Gallery</p>
+        </footer>
+    </div>
+
+    <script>
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const hexagons = document.querySelectorAll('.hexagon');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                this.classList.add('active');
+
+                const filterValue = this.getAttribute('data-filter');
+
+                // Filter hexagons
+                hexagons.forEach(hex => {
+                    if (filterValue === 'all') {
+                        hex.classList.remove('hidden');
+                    } else {
+                        if (hex.getAttribute('data-category') === filterValue) {
+                            hex.classList.remove('hidden');
+                        } else {
+                            hex.classList.add('hidden');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

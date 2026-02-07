@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nikalys — Get In Touch</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect fill='%23e0e5ec' width='32' height='32'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-size='18' font-weight='bold' fill='%234a90e2' font-family='system-ui'>N</text></svg>">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #e0e5ec 0%, #f0f3f8 100%);
+            color: #5a6c7d;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        /* Back to Showcase Link */
+        .back-link {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            text-decoration: none;
+            color: #4a90e2;
+            font-size: 13px;
+            font-weight: 500;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 4px 15px rgba(74, 144, 226, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 40px 20px;
+        }
+
+        header h1 {
+            font-size: 48px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            font-size: 16px;
+            color: #7a8fa3;
+            font-weight: 300;
+        }
+
+        /* Logo */
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #4a90e2;
+            margin-bottom: 30px;
+            letter-spacing: -1px;
+        }
+
+        /* Form Container */
+        .form-container {
+            background: #e0e5ec;
+            padding: 50px 40px;
+            border-radius: 24px;
+            box-shadow: 
+                12px 12px 20px rgba(163, 177, 198, 0.6),
+                -12px -12px 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .form-group {
+            margin-bottom: 28px;
+        }
+
+        label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Pressed-in input fields */
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 14px 16px;
+            background: #e0e5ec;
+            border: none;
+            border-radius: 12px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #2c3e50;
+            box-shadow: 
+                inset 4px 4px 8px rgba(163, 177, 198, 0.5),
+                inset -2px -2px 4px rgba(255, 255, 255, 0.5);
+            transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+            outline: none;
+        }
+
+        input[type="text"]::placeholder,
+        input[type="email"]::placeholder,
+        input[type="tel"]::placeholder,
+        textarea::placeholder {
+            color: #9aacbe;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        input[type="date"]:focus,
+        select:focus,
+        textarea:focus {
+            box-shadow: 
+                inset 2px 2px 4px rgba(163, 177, 198, 0.4),
+                inset -4px -4px 8px rgba(255, 255, 255, 0.6),
+                0 0 0 3px rgba(74, 144, 226, 0.15);
+            color: #2c3e50;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Two-column layout for name/email */
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        /* Toggle Switches */
+        .toggle-group {
+            margin-bottom: 28px;
+        }
+
+        .toggle-group label {
+            display: block;
+            margin-bottom: 14px;
+        }
+
+        .toggle-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .toggle-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .toggle-switch {
+            position: relative;
+            width: 48px;
+            height: 28px;
+            background: #e0e5ec;
+            border-radius: 14px;
+            cursor: pointer;
+            box-shadow: 
+                inset 3px 3px 6px rgba(163, 177, 198, 0.5),
+                inset -2px -2px 4px rgba(255, 255, 255, 0.5);
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .toggle-switch::after {
+            content: '';
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+            border-radius: 11px;
+            top: 2px;
+            left: 2px;
+            transition: all 0.3s ease;
+            box-shadow: 
+                2px 2px 4px rgba(0, 0, 0, 0.1),
+                inset 1px 1px 2px rgba(255, 255, 255, 0.3);
+        }
+
+        input[type="checkbox"] {
+            display: none;
+        }
+
+        input[type="checkbox"]:checked + .toggle-switch {
+            box-shadow: 
+                inset 2px 2px 4px rgba(163, 177, 198, 0.3),
+                inset -3px -3px 6px rgba(255, 255, 255, 0.6);
+        }
+
+        input[type="checkbox"]:checked + .toggle-switch::after {
+            left: 22px;
+        }
+
+        .toggle-label {
+            font-size: 14px;
+            color: #5a6c7d;
+            font-weight: 500;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        /* Submit Button */
+        .form-group.button-group {
+            margin-top: 40px;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 16px 24px;
+            background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+            color: #ffffff;
+            border: none;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 
+                6px 6px 12px rgba(163, 177, 198, 0.5),
+                -6px -6px 12px rgba(255, 255, 255, 0.5),
+                inset 2px 2px 4px rgba(255, 255, 255, 0.2);
+        }
+
+        button[type="submit"]:hover {
+            transform: translateY(-2px);
+            box-shadow: 
+                8px 8px 16px rgba(163, 177, 198, 0.6),
+                -8px -8px 16px rgba(255, 255, 255, 0.5),
+                inset 2px 2px 4px rgba(255, 255, 255, 0.2);
+        }
+
+        button[type="submit"]:active {
+            transform: translateY(0);
+            box-shadow: 
+                4px 4px 8px rgba(163, 177, 198, 0.4),
+                -4px -4px 8px rgba(255, 255, 255, 0.4),
+                inset 4px 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Info Section */
+        .info-section {
+            margin-top: 60px;
+            padding: 40px;
+            background: #e0e5ec;
+            border-radius: 20px;
+            box-shadow: 
+                9px 9px 16px rgba(163, 177, 198, 0.6),
+                -9px -9px 16px rgba(255, 255, 255, 0.5);
+            text-align: center;
+        }
+
+        .info-section h3 {
+            font-size: 20px;
+            color: #2c3e50;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .info-section p {
+            font-size: 14px;
+            color: #7a8fa3;
+            margin-bottom: 12px;
+            line-height: 1.8;
+        }
+
+        .info-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .info-links a {
+            color: #4a90e2;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .info-links a:hover {
+            color: #357abd;
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+            color: #ffffff;
+            padding: 30px 40px;
+            border-radius: 16px;
+            box-shadow: 
+                0 10px 40px rgba(74, 144, 226, 0.3),
+                inset 2px 2px 4px rgba(255, 255, 255, 0.2);
+            text-align: center;
+            z-index: 2000;
+            animation: slideIn 0.4s ease;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -55%);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 36px;
+            }
+
+            .form-container {
+                padding: 40px 30px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .form-group {
+                margin-bottom: 24px;
+            }
+
+            input[type="text"],
+            input[type="email"],
+            input[type="tel"],
+            input[type="date"],
+            select,
+            textarea {
+                padding: 12px 14px;
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 28px;
+            }
+
+            header p {
+                font-size: 14px;
+            }
+
+            .form-container {
+                padding: 30px 20px;
+            }
+
+            .form-group {
+                margin-bottom: 20px;
+            }
+
+            input[type="text"],
+            input[type="email"],
+            input[type="tel"],
+            input[type="date"],
+            select,
+            textarea {
+                padding: 12px 12px;
+                font-size: 16px;
+            }
+
+            button[type="submit"] {
+                padding: 14px 20px;
+                font-size: 14px;
+            }
+
+            .back-link {
+                font-size: 11px;
+                padding: 6px 10px;
+                top: 15px;
+                left: 15px;
+            }
+
+            .toggle-switch {
+                width: 44px;
+                height: 26px;
+            }
+
+            .toggle-switch::after {
+                width: 22px;
+                height: 22px;
+            }
+
+            input[type="checkbox"]:checked + .toggle-switch::after {
+                left: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="../../index.html" class="back-link">← Back</a>
+
+    <div class="container">
+        <header>
+            <div class="logo">NIKALYS</div>
+            <h1>Get In Touch</h1>
+            <p>We'd love to hear about your project. Tell us what you have in mind.</p>
+        </header>
+
+        <form class="form-container" id="contactForm">
+            <!-- Name and Email Row -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                </div>
+            </div>
+
+            <!-- Phone and Company Row -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+1 (555) 0123">
+                </div>
+                <div class="form-group">
+                    <label for="company">Company</label>
+                    <input type="text" id="company" name="company" placeholder="Your company">
+                </div>
+            </div>
+
+            <!-- Project Type -->
+            <div class="form-group">
+                <label for="projectType">Project Type</label>
+                <select id="projectType" name="projectType" required>
+                    <option value="">Select a project type...</option>
+                    <option value="brand-identity">Brand Identity</option>
+                    <option value="web-design">Web Design</option>
+                    <option value="app-design">App Design</option>
+                    <option value="design-system">Design System</option>
+                    <option value="marketing">Marketing Design</option>
+                    <option value="ux-strategy">UX Strategy</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <!-- Budget Range -->
+            <div class="form-group">
+                <label for="budget">Budget Range</label>
+                <select id="budget" name="budget" required>
+                    <option value="">Select a budget range...</option>
+                    <option value="5-10k">$5,000 - $10,000</option>
+                    <option value="10-25k">$10,000 - $25,000</option>
+                    <option value="25-50k">$25,000 - $50,000</option>
+                    <option value="50k+">$50,000+</option>
+                </select>
+            </div>
+
+            <!-- Project Description -->
+            <div class="form-group">
+                <label for="message">Project Description</label>
+                <textarea id="message" name="message" placeholder="Tell us more about your project, goals, timeline, and any specific requirements..." required></textarea>
+            </div>
+
+            <!-- Project Preferences (Toggle Switches) -->
+            <div class="toggle-group">
+                <label>Project Preferences</label>
+                <div class="toggle-container">
+                    <div class="toggle-item">
+                        <input type="checkbox" id="discovery" name="discovery">
+                        <label for="discovery" class="toggle-switch"></label>
+                        <span class="toggle-label">Include Discovery Phase</span>
+                    </div>
+                    <div class="toggle-item">
+                        <input type="checkbox" id="testing" name="testing">
+                        <label for="testing" class="toggle-switch"></label>
+                        <span class="toggle-label">User Testing & Iteration</span>
+                    </div>
+                    <div class="toggle-item">
+                        <input type="checkbox" id="handoff" name="handoff">
+                        <label for="handoff" class="toggle-switch"></label>
+                        <span class="toggle-label">Comprehensive Design Handoff</span>
+                    </div>
+                    <div class="toggle-item">
+                        <input type="checkbox" id="support" name="support">
+                        <label for="support" class="toggle-switch"></label>
+                        <span class="toggle-label">Post-Launch Support</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-group button-group">
+                <button type="submit">Send Message</button>
+            </div>
+        </form>
+
+        <!-- Info Section -->
+        <div class="info-section">
+            <h3>Prefer Direct Communication?</h3>
+            <p>Feel free to reach out directly if you have questions or want to discuss your project in detail.</p>
+            <div class="info-links">
+                <a href="mailto:hello@nikalys.com">📧 hello@nikalys.com</a>
+                <a href="tel:+15550123">📞 +1 (555) 0123</a>
+                <a href="#">💬 Schedule a Call</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="success-message" id="successMessage">
+        <p>Thank you! We'll be in touch shortly.</p>
+    </div>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show success message
+            const successMsg = document.getElementById('successMessage');
+            successMsg.classList.add('show');
+            
+            // Reset form
+            this.reset();
+            
+            // Hide success message after 3 seconds
+            setTimeout(() => {
+                successMsg.classList.remove('show');
+            }, 3000);
+        });
+    </script>
+</body>
+</html>

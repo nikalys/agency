@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIKALYS — Design Studio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --spacing-unit: 8px;
+            --grid-column: 80px;
+            --grid-gutter: 40px;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            background: #fafafa;
+            color: #1a1a1a;
+            line-height: 1.5;
+            letter-spacing: -0.01em;
+            font-weight: 400;
+        }
+
+        /* Typography Scale */
+        .text-display {
+            font-size: 72px;
+            line-height: 1.1;
+            font-weight: 300;
+            letter-spacing: -0.02em;
+        }
+
+        .text-heading {
+            font-size: 48px;
+            line-height: 1.2;
+            font-weight: 300;
+            letter-spacing: -0.015em;
+        }
+
+        .text-subheading {
+            font-size: 24px;
+            line-height: 1.4;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+        }
+
+        .text-body {
+            font-size: 16px;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        .text-caption {
+            font-size: 12px;
+            line-height: 1.5;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        /* Layout Container */
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 80px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(250, 250, 250, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(26, 26, 26, 0.08);
+        }
+
+        .nav-container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 32px 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #1a1a1a;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 400;
+            color: #1a1a1a;
+            text-decoration: none;
+            transition: opacity 0.2s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #1a1a1a;
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.6;
+        }
+
+        .back-link {
+            padding: 10px 24px;
+            border: 1px solid #1a1a1a;
+            color: #1a1a1a;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+
+        .back-link:hover {
+            background: #1a1a1a;
+            color: #fafafa;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 160px 0 120px;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero-label {
+            color: #666;
+            margin-bottom: 32px;
+        }
+
+        .hero-title {
+            margin-bottom: 40px;
+        }
+
+        .hero-description {
+            max-width: 600px;
+            color: #4a4a4a;
+            margin-bottom: 60px;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+            max-width: 700px;
+            padding-top: 60px;
+            border-top: 1px solid rgba(26, 26, 26, 0.1);
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 300;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+        }
+
+        .stat-label {
+            color: #666;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 160px 0;
+            background: #ffffff;
+        }
+
+        .section-header {
+            margin-bottom: 120px;
+        }
+
+        .section-label {
+            color: #666;
+            margin-bottom: 24px;
+        }
+
+        .section-title {
+            max-width: 800px;
+        }
+
+        .services-list {
+            display: grid;
+            gap: 1px;
+            background: rgba(26, 26, 26, 0.08);
+        }
+
+        .service-item {
+            background: #fafafa;
+            padding: 80px 60px;
+            display: grid;
+            grid-template-columns: 120px 1fr 200px;
+            gap: 60px;
+            align-items: start;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .service-item:hover {
+            background: #ffffff;
+            padding: 90px 70px;
+        }
+
+        .service-number {
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            color: #999;
+        }
+
+        .service-content h3 {
+            font-size: 32px;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            margin-bottom: 16px;
+            color: #1a1a1a;
+        }
+
+        .service-content p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #666;
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.6;
+            transition: opacity 0.4s;
+        }
+
+        .service-item:hover .service-icon {
+            opacity: 1;
+        }
+
+        .service-icon svg {
+            width: 100%;
+            height: 100%;
+            stroke: #1a1a1a;
+            stroke-width: 0.75;
+            fill: none;
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            padding: 160px 0;
+            background: #fafafa;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 40px;
+            margin-top: 120px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .portfolio-item:nth-child(1) {
+            grid-column: 1 / 8;
+            aspect-ratio: 16/10;
+        }
+
+        .portfolio-item:nth-child(2) {
+            grid-column: 8 / 13;
+            aspect-ratio: 4/5;
+        }
+
+        .portfolio-item:nth-child(3) {
+            grid-column: 1 / 6;
+            aspect-ratio: 1;
+        }
+
+        .portfolio-item:nth-child(4) {
+            grid-column: 6 / 13;
+            aspect-ratio: 16/9;
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 100%;
+            background: #e0e0e0;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .portfolio-item:hover .portfolio-image {
+            transform: scale(1.05);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 40px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: #ffffff;
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-category {
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            opacity: 0.8;
+        }
+
+        .portfolio-title {
+            font-size: 24px;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+        }
+
+        /* Expertise Section */
+        .expertise {
+            padding: 160px 0;
+            background: #1a1a1a;
+            color: #fafafa;
+        }
+
+        .expertise .section-label {
+            color: #999;
+        }
+
+        .expertise .section-title {
+            color: #fafafa;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 80px;
+            margin-top: 120px;
+        }
+
+        .expertise-item {
+            border-top: 1px solid rgba(250, 250, 250, 0.1);
+            padding-top: 40px;
+        }
+
+        .expertise-item h3 {
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 24px;
+            color: #fafafa;
+        }
+
+        .expertise-list {
+            list-style: none;
+        }
+
+        .expertise-list li {
+            font-size: 16px;
+            line-height: 2;
+            color: #999;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .expertise-list li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+        }
+
+        /* Process Section */
+        .process {
+            padding: 160px 0;
+            background: #ffffff;
+        }
+
+        .process-timeline {
+            margin-top: 120px;
+            display: grid;
+            gap: 80px;
+        }
+
+        .process-step {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 80px;
+            padding-bottom: 80px;
+            border-bottom: 1px solid rgba(26, 26, 26, 0.1);
+        }
+
+        .process-step:last-child {
+            border-bottom: none;
+        }
+
+        .process-number {
+            font-size: 72px;
+            font-weight: 300;
+            line-height: 1;
+            color: rgba(26, 26, 26, 0.1);
+        }
+
+        .process-content h3 {
+            font-size: 32px;
+            font-weight: 400;
+            margin-bottom: 24px;
+            letter-spacing: -0.01em;
+        }
+
+        .process-content p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #666;
+            max-width: 600px;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 200px 0;
+            background: #fafafa;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            margin-bottom: 40px;
+        }
+
+        .cta-description {
+            color: #666;
+            margin-bottom: 60px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 20px 60px;
+            background: #1a1a1a;
+            color: #fafafa;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .cta-button:hover {
+            background: #000000;
+            padding: 20px 80px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 80px 0;
+            background: #1a1a1a;
+            color: #fafafa;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 80px;
+            margin-bottom: 80px;
+        }
+
+        .footer-col h4 {
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            color: #fafafa;
+        }
+
+        .footer-col p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #999;
+        }
+
+        .footer-col a {
+            display: block;
+            font-size: 14px;
+            line-height: 2;
+            color: #999;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-col a:hover {
+            color: #fafafa;
+        }
+
+        .footer-bottom {
+            padding-top: 40px;
+            border-top: 1px solid rgba(250, 250, 250, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 32px;
+        }
+
+        .footer-social a {
+            color: #999;
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+
+        .footer-social a:hover {
+            color: #fafafa;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .container, .nav-container {
+                padding-left: 60px;
+                padding-right: 60px;
+            }
+
+            .service-item {
+                grid-template-columns: 100px 1fr;
+                gap: 40px;
+            }
+
+            .service-icon {
+                display: none;
+            }
+
+            .portfolio-item:nth-child(1),
+            .portfolio-item:nth-child(2),
+            .portfolio-item:nth-child(3),
+            .portfolio-item:nth-child(4) {
+                grid-column: 1 / 13;
+            }
+
+            .expertise-grid {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 60px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .text-display {
+                font-size: 48px;
+            }
+
+            .text-heading {
+                font-size: 32px;
+            }
+
+            .container, .nav-container {
+                padding-left: 32px;
+                padding-right: 32px;
+            }
+
+            .nav-links {
+                gap: 32px;
+            }
+
+            .nav-links a:not(.back-link) {
+                display: none;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .service-item {
+                grid-template-columns: 1fr;
+                padding: 60px 40px;
+            }
+
+            .service-item:hover {
+                padding: 60px 40px;
+            }
+
+            .process-step {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 24px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo">NIKALYS</div>
+            <div class="nav-links">
+                <a href="#services">Services</a>
+                <a href="#work">Work</a>
+                <a href="#expertise">Expertise</a>
+                <a href="#process">Process</a>
+                <a href="#contact">Contact</a>
+                <a href="../../index.html" class="back-link">← Back</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <p class="text-caption hero-label">Design Studio — Est. 2010</p>
+                <h1 class="text-display hero-title">Crafting clarity through systematic design</h1>
+                <p class="text-body hero-description">We believe in the power of disciplined design systems, modular thinking, and typographic precision. Our work is rooted in Swiss design principles: clarity, functionality, and timeless aesthetics.</p>
+                
+                <div class="hero-stats">
+                    <div>
+                        <div class="stat-number">200+</div>
+                        <p class="text-caption stat-label">Projects Delivered</p>
+                    </div>
+                    <div>
+                        <div class="stat-number">15</div>
+                        <p class="text-caption stat-label">Years Experience</p>
+                    </div>
+                    <div>
+                        <div class="stat-number">50+</div>
+                        <p class="text-caption stat-label">Design Awards</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <p class="text-caption section-label">Our Services</p>
+                <h2 class="text-heading section-title">Comprehensive design solutions built on systematic thinking and functional excellence</h2>
+            </div>
+
+            <div class="services-list">
+                <div class="service-item">
+                    <div class="service-number">01</div>
+                    <div class="service-content">
+                        <h3>Brand Identity Systems</h3>
+                        <p>Complete visual identity programs including logo systems, typography selection, color frameworks, and comprehensive brand guidelines. We create identities that scale across all touchpoints with consistency and clarity.</p>
+                    </div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="20" y="20" width="60" height="60" rx="4"/>
+                            <circle cx="50" cy="50" r="15"/>
+                            <path d="M50 35 L50 65 M35 50 L65 50"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-number">02</div>
+                    <div class="service-content">
+                        <h3>Design System Development</h3>
+                        <p>Modular component libraries, pattern documentation, and scalable systems that ensure design consistency across digital products. Built for maintainability, flexibility, and long-term evolution.</p>
+                    </div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="15" y="15" width="30" height="30"/>
+                            <rect x="55" y="15" width="30" height="30"/>
+                            <rect x="15" y="55" width="30" height="30"/>
+                            <rect x="55" y="55" width="30" height="30"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-number">03</div>
+                    <div class="service-content">
+                        <h3>Editorial & Publication Design</h3>
+                        <p>Magazine layouts, annual reports, catalogs, and digital publications with precise typography and grid-based composition. We combine traditional print sensibilities with modern digital delivery.</p>
+                    </div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="25" y="15" width="50" height="70"/>
+                            <line x1="35" y1="30" x2="65" y2="30"/>
+                            <line x1="35" y1="40" x2="65" y2="40"/>
+                            <line x1="35" y1="50" x2="55" y2="50"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-number">04</div>
+                    <div class="service-content">
+                        <h3>Digital Product Design</h3>
+                        <p>Interface design for web applications, mobile apps, and digital platforms. We prioritize usability, accessibility, and systematic visual language to create intuitive, elegant experiences.</p>
+                    </div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="20" y="30" width="60" height="40" rx="2"/>
+                            <circle cx="30" cy="45" r="4"/>
+                            <line x1="40" y1="45" x2="70" y2="45"/>
+                            <line x1="40" y1="55" x2="65" y2="55"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-number">05</div>
+                    <div class="service-content">
+                        <h3>Typography & Type Design</h3>
+                        <p>Custom typeface design, font pairing strategies, and typographic systems. We understand that typography is the foundation of all visual communication and approach it with precision.</p>
+                    </div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <text x="50" y="65" font-size="50" font-weight="300" text-anchor="middle" font-family="serif">A</text>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-number">06</div>
+                    <div class="service-content">
+                        <h3>Design Consulting & Strategy</h3>
+                        <p>Strategic guidance for organizations seeking to elevate their design maturity. We help teams implement systematic design thinking, establish processes, and build internal design capabilities.</p>
+                    </div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <polygon points="50,20 80,50 50,80 20,50"/>
+                            <circle cx="50" cy="50" r="8"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="portfolio" id="work">
+        <div class="container">
+            <div class="section-header">
+                <p class="text-caption section-label">Selected Work</p>
+                <h2 class="text-heading section-title">Recent projects that demonstrate our approach to systematic, functional design</h2>
+            </div>
+
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-image"></div>
+                    <div class="portfolio-overlay">
+                        <p class="portfolio-category">Brand Identity</p>
+                        <h3 class="portfolio-title">Urban Architecture Firm</h3>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image"></div>
+                    <div class="portfolio-overlay">
+                        <p class="portfolio-category">Publication</p>
+                        <h3 class="portfolio-title">Annual Report 2025</h3>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image"></div>
+                    <div class="portfolio-overlay">
+                        <p class="portfolio-category">Digital Product</p>
+                        <h3 class="portfolio-title">Finance Platform</h3>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image"></div>
+                    <div class="portfolio-overlay">
+                        <p class="portfolio-category">Design System</p>
+                        <h3 class="portfolio-title">Enterprise UI Library</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="expertise" id="expertise">
+        <div class="container">
+            <div class="section-header">
+                <p class="text-caption section-label">Areas of Expertise</p>
+                <h2 class="text-heading section-title">Deep knowledge across multiple design disciplines</h2>
+            </div>
+
+            <div class="expertise-grid">
+                <div class="expertise-item">
+                    <h3>Visual Design</h3>
+                    <ul class="expertise-list">
+                        <li>Typography Systems</li>
+                        <li>Grid Architecture</li>
+                        <li>Color Theory</li>
+                        <li>Layout Composition</li>
+                        <li>Visual Hierarchy</li>
+                        <li>Iconography</li>
+                    </ul>
+                </div>
+
+                <div class="expertise-item">
+                    <h3>Digital Design</h3>
+                    <ul class="expertise-list">
+                        <li>Interface Design</li>
+                        <li>Interaction Patterns</li>
+                        <li>Design Systems</li>
+                        <li>Responsive Design</li>
+                        <li>Accessibility Standards</li>
+                        <li>Prototyping</li>
+                    </ul>
+                </div>
+
+                <div class="expertise-item">
+                    <h3>Brand Strategy</h3>
+                    <ul class="expertise-list">
+                        <li>Brand Architecture</li>
+                        <li>Visual Identity</li>
+                        <li>Brand Guidelines</li>
+                        <li>Naming Systems</li>
+                        <li>Brand Positioning</li>
+                        <li>Market Research</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="process" id="process">
+        <div class="container">
+            <div class="section-header">
+                <p class="text-caption section-label">Our Process</p>
+                <h2 class="text-heading section-title">A systematic approach to solving complex design challenges</h2>
+            </div>
+
+            <div class="process-timeline">
+                <div class="process-step">
+                    <div class="process-number">01</div>
+                    <div class="process-content">
+                        <h3>Discovery & Research</h3>
+                        <p>We begin by understanding your business objectives, target audience, and competitive landscape. Through stakeholder interviews, user research, and market analysis, we establish a foundation of insights that guide all subsequent decisions.</p>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-number">02</div>
+                    <div class="process-content">
+                        <h3>Strategic Planning</h3>
+                        <p>Based on research findings, we develop strategic frameworks that define project goals, success metrics, and design principles. This phase establishes the conceptual foundation and ensures alignment across all stakeholders.</p>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-number">03</div>
+                    <div class="process-content">
+                        <h3>Design Development</h3>
+                        <p>Our design team creates comprehensive visual systems, exploring multiple directions before refining the chosen approach. We work iteratively, constantly testing and validating designs against strategic objectives.</p>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-number">04</div>
+                    <div class="process-content">
+                        <h3>Implementation & Launch</h3>
+                        <p>We collaborate closely with development teams to ensure accurate implementation. Our detailed specifications, design systems, and ongoing support guarantee that the final product matches our vision.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta" id="contact">
+        <div class="container">
+            <div class="cta-content">
+                <p class="text-caption section-label">Start a Project</p>
+                <h2 class="text-heading cta-title">Let's create something exceptional together</h2>
+                <p class="text-body cta-description">We're always interested in discussing new projects and design challenges. Reach out to explore how our systematic approach can bring clarity and excellence to your brand.</p>
+                <a href="mailto:hello@nikalys.design" class="cta-button">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>NIKALYS Design Studio</h4>
+                    <p>Swiss design principles meet contemporary thinking. Creating systematic, functional, and timeless design solutions since 2010.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <a href="#services">Brand Identity</a>
+                    <a href="#services">Design Systems</a>
+                    <a href="#services">Editorial Design</a>
+                    <a href="#services">Digital Products</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Studio</h4>
+                    <a href="#work">Work</a>
+                    <a href="#expertise">Expertise</a>
+                    <a href="#process">Process</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <a href="mailto:hello@nikalys.design">hello@nikalys.design</a>
+                    <a href="tel:+1234567890">+1 (234) 567-890</a>
+                    <p style="margin-top: 16px;">Zurich, Switzerland</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 NIKALYS Studio. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="#">Behance</a>
+                    <a href="#">Dribbble</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

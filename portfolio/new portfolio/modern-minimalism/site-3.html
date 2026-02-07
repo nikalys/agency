@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nikalys — Contact</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect fill='%231a1a1a' width='32' height='32'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-size='20' font-weight='bold' fill='%23ffffff' font-family='system-ui'>N</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #fafafa;
+            color: #1a1a1a;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* Back to Showcase Link */
+        .back-link {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            text-decoration: none;
+            color: #1a1a1a;
+            font-size: 14px;
+            font-weight: 400;
+            transition: opacity 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-link:hover {
+            opacity: 0.5;
+        }
+
+        /* Main Container */
+        .container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 40px;
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            margin-bottom: 80px;
+            max-width: 700px;
+        }
+
+        .logo {
+            font-size: 80px;
+            font-weight: 500;
+            letter-spacing: 3px;
+            color: #8b8b8b;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .header h1 {
+            font-size: 100px;
+            font-weight: 300;
+            line-height: 1.25;
+            letter-spacing: -0.8px;
+            color: #1a1a1a;
+            margin-bottom: 30px;
+        }
+
+        .header p {
+            font-size: 16px;
+            color: #5a5a5a;
+            line-height: 1.8;
+        }
+
+        /* Form Section */
+        .form-wrapper {
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 100px;
+        }
+
+        .form-group {
+            margin-bottom: 50px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+        }
+
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 16px 0;
+            border: none;
+            border-bottom: 1px solid #d8d8d8;
+            background: transparent;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 15px;
+            color: #1a1a1a;
+            font-weight: 300;
+            transition: all 0.4s ease;
+            outline: none;
+        }
+
+        .form-textarea {
+            resize: none;
+            padding: 20px 0;
+            min-height: 120px;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            border-bottom-color: #1a1a1a;
+        }
+
+        .form-input::placeholder,
+        .form-textarea::placeholder {
+            color: #c0c0c0;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 80px;
+        }
+
+        .form-row .form-group {
+            margin-bottom: 50px;
+        }
+
+        /* Submit Button */
+        .form-submit {
+            width: 100%;
+            padding: 18px 0;
+            border: 1.5px solid #1a1a1a;
+            background: transparent;
+            color: #1a1a1a;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            margin-top: 20px;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        .form-submit:hover {
+            background: #1a1a1a;
+            color: #ffffff;
+            transform: scale(1.01);
+        }
+
+        /* Info Section */
+        .info-section {
+            width: 100%;
+            max-width: 600px;
+            padding-top: 100px;
+            border-top: 1px solid #d8d8d8;
+            text-align: center;
+        }
+
+        .info-title {
+            font-size: 16px;
+            font-weight: 400;
+            color: #1a1a1a;
+            margin-bottom: 40px;
+            letter-spacing: -0.3px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .info-item {
+            text-align: center;
+        }
+
+        .info-label {
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            color: #8b8b8b;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            display: block;
+        }
+
+        .info-content {
+            font-size: 15px;
+            color: #1a1a1a;
+            line-height: 1.7;
+        }
+
+        .info-content a {
+            color: #1a1a1a;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            border-bottom: 1px solid #d8d8d8;
+            padding-bottom: 2px;
+        }
+
+        .info-content a:hover {
+            color: #8b8b8b;
+            border-bottom-color: #8b8b8b;
+        }
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .social-link {
+            font-size: 13px;
+            color: #8b8b8b;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        .social-link:hover {
+            color: #1a1a1a;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 30px;
+            }
+
+            .header {
+                margin-bottom: 60px;
+            }
+
+            .header h1 {
+                font-size: 36px;
+                margin-bottom: 20px;
+            }
+
+            .header p {
+                font-size: 15px;
+            }
+
+            .form-wrapper {
+                margin-bottom: 80px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .form-group {
+                margin-bottom: 40px;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .info-section {
+                padding-top: 60px;
+            }
+
+            .back-link {
+                top: 20px;
+                left: 20px;
+                font-size: 13px;
+            }
+
+            .social-links {
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 28px;
+            }
+
+            .form-label {
+                font-size: 12px;
+            }
+
+            .form-input,
+            .form-textarea {
+                font-size: 14px;
+            }
+
+            .info-grid {
+                gap: 30px;
+            }
+
+            .social-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="../../index.html" class="back-link">← Back to Showcase</a>
+
+    <div class="container">
+        <div class="header">
+            <div class="logo">Nikalys</div>
+            <h1>Let's work together.</h1>
+            <p>Have a project in mind? We'd love to hear about it. Send us a message and we'll get back to you within 24 hours.</p>
+        </div>
+
+        <form class="form-wrapper" action="#" method="POST">
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label">Your Name</label>
+                    <input type="text" class="form-input" placeholder="First and last name" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" class="form-input" placeholder="hello@example.com" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Project Type</label>
+                <input type="text" class="form-input" placeholder="e.g., Website Design, Branding, Development" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Tell Us About Your Project</label>
+                <textarea class="form-textarea" placeholder="Share your vision, goals, and any specific ideas you have in mind..." required></textarea>
+            </div>
+
+            <button type="submit" class="form-submit">Send Message</button>
+        </form>
+
+        <div class="info-section">
+            <h2 class="info-title">Other ways to reach us</h2>
+
+            <div class="info-grid">
+                <div class="info-item">
+                    <span class="info-label">Email</span>
+                    <div class="info-content">
+                        <a href="mailto:hello@nikalys.com">hello@nikalys.com</a>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Phone</span>
+                    <div class="info-content">
+                        <a href="tel:+14155552671">+1 (415) 555-2671</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-grid">
+                <div class="info-item">
+                    <span class="info-label">Location</span>
+                    <div class="info-content">
+                        San Francisco, California
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Hours</span>
+                    <div class="info-content">
+                        Mon – Fri, 9 AM – 6 PM PST
+                    </div>
+                </div>
+            </div>
+
+            <div class="social-links">
+                <a href="#" class="social-link">Instagram</a>
+                <a href="#" class="social-link">Twitter</a>
+                <a href="#" class="social-link">LinkedIn</a>
+                <a href="#" class="social-link">Dribbble</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

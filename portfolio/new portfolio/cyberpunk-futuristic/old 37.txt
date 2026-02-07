@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - NIKALYS Cyberpunk Design</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @keyframes circuitPulse {
+            0%, 100% {
+                stroke: rgba(0, 212, 255, 0.3);
+                stroke-width: 2;
+            }
+            50% {
+                stroke: rgba(0, 212, 255, 0.8);
+                stroke-width: 3;
+            }
+        }
+
+        @keyframes nodeGlow {
+            0%, 100% {
+                fill: rgba(0, 255, 136, 0.4);
+                r: 4;
+            }
+            50% {
+                fill: rgba(0, 255, 136, 0.9);
+                r: 6;
+            }
+        }
+
+        @keyframes bgShift {
+            0%, 100% {
+                background-position: 0% 0%;
+            }
+            50% {
+                background-position: 100% 100%;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        body {
+            background: linear-gradient(-45deg, #0a0e27, #0a0e27, #0d1135, #0a0e27);
+            background-size: 400% 400%;
+            animation: bgShift 15s ease infinite;
+            color: #00ff88;
+            font-family: 'Courier New', monospace;
+            overflow-x: hidden;
+            padding: 70px 20px 40px 20px;
+        }
+
+        .back-link {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: rgba(0, 212, 255, 0.1);
+            padding: 12px 20px;
+            border: 2px solid #00d4ff;
+            text-decoration: none;
+            color: #00d4ff;
+            font-weight: 600;
+            font-size: 0.85em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .back-link:hover {
+            background: rgba(0, 212, 255, 0.2);
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.6);
+            transform: translateX(-5px);
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 80px;
+            animation: slideIn 0.6s ease;
+        }
+
+        h1 {
+            font-size: 4em;
+            font-weight: 900;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, #00d4ff 0%, #00ff88 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 30px rgba(0, 212, 255, 0.5));
+        }
+
+        .tagline {
+            font-size: 1.15em;
+            color: #00ff88;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            text-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+        }
+
+        .header-desc {
+            color: #00d4ff;
+            font-size: 1em;
+            max-width: 700px;
+            margin: 20px auto 0;
+            line-height: 1.6;
+        }
+
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin: 80px 0;
+        }
+
+        .service {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.08), rgba(0, 255, 136, 0.08));
+            border: 2px solid #00d4ff;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            animation: slideIn 0.6s ease backwards;
+        }
+
+        .service:nth-child(1) { animation-delay: 0.1s; }
+        .service:nth-child(2) { animation-delay: 0.2s; }
+        .service:nth-child(3) { animation-delay: 0.3s; }
+        .service:nth-child(4) { animation-delay: 0.4s; }
+        .service:nth-child(5) { animation-delay: 0.5s; }
+        .service:nth-child(6) { animation-delay: 0.6s; }
+
+        .service::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #00ff88, transparent);
+            animation: slideInWidth 1.5s ease infinite;
+        }
+
+        @keyframes slideInWidth {
+            0%, 100% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .service:hover {
+            border-color: #00ff88;
+            box-shadow: 0 0 50px rgba(0, 255, 136, 0.3), inset 0 0 30px rgba(0, 255, 136, 0.05);
+            transform: translateY(-10px);
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(0, 255, 136, 0.15));
+        }
+
+        .service-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 15px rgba(0, 255, 136, 0.5));
+        }
+
+        .service h2 {
+            font-size: 1.5em;
+            color: #00ff88;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .service p {
+            color: #00d4ff;
+            line-height: 1.7;
+            font-size: 0.95em;
+            margin-bottom: 20px;
+        }
+
+        .service-features {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .feature {
+            color: #00ffb3;
+            font-size: 0.9em;
+            padding-left: 15px;
+            position: relative;
+        }
+
+        .feature::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #00ff88;
+            font-size: 0.8em;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.1), rgba(0, 212, 255, 0.1));
+            border: 2px solid #00ff88;
+            padding: 60px 40px;
+            text-align: center;
+            margin: 80px 0;
+            box-shadow: 0 0 50px rgba(0, 255, 136, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-box h2 {
+            font-size: 2.2em;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .cta-box p {
+            color: #00d4ff;
+            font-size: 1.05em;
+            max-width: 600px;
+            margin: 0 auto 35px;
+            line-height: 1.7;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            padding: 16px 35px;
+            background: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%);
+            color: #0a0e27;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95em;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.5);
+            font-family: 'Courier New', monospace;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 50px rgba(0, 255, 136, 0.8), 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .process-section {
+            margin: 100px 0;
+        }
+
+        .process-title {
+            font-size: 2.5em;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 60px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .process-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #00d4ff, #00ff88);
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.6);
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 30px;
+            border: 2px solid rgba(0, 212, 255, 0.4);
+            background: rgba(0, 212, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .process-step:hover {
+            border-color: #00d4ff;
+            background: rgba(0, 212, 255, 0.15);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
+        }
+
+        .step-number {
+            font-size: 2.5em;
+            color: #00ff88;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 0 0 15px rgba(0, 255, 136, 0.6);
+        }
+
+        .step-title {
+            color: #00d4ff;
+            font-size: 1.1em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .step-desc {
+            color: #00ffb3;
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+
+        .pricing-section {
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.08), rgba(0, 212, 255, 0.08));
+            border: 2px solid #00d4ff;
+            padding: 50px;
+            margin: 80px 0;
+            text-align: center;
+        }
+
+        .pricing-section h2 {
+            font-size: 2.2em;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .pricing-desc {
+            color: #00d4ff;
+            margin-bottom: 40px;
+            font-size: 1.05em;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .price-item {
+            background: rgba(0, 255, 136, 0.05);
+            border: 2px solid rgba(0, 255, 136, 0.3);
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .price-item:hover {
+            border-color: #00ff88;
+            background: rgba(0, 255, 136, 0.12);
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.4);
+        }
+
+        .price-label {
+            color: #00ff88;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .price-value {
+            font-size: 2em;
+            color: #00d4ff;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            border-top: 2px solid #00d4ff;
+            padding: 40px;
+            text-align: center;
+            color: #00d4ff;
+            margin-top: 80px;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2em; }
+            .services-container { gap: 25px; }
+            .back-link { position: static; margin-bottom: 30px; display: inline-block; }
+            .cta-buttons { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <a href="../index.html" class="back-link">← Back to Showcase</a>
+
+    <div class="container">
+        <header>
+            <div class="tagline">⚡ Service Menu</div>
+            <h1>NIKALYS Services</h1>
+            <p class="header-desc">Comprehensive digital design solutions for the future. Transform your vision into immersive digital experiences.</p>
+        </header>
+
+        <div class="services-container">
+            <div class="service">
+                <div class="service-icon">🎨</div>
+                <h2>UI/UX Design</h2>
+                <p>Cutting-edge interface design that balances aesthetics with function. We create immersive digital experiences optimized for engagement.</p>
+                <div class="service-features">
+                    <div class="feature">Interface Design & Prototyping</div>
+                    <div class="feature">User Research & Testing</div>
+                    <div class="feature">Design Systems & Components</div>
+                    <div class="feature">Accessibility Optimization</div>
+                </div>
+            </div>
+
+            <div class="service">
+                <div class="service-icon">🌐</div>
+                <h2>Web Development</h2>
+                <p>High-performance web applications with futuristic aesthetics. We build responsive, scalable digital products.</p>
+                <div class="service-features">
+                    <div class="feature">Responsive Web Design</div>
+                    <div class="feature">Progressive Web Apps</div>
+                    <div class="feature">Real-time Interactions</div>
+                    <div class="feature">Performance Optimization</div>
+                </div>
+            </div>
+
+            <div class="service">
+                <div class="service-icon">🚀</div>
+                <h2>Brand Strategy</h2>
+                <p>Develop powerful brand identities that stand out in the digital landscape. Strategic positioning for maximum impact.</p>
+                <div class="service-features">
+                    <div class="feature">Brand Identity Development</div>
+                    <div class="feature">Logo & Visual System Design</div>
+                    <div class="feature">Brand Guidelines & Standards</div>
+                    <div class="feature">Market Positioning</div>
+                </div>
+            </div>
+
+            <div class="service">
+                <div class="service-icon">🎬</div>
+                <h2>Motion Design</h2>
+                <p>Choreographed animations that bring digital experiences to life. Smooth, purposeful motion design across all platforms.</p>
+                <div class="service-features">
+                    <div class="feature">UI Animation & Transitions</div>
+                    <div class="feature">Micro-interactions</div>
+                    <div class="feature">Video Production</div>
+                    <div class="feature">Interaction Design</div>
+                </div>
+            </div>
+
+            <div class="service">
+                <div class="service-icon">📊</div>
+                <h2>Data Visualization</h2>
+                <p>Transform complex data into compelling visual narratives. Interactive dashboards and analytics platforms.</p>
+                <div class="service-features">
+                    <div class="feature">Dashboard Design</div>
+                    <div class="feature">Data Visualization</div>
+                    <div class="feature">Analytics Integration</div>
+                    <div class="feature">Real-time Data Displays</div>
+                </div>
+            </div>
+
+            <div class="service">
+                <div class="service-icon">🔮</div>
+                <h2>Immersive Tech</h2>
+                <p>Next-generation experiences for emerging platforms. VR, AR, and metaverse-ready design solutions.</p>
+                <div class="service-features">
+                    <div class="feature">VR/AR Experience Design</div>
+                    <div class="feature">3D Interface Design</div>
+                    <div class="feature">Metaverse Experiences</div>
+                    <div class="feature">Future-forward Innovation</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="process-section">
+            <h2 class="process-title">Our Process</h2>
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-title">Discovery</div>
+                    <div class="step-desc">We analyze your goals, audience, and market landscape</div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-title">Strategy</div>
+                    <div class="step-desc">Develop a comprehensive design and development strategy</div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-title">Design</div>
+                    <div class="step-desc">Create stunning, user-centric designs and prototypes</div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div class="step-title">Build</div>
+                    <div class="step-desc">Develop high-performance, scalable digital products</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pricing-section">
+            <h2>Pricing Models</h2>
+            <p class="pricing-desc">Flexible engagement options for projects of all sizes</p>
+            <div class="pricing-grid">
+                <div class="price-item">
+                    <div class="price-label">Starter</div>
+                    <div class="price-value">$5K+</div>
+                </div>
+                <div class="price-item">
+                    <div class="price-label">Professional</div>
+                    <div class="price-value">$15K+</div>
+                </div>
+                <div class="price-item">
+                    <div class="price-label">Enterprise</div>
+                    <div class="price-value">Custom</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-box">
+            <h2>Ready to Launch Your Project?</h2>
+            <p>Let's collaborate on something extraordinary. Contact us today to discuss your vision and how we can bring it to life.</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="cta-btn">Get Started</a>
+                <a href="#consultation" class="cta-btn">Free Consultation</a>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2026 NIKALYS Design Studio | Cyberpunk Services</p>
+        </footer>
+    </div>
+</body>
+</html>
